@@ -1,7 +1,7 @@
 execute pathogen#infect()
 
 filetype plugin indent on "Enable filetype plugins
-syntax enable "Use syntex highlighting by default
+syntax enable "Use syntax highlighting by default
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -44,7 +44,7 @@ noremap <Right> <NOP>
 "Run on startup
 autocmd vimenter * NERDTree "Automatically launch NERDTree on startup
 
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
+" Turn backup off, as it makes gitignore cleaner
 set nobackup
 set nowb
 set noswapfile
