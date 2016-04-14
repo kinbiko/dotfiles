@@ -41,9 +41,6 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-"Run on startup
-autocmd vimenter * NERDTree "Automatically launch NERDTree on startup
-
 " Turn backup off, as it makes gitignore cleaner
 set nobackup
 set nowb
