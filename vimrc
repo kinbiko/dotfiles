@@ -32,14 +32,14 @@ set ruler "Display the curser position in the bottom right corner
 set confirm "instead of aboring because of unsaved changes, ask
 set cmdheight=2 "set the command line height to 2
 set number "Display line numbers
-set cursorline "Highlight the current line
+" set cursorline "Highlight the current line
 set autoread "Automatically read file when edited outside of vim
 
 "Indentation
 set tabstop=4 "number of VISUAL SPACES per tab
 set softtabstop=4 "Number of spaces per tab when editing
 set expandtab "converts tabs to spaces
-
+set shiftwidth=4 
 "Movement
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -64,7 +64,8 @@ nnoremap <space> za
 "Searching
 set incsearch "search as chars are entered
 set hlsearch "highlight matches
-nnoremap <leader><space> :nohlsearch<CR> "Leader + space = clear the damn highlights for the last search
+"Leader + space = clear the damn highlights for the last search
+nnoremap <leader><space> :nohlsearch<CR>
 
 " Turn backup off, as it makes gitignore cleaner
 set nobackup
