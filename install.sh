@@ -23,4 +23,3 @@ echo "Moving any existing dotfiles from ~ to $olddir"
     ln -s $dir/$file ~/.$file
 done
 
-source ~/.vimrc
