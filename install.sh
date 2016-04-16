@@ -2,7 +2,7 @@
 
 dir=$1                    # dotfiles directory
 olddir=~/dotfiles_old     # old dotfiles backup directory
-files=".vimrc .vim"       # list of files/folders to symlink in homedir
+files="vimrc vim"       # list of files/folders to symlink in homedir
 
 
 # create dotfiles_old in homedir
@@ -20,7 +20,7 @@ for file in $files; do
 echo "Moving any existing dotfiles from ~ to $olddir"
     mv ~/$file ~/dotfiles_old/
     echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/$file
+    ln -s $dir/$file ~/.$file
 done
 
 source ~/.vimrc
