@@ -18,11 +18,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-"Solarized colorscheme stuff:
-let g:solarized_termcolors=256 "Ensure proper colors
-let g:solarized_termtrans=1 "Makes the terminal transparency 1, i.e. black
-set background=dark
-colorscheme solarized
+colorscheme molokai
+let g:molokai_original=1
+let g:rehash256=1
 
 set lazyredraw "only redraw when needed
 set wildmenu "makes the command-line completion better
