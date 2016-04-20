@@ -5,13 +5,13 @@ Ctrl-b  (C-b)
 
 ##PANES##
 Create a left/right split pane:
-C-b %
+<prefix> %
 
 Create an up/down split pane:
-C-b "
+<prefix> "
 
 Move between panes
-C-b <arrow key> //Also works with multiple arrow keys, if fast enough.
+<prefix> <arrow key> //Also works with multiple arrow keys, if fast enough.
 
 Close pane
 type exit OR C-d
@@ -19,18 +19,18 @@ type exit OR C-d
 ##WINDOWS(the good kind)##
 
 Create new window
-C-b c
+<prefix> c
 
 Rename window
-C-b ,
+<prefix> ,
 
 Change windows
-C-b p (previous), OR C-b n (next), OR C-b <number>
+<prefix> p (previous), OR <prefix> n (next), OR <prefix> <number>
 
 ##SESSIONS##
 
 Detatch session
-C-b d
+<prefix> d
 
 Attatch to session
 tmux attatch -t 0 //To attatch to session 0
@@ -40,6 +40,6 @@ tmux ls
 
 ##RESIZE##
 Toggle full screen:
-C-b z
+<prefix> z
 Resize pane
-C-b C-<Arrow key> 
+<prefix> C-<Arrow key> 
