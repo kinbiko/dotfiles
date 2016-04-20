@@ -1,0 +1,4 @@
+'.text.html.handlebars':
+  'editor':
+    'commentStart': '{{!-- '
+    'commentEnd': ' --}}'

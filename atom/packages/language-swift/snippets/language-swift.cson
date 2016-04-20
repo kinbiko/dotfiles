@@ -1,0 +1,7 @@
+'.source.swift':
+  'println("...")':
+    'prefix': 'pr'
+    'body': 'println("$1")$0'
+  'println("\\(...)")':
+    'prefix': 'po'
+    'body': 'println("\\($1)")$0'

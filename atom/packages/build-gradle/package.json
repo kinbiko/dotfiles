@@ -1,0 +1,122 @@
+{
+  "name": "build-gradle",
+  "version": "0.6.0",
+  "description": "Runs Gradle builds",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtomBuild/atom-build-gradle.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": "^1.0.0"
+  },
+  "providedServices": {
+    "builder": {
+      "description": "Runs Gradle build",
+      "versions": {
+        "2.0.0": "provideBuilder"
+      }
+    }
+  },
+  "dependencies": {
+    "bluebird": "^2.10.2"
+  },
+  "devDependencies": {
+    "fs-extra": "^0.23.0",
+    "temp": "^0.8.1",
+    "atom-build-spec-helpers": "^0.3.0",
+    "babel-eslint": "^4.1.5",
+    "eslint": "^1.10.1",
+    "eslint-config-atom-build": "^1.0.0"
+  },
+  "keywords": [
+    "build",
+    "compile",
+    "gradle",
+    "java",
+    "productivity"
+  ],
+  "main": "lib/gradle.js",
+  "readme": "# Gradle runner for Atom\n[![Build Status](https://travis-ci.org/AtomBuild/atom-build-gulp.svg?branch=master)](https://travis-ci.org/AtomBuild/atom-build-gradle)\n[![Gitter chat](https://badges.gitter.im/noseglid/atom-build.svg)](https://gitter.im/noseglid/atom-build)\n\nUses the [atom-build](https://github.com/noseglid/atom-build) package to execute\ngradle builds in the `Atom` editor.\n\nThis package requires [atom-build](https://github.com/noseglid/atom-build) to be installed.\n\n## Capabilities\n\n  * Support for gradle wrapper.\n  * Support target extraction. Will run `gradle tasks` or `./gradlew tasks` to retrieve tasks.\n  * Will refresh tasks automatically if you alter the gradle file.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/AtomBuild/atom-build-gradle/issues"
+  },
+  "homepage": "https://github.com/AtomBuild/atom-build-gradle#readme",
+  "_id": "build-gradle@0.6.0",
+  "_shasum": "c0e28a8494a1c20dc919815275452f9a2daac6e9",
+  "_resolved": "file:../d-116211-10943-1phyn4z/package.tgz",
+  "_from": "../d-116211-10943-1phyn4z/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "bluebird",
+        "version": "2.10.2",
+        "path": "node_modules/bluebird/js/main/bluebird.js"
+      }
+    ],
+    "extensions": {
+      ".js": [
+        "lib/gradle.js",
+        "node_modules/bluebird/js/browser/bluebird.js",
+        "node_modules/bluebird/js/browser/bluebird.min.js",
+        "node_modules/bluebird/js/main/any.js",
+        "node_modules/bluebird/js/main/assert.js",
+        "node_modules/bluebird/js/main/async.js",
+        "node_modules/bluebird/js/main/bind.js",
+        "node_modules/bluebird/js/main/bluebird.js",
+        "node_modules/bluebird/js/main/call_get.js",
+        "node_modules/bluebird/js/main/cancel.js",
+        "node_modules/bluebird/js/main/captured_trace.js",
+        "node_modules/bluebird/js/main/catch_filter.js",
+        "node_modules/bluebird/js/main/context.js",
+        "node_modules/bluebird/js/main/debuggability.js",
+        "node_modules/bluebird/js/main/direct_resolve.js",
+        "node_modules/bluebird/js/main/each.js",
+        "node_modules/bluebird/js/main/errors.js",
+        "node_modules/bluebird/js/main/es5.js",
+        "node_modules/bluebird/js/main/filter.js",
+        "node_modules/bluebird/js/main/finally.js",
+        "node_modules/bluebird/js/main/generators.js",
+        "node_modules/bluebird/js/main/join.js",
+        "node_modules/bluebird/js/main/map.js",
+        "node_modules/bluebird/js/main/method.js",
+        "node_modules/bluebird/js/main/nodeify.js",
+        "node_modules/bluebird/js/main/progress.js",
+        "node_modules/bluebird/js/main/promise.js",
+        "node_modules/bluebird/js/main/promise_array.js",
+        "node_modules/bluebird/js/main/promise_resolver.js",
+        "node_modules/bluebird/js/main/promisify.js",
+        "node_modules/bluebird/js/main/props.js",
+        "node_modules/bluebird/js/main/queue.js",
+        "node_modules/bluebird/js/main/race.js",
+        "node_modules/bluebird/js/main/reduce.js",
+        "node_modules/bluebird/js/main/schedule.js",
+        "node_modules/bluebird/js/main/settle.js",
+        "node_modules/bluebird/js/main/some.js",
+        "node_modules/bluebird/js/main/synchronous_inspection.js",
+        "node_modules/bluebird/js/main/thenables.js",
+        "node_modules/bluebird/js/main/timers.js",
+        "node_modules/bluebird/js/main/using.js",
+        "node_modules/bluebird/js/main/util.js"
+      ],
+      ".json": [
+        "node_modules/bluebird/package.json",
+        "package.json"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "lib",
+          "",
+          "spec"
+        ],
+        "dependencies": {
+          "bluebird": "^2.10.2"
+        }
+      }
+    ]
+  }
+}

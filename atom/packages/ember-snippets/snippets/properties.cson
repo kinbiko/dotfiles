@@ -1,0 +1,82 @@
+# Ember Properties snippets
+#
+# Examples
+#
+#  `ember<tab>`
+#
+
+'.source.js':
+
+  'Ember Computed Property':
+    'prefix': 'computed'
+    'body': """
+      ${1:fooCount}: Ember.computed('${2:property}', function() {
+        ${3:// body}
+      }),
+    """
+
+  'Ember Observer':
+    'prefix': 'observer'
+    'body': """
+      ${1:fooChanged}: Ember.observer('${2:property}', function() {
+        ${3:// body}
+      }),
+    """
+
+  'Ember Event':
+    'prefix': 'on'
+    'body': """
+      ${1:event}: Ember.on('${2:property}', function() {
+        ${3:// body}
+      }),
+    """
+
+  'Ember Actions':
+    'prefix': 'actions'
+    'body': """
+      actions: {
+        ${1:// body}
+      }
+    """
+
+  'Ember Computed Alias':
+    'prefix': 'alias'
+    'body': """
+      ${1:foo}: Ember.computed.alias('${2:property}'),
+    """
+
+'.source.coffee':
+
+  'Ember Computed Property':
+    'prefix': 'computed'
+    'body': """
+      ${1:fooCount}: Ember.computed '${2:property}', ->
+        ${4:# body}
+    """
+
+  'Ember Observer':
+    'prefix': 'observer'
+    'body': """
+      ${1:fooChanged}: Ember.observer '${2:property}', ->
+        ${3:# body}
+    """
+
+  'Ember Event':
+    'prefix': 'on'
+    'body': """
+      ${1:event}: Ember.on '${2:property}', ->
+        ${3:# body}
+    """
+
+  'Ember Actions':
+    'prefix': 'actions'
+    'body': """
+      actions:
+        ${1:# body}
+    """
+
+  'Ember Computed Alias':
+    'prefix': 'alias'
+    'body': """
+      ${1:foo}: Ember.computed.alias '${2:property}'
+    """

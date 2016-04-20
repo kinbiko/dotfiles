@@ -1,0 +1,35 @@
+{
+  "name": "language-gradle",
+  "version": "0.0.3",
+  "private": true,
+  "description": "Gradle support in Atom",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skyisle/language-gradle.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "bugs": {
+    "url": "https://github.com/skyisle/language-gradle/issues"
+  },
+  "readme": "#Gradle support in Atom\nAdds syntax highlighting to Gradle files in Atom.\n\nOriginally [converted](http://atom.io/docs/latest/converting-a-text-mate-bundle)\nfrom the [gradle.tmbundle](https://github.com/gradle/gradle.tmbundle).\n\nContributions are greatly appreciated. Please fork this repository and open a pull request to make grammar tweaks, etc.\n",
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/skyisle/language-gradle#readme",
+  "_id": "language-gradle@0.0.3",
+  "_shasum": "777f8b66a9b1d16ae68573c09c397b9d649f65ba",
+  "_resolved": "file:../d-116211-10920-n8tcf6/package.tgz",
+  "_from": "../d-116211-10920-n8tcf6/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

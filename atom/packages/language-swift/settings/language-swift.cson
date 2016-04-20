@@ -1,0 +1,17 @@
+'.source.swift':
+  'editor':
+    'commentStart': '// '
+    'foldEndPattern': '^\\s*\\}|^\\s*\\]|^\\s*\\)'
+    'increaseIndentPattern': '(?x)
+        \\{ [^}"\']* $
+      | \\( [^)"\']* $
+      | case[\\s\\S]*: $
+      | default: $
+      | ^ \\s* if \\s* \\( (?!.*?(\\b(else)\\b|;\\s*$))
+      | ^ \\s* \\}? \\s* else \\s* (?!.*?;\\s*$)
+      | ^ \\s* (for|while) \\s* \\( (?!.*?;\\s*$)
+      | ^ \\s* do \\s* $
+      '
+    'decreaseIndentPattern': '(?x)
+        ^(.*\\*/)?\\s*(\\}|\\))
+      '

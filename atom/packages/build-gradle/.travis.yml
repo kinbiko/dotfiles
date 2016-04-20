@@ -1,0 +1,21 @@
+language: objective-c
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/de0569306a16f2435ef2
+    on_success: change
+    on_failure: always
+    on_start: false
+
+before_script:
+  - npm install
+
+script: 'curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh | sh'
+
+git:
+  depth: 10

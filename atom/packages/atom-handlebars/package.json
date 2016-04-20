@@ -1,0 +1,50 @@
+{
+  "name": "atom-handlebars",
+  "version": "1.3.0",
+  "description": "Handlebars support in Atom",
+  "engines": {
+    "atom": "*",
+    "node": "*"
+  },
+  "homepage": "https://github.com/Sneagan/atom-handlebars",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sneagan/atom-handlebars.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sneagan/atom-handlebars/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "handlebars",
+    "ember",
+    "grammar",
+    "snippets"
+  ],
+  "author": {
+    "name": "Jackson Egan",
+    "email": "jackson@sneagan.com",
+    "url": "http://sneagan.com/"
+  },
+  "readme": "# Handlebars support in Atom\n\nAdds syntax highlighting and snippets to Handlebars files in Atom.\n\n## Install\n\n```bash\n$ apm install atom-handlebars\n```\n\nOr Settings ➔ Packages ➔ Search for `atom-handlebars`\n\n## Snippets\n\n- `each` ⇥\n- `eachas` ⇥\n- `eachin` ⇥\n- `get` ⇥\n- `list` ⇥\n- `if` ⇥\n- `ifelse` ⇥\n- `unless` ⇥\n- `unelse` ⇥\n- `else` ⇥\n- `with` ⇥\n- `log` ⇥\n- `dbg` ⇥\n- `escape` ⇥\n- `link` ⇥\n\n## Contributions\n\nContributions are greatly appreciated. Please fork this repository and open a pull request to add snippets, make grammar tweaks, etc.\n",
+  "readmeFilename": "README.md",
+  "_id": "atom-handlebars@1.3.0",
+  "_shasum": "b94391e80c5fa61c3465dbb7d01341b723f964d4",
+  "_resolved": "file:../d-116116-6419-19cyvjn/package.tgz",
+  "_from": "../d-116116-6419-19cyvjn/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "coffeelint.json",
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

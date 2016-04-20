@@ -1,0 +1,317 @@
+# Ember Functions snippets
+#
+# Examples
+#
+#  `ember<tab>`
+#
+
+'.source.js':
+
+  'Ember Run':
+    'prefix': 'run'
+    'body': """
+      Ember.run(function() {
+        ${1:// body}
+      });
+    """
+
+  #
+  # Ember Data 1.0.0-beta
+  #
+
+  'Ember Data: Find':
+    'prefix': 'find'
+    'body': "this.store.find('${1:model}');"
+
+  'Ember Data: Find by id':
+    'prefix': 'find-id'
+    'body': "this.store.find('${1:model}', params.${1:model}_id);"
+
+  #
+  # Ember Data 1.13
+  #
+  'Ember Data: Find All':
+    'prefix': 'find-all'
+    'body': "this.store.findAll('${1:model}');"
+
+  'Ember Data: Find Record':
+    'prefix': 'find-record'
+    'body': "this.store.findRecord('${1:model}', params.${1:model}_id);"
+
+  'Ember Data: Peek All':
+    'prefix': 'peek-all'
+    'body': "this.store.peekAll('${1:model}');"
+
+  'Ember Data: Peek Record':
+    'prefix': 'peek-record'
+    'body': "this.store.peekRecord('${1:model}', params.${1:model}_id);"
+
+  'Ember Data: Query All':
+    'prefix': 'query-all'
+    'body': "this.store.query('${1:model}', { ${2:queryKey}: ${3:queryValue}});"
+
+  'Ember Data: Query Record':
+    'prefix': 'query-record'
+    'body': "this.store.queryRecord('${1:model}', { ${2:queryKey}: ${3:queryValue}});"
+
+  #
+  # Enumerables
+  #
+
+  'Ember filterBy':
+    'prefix': 'filter-by'
+    'body': "${1:enumerable}.filterBy('${2:property}', ${3:value});"
+
+  'Ember mapBy':
+    'prefix': 'map-by'
+    'body': "${1:enumerable}.mapBy('${2:property}');"
+
+  'Ember every':
+    'prefix': 'every'
+    'body': """
+      ${1:enumerable}.every(function(${2:item}) {
+        ${3}
+      });
+    """
+
+  'Ember isEvery':
+    'prefix': 'is-every'
+    'body': "${1:enumerable}.isEvery('${2:property}', ${3:bool});"
+
+  'Ember some':
+    'prefix': 'some'
+    'body': """
+      ${1:enumerable}.some(function(${2:item}) {
+        ${3}
+      });
+    """
+
+  'Ember isAny':
+    'prefix': 'is-any'
+    'body': "${1:enumerable}.isAny('${2:property}', ${3:bool});"
+
+  'Ember toArray':
+    'prefix': 'to-array'
+    'body': '${1:enumerable}.toArray();'
+
+  'Ember firstObject':
+    'prefix': 'first-object'
+    'body': "${1:enumerable}.get('firstObject');"
+
+  'Ember lastObject':
+    'prefix': 'last-object'
+    'body': "${1:enumerable}.get('lastObject');"
+
+  #
+  # Logger
+  #
+
+  'Ember Logger Debug':
+    'prefix': 'logger-debug'
+    'body': "Ember.Logger.debug('${1:message}');"
+
+  'Ember Logger Log':
+    'prefix': 'logger-log'
+    'body': "Ember.Logger.log('${1:message}');"
+
+  'Ember Logger Info':
+    'prefix': 'logger-info'
+    'body': "Ember.Logger.info('${1:message}');"
+
+  'Ember Logger Warn':
+    'prefix': 'logger-warn'
+    'body': "Ember.Logger.warn('${1:message}');"
+
+  'Ember Logger Error':
+    'prefix': 'logger-error'
+    'body': "Ember.Logger.error('${1:message}');"
+
+  #
+  # Test Helpers
+  #
+
+  'Ember Visit':
+    'prefix': 'visit'
+    'body': "visit('${1:url}');"
+
+  'Ember Fill In':
+    'prefix': 'fill-in'
+    'body': "fillIn('${1:selector}', '${2:text}');"
+
+  'Ember Click':
+    'prefix': 'click'
+    'body': "click('${1:selector}');"
+
+  'Ember Key Event':
+    'prefix': 'key-event'
+    'body': "keyEvent('${1:selector}', '${2:type}', '${3:keyCode}');"
+
+  'Ember Trigger Event':
+    'prefix': 'trigger-event'
+    'body': "triggerEvent('${1:selector}', '${2:type}', '${3:options}');"
+
+  'Ember Find Element':
+    'prefix': 'find-element'
+    'body': "find('${1:selector}', '${2:context}');"
+
+  'Ember And Then':
+    'prefix': 'and-then'
+    'body': """
+      andThen(function() {
+        ${1:// body}
+      });
+    """
+
+'.source.coffee':
+
+  'Ember Run':
+    'prefix': 'run'
+    'body': """
+      Ember.run ->
+        ${1:# body}
+    """
+
+  #
+  # Ember Data 1.0.0-beta
+  #
+
+  'Ember Data: Find':
+    'prefix': 'find'
+    'body': "this.store.find${1:(}'${2:model}'${1:)}"
+
+  'Ember Data: Find by id':
+    'prefix': 'find-id'
+    'body': "this.store.find${1:(}'${2:model}', params.${2:model}_id${1:)}"
+
+  #
+  # Ember Data 1.13
+  #
+  'Ember Data: Find All':
+    'prefix': 'find-all'
+    'body': "this.store.findAll${1:(}'${2:model}'${1:)}"
+
+  'Ember Data: Find Record':
+    'prefix': 'find-record'
+    'body': "this.store.findRecord${1:(}'${2:model}', params.${2:model}_id${1:)}"
+
+  'Ember Data: Peek All':
+    'prefix': 'peek-all'
+    'body': "this.store.peekAll${1:(}'${2:model}'${1:)}"
+
+  'Ember Data: Peek Record':
+    'prefix': 'peek-record'
+    'body': "this.store.peekRecord${1:(}'${2:model}', params.${2:model}_id${1:)}"
+
+  'Ember Data: Query All':
+    'prefix': 'query-all'
+    'body': "this.store.query${1:(}'${2:model}', { ${2:queryKey}: ${3:queryValue}}${1:)}"
+
+  'Ember Data: Query Record':
+    'prefix': 'query-all'
+    'body': "this.store.queryRecord${1:(}'${2:model}', { ${2:queryKey}: ${3:queryValue}}${1:)}"
+
+
+  #
+  # Logger
+  #
+
+  'Ember Logger Debug':
+    'prefix': 'logger-debug'
+    'body': "Ember.Logger.debug${1:(}\"${1:message}\"${1:)}"
+
+  'Ember Logger Log':
+    'prefix': 'logger-log'
+    'body': "Ember.Logger.log${1:(}\"${2:message}\"${1:)}"
+
+  'Ember Logger Info':
+    'prefix': 'logger-info'
+    'body': "Ember.Logger.info${1:(}\"${2:message}\"${1:)}"
+
+  'Ember Logger Warn':
+    'prefix': 'logger-warn'
+    'body': "Ember.Logger.warn${1:(}\"${2:message}\"${1:)}"
+
+  'Ember Logger Error':
+    'prefix': 'logger-error'
+    'body': "Ember.Logger.error${1:(}\"${2:message}\"${1:)}"
+
+  #
+  # Enumerables
+  #
+
+  'Ember filterBy':
+    'prefix': 'filter-by'
+    'body': "${1:enumerable}.filterBy '${2:property}', ${3:value}"
+
+  'Ember mapBy':
+    'prefix': 'map-by'
+    'body': "${1:enumerable}.mapBy '${2:property}'"
+
+  'Ember every':
+    'prefix': 'every'
+    'body': """
+      ${1:enumerable}.every (${2:item}) ->
+        ${3}
+    """
+
+  'Ember isEvery':
+    'prefix': 'is-every'
+    'body': "${1:enumerable}.isEvery '${2:property}', ${3:bool}"
+
+  'Ember some':
+    'prefix': 'some'
+    'body': """
+      ${1:enumerable}.some (${2:item}) ->
+        ${3}
+    """
+
+  'Ember isAny':
+    'prefix': 'is-any'
+    'body': "${1:enumerable}.isAny '${2:property}', ${3:bool}"
+
+  'Ember toArray':
+    'prefix': 'to-array'
+    'body': '${1:enumerable}.toArray()'
+
+  'Ember firstObject':
+    'prefix': 'first-object'
+    'body': "${1:enumerable}.get 'firstObject'"
+
+  'Ember lastObject':
+    'prefix': 'last-object'
+    'body': "${1:enumerable}.get 'lastObject'"
+
+  #
+  #  Test Helpers
+  #
+
+  'Ember Visit':
+    'prefix': 'visit'
+    'body': "visit ${1:url}"
+
+  'Ember Fill In':
+    'prefix': 'fill-in'
+    'body': "fillIn '${1:selector}', '${2:text}'"
+
+  'Ember Click':
+    'prefix': 'click'
+    'body': "click '${1:selector}'"
+
+  'Ember Key Event':
+    'prefix': 'key-event'
+    'body': "keyEvent '${1:selector}', '${2:type}', '${3:keyCode}'"
+
+  'Ember Trigger Event':
+    'prefix': 'trigger-event'
+    'body': "triggerEvent '${1:selector}', '${2:type}', '${3:options}'"
+
+  'Ember Find Element':
+    'prefix': 'find-element'
+    'body': "find '${1:selector}', '${2:context}'"
+
+  'Ember And Then':
+    'prefix': 'and-then'
+    'body': """
+      andThen ->
+        ${1:// body}
+    """

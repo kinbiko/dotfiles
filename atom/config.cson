@@ -1,0 +1,39 @@
+"*":
+  "atom-terminal-panel": {}
+  "autocomplete-plus": {}
+  core:
+    disabledPackages: [
+      "status-bar"
+    ]
+    projectHome: "/Users/roger/repos"
+    themes: [
+      "seti-ui"
+      "seti-syntax"
+    ]
+  editor:
+    fontSize: 13
+    invisibles: {}
+    tabType: "soft"
+  "ember-cli-helper": {}
+  "exception-reporting":
+    userId: "ad9ee485-bee9-fcfc-d0cd-0baf18a471af"
+  jshint: {}
+  linter: {}
+  "linter-eslint":
+    eslintRulesDir: "/Users/roger/repos/learning/ember/super-rentals/node_modules/eslint/lib/rules"
+    globalNodePath: "/usr/local"
+  minimap: {}
+  "one-dark-ui": {}
+  "open-in-browsers":
+    BrowserPlus: false
+    FireFox: false
+    IE: false
+    Opera: false
+  "status-bar": {}
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+    squashDirectoryNames: true
+  "vim-mode": {}
+  welcome:
+    showOnStartup: false
