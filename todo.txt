@@ -1,0 +1,20 @@
+vim:
+  make operations and key strokes immediate even in tmux, zsh etc.
+  smarter use of brackets
+  learn a quicker way of opening files
+  learn how to create folders/files
+  make spacing intuitive
+  delete un-changed lines with delete in insert mode
+  look for react plugins
+  quit with :Q
+  write with :W
+
+zsh
+  make :q and :Q valid exit commands
+  make zshrc part of dotfiles
+  # 10ms for key sequences
+  KEYTIMEOUT=1
+
+tmux
+  remove * from name of tab
+

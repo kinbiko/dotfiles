@@ -35,10 +35,10 @@ set number "Display line numbers
 set autoread "Automatically read file when edited outside of vim
 
 "Indentation
-set tabstop=4 "number of VISUAL SPACES per tab
-set softtabstop=4 "Number of spaces per tab when editing
+set tabstop=2 "number of VISUAL SPACES per tab
+set softtabstop=2 "Number of spaces per tab when editing
 set expandtab "converts tabs to spaces
-set shiftwidth=4 
+set shiftwidth=2 
 "Movement
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -70,3 +70,12 @@ nnoremap <leader><space> :nohlsearch<CR>
 set nobackup
 set nowb
 set noswapfile
+
+" Ensure that there's no delay between esc-ing and the next command executing
+set timeoutlen=1000 ttimeoutlen=0
+
+" make bracket handling easier
+inoremap { {}<Esc>i
+inoremap ( ()<Esc>i
+inoremap < <><Esc>i
+inoremap [ []<Esc>i
