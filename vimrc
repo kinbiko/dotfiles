@@ -18,9 +18,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-colorscheme molokai
 let g:molokai_original=1
 let g:rehash256=1
+colorscheme molokai
 
 set lazyredraw "only redraw when needed
 set wildmenu "makes the command-line completion better
@@ -71,11 +71,33 @@ set nobackup
 set nowb
 set noswapfile
 
+" make buffer switching easier
+nnoremap <F5> :buffers<CR>:buffer<Space>
+
+" make deleting natural
+set backspace=indent,eol,start
+
+" make semicolon do what you normally need colon to do
+nnoremap ; :
+
+if has("user_commands")
+  command! -bang -nargs=? -complete=file E e<bang> <args>
+  command! -bang -nargs=? -complete=file W w<bang> <args>
+  command! -bang -nargs=? -complete=file Wq wq<bang> <args>
+  command! -bang -nargs=? -complete=file WQ wq<bang> <args>
+  command! -bang Wa wa<bang>
+  command! -bang WA wa<bang>
+  command! -bang Q q<bang>
+  command! -bang QA qa<bang>
+  command! -bang Qa qa<bang>
+endif
+
 " Ensure that there's no delay between esc-ing and the next command executing
 set timeoutlen=1000 ttimeoutlen=0
 
-" make bracket handling easier
-inoremap { {}<Esc>i
-inoremap ( ()<Esc>i
-inoremap < <><Esc>i
-inoremap [ []<Esc>i
+" ===============================FORGET-ME-NOTS==================================
+" NERDTree:
+" m opens a dialog for manipulating files
+
+" open buffers with either :b <something contained within the buffer to open>
+" or f5 to get a list
