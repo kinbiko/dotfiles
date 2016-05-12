@@ -9,8 +9,7 @@ set statusline+=%*
 
 "Leader
 let mapleader = ","
-"Consider enabling this one in windows:
-"inoremap jk <esc>
+inoremap jk <esc>
 
 "Syntastic readme told me to do this as a default
 let g:syntastic_always_populate_loc_list = 1
@@ -65,7 +64,8 @@ set incsearch "search as chars are entered
 set hlsearch "highlight matches
 "Leader + space = clear the damn highlights for the last search
 nnoremap <leader><space> :nohlsearch<CR>
-
+nnoremap <leader>v :e ~/.vimrc<CR>
+nnoremap <leader><leader> :NERDTree<CR>
 " Turn backup off, as it makes gitignore cleaner
 set nobackup
 set nowb
