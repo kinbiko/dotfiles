@@ -2,8 +2,8 @@
 
 dir=$1                    # dotfiles directory
 olddir=~/dotfiles_old     # old dotfiles backup directory
-files="vimrc vim atom tmux.conf"    # list of files/folders to symlink in homedir
-
+# list of files/folders to symlink in homedir
+files="vimrc vim atom tmux.conf tmux"
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir

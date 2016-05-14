@@ -49,3 +49,12 @@
 [submodule "vim/bundle/vim-autoclose"]
 	path = vim/bundle/vim-autoclose
 	url = https://github.com/Townk/vim-autoclose
+[submodule "matchit"]
+	path = matchit
+	url = https://github.com/tmhedberg/matchit
+[submodule "vim/bundle/matchit"]
+	path = vim/bundle/matchit
+	url = https://github.com/tmhedberg/matchit
+[submodule "vim/bundle/vim-pasta"]
+	path = vim/bundle/vim-pasta
+	url = https://github.com/sickill/vim-pasta
