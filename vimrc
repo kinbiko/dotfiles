@@ -1,5 +1,4 @@
-call pathogen#helptags()
-execute pathogen#infect()
+source vim/vimplugins
 
 filetype plugin indent on "Enable plugin- and filetype indent
 syntax enable "Use syntax highlighting by default
@@ -62,10 +61,12 @@ nnoremap <space> za
 "Searching
 set incsearch "search as chars are entered
 set hlsearch "highlight matches
+
 "Leader + space = clear the damn highlights for the last search
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap <leader>v :e ~/.vimrc<CR>
 nnoremap <leader><leader> :NERDTree<CR>
+
 " Turn backup off, as it makes gitignore cleaner
 set nobackup
 set nowb
@@ -92,12 +93,8 @@ if has("user_commands")
   command! -bang Qa qa<bang>
 endif
 
+" Make emmet available through h + h
+imap hh <C-y>
+
 " Ensure that there's no delay between esc-ing and the next command executing
 set timeoutlen=1000 ttimeoutlen=0
-
-" ===============================FORGET-ME-NOTS==================================
-" NERDTree:
-" m opens a dialog for manipulating files
-
-" open buffers with either :b <something contained within the buffer to open>
-" or f5 to get a list

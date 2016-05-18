@@ -1,0 +1,36 @@
+set nocompatible  "required
+filetype off      "required
+
+"Set the runtime path to include Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+"aaaand initialise
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+"Themes and looks
+Plugin 'flazz/vim-colorschemes'
+Plugin 'tomasr/molokai'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+"Must haves!
+Plugin 'scrooloose/nerdtree'
+Plugin 'Townk/vim-autoclose'
+Plugin 'tmhedberg/matchit' "What do you do again?
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'pangloss/vim-javascript' "how configurable is this one?
+Plugin 'mattn/emmet-vim' "need to learn and use more
+
+Plugin 'tpope/vim-fugitive'
+
+Plugin 'ervandew/supertab' "what exactly does this do?
+Plugin 'honza/vim-snippets' "and this?
+Plugin 'scrooloose/nerdcommenter' "watchu do?
+Plugin 'tpope/vim-surround' "and how do you use this
+Plugin 'majutsushi/tagbar' "what now?
+Plugin 'scrooloose/syntastic' "Really need to learn to configure this
+Plugin 'sickill/vim-pasta' "What do you do again?
+
+call vundle#end()
