@@ -1,4 +1,4 @@
-source vim/vimplugins
+source ~/.vim/vimplugins
 
 filetype plugin indent on "Enable plugin- and filetype indent
 syntax enable "Use syntax highlighting by default
