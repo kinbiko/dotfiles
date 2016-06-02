@@ -45,6 +45,17 @@ imap hh <C-y>
 " make // in visual mode seach for the currently selected words
 vnoremap // y/<C-R>"<CR>
 
+"Associate file ending .hbs with html
+au BufNewFile,BufRead *.hbs setlocal ft=html
+"Associate file ending .psl with Groovy
+au BufNewFile,BufRead *.psl setlocal ft=groovy
+"Associate file vimplugins with vim
+au BufNewFile,BufRead vimplugins setlocal ft=vim
+" Associate file .kata with Groovy
+au BufNewFile,BufRead *.kata setlocal ft=groovy
+" Associate file .style with Groovy
+au BufNewFile,BufRead *.style setlocal ft=groovy
+
 "==================Common typos===================
 if has("user_commands")
   command! -bang -nargs=? -complete=file E e<bang> <args>

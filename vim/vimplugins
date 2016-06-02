@@ -14,24 +14,35 @@ Plugin 'tomasr/molokai'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-"Must haves!
+"File navigator
 Plugin 'scrooloose/nerdtree'
+"Adds matching quotes, bracets etc.
 Plugin 'Townk/vim-autoclose'
-Plugin 'tmhedberg/matchit' "What do you do again?
+"Makes % sane with e.g. <tags></tags>
+Plugin 'tmhedberg/matchit'
+"Makes an index of all files available on ctrl+p
 Plugin 'ctrlpvim/ctrlp.vim'
+"Makes the git gutter with +, ~, and - available
 Plugin 'airblade/vim-gitgutter'
-Plugin 'pangloss/vim-javascript' "how configurable is this one?
-Plugin 'mattn/emmet-vim' "need to learn and use more
-
+"Makes syntax highlighting etc. more sane for js.
+Plugin 'pangloss/vim-javascript'
+"Brilliant shortcuts for creating html boilerplate
+Plugin 'mattn/emmet-vim'
+"Excellent git plugin. Most features available through :G*
 Plugin 'tpope/vim-fugitive'
-
-Plugin 'ervandew/supertab' "what exactly does this do?
-Plugin 'honza/vim-snippets' "and this?
-Plugin 'scrooloose/nerdcommenter' "watchu do?
-Plugin 'tpope/vim-surround' "and how do you use this
-Plugin 'majutsushi/tagbar' "what now?
+"Tab completion
+Plugin 'ervandew/supertab'
+"Comment with leader + c + c 
+Plugin 'scrooloose/nerdcommenter'
+"change surrounding stuff by some combinations of s. E.g.
+" cs`' when on the word `hello` will change it to 'hello'
+Plugin 'tpope/vim-surround'
+"Think checkstyle for vim
 Plugin 'scrooloose/syntastic' "Really need to learn to configure this
-Plugin 'sickill/vim-pasta' "What do you do again?
+"Context aware pasting. E.g. intentation - tbh not that great atm.
+Plugin 'sickill/vim-pasta'
+"Insertion of spaces etc in normal mode, and other goodies using the [] keys.
+Plugin 'tpope/vim-unimpaired'
 
 call vundle#end()
 
@@ -47,3 +58,7 @@ let g:syntastic_check_on_wq = 0
 let g:molokai_original=1
 let g:rehash256=1
 colorscheme molokai
+
+"vim-javascript settings:
+"Makes css/html syntax available in .js files, good for React
+let g:javascript_enable_domhtmlcss = 1
