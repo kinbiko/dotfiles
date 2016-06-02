@@ -13,7 +13,12 @@ nnoremap <leader>v :e ~/.vimrc<CR>
 nnoremap <leader><leader> :NERDTree<CR>
 " make buffer switching easier
 nnoremap <leader>f :buffers<CR>:buffer<Space>
-
+" Git status on leaer + s
+nnoremap <leader>s :Gstatus<CR>
+" Git blame on leader + b
+nnoremap <leader>b :Gblame<CR>
+" Git commit on leader + c
+nnoremap <leader>c :Gcommit<CR>
 "======= Normal mode remappings =========
 "Remap space to open/close folds
 nnoremap <space> za
