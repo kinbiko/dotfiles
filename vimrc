@@ -1,24 +1,60 @@
 source ~/.vim/vimplugins
 
-filetype plugin indent on "Enable plugin- and filetype indent
-syntax enable "Use syntax highlighting by default
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-"Leader
+"======== Super important settings =============
+" Set what the leader key is
 let mapleader = ","
+
+"======== Leader mappings============
+"Leader + space = clear the damn highlights for the last search
+nnoremap <leader><space> :nohlsearch<CR>
+" Leader + v opens vimrc
+nnoremap <leader>v :e ~/.vimrc<CR>
+"Leader + Leader opens nerd tree. TODO: can this be made smarter?
+nnoremap <leader><leader> :NERDTree<CR>
+" make buffer switching easier
+nnoremap <leader>f :buffers<CR>:buffer<Space>
+
+"======= Normal mode remappings =========
+"Remap space to open/close folds
+nnoremap <space> za
+"Movement
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+"Move vertically to wrapped line
+nnoremap j gj
+nnoremap k gk
+"Use E and B instead of $ and ^
+nnoremap B ^
+nnoremap E $
+"Make semicolon do what you normally need colon to do
+nnoremap ; :
+" Make r replace more than one character by default.
+noremap R r
+noremap r R
+
+"========== Insert mode remappings ================
+" Make jk do the same as escape. Good for when I can't have CAPS-LOCK map to
+" escape.
 inoremap jk <esc>
+" Make Emmet available through h + h
+imap hh <C-y>
 
-"Syntastic readme told me to do this as a default
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"============= Visual mode remappings=============
+" make // in visual mode seach for the currently selected words
+vnoremap // y/<C-R>"<CR>
 
-let g:molokai_original=1
-let g:rehash256=1
-colorscheme molokai
+"==================Common typos===================
+if has("user_commands")
+  command! -bang -nargs=? -complete=file E e<bang> <args>
+  command! -bang -nargs=? -complete=file W w<bang> <args>
+  command! -bang -nargs=? -complete=file Wq wq<bang> <args>
+  command! -bang -nargs=? -complete=file WQ wq<bang> <args>
+  command! -bang Q q<bang>
+endif
+
+"==================Boring necessities==============
 
 set lazyredraw "only redraw when needed
 set wildmenu "makes the command-line completion better
@@ -33,68 +69,35 @@ set number "Display line numbers
 set autoread "Automatically read file when edited outside of vim
 
 "Indentation
-set tabstop=2 "number of VISUAL SPACES per tab
-set softtabstop=2 "Number of spaces per tab when editing
+set tabstop=4 "number of VISUAL SPACES per tab
+set softtabstop=4 "Number of spaces per tab when editing
 set expandtab "converts tabs to spaces
-set shiftwidth=2 
-"Movement
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-"Move vertically to wrapped line
-nnoremap j gj
-nnoremap k gk
-"Use E and B instead of $ and ^
-nnoremap B ^
-nnoremap E $
-nnoremap $ <nop>
-nnoremap ^ <nop>
+set shiftwidth=4
 
 "Folding
 set foldenable "Enable folding
 set foldlevelstart=10 "Shows most folds by default
 set foldnestmax=10 "You're writing bad code if you need to up this one
-"Remap space to open/close folds
-nnoremap <space> za
 
 "Searching
 set incsearch "search as chars are entered
 set hlsearch "highlight matches
-
-"Leader + space = clear the damn highlights for the last search
-nnoremap <leader><space> :nohlsearch<CR>
-nnoremap <leader>v :e ~/.vimrc<CR>
-nnoremap <leader><leader> :NERDTree<CR>
 
 " Turn backup off, as it makes gitignore cleaner
 set nobackup
 set nowb
 set noswapfile
 
-" make buffer switching easier
-nnoremap <F5> :buffers<CR>:buffer<Space>
-
 " make deleting natural
 set backspace=indent,eol,start
 
-" make semicolon do what you normally need colon to do
-nnoremap ; :
-
-if has("user_commands")
-  command! -bang -nargs=? -complete=file E e<bang> <args>
-  command! -bang -nargs=? -complete=file W w<bang> <args>
-  command! -bang -nargs=? -complete=file Wq wq<bang> <args>
-  command! -bang -nargs=? -complete=file WQ wq<bang> <args>
-  command! -bang Wa wa<bang>
-  command! -bang WA wa<bang>
-  command! -bang Q q<bang>
-  command! -bang QA qa<bang>
-  command! -bang Qa qa<bang>
-endif
-
-" Make emmet available through h + h
-imap hh <C-y>
+" associate *.fileending with filetype
+filetype plugin indent on "Enable plugin- and filetype indent
+syntax enable "Use syntax highlighting by default
+"Status line setup
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 " Ensure that there's no delay between esc-ing and the next command executing
 set timeoutlen=1000 ttimeoutlen=0

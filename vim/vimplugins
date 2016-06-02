@@ -34,3 +34,16 @@ Plugin 'scrooloose/syntastic' "Really need to learn to configure this
 Plugin 'sickill/vim-pasta' "What do you do again?
 
 call vundle#end()
+
+"====================== PLUGIN SETTINGS ====================
+
+"Syntastic readme told me to do this as a default
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Colour settings
+let g:molokai_original=1
+let g:rehash256=1
+colorscheme molokai
