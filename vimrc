@@ -1,8 +1,10 @@
 source ~/.vim/vimplugins
 
-"======== Super important settings =============
+"======== Fun settings =============
 " Set what the leader key is
 let mapleader = ","
+
+set relativenumber
 
 "======== Leader mappings============
 "Leader + space = clear the damn highlights for the last search
