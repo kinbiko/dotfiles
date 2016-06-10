@@ -47,6 +47,15 @@ nnoremap ; :
 noremap R r
 noremap r R
 
+"Navigate vim splits with CTRL + h/j/k/l
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"make leader + . return to previous file
+noremap <leader>. :b#<CR>
+
 "========== Insert mode remappings ================
 " Make jk do the same as escape. Good for when I can't have CAPS-LOCK map to
 " escape.
@@ -120,8 +129,11 @@ filetype plugin indent on "Enable plugin- and filetype indent
 syntax enable "Use syntax highlighting by default
 "Status line setup
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+"Make vim open new splits to the right and bottom
+set splitbelow
+set splitright
 
 " Ensure that there's no delay between esc-ing and the next command executing
 set timeoutlen=1000 ttimeoutlen=0
