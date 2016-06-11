@@ -71,6 +71,11 @@ inoremap jk <esc>
 " Make Emmet available through h + h
 imap hh <C-y>
 
+"Move around in insert mode using ctrl + hjkl
+imap <C-h> <C-o>h
+imap <C-j> <C-o>j
+imap <C-k> <C-o>k
+imap <C-l> <C-o>l
 "============= Visual mode remappings=============
 " make // in visual mode seach for the currently selected words
 vnoremap // y/<C-R>"<CR>
@@ -150,6 +155,8 @@ set splitright
 
 "Run python current file (+ give arguments)
 map <leader>r <CR>:!python %
+
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
 " Ensure that there's no delay between esc-ing and the next command executing
 set timeoutlen=1000 ttimeoutlen=0
