@@ -27,25 +27,42 @@ nnoremap <leader>push :Gpush<CR>
 " Git pull on leader + pull
 nnoremap <leader>pull :Gpull<CR>
 
+"make leader + . return to previous file
+noremap <leader>. :b#<CR>
+
 "======= Normal mode remappings =========
 "Remap space to open/close folds
 nnoremap <space> za
-"Movement
+"Movement (up down disabled, left right moves between open buffers)
 noremap <Up> <NOP>
 noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+noremap <Left> :bp<CR>
+noremap <Right> :bn<CR>
 "Move vertically to wrapped line
 nnoremap j gj
 nnoremap k gk
+
+"insert blank lines without insert mode
+nmap t o<ESC>k
+nmap T O<ESC>j
+
 "Use E and B instead of $ and ^
 nnoremap B ^
 nnoremap E $
+"Make H be home, L be end
+noremap H ^
+noremap L $
 "Make semicolon do what you normally need colon to do
 nnoremap ; :
-" Make r replace more than one character by default.
-noremap R r
-noremap r R
+
+"Navigate vim splits with CTRL + h/j/k/l
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"Make Q repeat the last recorded marcro
+nmap Q @@
 
 "========== Insert mode remappings ================
 " Make jk do the same as escape. Good for when I can't have CAPS-LOCK map to
@@ -54,6 +71,11 @@ inoremap jk <esc>
 " Make Emmet available through h + h
 imap hh <C-y>
 
+"Move around in insert mode using ctrl + hjkl
+imap <C-h> <C-o>h
+imap <C-j> <C-o>j
+imap <C-k> <C-o>k
+imap <C-l> <C-o>l
 "============= Visual mode remappings=============
 " make // in visual mode seach for the currently selected words
 vnoremap // y/<C-R>"<CR>
@@ -112,16 +134,29 @@ set nobackup
 set nowb
 set noswapfile
 
+"Adjust the scrolling:
+"Number of lines from vertical edge to start scroll
+set scrolloff=8
+"Number of lines from horizontal edge to start scroll
+set sidescrolloff=15
+"Number of columns to scroll at a time
+set sidescroll=1
+
 " make deleting natural
 set backspace=indent,eol,start
 
 " associate *.fileending with filetype
 filetype plugin indent on "Enable plugin- and filetype indent
 syntax enable "Use syntax highlighting by default
-"Status line setup
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+
+"Make vim open new splits to the right and bottom
+set splitbelow
+set splitright
+
+"Run python current file (+ give arguments)
+map <leader>r <CR>:!python %
+
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
 " Ensure that there's no delay between esc-ing and the next command executing
 set timeoutlen=1000 ttimeoutlen=0

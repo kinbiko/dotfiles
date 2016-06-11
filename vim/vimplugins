@@ -37,22 +37,21 @@ Plugin 'scrooloose/nerdcommenter'
 "change surrounding stuff by some combinations of s. E.g.
 " cs`' when on the word `hello` will change it to 'hello'
 Plugin 'tpope/vim-surround'
-"Think checkstyle for vim
-Plugin 'scrooloose/syntastic' "Really need to learn to configure this
 "Context aware pasting. E.g. intentation - tbh not that great atm.
 Plugin 'sickill/vim-pasta'
 "Insertion of spaces etc in normal mode, and other goodies using the [] keys.
 Plugin 'tpope/vim-unimpaired'
 
+"Work better with tmux (does not work as expected - moving out of vim is ok,
+"moving from shell to tmux not so much)
+Plugin 'christoomey/vim-tmux-navigator'
+
+"Make aligning nice and pretty
+Plugin 'godlygeek/tabular.git'
+
 call vundle#end()
 
 "====================== PLUGIN SETTINGS ====================
-
-"Syntastic readme told me to do this as a default
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " Colour settings
 let g:molokai_original=1
