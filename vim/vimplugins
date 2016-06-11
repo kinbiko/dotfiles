@@ -42,6 +42,13 @@ Plugin 'sickill/vim-pasta'
 "Insertion of spaces etc in normal mode, and other goodies using the [] keys.
 Plugin 'tpope/vim-unimpaired'
 
+"Work better with tmux (does not work as expected - moving out of vim is ok,
+"moving from shell to tmux not so much)
+Plugin 'christoomey/vim-tmux-navigator'
+
+"Make aligning nice and pretty
+Plugin 'godlygeek/tabular.git'
+
 call vundle#end()
 
 "====================== PLUGIN SETTINGS ====================
