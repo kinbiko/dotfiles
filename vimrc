@@ -12,7 +12,7 @@ nnoremap <leader><space> :nohlsearch<CR>
 " Leader + v opens vimrc
 nnoremap <leader>v :e ~/.vimrc<CR>
 "Leader + Leader opens nerd tree. TODO: can this be made smarter?
-nnoremap <leader><leader> :NERDTree<CR>
+nnoremap <leader><leader> :NERDTreeToggle<CR>
 " make buffer switching easier
 nnoremap <leader>f :buffers<CR>:b
 
