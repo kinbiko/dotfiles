@@ -124,6 +124,7 @@ set shiftwidth=4
 set foldenable "Enable folding
 set foldlevelstart=10 "Shows most folds by default
 set foldnestmax=10 "You're writing bad code if you need to up this one
+set foldmethod=indent
 
 "Searching
 set incsearch "search as chars are entered
