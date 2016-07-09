@@ -1,5 +1,4 @@
 vim:
-  make spacing intuitive
   look for react plugins
 
 zsh

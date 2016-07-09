@@ -49,6 +49,9 @@ Plugin 'christoomey/vim-tmux-navigator'
 "Make aligning nice and pretty
 Plugin 'godlygeek/tabular.git'
 
+"Get me a buffer overview
+Plugin 'fholgado/minibufexpl.vim'
+
 call vundle#end()
 
 "====================== PLUGIN SETTINGS ====================

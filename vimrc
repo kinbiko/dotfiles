@@ -159,5 +159,14 @@ map <leader>r <CR>:!python %
 
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
-" Ensure that there's no delay between esc-ing and the next command executing
+"remove the buffer status line text.
+map <Leader>t :MBEToggle<cr>:MBEFocus<cr>
+nnoremap <Leader><Right> :MBEbn<cr>
+nnoremap <Leader><Left> :MBEbp<cr>
+nnoremap <Leader>w :MBEbd<cr>
+let g:miniBufExplBuffersNeeded = 1
+let g:miniBufExplCloseOnSelect = 1
+let g:miniBufExplShowBufNumbers = 0
+
+"Ensure that there's no delay between esc-ing and the next command executing
 set timeoutlen=1000 ttimeoutlen=0
