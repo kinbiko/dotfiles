@@ -168,5 +168,17 @@ let g:miniBufExplBuffersNeeded = 1
 let g:miniBufExplCloseOnSelect = 1
 let g:miniBufExplShowBufNumbers = 0
 
+"Make nerdtree more 'mine'
+let NERDTreeIgnore=['node_modules$', '\.git$', '\.DS_Store$', '\.meta$']
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI=1
+let NERDTreeAutoDeleteBuffer=1
+
+"Configure autoclose
+let g:AutoClosePairs = "() {} \" `"
+
+"Make leader+V resource the vimrc
+nnoremap <Leader>V :source ~/.vimrc<cr>
+
 "Ensure that there's no delay between esc-ing and the next command executing
 set timeoutlen=1000 ttimeoutlen=0
