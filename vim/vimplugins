@@ -41,6 +41,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'sickill/vim-pasta'
 "Insertion of spaces etc in normal mode, and other goodies using the [] keys.
 Plugin 'tpope/vim-unimpaired'
+"Swift support in vim
+Plugin 'keith/swift.vim'
 
 "Work better with tmux (does not work as expected - moving out of vim is ok,
 "moving from shell to tmux not so much)

@@ -180,5 +180,8 @@ let g:AutoClosePairs = "() {} \" `"
 "Make leader+V resource the vimrc
 nnoremap <Leader>V :source ~/.vimrc<cr>
 
+"Make comments red
+hi comment ctermfg=DarkRed
+
 "Ensure that there's no delay between esc-ing and the next command executing
 set timeoutlen=1000 ttimeoutlen=0
