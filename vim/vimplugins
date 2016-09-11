@@ -52,6 +52,9 @@ Plugin 'godlygeek/tabular.git'
 "Get me a buffer overview
 Plugin 'fholgado/minibufexpl.vim'
 
+"Gif good code style for es6plz
+Plugin 'millermedeiros/vim-esformatter'
+
 call vundle#end()
 
 "====================== PLUGIN SETTINGS ====================

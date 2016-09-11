@@ -168,5 +168,6 @@ let g:miniBufExplBuffersNeeded = 1
 let g:miniBufExplCloseOnSelect = 1
 let g:miniBufExplShowBufNumbers = 0
 
+let NERDTreeIgnore=['node_modules$', '\~$']
 "Ensure that there's no delay between esc-ing and the next command executing
 set timeoutlen=1000 ttimeoutlen=0
