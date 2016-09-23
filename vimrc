@@ -176,17 +176,18 @@ let g:miniBufExplBuffersNeeded = 1
 let g:miniBufExplCloseOnSelect = 1
 let g:miniBufExplShowBufNumbers = 0
 
-"Make nerdtree more 'mine'
-let NERDTreeIgnore=['node_modules$', '\.git$', '\.DS_Store$', '\.meta$']
-let NERDTreeShowHidden=1
-let NERDTreeMinimalUI=1
-let NERDTreeAutoDeleteBuffer=1
+let NERDTreeIgnore=['node_modules$', '\~$']
+    "Make nerdtree more 'mine'
+    let NERDTreeIgnore=['node_modules$', '\.git$', '\.DS_Store$', '\.meta$']
+    let NERDTreeShowHidden=1
+    let NERDTreeMinimalUI=1
+    let NERDTreeAutoDeleteBuffer=1
 
-"Configure autoclose
-let g:AutoClosePairs = "() {} \" `"
+    "Configure autoclose
+    let g:AutoClosePairs = "() {} \" `"
 
-"Make leader+V resource the vimrc
-nnoremap <Leader>V :source ~/.vimrc<cr>
+    "Make leader+V resource the vimrc
+    nnoremap <Leader>V :source ~/.vimrc<cr>
 
 "Make jsx syntax show up in .js files
 let g:jsx_ext_required = 0
