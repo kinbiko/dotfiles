@@ -28,6 +28,8 @@ for file in $files; do
     ln -s $dotfiles_dir/$file ~/.$file
 done
 
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 #This doesn't appear to be working as expected
 git submodule update --init
 
