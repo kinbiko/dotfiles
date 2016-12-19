@@ -228,3 +228,7 @@ set -g status-position top
 set-option -g default-shell /bin/zsh
 set-option -g allow-rename off
 set-window-option -g pane-base-index 1
+eparator_main=''
+tmux_conf_theme_left_separator_sub=''
+tmux_conf_theme_right_separator_main=''
+tmux_conf_theme_right_separator_sub=''
