@@ -35,6 +35,8 @@ git submodule update --init
 
 gem install tmuxinator
 
+brew install htop
+
 #TODOS:
 #Delete any old old_dotfiles if it exists
 #Fix the submodule issue

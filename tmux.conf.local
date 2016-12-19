@@ -226,3 +226,5 @@ tmux_conf_theme_clock_style='24'
 set -g status-position top
 # Make default shell zsh
 set-option -g default-shell /bin/zsh
+set-option -g allow-rename off
+set-window-option -g pane-base-index 1
