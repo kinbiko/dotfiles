@@ -80,6 +80,14 @@ imap <C-l> <C-o>l
 " make // in visual mode seach for the currently selected words
 vnoremap // y/<C-R>"<CR>
 
+" Align blocks of text and keep them selected
+vmap < <gv
+vmap > >gv
+
+" Make leader-d remove line without cutting
+nnoremap <leader>d "_d
+nnoremap <leader>d "_d
+
 "Associate file ending .hbs with html
 au BufNewFile,BufRead *.hbs setlocal ft=html
 "Associate file ending .psl with Groovy
@@ -187,8 +195,13 @@ let NERDTreeIgnore=['node_modules$', '\~$']
     "Make leader+V resource the vimrc
     nnoremap <Leader>V :source ~/.vimrc<cr>
 
-    "Make comments red
-    hi comment ctermfg=DarkRed
+"Make jsx syntax show up in .js files
+let g:jsx_ext_required = 0
+
+"Make comments red
+hi comment ctermfg=DarkRed
 
 "Ensure that there's no delay between esc-ing and the next command executing
 set timeoutlen=1000 ttimeoutlen=0
+
+

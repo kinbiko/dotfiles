@@ -26,6 +26,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 "Makes syntax highlighting etc. more sane for js.
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 "Brilliant shortcuts for creating html boilerplate
 Plugin 'mattn/emmet-vim'
 "Excellent git plugin. Most features available through :G*
