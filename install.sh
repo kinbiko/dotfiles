@@ -33,6 +33,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 #This doesn't appear to be working as expected
 git submodule update --init
 
+gem install tmuxinator
 
 #TODOS:
 #Delete any old old_dotfiles if it exists
