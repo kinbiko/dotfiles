@@ -168,6 +168,12 @@ let g:miniBufExplBuffersNeeded = 1
 let g:miniBufExplCloseOnSelect = 1
 let g:miniBufExplShowBufNumbers = 0
 
+set nowrap
+
+set listchars+=trail:-
+
+inoremap cl. console.log();<ESC>jkhha
+
 let NERDTreeIgnore=['node_modules$', '\~$']
     "Make nerdtree more 'mine'
     let NERDTreeIgnore=['node_modules$', '\.git$', '\.DS_Store$', '\.meta$']

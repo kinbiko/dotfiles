@@ -1,0 +1,13 @@
+# ~/.tmuxinator/Hiragana.yml
+
+name: Hiragana
+root: ~/repos/kantanji-hiragana/code/hiragana/
+
+windows:
+    - run-ios:
+        panes:
+            - react-native run-ios
+    - vim:
+        root: ~/repos/kantanji-hiragana/code/hiragana/app/
+        panes:
+            - vim .
