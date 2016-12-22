@@ -21,8 +21,6 @@ alias :Q=exit
 #Shell aliases
 alias cl="clear";
 alias repos="cd ~/repos/"
-alias dotfiles="cd ~/repos/dotfiles"
-alias dot="cd ~/repos/dotfiles"
 
 #Git aliases
 alias g=git
@@ -40,6 +38,8 @@ alias tls="tmux ls"
 alias t="tmux attach"
 alias yoject="mux Yoject"
 alias hiragana="mux Hiragana"
+alias dotfiles="mux Dotfiles"
+alias dot="mux Dotfiles"
 
 source ~/repos/dotfiles/zsh/tmuxinator.zsh #Zsh bindings to tmuxinator
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
