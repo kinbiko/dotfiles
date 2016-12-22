@@ -50,4 +50,9 @@ windows:
       panes:
           - mongod
   - Mongodb:
-          - mongo
+      panes:
+          - sleep 3; mongo
+  - Swagger:
+      root: ~/Dropbox/Yoject/0.1 Analysis/Swagger
+      panes:
+          - pwd

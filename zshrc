@@ -7,8 +7,7 @@ export ZSH=/Users/roger/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="nanotech"
 
-plugins=(git)
-
+plugins=(git, docker)
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 source $ZSH/oh-my-zsh.sh
@@ -28,18 +27,21 @@ alias dot="cd ~/repos/dotfiles"
 #Git aliases
 alias g=git
 alias gs="git status"
-alias ga="git add"
+alias gd="git diff"
+alias gdc="git diff --cached"
+alias ga="git add ."
 alias gc="git commit"
 alias pull="git pull"
 alias push="git push"
 
 #Tmux aliases
 alias ta="tmux attach"
+alias tls="tmux ls"
 alias t="tmux attach"
 alias yoject="mux Yoject"
 alias hiragana="mux Hiragana"
 
-source ~/repos/dotfiles/tmuxinator/tmuxinator.zsh #Zsh bindings to tmuxinator
+source ~/repos/dotfiles/zsh/tmuxinator.zsh #Zsh bindings to tmuxinator
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export EDITOR='vim'
 export PATH=$PATH:~/scripts:/usr/local/octave/3.8.0/bin

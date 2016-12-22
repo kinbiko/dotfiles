@@ -58,6 +58,14 @@ Plugin 'fholgado/minibufexpl.vim'
 "Gif good code style for es6plz
 Plugin 'millermedeiros/vim-esformatter'
 
+" Snippets and dependenceies
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+
+" Filetype specific snippets
+Plugin 'honza/vim-snippets'
+
 call vundle#end()
 
 "====================== PLUGIN SETTINGS ====================
