@@ -1,33 +1,41 @@
 # ~/.tmuxinator/Yoject.yml
-root: ~/repos/yoject/
+root: ~/repos/yoject
 name: Yoject
 
 windows:
     - Git:
         panes:
             - git status
-    - Vim: 
-        root: ~/repos/yoject/web
-        panes: 
+    - Vim:
+        root: ~/repos/yoject/web/
+        panes:
             - vim src/
     - Backend:
         root: ~/repos/yoject/api/
         panes:
             - gradle bootRun
-    - Stubs: 
-        root: ~/repos/yoject/web/stubs
-        panes: 
+    - Frontend:
+        root: ~/repos/yoject/web/
+        panes:
+            - Run NPM:
+                - npm install
+                - npm start
+    - Stubs:
+        root: ~/repos/yoject/web/stubs/
+        panes:
             - npm start
     - Mongod:
         panes:
             - mongod
     - Mongodb:
         panes:
-            - sleep 3; mongo
+            - Mongo:
+                - sleep 3 #Must allow mongod to start first
+                - mongo
     - Swagger:
         root: ~/Dropbox/Yoject/0.1 Analysis/Swagger
         panes:
-            - npm install -g http-server; http-server;
+            - http-server
     - Htop:
         panes:
             - htop
