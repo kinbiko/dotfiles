@@ -11,3 +11,6 @@ windows:
         root: ~/repos/kantanji-hiragana/code/hiragana/app/
         panes:
             - vim .
+    - Htop:
+        panes:
+            - htop
