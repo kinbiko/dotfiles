@@ -35,7 +35,7 @@ windows:
     - Swagger:
         root: ~/Dropbox/Yoject/0.1 Analysis/Swagger
         panes:
-            - http-server
+            - http-server -p 8088
     - Htop:
         panes:
             - htop
