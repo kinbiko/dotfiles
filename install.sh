@@ -21,7 +21,7 @@ die(){
 [ "$#" -eq 1 ] || die "First argument should be path to dotfiles repository, none provided."
 
 # list of files/folders to symlink in homedir
-files="vimrc vim tmux.conf tmux.conf.local tmux oh-my-zsh tmuxinator zshrc"
+files="vimrc vim tmux.conf tmux.conf.local tmux oh-my-zsh tmuxinator zshrc ctags "
 
 echo "Creating $old_dotfiles_dir for backup of any existing dotfiles in ~"
 mkdir -p $old_dotfiles_dir
