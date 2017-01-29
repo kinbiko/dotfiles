@@ -14,6 +14,7 @@ source $ZSH/oh-my-zsh.sh
 alias rn="react-native"
 alias rios="react-native run-ios"
 alias v=vim
+alias top=htop
 alias :q=exit
 alias :Q=exit
 
@@ -44,5 +45,5 @@ alias dot="mux Dotfiles"
 source ~/repos/dotfiles/zsh/tmuxinator.zsh #Zsh bindings to tmuxinator
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export EDITOR='vim'
-export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/octave/3.8.0/bin
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/octave/3.8.0/bin:~/scripts
 export EVENT_NOKQUEUE=1 #Solves a tmux/OS 10 Sirra bug

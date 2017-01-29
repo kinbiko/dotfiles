@@ -38,12 +38,20 @@ Plugin 'scrooloose/nerdcommenter'
 "change surrounding stuff by some combinations of s. E.g.
 " cs`' when on the word `hello` will change it to 'hello'
 Plugin 'tpope/vim-surround'
+" Make vim-surround things repeatable with .
+Plugin 'tpope/vim-repeat'
 "Context aware pasting. E.g. intentation - tbh not that great atm.
 Plugin 'sickill/vim-pasta'
 "Insertion of spaces etc in normal mode, and other goodies using the [] keys.
 Plugin 'tpope/vim-unimpaired'
 "Swift support in vim
 Plugin 'keith/swift.vim'
+
+"Linting
+Plugin 'vim-syntastic/syntastic'
+Plugin 'mtscout6/syntastic-local-eslint.vim'
+" Async linting
+Plugin 'neomake/neomake'
 
 "Work better with tmux (does not work as expected - moving out of vim is ok,
 "moving from shell to tmux not so much)

@@ -11,10 +11,8 @@ set relativenumber
 nnoremap <leader><space> :nohlsearch<CR>
 " Leader + v opens vimrc
 nnoremap <leader>v :e ~/.vimrc<CR>
-"Leader + Leader opens nerd tree. TODO: can this be made smarter?
+"Leader + Leader opens nerd tree.
 nnoremap <leader><leader> :NERDTreeToggle<CR>
-" make buffer switching easier
-nnoremap <leader>f :buffers<CR>:b
 
 " Git status on leader + s
 nnoremap <leader>s :Gstatus<CR>
@@ -22,10 +20,6 @@ nnoremap <leader>s :Gstatus<CR>
 nnoremap <leader>b :Gblame<CR>
 " Git commit on leader + c
 nnoremap <leader>c :Gcommit<CR>
-" Git push on leader + pull
-nnoremap <leader>push :Gpush<CR>
-" Git pull on leader + pull
-nnoremap <leader>pull :Gpull<CR>
 
 "make leader + . return to previous file
 noremap <leader>. :b#<CR>
@@ -46,12 +40,14 @@ nnoremap k gk
 nmap t o<ESC>k
 nmap T O<ESC>j
 
-"Use E and B instead of $ and ^
-nnoremap B ^
-nnoremap E $
+"Use gt and gb to follow and return from ctagged files
+nnoremap gt <C-]>
+nnoremap gb <C-t>
+
 "Make H be home, L be end
 noremap H ^
 noremap L $
+
 "Make semicolon do what you normally need colon to do
 nnoremap ; :
 
@@ -76,6 +72,7 @@ imap <C-h> <C-o>h
 imap <C-j> <C-o>j
 imap <C-k> <C-o>k
 imap <C-l> <C-o>l
+
 "============= Visual mode remappings=============
 " make // in visual mode seach for the currently selected words
 vnoremap // y/<C-R>"<CR>
@@ -90,8 +87,6 @@ nnoremap <leader>d "_d
 
 "Associate file ending .hbs with html
 au BufNewFile,BufRead *.hbs setlocal ft=html
-"Associate file ending .psl with Groovy
-au BufNewFile,BufRead *.psl setlocal ft=groovy
 "Associate file vimplugins with vim
 au BufNewFile,BufRead vimplugins setlocal ft=vim
 " Associate file .kata with Groovy
@@ -117,7 +112,7 @@ set smartcase  "except when explicitly using capital letters
 set autoindent "Used for files with no filetype specific settings
 set ruler "Display the curser position in the bottom right corner
 set confirm "instead of aboring because of unsaved changes, ask
-set cmdheight=2 "set the command line height to 2
+set cmdheight=1 "set the command line height to 1
 set number "Display line numbers
 " set cursorline "Highlight the current line
 set autoread "Automatically read file when edited outside of vim
@@ -167,15 +162,6 @@ map <leader>r <CR>:!python %
 
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
-"remove the buffer status line text.
-map <Leader>t :MBEToggle<cr>:MBEFocus<cr>
-nnoremap <Leader><Right> :MBEbn<cr>
-nnoremap <Leader><Left> :MBEbp<cr>
-nnoremap <Leader>w :MBEbd<cr>
-let g:miniBufExplBuffersNeeded = 1
-let g:miniBufExplCloseOnSelect = 1
-let g:miniBufExplShowBufNumbers = 0
-
 set nowrap
 
 set listchars+=trail:-
@@ -183,17 +169,17 @@ set listchars+=trail:-
 inoremap cl. console.log();<ESC>jkhha
 
 let NERDTreeIgnore=['node_modules$', '\~$']
-    "Make nerdtree more 'mine'
-    let NERDTreeIgnore=['node_modules$', '\.git$', '\.DS_Store$', '\.meta$']
-    let NERDTreeShowHidden=1
-    let NERDTreeMinimalUI=1
-    let NERDTreeAutoDeleteBuffer=1
+"Make nerdtree more 'mine'
+let NERDTreeIgnore=['node_modules$', '\.git$', '\.DS_Store$', '\.meta$']
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI=1
+let NERDTreeAutoDeleteBuffer=1
 
-    "Configure autoclose
-    let g:AutoClosePairs = "() {} \" `"
+"Configure autoclose
+let g:AutoClosePairs = "() {} \" `"
 
-    "Make leader+V resource the vimrc
-    nnoremap <Leader>V :source ~/.vimrc<cr>
+"Make leader+V resource the vimrc
+nnoremap <Leader>V :source ~/.vimrc<cr>
 
 "Make jsx syntax show up in .js files
 let g:jsx_ext_required = 0
@@ -201,7 +187,31 @@ let g:jsx_ext_required = 0
 "Make comments red
 hi comment ctermfg=DarkRed
 
+autocmd! BufWritePost * Neomake
+"Syntastic stuff
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+
+let g:syntastic_error_symbol = '!'
+let g:syntastic_style_error_symbol = '!'
+let g:syntastic_warning_symbol = '?'
+let g:syntastic_style_warning_symbol = '?'
+
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
+
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
 "Ensure that there's no delay between esc-ing and the next command executing
 set timeoutlen=1000 ttimeoutlen=0
-
 
