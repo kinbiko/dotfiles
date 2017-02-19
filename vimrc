@@ -12,9 +12,9 @@ source ~/.vim/mapping-config.vim
 hi comment ctermfg=DarkRed
 
 "Highlight column 121
-"set colorcolumn=121
+set colorcolumn=121
 "Make the column red
-"highlight ColorColumn ctermbg=1
+highlight ColorColumn ctermbg=1
 
 "=== WANT ===
 "1: Can I change the behaviour of { and } in normal mode to be [ and ] instead?

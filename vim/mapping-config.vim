@@ -60,6 +60,9 @@ nnoremap <leader><space> :nohlsearch<CR>
 "Make // in visual mode seach for the currently selected words
 vnoremap // y/<C-R>"<CR>
 
+nnoremap <BS> {
+nnoremap <CR> }
+
 "=== .vimrc ===
 "Leader + v opens vimrc
 nnoremap <leader>v :e ~/.vimrc<CR>

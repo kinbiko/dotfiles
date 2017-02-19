@@ -47,9 +47,6 @@ Plugin 'godlygeek/tabular.git' "Make aligning nice and pretty
 call vundle#end() "Signify that there are no more Plugins
 
 "====================== TODO numbering =====================
-"The line lengths are capped at 80 characters, so rather than inlining the
-"TODO comments I've assembled them all here.
-"
 "1: Learn more about/investigate. This plugin/feature looks promising, but
 "needs more configuration before I can use it confidently in my workflow.
 "
