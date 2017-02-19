@@ -1,16 +1,20 @@
 "Load the plugins before trying to configure any settings
 source ~/.vim/install-plugins.vim
 source ~/.vim/airline-config.vim
-source ~/.vim/nerdtree-config.vim
 source ~/.vim/syntastic-config.vim
 source ~/.vim/plugin-config.vim
+source ~/.vim/nerdtree-config.vim
 source ~/.vim/general-config.vim
 source ~/.vim/filetype-association-config.vim
 source ~/.vim/typos-config.vim
 source ~/.vim/mapping-config.vim
-
 "Make comments red. This must be below other style configs to have an effect
 hi comment ctermfg=DarkRed
+
+"Highlight column 121
+"set colorcolumn=121
+"Make the column red
+"highlight ColorColumn ctermbg=1
 
 "=== WANT ===
 "1: Can I change the behaviour of { and } in normal mode to be [ and ] instead?

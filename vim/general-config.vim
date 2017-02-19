@@ -50,3 +50,9 @@ set nowrap "Don't wrap lines by default
 filetype plugin indent on "Enable plugin- and filetype indent
 syntax enable "Use syntax highlighting by default
 
+" Make help always open veritcally
+function OpenHelp80Cols()
+    wincmd L
+    exec 'vertical resize 81'
+endfunction
+autocmd FileType help :call OpenHelp80Cols()
