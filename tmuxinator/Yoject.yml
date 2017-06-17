@@ -3,39 +3,36 @@ root: ~/repos/yoject
 name: Yoject
 
 windows:
-    - Git:
+    - Shell:
         panes:
             - git status
-    - Vim:
+    - TDD:
         root: ~/repos/yoject/web/
         panes:
             - vim src/
+            - Run NPM:
+                - npm install
+                - npm start
+            - npm test
     - Backend:
         root: ~/repos/yoject/api/
         panes:
             - gradle bootRun
-    - Frontend:
-        root: ~/repos/yoject/web/
-        panes:
-            - Run NPM:
-                - npm install
-                - npm start
-    - Stubs:
-        root: ~/repos/yoject/web/stubs/
-        panes:
-            - npm start
-    - Mongod:
-        panes:
             - mongod
-    - Mongodb:
-        panes:
             - Mongo:
                 - sleep 3 #Must allow mongod to start first
                 - mongo
-    - Swagger:
-        root: ~/Dropbox/Yoject/0.1 Analysis/Swagger
+    - Services:
+        root: ~/repos/yoject/web/
         panes:
-            - http-server -p 8088
+            - Run stubs:
+                - cd stubs
+                - npm install
+                - npm start
+            - Swagger:
+                - cd ~/Dropbox/Yoject/0.1 Analysis/Swagger
+                - http-server -p 8088
+
     - Htop:
         panes:
             - htop
