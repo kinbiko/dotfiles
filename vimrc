@@ -11,10 +11,14 @@ source ~/.vim/mapping-config.vim
 "Make comments red. This must be below other style configs to have an effect
 hi comment ctermfg=DarkRed
 
-"Highlight column 121
-set colorcolumn=121
-"Make the column red
-highlight ColorColumn ctermbg=1
+"Highlight lines longer than 120
+match ErrorMsg '\%>120v.\+'
+
+" Syntastic
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_style_error_symbol = '✠'
+let g:syntastic_warning_symbol = '✠'
+let g:syntastic_style_warning_symbol = '≈'
 
 "=== WANT ===
 "1: Can I change the behaviour of { and } in normal mode to be [ and ] instead?
