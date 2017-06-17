@@ -13,6 +13,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'pangloss/vim-javascript' "Makes syntax highlighting etc. more sane for js.
 Plugin 'mxw/vim-jsx'
+Plugin 'ap/vim-css-color' "Make css colours appear in editor in that colour
 
 "=== Navigation ===
 Plugin 'scrooloose/nerdtree' "File tree on the left hand side
