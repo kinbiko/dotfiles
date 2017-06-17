@@ -10,8 +10,3 @@ let g:rehash256=1
 
 colorscheme molokai
 let g:javascript_enable_domhtmlcss = 1 "Makes css/html syntax available in .js files(React)
-
-"=== MiniBufExplorer ===
-let g:miniBufExplShowBufNumbers = 0
-let g:miniBufExplBRSplit=0 "Put new window above
- 
