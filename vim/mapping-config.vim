@@ -69,6 +69,9 @@ nnoremap <leader>v :e ~/.vimrc<CR>
 "Make leader+V resource the vimrc
 nnoremap <Leader>V :source ~/.vimrc<cr>
 
+"Map any !shell commands to clear the console first
+:map :! :!clear;
+
 "=== Plugin shortcuts ===
 "Make Emmet available through h + h
 imap hh <C-y>
