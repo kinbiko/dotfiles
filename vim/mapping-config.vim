@@ -76,5 +76,10 @@ nnoremap <Leader>V :source ~/.vimrc<cr>
 "Make Emmet available through h + h
 imap hh <C-y>
 
+"Make a vertical split with vv
+nnoremap <silent> vv <C-w>v
+"Make a horizontal split with VV
+nnoremap <silent> VV <C-w>s
+
 "Leader + Leader opens nerd tree.
 nnoremap <leader><leader> :NERDTreeToggle<CR>
