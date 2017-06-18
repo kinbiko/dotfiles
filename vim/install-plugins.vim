@@ -21,6 +21,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin' "Nerdtree + git highlighting
 Plugin 'ctrlpvim/ctrlp.vim' "Makes an index of all files available on ctrl+p
 Plugin 'majutsushi/tagbar' "Creates an outline of the tags in the file on the right
 Plugin 'fholgado/minibufexpl.vim' "Get me a buffer overview. WANT:2
+Plugin 'wincent/terminus' "Cursor changes in different modes, mouse support
 
 "=== Git ===
 Plugin 'airblade/vim-gitgutter' "Makes the git gutter with +, ~, and - available
