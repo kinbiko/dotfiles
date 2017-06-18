@@ -17,8 +17,15 @@ brew "tree"
 brew "vim"
 brew "watch"
 brew "zsh"
+brew "fzf"
 
-cask 'iterm2'
+cask install 'iterm2'
 cask install 'google-chrome'
+cask install 'spotify'
+cask install 'flux'
+cask install 'slack'
+cask install 'dash'
+cask install 'vlc'
+cask install 'intellij-idea-ce'
 cask install 'alfred'
 cask alfred link

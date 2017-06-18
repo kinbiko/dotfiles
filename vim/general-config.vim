@@ -56,3 +56,4 @@ function OpenHelp80Cols()
     exec 'vertical resize 81'
 endfunction
 autocmd FileType help :call OpenHelp80Cols()
+set rtp+=/usr/local/opt/fzf
