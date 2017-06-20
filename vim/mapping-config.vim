@@ -54,14 +54,18 @@ inoremap cl. console.log();<ESC>jkhha
 nnoremap ; :
 "Make jk == escape. Good for when CAPS-LOCK can't be mapped to escape.
 inoremap jk <esc>
+vnoremap jk <esc>
 
 "Clear the search highlights
 nnoremap <leader><space> :nohlsearch<CR>
 "Make // in visual mode seach for the currently selected words
 vnoremap // y/<C-R>"<CR>
 
-nnoremap <BS> {
-nnoremap <CR> }
+nmap <BS> {
+nmap <CR> }
+
+vmap <BS> {
+vmap <CR> }
 
 "=== .vimrc ===
 "Leader + v opens vimrc
