@@ -15,7 +15,6 @@ Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
 "=== Navigation ===
 Plug 'scrooloose/nerdtree' "File tree on the left hand side
 Plug 'Xuyuanp/nerdtree-git-plugin' "Nerdtree + git highlighting
-Plug 'ctrlpvim/ctrlp.vim' "Makes an index of all files available on ctrl+p
 Plug 'majutsushi/tagbar' "Creates an outline of the tags in the file on the right
 Plug 'fholgado/minibufexpl.vim' "Get me a buffer overview. WANT:2
 Plug 'wincent/terminus' "Cursor changes in different modes, mouse support
