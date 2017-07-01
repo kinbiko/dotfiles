@@ -254,3 +254,5 @@ bind -n C-l run "($is_vim && tmux send-keys C-l) || \
                  tmux select-pane -R"
 
 bind-key -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
+
+set-option -g default-command "reattach-to-user-namespace -l zsh"
