@@ -50,6 +50,12 @@ set nowrap "Don't wrap lines by default
 filetype plugin indent on "Enable plugin- and filetype indent
 syntax enable "Use syntax highlighting by default
 
+"How to represent non-printable characters
+set listchars=tab:>-,trail:·,extends:>,precedes:<
+set list "turn the above on
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+set laststatus=2 " Always display the statusline in all windows
+
 " Make help always open veritcally
 function OpenHelp80Cols()
     wincmd L
