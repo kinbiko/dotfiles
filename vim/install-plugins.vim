@@ -25,7 +25,6 @@ Plug 'tpope/vim-fugitive' "Most git features available through :G*
 
 "=== Surrounding syntax ===
 Plug 'Townk/vim-autoclose' "Adds matching quotes, bracets etc.
-Plug 'tmhedberg/matchit' "Makes % sane with e.g. <tags></tags>
 Plug 'mattn/emmet-vim' "Shortcuts for creating html boilerplate
 Plug 'tpope/vim-surround' "Introduce the surround syntax to vim language
 Plug 'tpope/vim-repeat' "Make vim-surround things repeatable with .
@@ -38,7 +37,6 @@ Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'ervandew/supertab' "Tab completion. TODO:1
 Plug 'scrooloose/nerdcommenter' "Comment with leader + c + c. TODO:2
 Plug 'sickill/vim-pasta' "Context aware pasting. E.g. intentation TODO:1
-Plug 'tpope/vim-unimpaired' "Goodies using the [] keys. TODO:2 
 Plug 'christoomey/vim-tmux-navigator' "Work better with tmux
 Plug 'godlygeek/tabular.git' "Make aligning nice and pretty
 
