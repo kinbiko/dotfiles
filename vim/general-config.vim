@@ -5,10 +5,10 @@ set foldnestmax=10 "You're writing bad code if you need to up this one
 set foldmethod=indent
 
 "=== Indentation ===
-set tabstop=4 "number of VISUAL SPACES per tab
-set softtabstop=4 "Number of spaces per tab when editing
+set tabstop=2 "number of VISUAL SPACES per tab
+set softtabstop=2 "Number of spaces per tab when editing
+set shiftwidth=2
 set expandtab "converts tabs to spaces
-set shiftwidth=4
 set autoindent "Used for files with no filetype specific settings
 
 "=== Scrolling ===
