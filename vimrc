@@ -20,9 +20,3 @@ let g:syntastic_error_symbol = '✗'
 let g:syntastic_style_error_symbol = '✠'
 let g:syntastic_warning_symbol = '✠'
 let g:syntastic_style_warning_symbol = '≈'
-
-"=== WANT ===
-"1: Can I change the behaviour of { and } in normal mode to be [ and ] instead?
-"2: Change variable name to UPPER_SNAKE_CASE with U in normal mode
-"3: Command for running ctags in the current directory
-"4: Make trailing whitespace characters obvious
