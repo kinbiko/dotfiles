@@ -11,9 +11,6 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'tomasr/molokai'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'pangloss/vim-javascript' "Makes syntax highlighting etc. more sane for js.
-Plugin 'mxw/vim-jsx'
-Plugin 'ap/vim-css-color' "Make css colours appear in editor in that colour
 
 "=== Navigation ===
 Plugin 'scrooloose/nerdtree' "File tree on the left hand side
@@ -22,6 +19,9 @@ Plugin 'ctrlpvim/ctrlp.vim' "Makes an index of all files available on ctrl+p
 Plugin 'majutsushi/tagbar' "Creates an outline of the tags in the file on the right
 Plugin 'fholgado/minibufexpl.vim' "Get me a buffer overview. WANT:2
 Plugin 'wincent/terminus' "Cursor changes in different modes, mouse support
+Plugin 'junegunn/fzf' "fzf in vim
+Plugin 'junegunn/fzf.vim' "fzf in vim
+Plugin 'rking/ag.vim' "search inside files
 
 "=== Git ===
 Plugin 'airblade/vim-gitgutter' "Makes the git gutter with +, ~, and - available
@@ -45,6 +45,13 @@ Plugin 'sickill/vim-pasta' "Context aware pasting. E.g. intentation TODO:1
 Plugin 'tpope/vim-unimpaired' "Goodies using the [] keys. TODO:2 
 Plugin 'christoomey/vim-tmux-navigator' "Work better with tmux
 Plugin 'godlygeek/tabular.git' "Make aligning nice and pretty
+
+
+"=== Languages ===
+Plugin 'pangloss/vim-javascript' "Makes syntax highlighting etc. more sane for js.
+Plugin 'kchmck/vim-coffee-script' "Coffescript support
+Plugin 'mxw/vim-jsx' "Support for JSX
+Plugin 'ap/vim-css-color' "Make css colours appear in editor in that colour
 
 call vundle#end() "Signify that there are no more Plugins
 
