@@ -20,6 +20,9 @@ alias :Q=exit
 
 #Shell
 alias cl="clear";
+alias claer="clear"
+alias cler="clear"
+alias lear="clear"
 alias repos="cd ~/repos/"
 
 #Git
