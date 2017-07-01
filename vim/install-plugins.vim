@@ -32,6 +32,7 @@ Plug 'tpope/vim-repeat' "Make vim-surround things repeatable with .
 "=== Linting ===
 Plug 'vim-syntastic/syntastic' "Linting engine
 Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'bronson/vim-trailing-whitespace' "Mark trailing whitespace
 
 "=== Misc. ===
 Plug 'ervandew/supertab' "Tab completion. TODO:1
