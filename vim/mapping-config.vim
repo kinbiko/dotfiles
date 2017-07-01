@@ -76,6 +76,13 @@ nnoremap <Leader>V :source ~/.vimrc<cr>
 "Map any !shell commands to clear the console first
 :map :! :!clear;
 
+"Run mocha test
+nnoremap ,1 :w<cr>yi':!clear;npm run testlog -- -g "<C-r>0"<CR>
+nnoremap ,2 :w<cr>yi":!clear;npm run testlog -- -g "<C-r>0"<CR>
+
+nnoremap ,f :Files<cr>
+nnoremap ,F :AgBuffer! 
+
 "=== Plugin shortcuts ===
 "Make Emmet available through h + h
 imap hh <C-y>
@@ -84,6 +91,8 @@ imap hh <C-y>
 nnoremap <silent> vv <C-w>v
 "Make a horizontal split with VV
 nnoremap <silent> VV <C-w>s
+
+nnoremap ? :BLines<cr>
 
 "Leader + Leader opens nerd tree.
 nnoremap <leader><leader> :NERDTreeToggle<CR>
