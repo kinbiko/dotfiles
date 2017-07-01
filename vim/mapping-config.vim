@@ -1,40 +1,31 @@
-let mapleader = ',' "leader == ,
+let mapleader = ','
 
 "=== File Navigation ===
 "Flip between files with ,.
 noremap <leader>. :b#<CR>
-"Use gt and gb to follow and return from ctagged files TODO:1
-nnoremap gt <C-]>
-nnoremap gb <C-t>
+"Follow and return from ctagged files
+nnoremap ] <C-]>
+nnoremap [ <C-t>
 
 "=== Editor navigation ===
 "Make H be home, L be end
 noremap H ^
 noremap L $
-"Navigate vim splits with CTRL + h/j/k/l
+nnoremap j gj
+nnoremap k gk
+"Navigate vim splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-"=== Git shortcuts ===
-"status = leader + s
-nnoremap <leader>s :Gstatus<CR>
-"blame  = leader + b
 nnoremap <leader>b :Gblame<CR>
-
-"Remap space to open/close folds
-nnoremap <space> za
 
 "=== Evil keys ===
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> :bp<CR>
 noremap <Right> :bn<CR>
-
-"=== Wrapping ===
-nnoremap j gj
-nnoremap k gk
 
 "=== Quick Edit ===
 "Insert blank lines without insert mode
@@ -45,14 +36,11 @@ nmap Q @@
 "Align blocks of text and keep them selected
 vmap < <gv
 vmap > >gv
-"Make cl. insert a console log statement
-inoremap cl. console.log();<ESC>jkhha
-"Make control + = insert a hashrocket
 
 "=== Mode switching ===
-"Make semicolon do what you normally need colon to do
+"Simplify getting to :Ex mode
 nnoremap ; :
-"Make jk == escape. Good for when CAPS-LOCK can't be mapped to escape.
+"Good for when CAPS-LOCK can't be mapped to escape.
 inoremap jk <esc>
 vnoremap jk <esc>
 
@@ -70,29 +58,39 @@ vmap <CR> }
 "=== .vimrc ===
 "Leader + v opens vimrc
 nnoremap <leader>v :e ~/.vimrc<CR>
-"Make leader+V resource the vimrc
-nnoremap <Leader>V :source ~/.vimrc<cr>
+"Opens this file
+nnoremap <Leader>m :e ~/.vim/mapping-config.vim<CR>
 
 "Map any !shell commands to clear the console first
 :map :! :!clear;
 
 "Run mocha test
-nnoremap ,1 :w<cr>yi':!clear;npm run testlog -- -g "<C-r>0"<CR>
-nnoremap ,2 :w<cr>yi":!clear;npm run testlog -- -g "<C-r>0"<CR>
+nnoremap ,1 :w<CR>yi':!clear;npm run testlog -- -g "<C-r>0"<CR>
+nnoremap ,2 :w<CR>yi":!clear;npm run testlog -- -g "<C-r>0"<CR>
 
-nnoremap ,f :Files<cr>
-nnoremap ,F :AgBuffer! 
+nnoremap ,f :Tags<CR>
+nnoremap <C-o> :BTags<CR>
+nnoremap <C-f> :AgBuffer! 
 
 "=== Plugin shortcuts ===
 "Make Emmet available through h + h
 imap hh <C-y>
 
 "Make a vertical split with vv
-nnoremap <silent> vv <C-w>v
+nnoremap <silent> vv :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "Make a horizontal split with VV
-nnoremap <silent> VV <C-w>s
+nnoremap <silent> VV :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-nnoremap ? :BLines<cr>
+nnoremap ? :BLines<CR>
 
 "Leader + Leader opens nerd tree.
 nnoremap <leader><leader> :NERDTreeToggle<CR>
+
+"=== Javascript/Coffeescript ===
+"Make cl. insert a console log statement
+inoremap cl. console.log();<ESC>jkhha
+
+"=== List of keys that are available for mapping to:
+"U - don't usually want to do a photoshop-undo
+"Space - make it something good
+"Up and down (left and right too)
