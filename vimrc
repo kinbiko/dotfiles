@@ -14,6 +14,8 @@ hi comment ctermfg=DarkRed
 "Highlight lines longer than 120
 match ErrorMsg '\%>120v.\+'
 
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
 " Syntastic
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_style_error_symbol = '✠'
