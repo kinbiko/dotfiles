@@ -68,9 +68,10 @@ nnoremap <Leader>m :e ~/.vim/mapping-config.vim<CR>
 nnoremap ,1 :w<CR>yi':!clear;npm run testlog -- -g "<C-r>0"<CR>
 nnoremap ,2 :w<CR>yi":!clear;npm run testlog -- -g "<C-r>0"<CR>
 
-nnoremap ,f :Tags<CR>
+nnoremap <Space> :Tags<CR>
 nnoremap <C-o> :BTags<CR>
 nnoremap <C-f> :AgBuffer! 
+nnoremap <leader>f :Buffer<cr>
 
 "=== Plugin shortcuts ===
 "Make Emmet available through h + h
@@ -84,7 +85,7 @@ nnoremap <silent> VV :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 nnoremap ? :BLines<CR>
 
 "Leader + Leader opens nerd tree.
-nnoremap <leader><leader> :NERDTreeToggle<CR>
+nnoremap <silent> <leader><leader> :NERDTreeToggle<CR>
 
 "=== Javascript/Coffeescript ===
 "Make cl. insert a console log statement
@@ -92,5 +93,4 @@ inoremap cl. console.log();<ESC>jkhha
 
 "=== List of keys that are available for mapping to:
 "U - don't usually want to do a photoshop-undo
-"Space - make it something good
 "Up and down (left and right too)
