@@ -34,6 +34,7 @@ alias gdc="git diff --cached"
 alias ga="git add ."
 alias pull="git pull"
 alias push="git push"
+alias fetch="git fetch -p"
 
 #Tmux
 alias ta="tmux attach"
