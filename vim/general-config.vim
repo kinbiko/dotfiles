@@ -53,6 +53,7 @@ syntax enable "Use syntax highlighting by default
 "How to represent non-printable characters
 set listchars=tab:>-,trail:·,extends:>,precedes:<
 set list "turn the above on
+
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set laststatus=2 " Always display the statusline in all windows
 
@@ -62,4 +63,5 @@ function OpenHelp80Cols()
     exec 'vertical resize 81'
 endfunction
 autocmd FileType help :call OpenHelp80Cols()
+
 set rtp+=/usr/local/opt/fzf

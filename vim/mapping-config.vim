@@ -49,6 +49,7 @@ nnoremap <leader><space> :nohlsearch<CR>
 "Make // in visual mode seach for the currently selected words
 vnoremap // y/<C-R>"<CR>
 
+"Literally the best keybindings I know
 nmap <BS> {
 nmap <CR> }
 
@@ -58,43 +59,27 @@ vmap <CR> }
 "=== .vimrc ===
 "Leader + v opens vimrc
 nnoremap <leader>v :e ~/.vimrc<CR>
-"Opens this file
-nnoremap <Leader>m :e ~/.vim/mapping-config.vim<CR>
 
 "Map any !shell commands to clear the console first
 :map :! :!clear;
 
-"Run mocha test
-nnoremap ,1 :w<CR>yi':!clear;npm run testlog -- -g "<C-r>0"<CR>
-nnoremap ,2 :w<CR>yi":!clear;npm run testlog -- -g "<C-r>0"<CR>
-
-
+nnoremap ? :BLines<CR>
 nnoremap <C-t> :GFiles<CR>
 nnoremap <Space> :Tags<CR>
 nnoremap <C-o> :BTags<CR>
 nnoremap <C-f> :AgBuffer! 
 nnoremap <leader>f :Buffer<cr>
 
-"=== Plugin shortcuts ===
-"Make Emmet available through h + h
-imap hh <C-y>
-
-"Make a vertical split with vv
+"Make a vertical split with vv, and go to tag if on one
 nnoremap <silent> vv :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-"Make a horizontal split with VV
+"Make a horizontal split with VV, and go to tag if on one
 nnoremap <silent> VV :sp <CR>:exec("tag ".expand("<cword>"))<CR>
-
-nnoremap ? :BLines<CR>
 
 "Leader + Leader opens nerd tree.
 nnoremap <silent> <leader><leader> :NERDTreeToggle<CR>
 
 "Make this buffer the only buffer
 nnoremap <leader>o :w\|%bd\|e#<cr>
-
-"=== Javascript/Coffeescript ===
-"Make cl. insert a console log statement
-inoremap cl. console.log();<ESC>jkhha
 
 "=== List of keys that are available for mapping to:
 "U - don't usually want to do a photoshop-undo
