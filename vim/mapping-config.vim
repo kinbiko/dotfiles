@@ -68,6 +68,8 @@ nnoremap <Leader>m :e ~/.vim/mapping-config.vim<CR>
 nnoremap ,1 :w<CR>yi':!clear;npm run testlog -- -g "<C-r>0"<CR>
 nnoremap ,2 :w<CR>yi":!clear;npm run testlog -- -g "<C-r>0"<CR>
 
+
+nnoremap <C-t> :GFiles<CR>
 nnoremap <Space> :Tags<CR>
 nnoremap <C-o> :BTags<CR>
 nnoremap <C-f> :AgBuffer! 
@@ -86,6 +88,9 @@ nnoremap ? :BLines<CR>
 
 "Leader + Leader opens nerd tree.
 nnoremap <silent> <leader><leader> :NERDTreeToggle<CR>
+
+"Make this buffer the only buffer
+nnoremap <leader>o :w\|%bd\|e#<cr>
 
 "=== Javascript/Coffeescript ===
 "Make cl. insert a console log statement

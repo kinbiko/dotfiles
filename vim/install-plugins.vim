@@ -14,7 +14,6 @@ Plug 'scrooloose/nerdtree' "File tree on the left hand side
 Plug 'Xuyuanp/nerdtree-git-plugin' "Nerdtree + git highlighting
 Plug 'ctrlpvim/ctrlp.vim' "Makes an index of all files available on ctrl+p
 Plug 'majutsushi/tagbar' "Creates an outline of the tags in the file on the right
-Plug 'fholgado/minibufexpl.vim' "Get me a buffer overview. WANT:2
 Plug 'wincent/terminus' "Cursor changes in different modes, mouse support
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' "fzf in vim
 Plug 'rking/ag.vim' "search inside files
@@ -36,11 +35,8 @@ Plug 'bronson/vim-trailing-whitespace' "Mark trailing whitespace
 
 "=== Misc. ===
 Plug 'ervandew/supertab' "Tab completion. TODO:1
-Plug 'scrooloose/nerdcommenter' "Comment with leader + c + c. TODO:2
 Plug 'sickill/vim-pasta' "Context aware pasting. E.g. intentation TODO:1
 Plug 'christoomey/vim-tmux-navigator' "Work better with tmux
-Plug 'godlygeek/tabular.git' "Make aligning nice and pretty
-
 
 "=== Languages ===
 Plug 'pangloss/vim-javascript' "Makes syntax highlighting etc. more sane for js.
@@ -49,11 +45,14 @@ Plug 'mxw/vim-jsx' "Support for JSX
 Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
 Plug 'sbdchd/neoformat' "Formatter (that supports prettier)
 
+"The following plugin(s) can't be cloned using the https:// protocol and must
+"use the git:// protocol
+
+Plug 'godlygeek/tabular.git' "Make aligning nice and pretty
+
+
 call plug#end()
 
 "====================== TODO numbering =====================
 "1: Learn more about/investigate. This plugin/feature looks promising, but
 "needs more configuration before I can use it confidently in my workflow.
-"
-"2: Introduce into workflow. This tool is great, but I haven't actually
-"started using it yet.
