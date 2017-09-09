@@ -5,7 +5,6 @@ call plug#begin('~/.vim/plugged')
 
 "=== Themes and looks ===
 Plug 'flazz/vim-colorschemes'
-Plug 'tomasr/molokai'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
