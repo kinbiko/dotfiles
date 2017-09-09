@@ -12,7 +12,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree' "File tree on the left hand side
 Plug 'Xuyuanp/nerdtree-git-plugin' "Nerdtree + git highlighting
 Plug 'ctrlpvim/ctrlp.vim' "Makes an index of all files available on ctrl+p
-Plug 'majutsushi/tagbar' "Creates an outline of the tags in the file on the right
 Plug 'wincent/terminus' "Cursor changes in different modes, mouse support
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' "fzf in vim
 Plug 'rking/ag.vim' "search inside files
@@ -24,17 +23,17 @@ Plug 'tpope/vim-fugitive' "Most git features available through :G*
 "=== Surrounding syntax ===
 Plug 'Townk/vim-autoclose' "Adds matching quotes, bracets etc.
 Plug 'mattn/emmet-vim' "Shortcuts for creating html boilerplate
-Plug 'tpope/vim-surround' "Introduce the surround syntax to vim language
+Plug 'tpope/vim-surround' "ysiw syntax for surrounding
 Plug 'tpope/vim-repeat' "Make vim-surround things repeatable with .
 
 "=== Linting ===
 Plug 'vim-syntastic/syntastic' "Linting engine
-Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'mtscout6/syntastic-local-eslint.vim' "Es6 is here to stay
 Plug 'bronson/vim-trailing-whitespace' "Mark trailing whitespace
 
 "=== Misc. ===
-Plug 'ervandew/supertab' "Tab completion. TODO:1
-Plug 'sickill/vim-pasta' "Context aware pasting. E.g. intentation TODO:1
+Plug 'ervandew/supertab' "Tab completion.
+Plug 'sickill/vim-pasta' "Context aware pasting + intentation
 Plug 'christoomey/vim-tmux-navigator' "Work better with tmux
 
 "=== Languages ===
@@ -51,7 +50,3 @@ Plug 'godlygeek/tabular.git' "Make aligning nice and pretty
 
 
 call plug#end()
-
-"====================== TODO numbering =====================
-"1: Learn more about/investigate. This plugin/feature looks promising, but
-"needs more configuration before I can use it confidently in my workflow.

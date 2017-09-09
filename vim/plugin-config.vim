@@ -8,5 +8,8 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:molokai_original=1
 let g:rehash256=1
 
+"Supertab context magic
+let g:SuperTabDefaultCompletionType = "context"
+
 colorscheme jellyx
 let g:javascript_enable_domhtmlcss = 1 "Makes css/html syntax available in .js files(React)
