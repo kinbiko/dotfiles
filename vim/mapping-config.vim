@@ -63,12 +63,16 @@ nnoremap <leader>v :e ~/.vimrc<CR>
 "Map any !shell commands to clear the console first
 :map :! :!clear;
 
-nnoremap ? :BLines<CR>
-nnoremap <C-t> :GFiles<CR>
+
+"===Epic navi===
+"Fuzzy-find any file in this directory with ctrl+t
+nnoremap <C-t> :CtrlP<CR>
+"Fuzzy-find any file in this git repo with ?
+nnoremap ? :GFiles<CR>
+"Go to a tag with space
 nnoremap <Space> :Tags<CR>
+"Go to a tag in this buffer with ctrl+o (eclipse style)
 nnoremap <C-o> :BTags<CR>
-nnoremap <C-f> :AgBuffer! 
-nnoremap <leader>f :Buffer<cr>
 
 "Make a vertical split with vv, and go to tag if on one
 nnoremap <silent> vv :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
