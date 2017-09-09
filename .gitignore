@@ -1,4 +1,4 @@
 **.DS_STORE
 **.log
-vim/bundle/**
+vim/plugged/**
 tmux/plugins
