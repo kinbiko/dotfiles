@@ -13,3 +13,4 @@ let g:SuperTabDefaultCompletionType = "context"
 
 colorscheme jellyx
 let g:javascript_enable_domhtmlcss = 1 "Makes css/html syntax available in .js files(React)
+

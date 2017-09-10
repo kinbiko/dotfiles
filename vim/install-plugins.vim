@@ -41,7 +41,7 @@ Plug 'pangloss/vim-javascript' "Makes syntax highlighting etc. more sane for js.
 Plug 'kchmck/vim-coffee-script' "Coffescript support
 Plug 'mxw/vim-jsx' "Support for JSX
 Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
-Plug 'sbdchd/neoformat' "Formatter (that supports prettier)
+Plug 'prettier/vim-prettier' "prettier formatter
 
 "The following plugin(s) can't be cloned using the https:// protocol and must
 "use the git:// protocol

@@ -57,7 +57,7 @@ alias ga="git add ."
 alias pull="git pull"
 alias push="git push"
 alias fetch="git fetch -p"
-alias gorramit="git commit --amend"
+alias gorramit="git commit --amend --no-edit"
 
 #Tmux
 alias ta="tmux attach"
