@@ -28,7 +28,6 @@ source $(brew --prefix nvm)/nvm.sh
 #FIXME: Don't assume file structure.
 #Load single command for unzipping, untarring etc.
 source ~/repos/dotfiles/zsh/extract.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #===ALIASES===
 
@@ -76,6 +75,7 @@ alias checkstyle="gradle checkstyleMain checkstyleTest"
 #===Shell magic<3===
 #Enable vim mode in terminal, and set the timeout to 0.1s
 bindkey -v
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #Tell me when I'm in normal mode in the shell
 function zle-line-init zle-keymap-select {
