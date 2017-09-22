@@ -9,21 +9,13 @@ export EDITOR='vim'
 export PATH=$PATH:/usr/local/go/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/scripts
 export EVENT_NOKQUEUE=1 #Solves a tmux/OS 10 Sirra bug
 export KEYTIMEOUT=1
-export PATH="$HOME/.ndenv/bin:$PATH"
-
-export NVM_DIR=~/.nvm
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
 
 
 #===SOURCES===
 source $ZSH/oh-my-zsh.sh
-#Load gcp autocompletion
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
-source $(brew --prefix nvm)/nvm.sh
 
 #FIXME: Don't assume file structure.
 #Load single command for unzipping, untarring etc.
@@ -65,13 +57,6 @@ alias ta="tmux attach"
 alias dcd="docker-compose down"
 alias dcu="docker-compose up"
 
-#rabbit
-alias rabbit=rabbitmqadmin
-
-#gradle
-alias check="gradle clean test checkstyleMain checkstyleTest"
-alias checkstyle="gradle checkstyleMain checkstyleTest"
-
 #===Shell magic<3===
 #Enable vim mode in terminal, and set the timeout to 0.1s
 bindkey -v
@@ -87,7 +72,3 @@ function zle-line-init zle-keymap-select {
 #Enable the above function on startup and when modes change
 zle -N zle-line-init
 zle -N zle-keymap-select
-
-#===evals===
-eval "$(rbenv init -)"
-eval "$(ndenv init -)"
