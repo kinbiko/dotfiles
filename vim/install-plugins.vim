@@ -35,6 +35,7 @@ Plug 'bronson/vim-trailing-whitespace' "Mark trailing whitespace
 Plug 'ervandew/supertab' "Tab completion.
 Plug 'sickill/vim-pasta' "Context aware pasting + intentation
 Plug 'christoomey/vim-tmux-navigator' "Work better with tmux
+Plug 'benmills/vimux' "Integrate with tmux easily
 
 "=== Languages ===
 Plug 'pangloss/vim-javascript' "Makes syntax highlighting etc. more sane for js.
@@ -42,6 +43,7 @@ Plug 'kchmck/vim-coffee-script' "Coffescript support
 Plug 'mxw/vim-jsx' "Support for JSX
 Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
 Plug 'prettier/vim-prettier' "prettier formatter
+Plug 'pgr0ss/vimux-ruby-test' "Run ruby specs from within vim
 
 "The following plugin(s) can't be cloned using the https:// protocol and must
 "use the git:// protocol
