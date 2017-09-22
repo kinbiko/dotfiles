@@ -11,7 +11,7 @@ let g:vimux_ruby_cmd_all_tests = "rake test:parallel"
 map <Leader>X :call VimuxRunCommand("clear; bundle exec ruby " . bufname("%"))<CR>
 
 " Run the current test
-map <Leader>x :RunRubyFocusedTest<CR>
+map <Leader>1 :RunRubyFocusedTest<CR>
 
 " Run all rails tests
-map <Leader>xx :RunAllRailsTests<CR>
+map <Leader>2 :RunAllRailsTests<CR>
