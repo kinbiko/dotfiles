@@ -49,3 +49,6 @@ let g:prettier#config#parser = 'flow'
 let g:prettier#quickfix_enabled = 0
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
+
+nnoremap <c-N> :GitGutterNextHunk<cr>
+nnoremap <c-U> :GitGutterUndoHunk<cr>
