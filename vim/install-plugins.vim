@@ -44,11 +44,12 @@ Plug 'mxw/vim-jsx' "Support for JSX
 Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
 Plug 'prettier/vim-prettier' "prettier formatter
 Plug 'pgr0ss/vimux-ruby-test' "Run ruby specs from within vim
+Plug 'slim-template/slim-vim' "Syntax highlighting for slim
 
 "The following plugin(s) can't be cloned using the https:// protocol and must
 "use the git:// protocol
 
-Plug 'godlygeek/tabular.git' "Make aligning nice and pretty
+Plug 'godlygeek/tabular' "Make aligning nice and pretty
 
 
 call plug#end()
