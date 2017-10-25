@@ -52,3 +52,4 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 
 nnoremap <c-N> :GitGutterNextHunk<cr>
 nnoremap <c-U> :GitGutterUndoHunk<cr>
+nnoremap <c-P> :GitGutterPrevHunk<cr>
