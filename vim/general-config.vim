@@ -54,6 +54,14 @@ syntax enable "Use syntax highlighting by default
 set listchars=tab:>-,trail:·,extends:>,precedes:<
 set list "turn the above on
 
+"Allows you to hide a buffer without saving it
+set hidden
+
+"Make J smarter with comments
+if v:version > 703 || v:version == 703 && has('patch541')
+  set formatoptions+=j
+endif
+
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set laststatus=2 " Always display the statusline in all windows
 
@@ -65,3 +73,5 @@ endfunction
 autocmd FileType help :call OpenHelp80Cols()
 
 set rtp+=/usr/local/opt/fzf
+
+set highlight+=N:DiffText
