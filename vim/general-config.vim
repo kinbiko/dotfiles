@@ -75,3 +75,7 @@ autocmd FileType help :call OpenHelp80Cols()
 set rtp+=/usr/local/opt/fzf
 
 set highlight+=N:DiffText
+
+set t_Co=256 "Tell vim we support 256 colours
+
+set fillchars+=vert:│
