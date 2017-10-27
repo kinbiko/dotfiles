@@ -11,7 +11,6 @@ Plug 'vim-airline/vim-airline-themes'
 "=== Navigation ===
 Plug 'scrooloose/nerdtree' "File tree on the left hand side
 Plug 'Xuyuanp/nerdtree-git-plugin' "Nerdtree + git highlighting
-Plug 'ctrlpvim/ctrlp.vim' "Makes an index of all files available on ctrl+p
 Plug 'wincent/terminus' "Cursor changes in different modes, mouse support
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' "fzf in vim
 Plug 'rking/ag.vim' "search inside files
@@ -44,7 +43,7 @@ Plug 'mxw/vim-jsx' "Support for JSX
 Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
 Plug 'prettier/vim-prettier' "prettier formatter
 Plug 'pgr0ss/vimux-ruby-test' "Run ruby specs from within vim
-Plug 'slim-template/slim-vim' "Syntax highlighting for slim
+Plug 'slim-template/vim-slim' "Syntax highlighting for slim
 
 "The following plugin(s) can't be cloned using the https:// protocol and must
 "use the git:// protocol
