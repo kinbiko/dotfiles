@@ -54,6 +54,7 @@ alias gap="git add -p"
 alias pull="git pull"
 alias push="git push"
 alias fetch="git fetch -p"
+alias effyou="git push -f"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gwipe="git reset --hard;git clean -f"
 #Yay Firefly!

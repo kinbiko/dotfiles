@@ -51,5 +51,6 @@ Plug 'slim-template/slim-vim' "Syntax highlighting for slim
 
 Plug 'godlygeek/tabular' "Make aligning nice and pretty
 
+Plug 'fatih/vim-go' "Make vim good with go
 
 call plug#end()
