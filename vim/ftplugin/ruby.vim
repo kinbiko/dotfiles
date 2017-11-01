@@ -1,5 +1,5 @@
-"Blatantly stolen from Keegan
-" regenerate the tags file, including project gems
+"Blatantly stolen from keeganlow
+"regenerate the tags file, including project gems
 map <Leader>rv :!ctags --tag-relative --exclude=.git --languages=ruby -R * `rvm gemdir`/gems/*<CR><CR>
 map <Leader>rb :!ctags --tag-relative --exclude=.git --languages=ruby -R * `rbenv prefix`/*<CR><CR>
 
