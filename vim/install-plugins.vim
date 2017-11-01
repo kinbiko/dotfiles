@@ -35,6 +35,7 @@ Plug 'ervandew/supertab' "Tab completion.
 Plug 'sickill/vim-pasta' "Context aware pasting + intentation
 Plug 'christoomey/vim-tmux-navigator' "Work better with tmux
 Plug 'benmills/vimux' "Integrate with tmux easily
+Plug 'godlygeek/tabular' "Make aligning nice and pretty
 
 "=== Languages ===
 Plug 'pangloss/vim-javascript' "Makes syntax highlighting etc. more sane for js.
@@ -44,12 +45,6 @@ Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
 Plug 'prettier/vim-prettier' "prettier formatter
 Plug 'pgr0ss/vimux-ruby-test' "Run ruby specs from within vim
 Plug 'slim-template/vim-slim' "Syntax highlighting for slim
-
-"The following plugin(s) can't be cloned using the https:// protocol and must
-"use the git:// protocol
-
-Plug 'godlygeek/tabular' "Make aligning nice and pretty
-
 Plug 'fatih/vim-go' "Make vim good with go
 
 call plug#end()
