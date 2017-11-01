@@ -1,15 +1,19 @@
 "=== Folding ===
 set foldenable "Enable folding
-set foldlevelstart=10 "Shows most folds by default
-set foldnestmax=10 "You're writing bad code if you need to up this one
-set foldmethod=indent
+
+set foldlevelstart=1 "Shows most folds by default
+set foldnestmax=5 "You're writing bad code if you need to up this one
+set foldmethod=indent "Fold based on indentation.
 
 "=== Indentation ===
-set tabstop=2 "number of VISUAL SPACES per tab
-set softtabstop=2 "Number of spaces per tab when editing
-set shiftwidth=2
+set tabstop=2 "columns per tab character
+set softtabstop=2 "columns per tab key press in insert mode. Also on backspace
+set shiftwidth=2 "columns per 'indent', used for <, >, and =
 set expandtab "converts tabs to spaces
-set autoindent "Used for files with no filetype specific settings
+"Let vim decide indentation rules by default.
+"Used for files with no filetype specific settings, filetype specific config
+"files may overwrite this.
+set autoindent
 
 "=== Scrolling ===
 set scrolloff=8 "Number of lines from vertical edge to start scroll
@@ -51,6 +55,7 @@ filetype plugin indent on "Enable plugin- and filetype indent
 syntax enable "Use syntax highlighting by default
 
 "How to represent non-printable characters
+"In general, don't want tabs, so have them show up as special characters
 set listchars=tab:>-,trail:·,extends:>,precedes:<
 set list "turn the above on
 
@@ -72,6 +77,7 @@ function OpenHelp80Cols()
 endfunction
 autocmd FileType help :call OpenHelp80Cols()
 
+"Add fzf to the runtime path
 set rtp+=/usr/local/opt/fzf
 
 set highlight+=N:DiffText
