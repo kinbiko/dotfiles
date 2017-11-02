@@ -40,7 +40,7 @@ noremap <Right> :bn<CR>
 
 "Literally the best keybindings I know
 nmap <BS> {
-nmap <CR> }
+nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 
 "}}}
 
