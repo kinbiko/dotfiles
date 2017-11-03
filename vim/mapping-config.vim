@@ -67,6 +67,8 @@ nnoremap <leader>v :e ~/.vimrc<CR>
 "Leader + Leader opens nerd tree.
 nnoremap <silent> <leader><leader> :NERDTreeToggle<CR>
 
+nnoremap <leader>e :edit <C-R>=expand('%:p:h') . '/'<CR>
+
 "}}}
 
 "{{{Visual mode mappings
@@ -91,7 +93,7 @@ inoremap jk <esc>
 
 "}}}
 
-"{{{ Ex mode mappings
+"{{{ Command mode mappings
 
 "Map any !shell commands to clear the console first
 :map :! :!clear;
