@@ -95,4 +95,10 @@ set highlight+=N:DiffText
 set t_Co=256 "Tell vim we support 256 colours
 
 set fillchars+=vert:│
+
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g`\"" |
+  \ endif
+
 "}}}
