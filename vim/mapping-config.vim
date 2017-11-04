@@ -13,9 +13,6 @@ nnoremap [ <C-t>
 
 "Fuzzy-find any file in this git repo with ?
 nnoremap ? :GFiles<CR>
-"Go to a tag with space
-nnoremap <Space> :Tags<CR>
-
 "}}}
 
 "{{{ Editor navigation
@@ -42,6 +39,10 @@ noremap <Right> :bn<CR>
 nmap <BS> {
 nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 
+"Space bar toggles easy-motion search
+map 888 <Plug>(easymotion-prefix)
+nmap <Space> 888s
+
 "}}}
 
 "Make a vertical split with vv, and go to tag if on one
@@ -63,7 +64,6 @@ nnoremap <leader><space> :nohlsearch<CR>
 
 "Leader + v opens vimrc
 nnoremap <leader>v :e ~/.vimrc<CR>
-
 "Leader + Leader opens nerd tree.
 nnoremap <silent> <leader><leader> :NERDTreeToggle<CR>
 

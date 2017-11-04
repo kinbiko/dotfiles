@@ -15,6 +15,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin' "Nerdtree + git highlighting
 Plug 'wincent/terminus' "Cursor changes in different modes, mouse support
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' "fzf in vim
 Plug 'rking/ag.vim' "search inside files
+Plug 'easymotion/vim-easymotion' "Accurate navigation ala vimium
 "}}}
 
 "{{{ Git
