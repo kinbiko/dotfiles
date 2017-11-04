@@ -62,6 +62,8 @@ set nowrap "Don't wrap lines by default
 filetype plugin indent on "Enable plugin- and filetype indent
 syntax enable "Use syntax highlighting by default
 
+set cursorcolumn "highlight current column
+
 "How to represent non-printable characters
 "In general, don't want tabs, so have them show up as special characters
 set listchars=tab:>-,trail:·,extends:>,precedes:<
