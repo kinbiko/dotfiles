@@ -15,3 +15,6 @@ nnoremap <leader>t :GoTest<CR>
 nnoremap <leader>g :GoBuild<CR>
 nnoremap <leader>c :GoCoverageToggle<CR>
 inoremap :: <space>:=<space>
+
+" Run the current file with testunit
+map <Leader>r :call VimuxRunCommand("clear; go run " . bufname("%"))<CR>
