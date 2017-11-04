@@ -41,7 +41,10 @@ nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 
 "Space bar toggles easy-motion search
 map 888 <Plug>(easymotion-prefix)
-nmap <Space> 888s
+nmap f 888s
+
+map # <Plug>(asterisk-z*)
+map * <Plug>(asterisk-z#)
 
 "}}}
 
@@ -104,4 +107,5 @@ inoremap jk <esc>
 "U - don't usually want to do a photoshop-undo
 "Up and down arrow keys
 "Shift-tab (Cannot use just tab in normal mode for terminal reasons)
+"Space - make it good!
 "}}}
