@@ -42,6 +42,7 @@ alias lear="clear"
 #relocate
 alias dot="cd ~/repos/dotfiles"
 alias repos="cd ~/repos/"
+alias gosrc="cd ~/go/src/github.com/"
 
 #Git
 alias g=git
@@ -66,19 +67,19 @@ alias gorrammit="git commit --amend --no-edit"
 #Snowplow
 alias ..="cd ../"
 alias ...="cd ../../"
-alias ....="cd ../../../"
+alias ....="cd ../../../" #Free diver
 alias .....="cd ../../../../"
-alias ......="cd ../../../../../"
+alias ......="cd ../../../../../" #New Zealand fur seal
 alias .......="cd ../../../../../../"
-alias ........="cd ../../../../../../../"
+alias ........="cd ../../../../../../../" #New Zealand sea lion
 alias .........="cd ../../../../../../../../"
-alias ..........="cd ../../../../../../../../../"
+alias ..........="cd ../../../../../../../../../" #Souther elephant seal
 alias ...........="cd ../../../../../../../../../../"
 alias ............="cd ../../../../../../../../../../../"
-alias .............="cd ../../../../../../../../../../../../"
+alias .............="cd ../../../../../../../../../../../../" #Sperm whale
 alias ..............="cd ../../../../../../../../../../../../../"
 alias ...............="cd ../../../../../../../../../../../../../../"
-alias ................="cd ../../../../../../../../../../../../../../../"
+alias ................="cd ../../../../../../../../../../../../../../../" #Mariana Trench
 #At this point you probably want 'cd /' anyway...
 
 #Tmux
