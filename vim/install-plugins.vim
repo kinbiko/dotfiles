@@ -22,6 +22,7 @@ Plug 'haya14busa/vim-asterisk' "Use * without moving immediately
 "{{{ Git
 Plug 'airblade/vim-gitgutter' "Makes the git gutter with +, ~, and - available
 Plug 'tpope/vim-fugitive' "Most git features available through :G*
+Plug 'rhysd/committia.vim' "git commit becomes magic
 "}}}
 
 "{{{ Surrounding syntax
