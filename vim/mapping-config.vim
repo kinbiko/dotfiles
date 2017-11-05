@@ -38,6 +38,7 @@ noremap <Right> :bn<CR>
 "Literally the best keybindings I know
 nmap <BS> {
 nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
+onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 
 "Space bar toggles easy-motion search
 map 888 <Plug>(easymotion-prefix)
