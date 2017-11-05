@@ -8,7 +8,7 @@ let mapleader = ','
 noremap <leader>. :b#<CR>
 
 "Follow and return from ctagged files
-nnoremap ] <C-]>
+nnoremap ] g<C-]>
 nnoremap [ <C-t>
 
 "Fuzzy-find any file in this git repo with ?
