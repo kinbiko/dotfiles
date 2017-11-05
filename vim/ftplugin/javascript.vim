@@ -4,7 +4,6 @@ imap hh <C-y>
 "Make cl. insert a console log statement
 inoremap cl. console.log();<ESC>jkhha
 
-"Tend to write React with classes, so make method signatures visible by
-"default
-set foldlevel=2
+"Tend to write React, where it's annoying to fold JSX excessively
+set foldlevel=10
 set foldmethod=syntax "Fold based on indentation
