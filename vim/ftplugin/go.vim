@@ -10,10 +10,12 @@ set shiftwidth=4 "columns per 'indent', used for <, >, and =
 set listchars=tab:\ \ ,trail:·,extends:>,precedes:<
 set list
 
-nnoremap <leader>a :GoAlternate<CR>
-nnoremap <leader>t :GoTest<CR>
-nnoremap <leader>g :GoBuild<CR>
-nnoremap <leader>c :GoCoverageToggle<CR>
+nnoremap <localleader>a :GoAlternate<CR>
+nnoremap <localleader>t :GoTest<CR>
+nnoremap <localleader>b :GoBuild<CR>
+nnoremap <localleader>d :GoDoc<CR>
+nnoremap <localleader>v :GoVet<CR>
+nnoremap <localleader>c :GoCoverageToggle<CR>
 inoremap :: <space>:=<space>
 
 " Run the current file with testunit

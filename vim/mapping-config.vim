@@ -1,4 +1,5 @@
 let mapleader = ','
+let maplocalleader = ' '
 
 "{{{Normal mode mappings
 
@@ -108,5 +109,4 @@ inoremap jk <esc>
 "U - don't usually want to do a photoshop-undo
 "Up and down arrow keys
 "Shift-tab (Cannot use just tab in normal mode for terminal reasons)
-"Space - make it good!
 "}}}
