@@ -10,6 +10,7 @@ Plug 'vim-airline/vim-airline-themes'
 "}}}
 
 "{{{ Navigation
+Plug 'bkad/CamelCaseMotion' "Consider camelCase and snake_case when w/b/e etc are used
 Plug 'scrooloose/nerdtree' "File tree on the left hand side
 Plug 'Xuyuanp/nerdtree-git-plugin' "Nerdtree + git highlighting
 Plug 'wincent/terminus' "Cursor changes in different modes, mouse support
