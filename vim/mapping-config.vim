@@ -18,7 +18,7 @@ nnoremap ? :GFiles<CR>
 
 "{{{ Editor navigation
 
-"Enable camelcase navigation for words
+"Enable camelcase navigation for word
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
@@ -56,6 +56,8 @@ nmap f 888s
 map # <Plug>(asterisk-z*)
 map * <Plug>(asterisk-z#)
 
+"Because :w is too annoying
+nnoremap s :w<CR>
 "}}}
 
 "Make a vertical split with vv, and go to tag if on one

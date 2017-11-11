@@ -1,7 +1,7 @@
 "{{{ Folding
 set foldenable "Enable folding
 
-set foldlevelstart=1 "Shows most folds by default
+set foldlevelstart=9 "Shows most folds by default
 set foldnestmax=5 "You're writing bad code if you need to up this one
 set foldmethod=indent "Fold based on indentation.
 "}}}
