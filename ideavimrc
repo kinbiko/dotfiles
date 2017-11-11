@@ -1,0 +1,4 @@
+source ~/.vim/intellij/general-config.vim
+source ~/.vim/intellij/mapping-config.vim
+
+set surround
