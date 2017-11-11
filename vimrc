@@ -5,7 +5,6 @@ source ~/.vim/syntastic-config.vim
 source ~/.vim/plugin-config.vim
 source ~/.vim/nerdtree-config.vim
 source ~/.vim/general-config.vim
-source ~/.vim/filetype-association-config.vim
 source ~/.vim/typos-config.vim
 source ~/.vim/mapping-config.vim
 "Make comments red. This must be below other style configs to have an effect
