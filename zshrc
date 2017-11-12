@@ -22,7 +22,6 @@ export PATH=$PATH:$GOPATH/bin
 #===SOURCES===
 source $ZSH/oh-my-zsh.sh
 
-#FIXME: Don't assume file structure.
 #Load single command for unzipping, untarring etc.
 source ~/repos/dotfiles/zsh/extract.sh
 
