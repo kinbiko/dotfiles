@@ -1,0 +1,243 @@
+{
+  "mainWindow": {
+    "divider": {
+      "topColor": "#181A1F",
+      "middleColor": "#181A1F",
+      "bottomColor": "#181A1F"
+    }
+  },
+  "sidebar": {
+    "topBar": {
+      "backgroundColor": "#21252b",
+      "bottomBorderColor": "#21252b",
+      "segmentedControl": {
+        "tintColor": "#ABB2BF",
+        "borderWidth": 1,
+        "borderRadius": 2
+      }
+    },
+    "table": {
+      "backgroundColor": "#21252b",
+      "textColor": "#ABB2BF",
+      "selectedTextColor": "#d7dae0",
+      "emphasizedTextColor": "#F4F4F4",
+      "iconColor": "#474C55",
+      "selectedIconColor": "#d7dae0",
+      "emphasizedIconColor": "#F4F4F4",
+      "selectedRowBgColor": "#31363F",
+      "emphasizedRowBgColor": "#4F86F6"
+    },
+    "bottomBar": {
+      "backgroundColor": "#21252b",
+      "topBorderColor": "#21252b",
+      "textColor": "#ABB2BF",
+      "controlColor": "#474C55",
+      "pressedControlColor": "#6b717d"
+    }
+  },
+  "noteList": {
+    "topBar": {
+      "backgroundColor": "#21252B",
+      "bottomBorderColor": "#21252b",
+      "controlColor": "#ABB2BF",
+      "pressedControlColor": "#f4f4f4"
+    },
+    "tableHeader": {
+      "backgroundColor": "#21252B",
+      "bottomBorderColor": "#282C34",
+      "controlColor": "#474C55",
+      "pressedControlColor": "#6b717d"
+    },
+    "table": {
+      "backgroundColor": "#21252B",
+      "separatorColor": "#282C34",
+      "textColor": "#ABB2BF",
+      "selectedTextColor": "#d7dae0",
+      "emphasizedTextColor": "#F4F4F4",
+      "detailColor": "#474C55",
+      "selectedDetailColor": "#9DA5B4",
+      "emphasizedDetailColor": "#F4F4F4",
+      "iconColor": "#474C55",
+      "selectedIconColor": "#9DA5B4",
+      "emphasizedIconColor": "#F4F4F4",
+      "rowBgColor": "#21252B",
+      "altRowBgColor": "#282C34",
+      "selectedRowBgColor": "#31363F",
+      "emphasizedRowBgColor": "#4F86F6",
+      "draggedRowBgColor": "#666",
+      "emptyTextColor": "#ABB2BF"
+    },
+    "bottomBar": {
+      "backgroundColor": "#21252B",
+      "searchField": {
+        "textColor": "#ABB2BF",
+        "controlColor": "#616772",
+        "pressedControlColor": "#6b717d",
+        "backgroundColor": "#1B1D23",
+        "borderColor": "#181A1F",
+        "placeholderColor": "#616772"
+      }
+    }
+  },
+  "noteView": {
+    "backgroundColor": "#282C34",
+    "dividerColor": "#282C34",
+    "topBar": {
+      "backgroundColor": "#282C34",
+      "bottomBorderColor": "#282C34",
+      "controlColor": "#474C55",
+      "pressedControlColor": "#6b717d",
+      "segmentedControl": {
+        "tintColor": "#ABB2BF",
+        "borderWidth": 1,
+        "borderRadius": 2
+      }
+    },
+    "toolbar": {
+      "backgroundColor": "#282C34",
+      "dividerColor": "#21252B",
+      "middleDividerColor": "#353B45",
+      "controlColor": "#474C55",
+      "pressedControlColor": "#363C47",
+      "iconColor": "#474C55",
+      "textColor": "#ABB2BF",
+      "popUpButton": {
+        "titleColor": "#ABB2BF",
+        "borderColor": "#7f878d"
+      },
+      "tagField": {
+        "textColor": "#ABB2BF",
+        "placeholderColor": "#616772",
+        "tag": {
+          "textColor": "#6D757F",
+          "selectedTextColor": "#fff",
+          "backgroundColor": "#2E343D",
+          "selectedBackgroundColor": "#6caff1",
+          "borderRadius": 3
+        }
+      },
+      "formatBar": {
+        "controlColor": "#6B717D",
+        "highlightColor": "##20b684"
+      },
+      "searchField": {
+        "textColor": "#ABB2BF",
+        "controlColor": "#616772",
+        "pressedControlColor": "#363C47",
+        "backgroundColor": "#1B1D23",
+        "borderColor": "#181A1F",
+        "placeholderColor": "#616772"
+      },
+      "doneButton": {
+        "textColor": "#ABB2BF",
+        "highlightBackgroundColor": "#3a3a3a",
+        "borderColor": "#7f878d"
+      }
+    },
+    "bottomBar": {
+      "backgroundColor": "#21252B",
+      "controlColor": "#474C55",
+      "pressedControlColor": "#363C47"
+    }
+  },
+  "multiNote": {
+    "backgroundColor": "#282C34",
+    "textColor": "#9DA5B4",
+    "button": {
+      "tintColor": "#6D757F",
+      "highlightColor": "#9BA2AD",
+      "backgroundColor": "#2F343E",
+      "highlightBackgroundColor": "#363C47",
+      "borderColor": "#1B1D23",
+      "highlightBorderColor": "#1B1D23",
+      "borderRadius": 3
+    },
+    "tagField": {
+      "textColor": "#ABB2BF",
+      "placeholderColor": "#616772",
+      "backgroundColor": "#1B1D23",
+      "borderColor": "#181A1F",
+      "borderRadius": 2,
+      "tag": {
+        "textColor": "#6D757F",
+        "selectedTextColor": "#fff",
+        "backgroundColor": "#2E343D",
+        "selectedBackgroundColor": "#6caff1",
+        "borderRadius": 3
+      }
+    }
+  },
+  "notebookPicker": {
+    "backgroundColor": "##282C34",
+    "textColor": "#ddd",
+    "dividerColor": "#181A1F",
+    "searchField": {
+      "textColor": "#ABB2BF",
+      "controlColor": "#616772",
+      "pressedControlColor": "#000",
+      "backgroundColor": "#1B1D23",
+      "borderColor": "#181A1F",
+      "placeholderColor": "#616772"
+    },
+    "table": {
+      "textColor": "#ABB2BF",
+      "selectedTextColor": "#000",
+      "emphasizedTextColor": "#eee",
+      "iconColor": "#B6B9BF",
+      "selectedIconColor": "#32393F",
+      "emphasizedIconColor": "#eee",
+      "selectedRowBgColor": "#e2eff6",
+      "emphasizedRowBgColor": "#31363F",
+      "emptyTextColor": "#ABB2BF"
+    }
+  },
+  "searchView": {
+    "backgroundColor": "##282C34",
+    "searchField": {
+      "textColor": "#ABB2BF",
+      "controlColor": "#616772",
+      "pressedControlColor": "#616772",
+      "backgroundColor": "#1B1D23",
+      "borderColor": "#181A1F",
+      "placeholderColor": "#616772"
+    },
+    "tableHeader": {
+      "backgroundColor": "##282C34",
+      "topBorderColor": "#181A1F",
+      "bottomBorderColor": "#181A1F",
+      "textColor": "#ABB2BF",
+      "controlColor": "#474C55",
+      "pressedControlColor": "#363C47"
+    },
+    "table": {
+      "separatorColor": "#282C34",
+      "textColor": "#ABB2BF",
+      "selectedTextColor": "#000",
+      "emphasizedTextColor": "#eee",
+      "detailColor": "#474C55",
+      "selectedDetailColor": "#333",
+      "emphasizedDetailColor": "#eee",
+      "iconColor": "#B6B9BF",
+      "selectedIconColor": "#333",
+      "emphasizedIconColor": "#eee",
+      "rowBgColor": "#21252B",
+      "altRowBgColor": "#282C34",
+      "selectedRowBgColor": "#31363F",
+      "emphasizedRowBgColor": "#31363F",
+      "emptyTextColor": "#ABB2BF"
+    }
+  },
+  "presentation": {
+    "backgroundColor": "#21252B"
+  },
+  "editor": {
+    "codeCellTheme": "monokai",
+    "markdownCellTheme": ""
+  },
+  "css": {
+    "className": "atom_one_dark",
+    "editor": ".atom_one_dark{color:#ABB2BF}.atom_one_dark a{color:#C678DD}.atom_one_dark table tr:nth-child(even){background-color:#34393F}.atom_one_dark blockquote{color:#5C6370}.atom_one_dark hr{background-color:#999}.atom_one_dark code{background-color:rgba(255,255,255,.1)}.atom_one_dark svg{background-color:#fff}.atom_one_dark .text-cell [style]{color:#ABB2BF!important;background-color:transparent!important;font-size:13px;line-height:1.5}.atom_one_dark .diagram-cell .ace_editor,.atom_one_dark .latex-cell .ace_editor,.atom_one_dark .markdown-cell .ace_editor{color:#ABB2BF;background-color:#282c34}.atom_one_dark .inEditMode{border:1px solid #474C55!important;border-radius:4px!important}.atom_one_dark .code-cell .editor{font-family:InputMono-Light;font-size:12px}.atom_one_dark .latex-cell .editor{font-size:12px}.atom_one_dark .markdown-cell .ace_string{color:#61AFEF}.atom_one_dark .markdown-cell .ace_editor{background-color:#282c34;color:#ABB2BF;font-size:13px}.atom_one_dark .markdown-cell .ace_heading.ace_1,.atom_one_dark .markdown-cell .ace_heading.ace_2,.atom_one_dark .markdown-cell .ace_heading.ace_3,.atom_one_dark .markdown-cell .ace_heading.ace_4,.atom_one_dark .markdown-cell .ace_heading.ace_5,.atom_one_dark .markdown-cell .ace_heading.ace_6,.markdown-cell .ace_heading.ace_1~.ace_heading,.markdown-cell .ace_heading.ace_2~.ace_heading,.markdown-cell .ace_heading.ace_3~.ace_heading,.markdown-cell .ace_heading.ace_4~.ace_heading,.markdown-cell .ace_heading.ace_5~.ace_heading,.markdown-cell .ace_heading.ace_6~.ace_heading{color:#009BC7}.atom_one_dark .markdown-cell .ace_list{color:#ABB2BF}.atom_one_dark .markdown-cell .ace_heading,.atom_one_dark .markdown-cell .ace_markup{color:#E06C75!important}.atom_one_dark .markdown-cell .ace_function{color:#98BE5F!important}.atom_one_dark .markdown-cell .ace_blockquote{color:#5C6370;font-style:italic}.atom_one_dark .markdown-cell .ace_emphasis{color:#C678DD;font-style:italic}.atom_one_dark .markdown-cell .ace_strong{color:#D19A66;font-weight:700}.atom_one_dark .markdown-cell .ace_markup.ace_underline{color:#C678DD!important}.atom_one_dark #titlearea{border-bottom:1px solid #353B45}.atom_one_dark .latex-cell .ace_variable.ace_parameter{color:#ABB2BF}.atom_one_dark .latex-cell .ace_storage.ace_type{color:#98BE5F}.atom_one_dark .latex-cell .ace_string{color:#61AFEF}.atom_one_dark .diagram-cell .ace_constant.ace_language.ace_escape,.atom_one_dark .latex-cell .ace_constant.ace_character.ace_escape{color:#E06C75}.atom_one_dark .diagram-cell .ace_string,.atom_one_dark .diagram-cell .ace_underline{color:#C678DD}.atom_one_dark .diagram-cell .ace_keyword{color:#61AFEF}.atom_one_dark .diagram-cell .ace_macro{color:#D19A66;font-weight:700}",
+    "preview": ".atom_one_dark{color:#ABB2BF}.atom_one_dark a{color:#C678DD}.atom_one_dark table tr:nth-child(even){background-color:#34393F}.atom_one_dark blockquote{color:#999}.atom_one_dark hr{background-color:#999}.atom_one_dark code{background-color:rgba(255,255,255,.1)}.atom_one_dark svg{background-color:#fff}.atom_one_dark .text-cell [style]{color:#ABB2BF!important;background-color:transparent!important}",
+    "presentation": ".atom_one_dark{color:#ABB2BF}.atom_one_dark a{color:#C678DD}.atom_one_dark table tr:nth-child(even){background-color:#34393F}.atom_one_dark blockquote{color:#999}.atom_one_dark hr{background-color:#999}.atom_one_dark code{background-color:rgba(255,255,255,.1)}.atom_one_dark svg{background-color:#fff}.atom_one_dark .text-cell [style]{color:#ABB2BF!important;background-color:transparent!important}"
+  }
+}
