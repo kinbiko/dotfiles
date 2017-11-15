@@ -37,6 +37,9 @@ vnoremap jk <esc>
 vmap < <gv
 vmap > >gv
 
+nnoremap * #
+nnoremap # *
+
 inoremap jk <esc>
 
 "--- Actions ---

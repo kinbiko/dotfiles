@@ -15,3 +15,5 @@ map <localleader>t :RunRubyFocusedTest<CR>
 
 " Run all rails tests
 map <localleader>T :RunAllRailsTests<CR>
+
+inoremap >> => 
