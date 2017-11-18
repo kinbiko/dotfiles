@@ -109,7 +109,7 @@ set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusl
 set laststatus=2 " Always display the statusline in all windows
 
 " Make help always open veritcally
-function OpenHelp80Cols()
+function! OpenHelp80Cols()
     wincmd L
     exec 'vertical resize 81'
 endfunction
