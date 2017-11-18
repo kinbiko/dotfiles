@@ -7,6 +7,7 @@ source ~/.vim/nerdtree-config.vim
 source ~/.vim/general-config.vim
 source ~/.vim/typos-config.vim
 source ~/.vim/mapping-config.vim
+source ~/.vim/abbreviations.vim
 "Make comments red. This must be below other style configs to have an effect
 hi comment ctermfg=DarkRed
 
