@@ -14,6 +14,11 @@ nnoremap [ <C-t>
 
 "Fuzzy-find any file in this git repo with ?
 nnoremap ? :GFiles<CR>
+
+"Move to next/previous git hunks
+nnoremap <c-N> :GitGutterNextHunk<cr>
+nnoremap <c-P> :GitGutterPrevHunk<cr>
+
 "}}}
 
 "{{{ Editor navigation
@@ -78,13 +83,19 @@ nnoremap ; :
 nnoremap <leader><space> :nohlsearch<CR>
 
 "Leader + v opens vimrc
-nnoremap <leader>v :e ~/.vimrc<CR>
+nnoremap <leader>v :vsplit $MYVIMRC<CR>
+"Leader + V sources the vimrc
+nnoremap <leader>V :source $MYVIMRC<CR>
+
 "Leader + Leader opens nerd tree.
 nnoremap <silent> <leader><leader> :NERDTreeToggle<CR>
 
 nnoremap <leader>e :edit <C-R>=expand('%:p:h') . '/'<CR>
 
 nnoremap U vawUew
+
+"Perform git-undo
+nnoremap <c-U> :GitGutterUndoHunk<cr>
 
 "}}}
 
