@@ -7,7 +7,7 @@ relative success.
 
 If you find anything here that's useful, and would like to show your
 appreciation, I accept donations in the form of code reviews.  I've created
-[this eternal PR](https://github.com/kinbiko/dotfiles/pulls/14), where you may
+[this eternal PR](https://github.com/kinbiko/dotfiles/pull/14), where you may
 leave a comment on anything you think could be improved.  This is also a good
 way to ask questions about what setting `foo` does if it's not clear from the
 comments.
