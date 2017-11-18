@@ -30,6 +30,8 @@ source ~/repos/dotfiles/zsh/extract.sh
 alias v=vim
 alias top=htop
 
+alias preview="qlmanage -p "
+
 #Shell
 alias cl="clear";
 alias cls="clear";
