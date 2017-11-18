@@ -11,6 +11,7 @@ set tabstop=2 "columns per tab character
 set softtabstop=2 "columns per tab key press in insert mode. Also on backspace
 set shiftwidth=2 "columns per 'indent', used for <, >, and =
 set expandtab "converts tabs to spaces
+set shiftround "When indenting, round to a multiple of shiftwidth
 "Let vim decide indentation rules by default.
 "Used for files with no filetype specific settings, filetype specific config
 "files may overwrite this.
