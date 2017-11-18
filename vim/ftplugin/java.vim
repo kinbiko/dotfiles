@@ -19,3 +19,5 @@ inoremap <localleader>l System.out.println();<left><left>
 iabbrev pubic public
 iabbrev psf private static final
 iabbrev pusf public static final
+
+onoremap q i"

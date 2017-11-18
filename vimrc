@@ -9,7 +9,6 @@ source ~/.vim/typos-config.vim
 source ~/.vim/mapping-config.vim
 source ~/.vim/abbreviations.vim
 source ~/.vim/prettier.vim
-source ~/.vim/temp.vim
 
 "Make comments red. This must be below other style configs to have an effect
 hi comment ctermfg=DarkRed

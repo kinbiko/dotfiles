@@ -121,6 +121,20 @@ inoremap jk <esc>
 
 "}}}
 
+"{{{ Operator-pending mappings
+
+"Make 'inside quotes' be a movement
+"These may be swapped for languages where strings are usually written with
+"double quotes, e.g. Java
+onoremap q i'
+onoremap Q i"
+
+"Make 'inside array' be a movement
+onoremap ia i]
+onoremap aa a]
+
+"}}}
+
 "{{{ Command mode mappings
 
 "Map any !shell commands to clear the console first
