@@ -1,7 +1,7 @@
 let mapleader = ','
 let maplocalleader = ' '
 
-"{{{Normal mode mappings
+""{{{Normal mode mappings
 
 "{{{ File Navigation
 "
@@ -45,7 +45,7 @@ noremap <Left> :bp<CR>
 noremap <Right> :bn<CR>
 
 "Literally the best keybindings I know
-nmap <BS> {
+nnoremap <BS> {
 nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 
@@ -66,10 +66,10 @@ nnoremap <silent> vv :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 nnoremap <silent> VV :sp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 "Insert blank lines without insert mode
-nmap t o<ESC>k
-nmap T O<ESC>j
+nnoremap t o<ESC>k
+nnoremap T O<ESC>j
 "Make Q repeat the last recorded marcro
-nmap Q @@
+nnoremap Q @@
 
 "Simplify getting to :Ex mode
 nnoremap ; :
@@ -84,21 +84,23 @@ nnoremap <silent> <leader><leader> :NERDTreeToggle<CR>
 
 nnoremap <leader>e :edit <C-R>=expand('%:p:h') . '/'<CR>
 
+nnoremap U vawUew
+
 "}}}
 
 "{{{Visual mode mappings
 
 "Align blocks of text and keep them selected
-vmap < <gv
-vmap > >gv
+vnoremap < <gv
+vnoremap > >gv
 
 vnoremap jk <esc>
 
 "Make // seach for the currently selected words
 vnoremap // y/<C-R>"<CR>
 
-vmap <BS> {
-vmap <CR> }
+vnoremap <BS> {
+vnoremap <CR> }
 "}}}
 
 "{{{ Insert-mode mappings
