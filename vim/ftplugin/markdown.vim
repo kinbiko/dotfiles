@@ -1,3 +1,5 @@
+set spell
+
 nnoremap <localleader>c o```<CR><CR>```<UP>
 nmap <localleader>b ysaw*
 nmap <localleader>i ysaw_
