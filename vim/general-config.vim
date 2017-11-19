@@ -126,7 +126,7 @@ set t_Co=256 "Tell vim we support 256 colours
 
 set fillchars+=vert:│
 
-augroup go_to_last_file_location
+augroup go_to_last_location_in_file
   autocmd!
   autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
