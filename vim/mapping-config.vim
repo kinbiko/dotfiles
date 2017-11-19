@@ -43,9 +43,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-"Evil keys
-noremap <Up> <NOP>
-noremap <Down> <NOP>
+"Make dem evil keys do chores
+noremap <Up> :N<CR>
+noremap <Down> :n<CR>
 noremap <Left> :bp<CR>
 noremap <Right> :bn<CR>
 
@@ -145,6 +145,6 @@ onoremap aa a]
 
 "{{{ List of keys that are available for mapping to:
 "U - don't usually want to do a photoshop-undo
-"Up and down arrow keys
 "Shift-tab (Cannot use just tab in normal mode for terminal reasons)
+"H and L
 "}}}
