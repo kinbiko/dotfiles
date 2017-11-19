@@ -1,7 +1,7 @@
 let mapleader = ','
 let maplocalleader = ' '
 
-""{{{Normal mode mappings
+"{{{Normal mode mappings
 
 "{{{ File Navigation
 "

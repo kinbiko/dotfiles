@@ -21,7 +21,7 @@ set autoindent
 "{{{ Scrolling
 set scrolloff=8 "Number of lines from vertical edge to start scroll
 set sidescrolloff=15 "Number of lines from horizontal edge to start scroll
-set sidescroll=1 "Number of columns to scroll at a time
+set sidescroll=6 "Number of columns to scroll at a time
 "}}}
 
 "{{{ Search
