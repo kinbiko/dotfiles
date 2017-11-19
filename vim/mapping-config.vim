@@ -19,6 +19,9 @@ nnoremap ? :GFiles<CR>
 nnoremap <c-N> :GitGutterNextHunk<cr>
 nnoremap <c-P> :GitGutterPrevHunk<cr>
 
+"Find current file in nerdtree
+nnoremap <leader>f :NERDTreeFind<cr>
+
 "}}}
 
 "{{{ Editor navigation
