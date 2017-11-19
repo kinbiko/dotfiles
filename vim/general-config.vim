@@ -38,7 +38,7 @@ set splitright "New splits on the right, not left
 
 "{{{ Line numbers
 set relativenumber "Linenumbers are relative to current line
-set number "Display line numbers
+set number "Display the actual line number for the current line
 "}}}
 
 "{{{ Command mode

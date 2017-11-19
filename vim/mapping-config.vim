@@ -54,9 +54,8 @@ nnoremap <BS> {
 nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 
-"Space bar toggles easy-motion search
-map 888 <Plug>(easymotion-prefix)
-nmap f 888s
+"f toggles easy-motion search
+nmap f <Plug>(easymotion-prefix)s
 
 map # <Plug>(asterisk-z*)
 map * <Plug>(asterisk-z#)
@@ -76,7 +75,7 @@ nnoremap T O<ESC>j
 "Make Q repeat the last recorded marcro
 nnoremap Q @@
 
-"Simplify getting to :Ex mode
+"Simplify getting to command mode
 nnoremap ; :
 
 "Clear the search highlights
@@ -92,6 +91,8 @@ nnoremap <silent> <leader><leader> :NERDTreeToggle<CR>
 
 nnoremap <leader>e :edit <C-R>=expand('%:p:h') . '/'<CR>
 
+"Change the current word to be UPPERCASE on U
+"TODO: Switch from simple upper case to CONSTANT_CASE
 nnoremap U vawUew
 
 "Perform git-undo
