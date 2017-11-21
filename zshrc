@@ -7,7 +7,7 @@ COMPLETION_WAITING_DOTS="true"
 
 #removed git from the below plugins as it prevented my aliases from
 #working as expected
-plugins=(brew docker docker-compose golang npm tmux vi-mode)
+plugins=(brew docker docker-compose golang npm vi-mode)
 
 #===EXPORTS===
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
@@ -92,6 +92,10 @@ alias ta="tmux attach"
 #Docker
 alias dcd="docker-compose down"
 alias dcu="docker-compose up"
+
+#Taskwarrior
+alias tr="cd ~/repos/tasks;pull;cd -"
+alias ts='cd ~/repos/tasks;ga;git commit -m "Sync task data";push;cd -'
 
 #===Shell magic<3===
 #Enable vim mode in terminal, and set the timeout to 0.1s
