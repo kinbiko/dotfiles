@@ -16,13 +16,14 @@ urgency.annotations.coefficient=0
 urgency.project.coefficient=0
 
 #Urgency by tag
-urgency.user.tag.home.coefficient=-0.4
-urgency.user.tag.personal.coefficient=0
-urgency.user.tag.yoject.coefficient=1
 urgency.user.tag.health.coefficient=-0.5
-urgency.user.tag.money.coefficient=0.5
-urgency.user.tag.kantanji.coefficient=1
+urgency.user.tag.home.coefficient=-0.4
+urgency.user.tag.kantanji.coefficient=-1
+urgency.user.tag.learning.coefficient=0.5
+urgency.user.tag.money.coefficient=0.8
 urgency.user.tag.opensource.coefficient=-0.8
+urgency.user.tag.software.coefficient=0.8
+urgency.user.tag.yoject.coefficient=1
 
 #Urgency by project
 urgency.user.project.taskwarrior.coefficient=2
