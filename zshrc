@@ -97,6 +97,12 @@ alias dcu="docker-compose up"
 alias t="clear;task"
 alias tr="cd ~/repos/tasks;pull;cd -"
 alias ts='cd ~/repos/tasks;ga;git commit -m "Sync task data";push;cd -'
+alias in='task add +inbox'
+
+#Add the current inbox task count to the prompt
+#Some cool symbols:
+#∫¡∞§∑∂ƒ∆√Ω›»
+export PROMPT='ƒ($(task +inbox +PENDING count))='
 
 #===Shell magic<3===
 #Enable vim mode in terminal, and set the timeout to 0.1s
