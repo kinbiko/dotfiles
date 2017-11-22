@@ -30,6 +30,7 @@ assume this structure:
   .vim-local/
   .vim/
   .vimrc
+  .taskrc
   .zshrc
   repos/
     dotfiles/
