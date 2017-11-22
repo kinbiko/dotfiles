@@ -94,6 +94,7 @@ alias dcd="docker-compose down"
 alias dcu="docker-compose up"
 
 #Taskwarrior
+alias t="clear;task"
 alias tr="cd ~/repos/tasks;pull;cd -"
 alias ts='cd ~/repos/tasks;ga;git commit -m "Sync task data";push;cd -'
 
