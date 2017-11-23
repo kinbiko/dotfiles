@@ -119,3 +119,4 @@ function zle-line-init zle-keymap-select {
 #Enable the above function on startup and when modes change
 zle -N zle-line-init
 zle -N zle-keymap-select
+alias dps="docker ps --format 'table {{.Names}}	{{.Status}}	{{.ID}}' | sed 's/dev_//' | sed 's/_1/_1    /' | sort"
