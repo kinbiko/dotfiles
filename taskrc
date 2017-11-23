@@ -29,3 +29,5 @@ urgency.user.tag.yoject.coefficient=1
 urgency.user.project.taskwarrior.coefficient=2
 urgency.user.project.chore.coefficient=1
 urgency.user.project.dockly.coefficient=1
+
+include ~/.taskrc.local
