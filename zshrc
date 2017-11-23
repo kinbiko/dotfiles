@@ -102,7 +102,7 @@ alias in='task add +inbox'
 #Add the current inbox task count to the prompt
 #Some cool symbols:
 #∫¡∞§∑∂ƒ∆√Ω›»
-export PROMPT='ƒ($(task +inbox +PENDING count))='
+export PROMPT=$PROMPT #'ƒ($(task +inbox +PENDING count))='
 
 #===Shell magic<3===
 #Enable vim mode in terminal, and set the timeout to 0.1s
