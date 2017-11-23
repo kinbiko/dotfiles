@@ -3,29 +3,29 @@
 # For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
 # 'man task-sync' or 'man taskrc'
 
-# Here is an example of entries that use the default, override and blank values
-#   variable=foo   -- By specifying a value, this overrides the default
-#   variable=      -- By specifying no value, this means no default
-#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
-
-# Use the command 'task show' to see all defaults and overrides
-
-# Files
+#This location will be symlinked to the tasks repo
 data.location=~/.task
 
-# Color theme (uncomment one to use)
-#include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/light-16.theme
-#include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/light-256.theme
-#include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-16.theme
-#include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-256.theme
-#include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-red-256.theme
-#include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-green-256.theme
-#include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-blue-256.theme
-#include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-violets-256.theme
-#include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-yellow-green.theme
-#include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-gray-256.theme
-#include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-gray-blue-256.theme
-#include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-dark-256.theme
-#include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-light-256.theme
-#include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/no-color.theme
+include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-red-256.theme
 
+#Make taskwarrior shut up a bit more
+verbose=no
+
+urgency.tags.coefficient=0
+urgency.annotations.coefficient=0
+urgency.project.coefficient=0
+
+#Urgency by tag
+urgency.user.tag.health.coefficient=-0.5
+urgency.user.tag.home.coefficient=-0.4
+urgency.user.tag.kantanji.coefficient=-1
+urgency.user.tag.learning.coefficient=0.5
+urgency.user.tag.money.coefficient=0.8
+urgency.user.tag.opensource.coefficient=-0.8
+urgency.user.tag.software.coefficient=0.8
+urgency.user.tag.yoject.coefficient=1
+
+#Urgency by project
+urgency.user.project.taskwarrior.coefficient=2
+urgency.user.project.chore.coefficient=1
+urgency.user.project.dockly.coefficient=1
