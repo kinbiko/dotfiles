@@ -1,4 +1,5 @@
 set spell
+set wrap
 
 nnoremap <localleader>c o```<CR><CR>```<UP>
 nmap <localleader>b ysaw*
