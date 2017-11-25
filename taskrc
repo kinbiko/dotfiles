@@ -29,3 +29,9 @@ urgency.user.tag.yoject.coefficient=1
 urgency.user.project.taskwarrior.coefficient=2
 urgency.user.project.chore.coefficient=1
 urgency.user.project.dockly.coefficient=1
+
+#custom inbox report
+report.inbox.columns           = id,description
+report.inbox.description       = Inbox
+report.inbox.filter            = status:pending limit:page (+inbox)
+report.inbox.labels            = ID,Description
