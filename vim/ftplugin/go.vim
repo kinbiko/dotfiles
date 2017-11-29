@@ -11,14 +11,11 @@ set listchars=tab:\ \ ,trail:·,extends:>,precedes:<
 set list
 
 nnoremap <localleader>a :GoAlternate<CR>
-nnoremap <localleader>t :GoTest<CR>
-nnoremap <localleader>b :GoBuild<CR>
-nnoremap <localleader>d :GoDoc<CR>
-nnoremap <localleader>v :GoVet<CR>
-nnoremap <localleader>c :GoCoverageToggle<CR>
 nnoremap <localleader>i :GoImports<CR>
-inoremap ,= :=<space>
+
+inoremap ,, <space>:=<space>
 inoremap nnn if err != nil {}<left><cr><cr><up><tab>
 
-" Run the current file with testunit
-map <Leader>r :call VimuxRunCommand("clear; go run " . bufname("%"))<CR>
+if filereadable("go.local.vim")
+  source "go.local.vim"
+endif

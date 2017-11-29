@@ -7,13 +7,8 @@ map <Leader>rb :!ctags --tag-relative --exclude=.git --languages=ruby -R * `rben
 let g:vimux_ruby_cmd_unit_test = "bundle exec ruby"
 let g:vimux_ruby_cmd_all_tests = "rake test:parallel"
 
-" Run the current file with testunit
-map <localleader>r :call VimuxRunCommand("clear; bundle exec ruby " . bufname("%"))<CR>
+inoremap >> <space>=><space>
 
-" Run the current test
-map <localleader>t :RunRubyFocusedTest<CR>
-
-" Run all rails tests
-map <localleader>T :RunAllRailsTests<CR>
-
-inoremap >> => 
+if filereadable("ruby.local.vim")
+  source "ruby.local.vim"
+endif
