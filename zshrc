@@ -28,6 +28,7 @@ source ~/repos/dotfiles/zsh/extract.sh
 #===ALIASES===
 
 alias v=vim
+alias vi=vim
 alias top=htop
 
 alias preview="qlmanage -p "
@@ -103,6 +104,30 @@ alias in='task add +inbox'
 #Some cool symbols:
 #∫¡∞§∑∂ƒ∆√Ω›»
 export PROMPT=$PROMPT #'ƒ($(task +inbox +PENDING count))='
+
+tickle () {
+    deadline=$1
+    shift
+    in +tickle wait:$deadline $@
+}
+alias tick=tickle
+alias think='tickle +1d'
+
+#Requires wget and html-xml-utils installed
+webpage_title (){
+    wget -qO- "$*" | hxselect -s '\n' -c  'title'
+}
+
+read_and_review (){
+    link="$1"
+    title=$(webpage_title $link)
+    echo $title
+    descr="\"Read and review: $title\""
+    id=$(task add +rnr "$descr" | sed -n 's/Created task \(.*\)./\1/p')
+    task "$id" annotate "$link"
+}
+
+alias rnr=read_and_review
 
 #===Shell magic<3===
 #Enable vim mode in terminal, and set the timeout to 0.1s

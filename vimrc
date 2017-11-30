@@ -23,3 +23,8 @@ let g:syntastic_style_error_symbol = '✠'
 let g:syntastic_warning_symbol = '✠'
 let g:syntastic_style_warning_symbol = '≈'
 
+for d in glob('~/.vim/spell/*.add', 1, 1)
+    if filereadable(d) && (!filereadable(d . '.spl') || getftime(d) > getftime(d . '.spl'))
+        exec 'mkspell! ' . fnameescape(d)
+    endif
+endfor
