@@ -38,5 +38,13 @@ assume this structure:
     repos/
 ```
 
+Install fonts:
+
+```
+brew tap caskroom/fonts
+brew cask install font-hack-nerd-font
+```
+Set font in `iterm2>profile>text`
+
 The dotfiles in the home directory are designed to either source the
 `~/repos/dotfiles` equivalent, if not be symlinks.
