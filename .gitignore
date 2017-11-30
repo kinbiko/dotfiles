@@ -2,3 +2,5 @@
 **.log
 vim/plugged/**
 tmux/plugins
+**.local*
+**.spl
