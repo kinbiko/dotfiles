@@ -26,14 +26,6 @@ nnoremap <leader>f :NERDTreeFind<cr>
 
 "{{{ Editor navigation
 
-"Enable camelcase navigation for word
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-sunmap w
-sunmap b
-sunmap e
-
 "Make H be home, L be end
 noremap H ^
 noremap L $
@@ -80,6 +72,8 @@ nnoremap Q @@
 
 "Simplify getting to command mode
 nnoremap ; :
+"I rarely use marks anyway, and probably wanted to hit ;
+nnoremap ' :
 
 "Clear the search highlights
 nnoremap <leader><space> :nohlsearch<CR>
@@ -150,4 +144,5 @@ onoremap aa a]
 "U - don't usually want to do a photoshop-undo
 "Shift-tab (Cannot use just tab in normal mode for terminal reasons)
 "H and L
+"m as marks are unused
 "}}}
