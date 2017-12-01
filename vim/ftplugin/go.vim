@@ -12,6 +12,7 @@ set list
 
 nnoremap <localleader>a :GoAlternate<CR>
 nnoremap <localleader>i :GoImports<CR>
+nnoremap <localleader>t :GoTest<CR>
 
 inoremap ,, <space>:=<space>
 inoremap nnn if err != nil {}<left><cr><cr><up><tab>
