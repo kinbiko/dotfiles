@@ -31,6 +31,8 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 "}}}
 
+let g:airline#extensions#tabline#enabled = 1
+
 "Make airline appear on startup
 set laststatus=2
 
