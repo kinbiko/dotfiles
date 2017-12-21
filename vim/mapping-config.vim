@@ -46,6 +46,7 @@ noremap <Right> :bn<CR>
 
 "Literally the best keybindings I know
 nnoremap <BS> {
+onoremap <BS> {
 nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 
