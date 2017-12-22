@@ -8,6 +8,7 @@ let g:vimux_ruby_cmd_unit_test = "bundle exec ruby"
 let g:vimux_ruby_cmd_all_tests = "rake test:parallel"
 
 inoremap >> <space>=><space>
+inoremap ppp puts "====================================="
 
 if filereadable("ruby.local.vim")
   source "ruby.local.vim"

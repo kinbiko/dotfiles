@@ -58,6 +58,7 @@ Plug 'prettier/vim-prettier' "prettier formatter
 Plug 'pgr0ss/vimux-ruby-test' "Run ruby specs from within vim
 Plug 'slim-template/vim-slim' "Syntax highlighting for slim
 Plug 'fatih/vim-go' "Make vim good with go
+Plug 'tpope/vim-rails' "Make vim good with rails
 "}}}
 
 call plug#end()
