@@ -90,8 +90,6 @@ set nowrap "Don't wrap lines by default
 filetype plugin indent on "Enable plugin- and filetype indent
 syntax enable "Use syntax highlighting by default
 
-set cursorcolumn "highlight current column
-
 "How to represent non-printable characters
 "In general, don't want tabs, so have them show up as special characters
 set listchars=tab:>-,trail:·,extends:>,precedes:<
@@ -134,3 +132,9 @@ augroup go_to_last_location_in_file
     \ endif
 augroup end
 "}}}
+
+for d in glob('~/.vim/spell/*.add', 1, 1)
+    if filereadable(d) && (!filereadable(d . '.spl') || getftime(d) > getftime(d . '.spl'))
+        exec 'mkspell! ' . fnameescape(d)
+    endif
+endfor
