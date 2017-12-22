@@ -40,6 +40,8 @@ alias claer="clear"
 alias cler="clear"
 alias clar="clear"
 alias lear="clear"
+alias xit="exit"
+alias xx="exit"
 
 #relocate
 alias dot="cd ~/repos/dotfiles"
