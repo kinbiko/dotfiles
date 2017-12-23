@@ -32,11 +32,18 @@ assume this structure:
   .vimrc
   .taskrc
   .zshrc
+  screen-256-color-italic.terminfo
+  xterm-256-color-italic.terminfo
   repos/
     dotfiles/
     other/
     repos/
 ```
+
+The dotfiles in the home directory are designed to either source the
+`~/repos/dotfiles` equivalent, if not be symlinks.
+
+### Fonts
 
 Install fonts:
 
@@ -46,5 +53,16 @@ brew cask install font-hack-nerd-font
 ```
 Set font in `iterm2>profile>text`
 
-The dotfiles in the home directory are designed to either source the
-`~/repos/dotfiles` equivalent, if not be symlinks.
+### Italics
+
+Update the iterm profile to make italics available: append `-italic` to
+`profile>terminal>report-terminal-type` to get `xterm-256color-italic`
+
+Register the `terminfo` files with `tic`:
+
+```
+tic screen-256color-italic.terminfo
+tic xterm-256color-italic.terminfo
+```
+
+TODO: This doesn't quite work within tmux yet

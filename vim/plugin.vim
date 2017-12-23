@@ -1,3 +1,11 @@
+"{{{ AUTOCLOSE
+"Configure autoclose
+let g:AutoClosePairs = "() {} \" `"
+"This would have put spaces on both sides inside brackets, but
+"breaks vim abbreviations when followed by space.
+let g:AutoCloseExpandSpace = 0
+"}}}
+"{{{ NERDTREE
 "Make nerdtree more 'mine'
 let NERDTreeIgnore=['node_modules$', '\~$', '\.git$', '\.DS_Store$', '\.meta$']
 let NERDTreeShowHidden=1
@@ -50,3 +58,37 @@ let g:NERDTreeExactMatchHighlightColor['Dockerfile'] = s:red " sets the color fo
 
 let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid error
 let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
+"}}}
+"{{{ PRETTIER
+" max line lengh that prettier will wrap on
+let g:prettier#config#print_width = 80
+" number of spaces per indentation level
+let g:prettier#config#tab_width = 2
+" print semicolons
+let g:prettier#config#semi = 'true'
+" single quotes over double quotes
+let g:prettier#config#single_quote = 'true'
+" print spaces between brackets
+let g:prettier#config#bracket_spacing = 'true'
+" put > on the last line instead of new line
+let g:prettier#config#jsx_bracket_same_line = 'true'
+" none|es5|all
+let g:prettier#config#trailing_comma = 'none'
+" flow|babylon|typescript|postcss|json|graphql
+let g:prettier#config#parser = 'flow'
+" when running at every change you may want to disable quickfix
+let g:prettier#quickfix_enabled = 0
+let g:prettier#autoformat = 0
+augroup prettier_group
+  autocmd!
+  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
+augroup END
+"}}}
+
+"{{{ULTISNIPS
+let g:UltiSnipsExpandTrigger="<C-l>"
+"}}}
+
+"Make jsx syntax show up in .js files
+let g:jsx_ext_required = 0
+let g:javascript_enable_domhtmlcss = 1 "Makes css/html syntax available in .js files(React)

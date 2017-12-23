@@ -51,7 +51,7 @@ nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 
 "f toggles easy-motion search
-nmap f <Plug>(easymotion-prefix)s
+nmap F <Plug>(easymotion-prefix)s
 
 map # <Plug>(asterisk-z*)
 map * <Plug>(asterisk-z#)
