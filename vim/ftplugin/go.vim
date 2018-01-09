@@ -14,6 +14,9 @@ nnoremap <localleader>a :GoAlternate<CR>
 nnoremap <localleader>i :GoImports<CR>
 nnoremap <localleader>t :GoTest<CR>
 
+nnoremap ] :GoDef<CR>
+nnoremap [ :GoDefPop<CR>
+
 inoremap ,, <space>:=<space>
 inoremap nnn if err != nil {}<left><cr><cr><up><tab>
 
