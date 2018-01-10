@@ -55,6 +55,7 @@ Plug 'slim-template/vim-slim' "Syntax highlighting for slim
 "}}}
 Plug 'pgr0ss/vimux-ruby-test' "Run ruby specs from within vim
 Plug 'fatih/vim-go' "Make vim good with go
+Plug 'nelstrom/vim-markdown-folding' "fold by sections in markdown
 Plug 'tpope/vim-rails' "Make vim good with rails
 "}}}
 
