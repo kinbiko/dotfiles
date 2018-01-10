@@ -1,7 +1,4 @@
-set spell
-set wrap
-
-set wrap
+au Filetype markdown set spell wrap
 
 nnoremap <localleader>c o```<CR><CR>```<UP>
 nmap <localleader>b ysaw*
