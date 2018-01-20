@@ -89,32 +89,6 @@ augroup END
 let g:UltiSnipsExpandTrigger="<C-l>"
 "}}}
 
-"{{{GOYO
-
-"Quit Vim even in Goyo with :q
-
-function! g:GoyoBefore()
-  let b:quitting = 0
-  let b:quitting_bang = 0
-  autocmd QuitPre <buffer> let b:quitting = 1
-  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-endfunction
-
-function! g:GoyoAfter()
-  " Quit Vim if this is the only remaining buffer
-  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-    if b:quitting_bang
-      qa!
-    else
-      qa
-    endif
-  endif
-endfunction
-
-let g:goyo_callbacks = [function('g:GoyoBefore'), function('g:GoyoAfter')]
-
-"}}}
-
 "Make jsx syntax show up in .js files
 let g:jsx_ext_required = 0
 let g:javascript_enable_domhtmlcss = 1 "Makes css/html syntax available in .js files(React)

@@ -5,7 +5,5 @@ nmap <localleader>b ysaw*
 nmap <localleader>i ysaw_
 nmap <localleader>s ysaw~
 
-colorscheme darkblue
-
-au Filetype markdown Goyo 180
-au Filetype markdown Limelight 0.8
+"TODO: Fix by creating a PR with limelight colours added
+"au Filetype markdown Limelight 0.8

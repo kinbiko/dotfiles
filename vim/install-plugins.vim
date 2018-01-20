@@ -8,7 +8,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "This can get pretty sluggish for large trees :/ Consider removing
 Plug 'ryanoasis/vim-devicons' "Pretty stuff in airline and NERDTree
 Plug 'arcticicestudio/nord-vim' "Nord theme
-Plug 'junegunn/goyo.vim' "Distraction free writing
 Plug 'junegunn/limelight.vim' "Focused syntax highlighting per fold
 "}}}
 
