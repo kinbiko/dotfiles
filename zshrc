@@ -96,12 +96,6 @@ alias ta="tmux attach"
 alias dcd="docker-compose down"
 alias dcu="docker-compose up"
 
-#Taskwarrior
-alias t="clear;task"
-alias tr="cd ~/repos/tasks;pull;cd -"
-alias ts='cd ~/repos/tasks;ga;git commit -m "Sync task data";push;cd -'
-alias in='task add +inbox'
-
 #Add the current inbox task count to the prompt
 #Some cool symbols:
 #∫¡∞§∑∂ƒ∆√Ω›»
@@ -146,7 +140,7 @@ function zle-line-init zle-keymap-select {
 #Amazing stuff stolen from jessfraz
 
 #Colours in man pages
-man() {
+function man() {
     env \
         LESS_TERMCAP_mb="$(printf '\e[1;31m')" \
         LESS_TERMCAP_md="$(printf '\e[1;31m')" \
