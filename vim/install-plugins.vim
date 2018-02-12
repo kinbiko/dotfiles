@@ -44,15 +44,17 @@ Plug 'benmills/vimux' "Integrate with tmux easily
 
 "{{{ Languages
 "{{{ Frontend
-Plug 'pangloss/vim-javascript' "Makes syntax highlighting etc. more sane for js.
-Plug 'kchmck/vim-coffee-script' "Coffescript support
-Plug 'mxw/vim-jsx' "Support for JSX
-Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
-Plug 'prettier/vim-prettier' "prettier formatter
-Plug 'slim-template/vim-slim' "Syntax highlighting for slim
+"Plug 'pangloss/vim-javascript' "Makes syntax highlighting etc. more sane for js.
+"Plug 'kchmck/vim-coffee-script' "Coffescript support
+"Plug 'mxw/vim-jsx' "Support for JSX
+"Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
+"Plug 'prettier/vim-prettier' "prettier formatter
+"Plug 'slim-template/vim-slim' "Syntax highlighting for slim
 "}}}
+"Plug 'nelstrom/vim-markdown-folding' "fold by sections in markdown
+" The above are commented to ensure nothing odd happens by using this proxy
+Plug 'sheerun/vim-polyglot' "LEARN ALL THE LANGUAGES
 Plug 'fatih/vim-go' "Make vim good with go
-Plug 'nelstrom/vim-markdown-folding' "fold by sections in markdown
 "}}}
 
 "{{{ Misc.
