@@ -35,6 +35,7 @@ Plug 'tpope/vim-endwise' "Make vim do `end` automatically
 
 "{{{ Linting
 Plug 'bronson/vim-trailing-whitespace' "Mark trailing whitespace
+Plug 'w0rp/ale' "Async linting engine
 "}}}
 
 "{{{ Tmux
