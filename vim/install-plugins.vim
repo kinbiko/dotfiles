@@ -26,11 +26,10 @@ Plug 'rhysd/committia.vim' "git commit becomes magic
 "}}}
 
 "{{{ Surrounding syntax
-Plug 'Townk/vim-autoclose' "Adds matching quotes, bracets etc.
 Plug 'mattn/emmet-vim' "Shortcuts for creating html/jsx boilerplate
 Plug 'tpope/vim-surround' "ysiw syntax for surrounding
 Plug 'tpope/vim-repeat' "Make vim-surround things repeatable with .
-Plug 'tpope/vim-endwise' "Make vim do `end` automatically
+Plug 'cohama/lexima.vim' "Like autoclose + endwise
 "}}}
 
 "{{{ Linting
