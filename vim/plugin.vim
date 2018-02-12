@@ -6,7 +6,6 @@ let g:AutoClosePairs = "() {} \" `"
 let g:AutoCloseExpandSpace = 0
 "}}}
 "{{{ NERDTREE
-"Make nerdtree more 'mine'
 let NERDTreeIgnore=['node_modules$', '\~$', '\.git$', '\.DS_Store$', '\.meta$']
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
@@ -81,12 +80,13 @@ let g:prettier#quickfix_enabled = 0
 let g:prettier#autoformat = 0
 augroup prettier_group
   autocmd!
-  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
+  autocmd BufWritePre *.js,*.jsx,*.css,*.json PrettierAsync
 augroup END
 "}}}
 
-"{{{ULTISNIPS
-let g:UltiSnipsExpandTrigger="<C-l>"
+"{{{ ALE
+let g:ale_sign_error = '嫌'
+let g:ale_sign_warning = '臭'
 "}}}
 
 "Make jsx syntax show up in .js files

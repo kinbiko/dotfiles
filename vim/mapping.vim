@@ -19,16 +19,14 @@ nnoremap ? :GFiles<CR>
 nnoremap <c-N> :GitGutterNextHunk<cr>
 nnoremap <c-P> :GitGutterPrevHunk<cr>
 
-"Find current file in nerdtree
-nnoremap <leader>f :NERDTreeFind<cr>
-
 "}}}
 
 "{{{ Editor navigation
 
 "Make H be home, L be end
-noremap H ^
-noremap L $
+"Actually map these, and not just noremap, as $ and 0 are annoying to find sometimes
+map H ^
+map L $
 nnoremap j gj
 nnoremap k gk
 
@@ -50,7 +48,7 @@ onoremap <BS> {
 nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 
-"f toggles easy-motion search
+"F toggles vimium-like search
 nmap F <Plug>(easymotion-prefix)s
 
 map # <Plug>(asterisk-z*)
@@ -58,12 +56,19 @@ map * <Plug>(asterisk-z#)
 
 "Because :w is too annoying
 nnoremap s :w<CR>
+
+"Next error/warning
+nmap <silent> <leader>e <Plug>(ale_next_wrap)
+
+"If I had a nickel for every time I mistyped that combo
+"... I'd have a lot of low-valued American coins
+nnoremap S ysiw
 "}}}
 
-"Make a vertical split with vv, and go to tag if on one
-nnoremap <silent> vv :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-"Make a horizontal split with VV, and go to tag if on one
-nnoremap <silent> VV :sp <CR>:exec("tag ".expand("<cword>"))<CR>
+"Make a vertical split with vv
+nnoremap <silent> vv :vsp <CR>
+"Make a horizontal split with VV
+nnoremap <silent> VV :sp <CR>
 
 "Insert blank lines without insert mode
 nnoremap t o<ESC>k
@@ -80,14 +85,10 @@ nnoremap ' :
 nnoremap <leader><space> :nohlsearch<CR>
 
 "Leader + v opens vimrc
-nnoremap <leader>v :vsplit $MYVIMRC<CR>
-"Leader + V sources the vimrc
-nnoremap <leader>V :source $MYVIMRC<CR>
+nnoremap <leader>v :e $MYVIMRC<CR>
 
 "Leader + Leader opens nerd tree.
 nnoremap <silent> <leader><leader> :NERDTreeToggle<CR>
-
-nnoremap <leader>e :edit <C-R>=expand('%:p:h') . '/'<CR>
 
 "Change the current word to be UPPERCASE on U
 "TODO: Switch from simple upper case to CONSTANT_CASE
@@ -106,9 +107,6 @@ vnoremap > >gv
 
 vnoremap jk <esc>
 
-"Make // seach for the currently selected words
-vnoremap // y/<C-R>"<CR>
-
 vnoremap <BS> {
 vnoremap <CR> }
 "}}}
@@ -122,11 +120,8 @@ inoremap jk <esc>
 
 "{{{ Operator-pending mappings
 
-"Make 'inside quotes' be a movement
-"These may be swapped for languages where strings are usually written with
-"double quotes, e.g. Java
-onoremap q i'
-onoremap Q i"
+onoremap q i"
+onoremap Q a"
 
 "Make 'inside array' be a movement
 onoremap ia i]
@@ -134,16 +129,7 @@ onoremap aa a]
 
 "}}}
 
-"{{{ Command mode mappings
-
-"Map any !shell commands to clear the console first
-:map :! :!clear;
-
-"}}}
-
 "{{{ List of keys that are available for mapping to:
-"U - don't usually want to do a photoshop-undo
 "Shift-tab (Cannot use just tab in normal mode for terminal reasons)
-"H and L
 "m as marks are unused
 "}}}

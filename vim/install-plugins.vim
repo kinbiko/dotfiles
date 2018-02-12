@@ -5,10 +5,8 @@ call plug#begin('~/.vim/plugged')
 
 "{{{ Themes and looks
 Plug 'vim-airline/vim-airline'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "This can get pretty sluggish for large trees :/ Consider removing
 Plug 'ryanoasis/vim-devicons' "Pretty stuff in airline and NERDTree
 Plug 'arcticicestudio/nord-vim' "Nord theme
-Plug 'junegunn/limelight.vim' "Focused syntax highlighting per fold
 "}}}
 
 "{{{ Navigation
@@ -28,16 +26,15 @@ Plug 'rhysd/committia.vim' "git commit becomes magic
 "}}}
 
 "{{{ Surrounding syntax
-Plug 'Townk/vim-autoclose' "Adds matching quotes, bracets etc.
-Plug 'mattn/emmet-vim' "Shortcuts for creating html boilerplate
+Plug 'mattn/emmet-vim' "Shortcuts for creating html/jsx boilerplate
 Plug 'tpope/vim-surround' "ysiw syntax for surrounding
 Plug 'tpope/vim-repeat' "Make vim-surround things repeatable with .
+Plug 'cohama/lexima.vim' "Like autoclose + endwise
 "}}}
 
 "{{{ Linting
-Plug 'vim-syntastic/syntastic' "Linting engine
-Plug 'mtscout6/syntastic-local-eslint.vim' "uses .eslint.* file to plug into syntastic
 Plug 'bronson/vim-trailing-whitespace' "Mark trailing whitespace
+Plug 'w0rp/ale' "Async linting engine
 "}}}
 
 "{{{ Tmux
@@ -47,29 +44,23 @@ Plug 'benmills/vimux' "Integrate with tmux easily
 
 "{{{ Languages
 "{{{ Frontend
-Plug 'pangloss/vim-javascript' "Makes syntax highlighting etc. more sane for js.
-Plug 'kchmck/vim-coffee-script' "Coffescript support
-Plug 'mxw/vim-jsx' "Support for JSX
-Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
-Plug 'prettier/vim-prettier' "prettier formatter
-Plug 'slim-template/vim-slim' "Syntax highlighting for slim
+"Plug 'pangloss/vim-javascript' "Makes syntax highlighting etc. more sane for js.
+"Plug 'kchmck/vim-coffee-script' "Coffescript support
+"Plug 'mxw/vim-jsx' "Support for JSX
+"Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
+"Plug 'prettier/vim-prettier' "prettier formatter
+"Plug 'slim-template/vim-slim' "Syntax highlighting for slim
 "}}}
-Plug 'pgr0ss/vimux-ruby-test' "Run ruby specs from within vim
+"Plug 'nelstrom/vim-markdown-folding' "fold by sections in markdown
+" The above are commented to ensure nothing odd happens by using this proxy
+Plug 'sheerun/vim-polyglot' "LEARN ALL THE LANGUAGES
 Plug 'fatih/vim-go' "Make vim good with go
-Plug 'nelstrom/vim-markdown-folding' "fold by sections in markdown
-Plug 'tpope/vim-rails' "Make vim good with rails
-"}}}
-
-"{{{ Snippets
-Plug 'SirVer/ultisnips'
-Plug 'epilande/vim-es2015-snippets'
-Plug 'epilande/vim-react-snippets'
-
 "}}}
 
 "{{{ Misc.
 Plug 'sickill/vim-pasta' "Context aware pasting + intentation
 Plug 'godlygeek/tabular' "Make aligning nice and pretty
+Plug 'metakirby5/codi.vim' "in-vim coding scratchpad/repl
 "}}}
 
 call plug#end()

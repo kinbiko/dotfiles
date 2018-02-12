@@ -13,6 +13,7 @@ set list
 nnoremap <localleader>a :GoAlternate<CR>
 nnoremap <localleader>i :GoImports<CR>
 nnoremap <localleader>t :GoTest<CR>
+nnoremap <localleader>b :GoBuild<CR>
 
 nnoremap ] :GoDef<CR>
 nnoremap [ :GoDefPop<CR>
