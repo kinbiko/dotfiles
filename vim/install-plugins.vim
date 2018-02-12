@@ -32,6 +32,7 @@ Plug 'Townk/vim-autoclose' "Adds matching quotes, bracets etc.
 Plug 'mattn/emmet-vim' "Shortcuts for creating html boilerplate
 Plug 'tpope/vim-surround' "ysiw syntax for surrounding
 Plug 'tpope/vim-repeat' "Make vim-surround things repeatable with .
+Plug 'tpope/vim-endwise' "Make vim do `end` automatically
 "}}}
 
 "{{{ Linting
