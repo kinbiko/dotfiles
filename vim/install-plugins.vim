@@ -71,6 +71,7 @@ Plug 'epilande/vim-react-snippets'
 "{{{ Misc.
 Plug 'sickill/vim-pasta' "Context aware pasting + intentation
 Plug 'godlygeek/tabular' "Make aligning nice and pretty
+Plug 'metakirby5/codi.vim' "in-vim coding scratchpad/repl
 "}}}
 
 call plug#end()
