@@ -41,3 +41,5 @@ nnoremap * #
 nnoremap # *
 
 inoremap jk <esc>
+
+nnoremap ,f Ifinal <esc>
