@@ -84,6 +84,11 @@ augroup prettier_group
 augroup END
 "}}}
 
+"{{{ ALE
+let g:ale_sign_error = '嫌'
+let g:ale_sign_warning = '臭'
+"}}}
+
 "Make jsx syntax show up in .js files
 let g:jsx_ext_required = 0
 let g:javascript_enable_domhtmlcss = 1 "Makes css/html syntax available in .js files(React)
