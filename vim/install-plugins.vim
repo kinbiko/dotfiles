@@ -7,7 +7,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons' "Pretty stuff in airline and NERDTree
 Plug 'arcticicestudio/nord-vim' "Nord theme
-Plug 'junegunn/limelight.vim' "Focused syntax highlighting per fold
 "}}}
 
 "{{{ Navigation
@@ -28,15 +27,13 @@ Plug 'rhysd/committia.vim' "git commit becomes magic
 
 "{{{ Surrounding syntax
 Plug 'Townk/vim-autoclose' "Adds matching quotes, bracets etc.
-Plug 'mattn/emmet-vim' "Shortcuts for creating html boilerplate
+Plug 'mattn/emmet-vim' "Shortcuts for creating html/jsx boilerplate
 Plug 'tpope/vim-surround' "ysiw syntax for surrounding
 Plug 'tpope/vim-repeat' "Make vim-surround things repeatable with .
 Plug 'tpope/vim-endwise' "Make vim do `end` automatically
 "}}}
 
 "{{{ Linting
-Plug 'vim-syntastic/syntastic' "Linting engine
-Plug 'mtscout6/syntastic-local-eslint.vim' "uses .eslint.* file to plug into syntastic
 Plug 'bronson/vim-trailing-whitespace' "Mark trailing whitespace
 "}}}
 
@@ -54,17 +51,8 @@ Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
 Plug 'prettier/vim-prettier' "prettier formatter
 Plug 'slim-template/vim-slim' "Syntax highlighting for slim
 "}}}
-Plug 'pgr0ss/vimux-ruby-test' "Run ruby specs from within vim
 Plug 'fatih/vim-go' "Make vim good with go
 Plug 'nelstrom/vim-markdown-folding' "fold by sections in markdown
-Plug 'tpope/vim-rails' "Make vim good with rails
-"}}}
-
-"{{{ Snippets
-Plug 'SirVer/ultisnips'
-Plug 'epilande/vim-es2015-snippets'
-Plug 'epilande/vim-react-snippets'
-
 "}}}
 
 "{{{ Misc.
