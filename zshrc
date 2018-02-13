@@ -29,7 +29,9 @@ source ~/repos/dotfiles/zsh/extract.sh
 
 alias v=vim
 alias vi=vim
-alias top=htop
+alias top=vtop
+
+alias ranger=vifm
 
 alias preview="qlmanage -p "
 
