@@ -62,7 +62,7 @@ nmap <silent> <leader>e <Plug>(ale_next_wrap)
 
 "If I had a nickel for every time I mistyped that combo
 "... I'd have a lot of low-valued American coins
-nnoremap S ysiw
+nmap S ysiw
 "}}}
 
 "Make a vertical split with vv
