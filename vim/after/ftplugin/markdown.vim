@@ -5,5 +5,12 @@ nmap <localleader>b ysaw*
 nmap <localleader>i ysaw_
 nmap <localleader>s ysaw~
 
-"TODO: Fix by creating a PR with limelight colours added
-"au Filetype markdown Limelight 0.8
+"{{{plasticboy/vim-markdown
+"
+"Allow concealing
+set conceallevel=2
+
+"For frontmatter in blogs etc.
+let g:vim_markdown_frontmatter = 1
+
+"}}}
