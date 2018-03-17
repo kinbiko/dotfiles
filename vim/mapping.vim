@@ -58,11 +58,12 @@ map * <Plug>(asterisk-z#)
 nnoremap s :w<CR>
 
 "Next error/warning
-nmap <silent> <leader>e <Plug>(ale_next_wrap)
+nnoremap <silent> <leader>e <Plug>(ale_next_wrap)
+nnoremap <silent> <leader>f :ALEFix<cr>
 
 "If I had a nickel for every time I mistyped that combo
 "... I'd have a lot of low-valued American coins
-nnoremap S ysiw
+nmap S ysiw
 "}}}
 
 "Make a vertical split with vv

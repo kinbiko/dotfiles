@@ -87,6 +87,10 @@ augroup END
 "{{{ ALE
 let g:ale_sign_error = '嫌'
 let g:ale_sign_warning = '臭'
+
+let g:ale_fixers = {
+\  'ruby': ['rubocop'],
+\}
 "}}}
 
 "Make jsx syntax show up in .js files

@@ -42,25 +42,29 @@ Plug 'christoomey/vim-tmux-navigator' "Work better with tmux
 Plug 'benmills/vimux' "Integrate with tmux easily
 "}}}
 
-"{{{ Languages
-"{{{ Frontend
-"Plug 'pangloss/vim-javascript' "Makes syntax highlighting etc. more sane for js.
-"Plug 'kchmck/vim-coffee-script' "Coffescript support
-"Plug 'mxw/vim-jsx' "Support for JSX
-"Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
-"Plug 'prettier/vim-prettier' "prettier formatter
-"Plug 'slim-template/vim-slim' "Syntax highlighting for slim
-"}}}
-"Plug 'nelstrom/vim-markdown-folding' "fold by sections in markdown
-" The above are commented to ensure nothing odd happens by using this proxy
-Plug 'sheerun/vim-polyglot' "LEARN ALL THE LANGUAGES
-Plug 'fatih/vim-go' "Make vim good with go
-"}}}
-
 "{{{ Misc.
 Plug 'sickill/vim-pasta' "Context aware pasting + intentation
-Plug 'godlygeek/tabular' "Make aligning nice and pretty
+Plug 'godlygeek/tabular' "Make aligning nice and pretty. Must be before plasticboy/vim-markdown
 Plug 'metakirby5/codi.vim' "in-vim coding scratchpad/repl
 "}}}
+
+"{{{ Languages
+Plug 'fatih/vim-go' "Make vim good with go
+Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
+Plug 'prettier/vim-prettier' "prettier formatter
+Plug 'kchmck/vim-coffee-script' "Coffescript support
+Plug 'pangloss/vim-javascript' "Makes syntax highlighting etc. more sane for js.
+Plug 'elzr/vim-json' "JSON highlighting + concealment
+Plug 'mxw/vim-jsx' "Support for JSX
+Plug 'plasticboy/vim-markdown' "Amazing markdown support
+Plug 'tbastos/vim-lua' "Lua support. Entirely redundant if it wasn't for Redis...
+Plug 'uarun/vim-protobuf' "Mmmm protobuf files.
+Plug 'vim-python/python-syntax' "Self explanatory really. Supports both python 2 and 3
+Plug 'keith/rspec.vim' "Make _spec.rb files nicer
+Plug 'slim-template/vim-slim' "Syntax highlighting for slim
+Plug 'keith/tmux.vim' "For when I finally get around to fixing my tmux bugs
+Plug 'cespare/vim-toml' "For as long as I use dep when writing go
+Plug 'stephpy/vim-yaml' "Delete this if there's no real use for it
+"""}}}
 
 call plug#end()
