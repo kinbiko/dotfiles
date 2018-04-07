@@ -119,6 +119,9 @@ vnoremap <CR> }
 "Good for when CAPS-LOCK can't be mapped to escape.
 inoremap jk <esc>
 
+"Auto-complete with tab
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+
 "}}}
 
 "{{{ Operator-pending mappings
