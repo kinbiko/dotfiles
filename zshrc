@@ -7,7 +7,7 @@ COMPLETION_WAITING_DOTS="true"
 
 #removed git from the below plugins as it prevented my aliases from
 #working as expected
-plugins=(brew docker docker-compose golang npm vi-mode)
+plugins=(docker docker-compose golang npm vi-mode)
 
 #===EXPORTS===
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
