@@ -5,7 +5,6 @@ call plug#begin('~/.vim/plugged')
 
 "{{{ Themes and looks
 Plug 'vim-airline/vim-airline'
-Plug 'ryanoasis/vim-devicons' "Pretty stuff in airline and NERDTree
 Plug 'arcticicestudio/nord-vim' "Nord theme
 "}}}
 
