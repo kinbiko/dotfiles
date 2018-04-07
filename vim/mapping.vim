@@ -98,6 +98,8 @@ nnoremap U vawUew
 "Perform git-undo
 nnoremap <c-U> :GitGutterUndoHunk<cr>
 
+nnoremap m :Switch<CR>
+
 "}}}
 
 "{{{Visual mode mappings

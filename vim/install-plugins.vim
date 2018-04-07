@@ -45,6 +45,7 @@ Plug 'benmills/vimux' "Integrate with tmux easily
 Plug 'sickill/vim-pasta' "Context aware pasting + intentation
 Plug 'godlygeek/tabular' "Make aligning nice and pretty. Must be before plasticboy/vim-markdown
 Plug 'metakirby5/codi.vim' "in-vim coding scratchpad/repl
+Plug 'AndrewRadev/switch.vim'
 "}}}
 
 "{{{ Languages
