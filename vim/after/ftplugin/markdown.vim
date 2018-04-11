@@ -5,6 +5,9 @@ nmap <localleader>b ysaw*
 nmap <localleader>i ysaw_
 nmap <localleader>s ysaw~
 
+inoremap [[[ -<space>[<space>]<space>
+inoremap ]]] -<space>[x]<space>
+
 "{{{plasticboy/vim-markdown
 "
 "Allow concealing
