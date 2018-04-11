@@ -100,6 +100,8 @@ nnoremap <c-U> :GitGutterUndoHunk<cr>
 
 nnoremap m :Switch<CR>
 
+"open/close folds entirely
+nnoremap zz zA
 "}}}
 
 "{{{Visual mode mappings
