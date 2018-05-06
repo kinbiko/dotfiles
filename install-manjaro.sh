@@ -44,4 +44,3 @@ echo "You must reboot to before using docker"
 #   Change keyboard layouts (uk qwerty, hiragana, colemak)
 # Configure tmux
 # Disable the new(?) loud warnings in vim (e.g. attempting to paste empty buffer)
-# Set up ssh key for github
