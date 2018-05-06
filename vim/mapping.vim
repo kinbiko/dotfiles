@@ -102,6 +102,10 @@ nnoremap m :Switch<CR>
 
 "open/close folds entirely
 nnoremap zz zA
+
+"Wait, why isn't this the default?
+nnoremap + <C-a>
+nnoremap - <C-x>
 "}}}
 
 "{{{Visual mode mappings
