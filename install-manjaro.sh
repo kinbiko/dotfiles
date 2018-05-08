@@ -20,13 +20,21 @@ pacman -S ruby
 pacman -S spotify
 pacman -S nodejs
 pacman -S jdk8-openjdk
+pacman -S emacs # shh! you didn't see anything...
 
+#
+# Set up docker
+#
 pacman -S docker
 # start the docker daemon on startup
 systemctl enable docker
 # give the current user permissions to use the docker group
 usermod -a -G docker $USER
 
+#
+# Set up spacemacs
+#
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 echo "You must reboot to before using docker"
 
