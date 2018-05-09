@@ -13,7 +13,7 @@ yaourt -S ranger-git
 pacman -S rofi # Alfred thingy
 pacman -S ctags
 pacman -S fzf
-pacman -S the_silver_searcher
+pacman -S the_silver_searcher #'ag' in the terminal
 pacman -S newsboat
 pacman -S go
 pacman -S ruby
@@ -21,6 +21,7 @@ pacman -S spotify
 pacman -S nodejs
 pacman -S jdk8-openjdk
 pacman -S emacs # shh! you didn't see anything...
+pacman -S texlive-most #LaTeX etc. This is a more interactive install prompt compared to the others.
 
 #
 # Set up docker
@@ -44,6 +45,7 @@ echo "You must reboot to before using docker"
 # install brave
 # Install, configure and learn mutt
 # Install, configure and learn an IRC client
+# Install (TODO: update pacman list), and configure finch for Line, FB, Slack and others?
 # install a music player. cmus?
 # install a video player. vlc?
 # Attempt to migrate to nvim or spacemacs
