@@ -19,9 +19,11 @@ pacman -S go
 pacman -S ruby
 pacman -S spotify
 pacman -S nodejs
+pacman -S pidgeon
 pacman -S jdk8-openjdk
 pacman -S emacs # shh! you didn't see anything...
 pacman -S texlive-most #LaTeX etc. This is a more interactive install prompt compared to the others.
+pacman -S xcape #Tool for remapping caps-lock to be control when held and escape when pressed
 
 #
 # Set up docker
@@ -38,19 +40,3 @@ usermod -a -G docker $USER
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 echo "You must reboot to before using docker"
-
-# TODO
-# Fix glyphs in terminal font
-# Save my config to my dotfiles, in particular ~/.i3 and ~/.config, .newsboat
-# install brave
-# Install, configure and learn mutt
-# Install, configure and learn an IRC client
-# Install (TODO: update pacman list), and configure finch for Line, FB, Slack and others?
-# install a music player. cmus?
-# install a video player. vlc?
-# Attempt to migrate to nvim or spacemacs
-# Fix fzf w.r.t. ctrl+r and ctrl+t works again
-# Make it so that I can do the following with a single keyboard shortcut:
-#   Change keyboard layouts (uk qwerty, hiragana, colemak)
-# Configure tmux
-# Disable the new(?) loud warnings in vim (e.g. attempting to paste empty buffer)
