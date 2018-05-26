@@ -5,6 +5,10 @@ source ~/.vim/writing.vim
 source ~/.vim/mapping.vim
 source ~/.vim/general.vim
 
+"Has to be last to take effect
+"or at least after nord
+highlight comment ctermfg=DarkRed
+
 " The following paths are loaded automatically, but listed here for gf-ing.
 " ~/.vim/after/ftplugin/coffee.vim
 " ~/.vim/after/ftplugin/dockerfile.vim

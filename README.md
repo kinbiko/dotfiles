@@ -13,31 +13,24 @@ way to ask questions about what setting `foo` does if it's not clear from the
 comments.
 
 Steal what you want, but don't expect my configs to work for you  out of the
-box without any issues.  My vim mappings and configs are probably the most
-interesting.  I've tried to document these as well as I could but if something
-is undocumented Vim's `:help <thing>` is probably what you're looking for.  I
+box without any issues. My vim mappings and configs are probably the most
+interesting. I've tried to document these as well as I could but if something
+is undocumented Vim's `:help <thing>` is probably what you're looking for. I
 use the following directory structure, and some scripts/configuration may
 assume this structure:
 
 ```
 ~/
   .ctags
-  .idevimrc
-  .khdrc
+  .ideavimrc
   .tmux.conf
-  .tmux.conf.local
   .tmux.conf.local
   .vim-local/
   .vim/
   .vimrc
-  .taskrc
   .zshrc
-  screen-256-color-italic.terminfo
-  xterm-256-color-italic.terminfo
   repos/
     dotfiles/
-    other/
-    repos/
 ```
 
 The dotfiles in the home directory are designed to either source the
@@ -52,17 +45,3 @@ brew tap caskroom/fonts
 brew cask install font-hack-nerd-font
 ```
 Set font in `iterm2>profile>text`
-
-### Italics
-
-Update the iterm profile to make italics available: append `-italic` to
-`profile>terminal>report-terminal-type` to get `xterm-256color-italic`
-
-Register the `terminfo` files with `tic`:
-
-```
-tic screen-256color-italic.terminfo
-tic xterm-256color-italic.terminfo
-```
-
-TODO: This doesn't quite work within tmux yet

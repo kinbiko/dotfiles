@@ -81,6 +81,3 @@ match ErrorMsg '\s\+$'
 
 let g:rehash256=1
 
-"TODO: Make this work again :(
-"Died after moving to nord
-highlight comment ctermfg=DarkRed

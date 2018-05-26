@@ -1,5 +1,5 @@
 export ZSH=~/.oh-my-zsh
-ZSH_THEME="amuse"
+ZSH_THEME="avit"
 HYPHEN_INSENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
 ENABLE_CORRECTION="true"
@@ -29,11 +29,6 @@ source ~/repos/dotfiles/zsh/extract.sh
 
 alias v=vim
 alias vi=vim
-alias top=vtop
-
-alias ranger=vifm
-
-alias preview="qlmanage -p "
 
 #Shell
 alias cl="clear";
@@ -44,6 +39,7 @@ alias clar="clear"
 alias lear="clear"
 alias xit="exit"
 alias xx="exit"
+alias q=exit
 
 #relocate
 alias dot="cd ~/repos/dotfiles"
@@ -55,18 +51,14 @@ alias g=git
 alias gi=git
 alias gs="git status"
 alias gd="git diff"
-alias gc="git commit"
 alias gdc="git diff --cached"
 alias ga="git add ."
-alias gap="git add -p"
 alias add="git add -p"
-alias commit="git commit"
 alias pull="git pull"
 alias push="git push"
 alias fetch="git fetch -p"
 alias effyou="git push -f"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-alias gwipe="git reset --hard;git clean -f"
 #Yay Firefly!
 alias gorram="git commit --amend --no-edit"
 alias gorramit="git commit --amend --no-edit"
@@ -82,7 +74,7 @@ alias ......="cd ../../../../../" #New Zealand fur seal
 alias .......="cd ../../../../../../"
 alias ........="cd ../../../../../../../" #New Zealand sea lion
 alias .........="cd ../../../../../../../../"
-alias ..........="cd ../../../../../../../../../" #Souther elephant seal
+alias ..........="cd ../../../../../../../../../" #Southern elephant seal
 alias ...........="cd ../../../../../../../../../../"
 alias ............="cd ../../../../../../../../../../../"
 alias .............="cd ../../../../../../../../../../../../" #Sperm whale
@@ -102,30 +94,6 @@ alias dcu="docker-compose up"
 #Some cool symbols:
 #∫¡∞§∑∂ƒ∆√Ω›»
 export PROMPT=$PROMPT #'ƒ($(task +inbox +PENDING count))='
-
-tickle () {
-    deadline=$1
-    shift
-    in +tickle wait:$deadline $@
-}
-alias tick=tickle
-alias think='tickle +1d'
-
-#Requires wget and html-xml-utils installed
-webpage_title (){
-    wget -qO- "$*" | hxselect -s '\n' -c  'title'
-}
-
-read_and_review (){
-    link="$1"
-    title=$(webpage_title $link)
-    echo $title
-    descr="\"Read and review: $title\""
-    id=$(task add +rnr "$descr" | sed -n 's/Created task \(.*\)./\1/p')
-    task "$id" annotate "$link"
-}
-
-alias rnr=read_and_review
 
 #===Shell magic<3===
 #Enable vim mode in terminal, and set the timeout to 0.1s
