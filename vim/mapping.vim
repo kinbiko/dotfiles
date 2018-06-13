@@ -106,6 +106,9 @@ nnoremap zz zA
 "Wait, why isn't this the default?
 nnoremap + <C-a>
 nnoremap - <C-x>
+
+" Open a temporary tagbar for quick naviation with \
+nnoremap \ :TagbarToggle<CR>
 "}}}
 
 "{{{Visual mode mappings
