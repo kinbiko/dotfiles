@@ -90,6 +90,9 @@ alias ta="tmux attach"
 alias dcd="docker-compose down"
 alias dcu="docker-compose up"
 
+#Ruby stuff
+alias be="bundle exec"
+
 #Add the current inbox task count to the prompt
 #Some cool symbols:
 #∫¡∞§∑∂ƒ∆√Ω›»
