@@ -13,7 +13,7 @@ nnoremap ] g<C-]>
 nnoremap [ <C-t>
 
 "Fuzzy-find any file in this git repo with ?
-nnoremap ? :GFiles<CR>
+nnoremap ? :GFiles?<CR>
 
 "Move to next/previous git hunks
 nnoremap <c-N> :GitGutterNextHunk<cr>
