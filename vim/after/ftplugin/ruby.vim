@@ -10,6 +10,8 @@ let g:vimux_ruby_cmd_all_tests = "rake test:parallel"
 inoremap >> <space>=><space>
 inoremap ppp puts "====================================="
 
+inoremap %% <%=  %><left><left><left>
+
 nmap '' cs"'
 
 if filereadable("ruby.local.vim")
