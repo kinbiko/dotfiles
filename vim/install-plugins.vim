@@ -51,7 +51,7 @@ Plug 'vim-scripts/BufOnly.vim' "Close all buffers apart from this one with :Bonl
 "}}}
 
 "{{{ Languages
-Plug 'fatih/vim-go' "Make vim good with go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'tag': '*' } "Make vim good with go. Master branch is dev branch, so use latest release instead
 Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
 Plug 'prettier/vim-prettier' "prettier formatter
 Plug 'kchmck/vim-coffee-script' "Coffescript support
