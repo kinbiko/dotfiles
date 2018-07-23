@@ -103,6 +103,9 @@ nnoremap m :Switch<CR>
 "open/close folds entirely
 nnoremap zz zA
 
+" Delete current buffer with local leader
+nnoremap <silent> <localleader><localleader> :bd<CR>
+
 "Wait, why isn't this the default?
 nnoremap + <C-a>
 nnoremap - <C-x>
