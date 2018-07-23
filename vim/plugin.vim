@@ -69,3 +69,7 @@ let g:ale_fixers = {
 "Make jsx syntax show up in .js files
 let g:jsx_ext_required = 0
 let g:javascript_enable_domhtmlcss = 1 "Makes css/html syntax available in .js files(React)
+
+"{{{ Tagbar
+let g:tagbar_autoclose = 1
+"}}}

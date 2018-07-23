@@ -16,6 +16,7 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' "fzf in vim
 Plug 'rking/ag.vim' "search inside files
 Plug 'easymotion/vim-easymotion' "Accurate navigation ala vimium
 Plug 'haya14busa/vim-asterisk' "Use * without moving immediately
+Plug 'majutsushi/tagbar' "Tag bar on the right
 "}}}
 
 "{{{ Git
@@ -46,10 +47,11 @@ Plug 'sickill/vim-pasta' "Context aware pasting + intentation
 Plug 'godlygeek/tabular' "Make aligning nice and pretty. Must be before plasticboy/vim-markdown
 Plug 'metakirby5/codi.vim' "in-vim coding scratchpad/repl
 Plug 'AndrewRadev/switch.vim'
+Plug 'vim-scripts/BufOnly.vim' "Close all buffers apart from this one with :Bonly
 "}}}
 
 "{{{ Languages
-Plug 'fatih/vim-go' "Make vim good with go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'tag': '*' } "Make vim good with go. Master branch is dev branch, so use latest release instead
 Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
 Plug 'prettier/vim-prettier' "prettier formatter
 Plug 'kchmck/vim-coffee-script' "Coffescript support
@@ -62,7 +64,7 @@ Plug 'uarun/vim-protobuf' "Mmmm protobuf files.
 Plug 'vim-python/python-syntax' "Self explanatory really. Supports both python 2 and 3
 Plug 'keith/rspec.vim' "Make _spec.rb files nicer
 Plug 'slim-template/vim-slim' "Syntax highlighting for slim
-Plug 'keith/tmux.vim' "For when I finally get around to fixing my tmux bugs
+Plug 'ericpruitt/tmux.vim', {'rtp': 'vim/'} "For when I finally get around to fixing my tmux bugs
 Plug 'cespare/vim-toml' "For as long as I use dep when writing go
 Plug 'stephpy/vim-yaml' "Delete this if there's no real use for it
 """}}}
