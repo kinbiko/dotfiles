@@ -10,8 +10,6 @@ let NERDTreeIgnore=['node_modules$', '\~$', '\.git$', '\.DS_Store$', '\.meta$']
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
 let NERDTreeAutoDeleteBuffer=1
-" Make quitting when only nerdtree is open actually quit
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "let g:NERDTreeDisableFileExtensionHighlight = 1
 "let g:NERDTreeDisableExactMatchHighlight = 1

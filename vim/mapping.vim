@@ -13,7 +13,7 @@ nnoremap ] g<C-]>
 nnoremap [ <C-t>
 
 "Fuzzy-find any file in this git repo with ?
-nnoremap ? :GFiles?<CR>
+nnoremap ? :GFiles<CR>
 
 "Move to next/previous git hunks
 nnoremap <c-N> :GitGutterNextHunk<cr>
@@ -103,12 +103,19 @@ nnoremap m :Switch<CR>
 "open/close folds entirely
 nnoremap zz zA
 
+" Delete current buffer with local leader
+nnoremap <silent> <localleader><localleader> :bd<CR>
+
 "Wait, why isn't this the default?
 nnoremap + <C-a>
 nnoremap - <C-x>
 
 " Open a temporary tagbar for quick naviation with \
 nnoremap \ :TagbarToggle<CR>
+
+" Generate tags with leader + t. This command is somewhat slutty
+nnoremap <leader>t :!ctags -R **/*<CR>
+
 "}}}
 
 "{{{Visual mode mappings

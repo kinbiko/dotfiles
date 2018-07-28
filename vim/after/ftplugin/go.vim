@@ -10,17 +10,18 @@ set shiftwidth=4 "columns per 'indent', used for <, >, and =
 set listchars=tab:\ \ ,trail:·,extends:>,precedes:<
 set list
 
+" Show the name of the test that's being run
+let g:go_test_show_name = 1
+" Don't automatically jump to the first error in the quickfix window
+let g:go_jump_to_error = 0
+" Use goimports over gofmt
+let g:go_fmt_command = "goimports"
+
 nnoremap <localleader>a :GoAlternate<CR>
-nnoremap <localleader>i :GoImports<CR>
-nnoremap <localleader>t :GoTest<CR>
-nnoremap <localleader>b :GoBuild<CR>
+nnoremap tt :GoTest!<CR>
 
 nnoremap ] :GoDef<CR>
 nnoremap [ :GoDefPop<CR>
 
 inoremap ,, <space>:=<space>
 inoremap nnn if err != nil {}<left><cr><cr><up><tab>
-
-if filereadable("go.local.vim")
-  source "go.local.vim"
-endif
