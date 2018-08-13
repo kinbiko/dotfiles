@@ -27,3 +27,4 @@ nnoremap [ :GoDefPop<CR>
 
 inoremap ,, <space>:=<space>
 inoremap nnn if err != nil {}<left><cr><cr><up><tab>
+inoremap testt func Test(t *testing.T){}<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
