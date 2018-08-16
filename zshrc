@@ -93,6 +93,10 @@ alias dcu="docker-compose up"
 #Ruby stuff
 alias be="bundle exec"
 
+#Go stuff
+alias gt="go test"
+alias gtr="go test -race"
+
 #Add the current inbox task count to the prompt
 #Some cool symbols:
 #∫¡∞§∑∂ƒ∆√Ω›»
