@@ -17,10 +17,11 @@ let g:go_test_show_name = 1
 " Don't automatically jump to the first error in the quickfix window
 let g:go_jump_to_error = 0
 " Use goimports over gofmt
-let g:go_fmt_command = "goimports"
+"let g:go_fmt_command = "goimports"
 
 nnoremap <localleader>a :GoAlternate<CR>
 nnoremap tt :GoTest!<CR>
+nnoremap <localleader>i :GoImports<CR>
 
 nnoremap ] :GoDef<CR>
 nnoremap [ :GoDefPop<CR>
