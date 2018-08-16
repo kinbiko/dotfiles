@@ -96,6 +96,7 @@ alias be="bundle exec"
 #Go stuff
 alias gt="go test"
 alias gtr="go test -race"
+alias gover="go test -coverprofile cover.out;go tool cover -html=cover.out"
 
 #Add the current inbox task count to the prompt
 #Some cool symbols:
