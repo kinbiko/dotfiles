@@ -116,6 +116,11 @@ nnoremap \ :TagbarToggle<CR>
 " Generate tags with leader + t. This command is somewhat slutty
 nnoremap <leader>t :!ctags -R **/*<CR>
 
+" Make it easier to jump between errors in quickfix list
+nnoremap <silent> <c-o> :cnext<CR>
+nnoremap <silent> <c-i> :cprevious<CR>
+nnoremap <silent> <c-c> :cclose<CR>
+
 "}}}
 
 "{{{Visual mode mappings

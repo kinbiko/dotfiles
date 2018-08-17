@@ -73,3 +73,10 @@ let g:javascript_enable_domhtmlcss = 1 "Makes css/html syntax available in .js f
 "{{{ Tagbar
 let g:tagbar_autoclose = 1
 "}}}
+
+" {{{ VIM-GO
+
+" Only use quickfix windows
+let g:go_list_type = "quickfix"
+
+" }}}
