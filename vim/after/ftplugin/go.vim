@@ -30,9 +30,6 @@ let g:go_metalinter_deadline = "1s"
 "Print info of the type under the cursor
 let g:go_auto_type_info = 1
 
-"Highlight instances of the same id (e.g. variable)
-let g:go_auto_sameids = 1
-
 nnoremap <localleader>a :GoAlternate<CR>
 nnoremap <localleader>i :GoImports<CR>
 
@@ -44,6 +41,10 @@ nnoremap [ :GoDefPop<CR>
 inoremap ,, <space>:=<space>
 inoremap nnn if err != nil {}<left><cr><cr><up><tab>
 inoremap testt func Test(t *testing.T){}<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
+
+inoremap sss '%s'
+inoremap ddd %d
+inoremap vvv '%+v'
 
 "Need to have non-red comments for Go to make coverage show up in a nice
 "manner

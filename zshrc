@@ -94,7 +94,8 @@ alias dcu="docker-compose up"
 alias be="bundle exec"
 
 #Go stuff
-alias gt="go test"
+alias pp="~/go/bin/pp" # Overriding the Perl package manager
+alias gt="go test -timeout 3s |& pp"
 alias gtr="go test -race"
 alias gover="go test -coverprofile cover.out;go tool cover -html=cover.out"
 
