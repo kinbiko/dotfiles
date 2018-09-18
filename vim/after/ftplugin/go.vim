@@ -34,6 +34,7 @@ nnoremap <localleader>a :GoAlternate<CR>
 nnoremap <localleader>i :GoImports<CR>
 
 nnoremap tt :GoTest!<CR>
+nnoremap tf :GoTestFunc!<CR>
 nnoremap cc :GoCoverageToggle<CR>
 nnoremap ] :GoDef<CR>
 nnoremap [ :GoDefPop<CR>
