@@ -104,7 +104,7 @@ nnoremap m :Switch<CR>
 nnoremap zz zA
 
 " Delete current buffer with local leader
-nnoremap <silent> <localleader><localleader> :bd<CR>
+nnoremap <silent> <localleader><localleader> :bp\|bd #<CR>
 
 "Wait, why isn't this the default?
 nnoremap + <C-a>
