@@ -46,7 +46,8 @@ Plug 'benmills/vimux' "Integrate with tmux easily
 Plug 'sickill/vim-pasta' "Context aware pasting + intentation
 Plug 'godlygeek/tabular' "Make aligning nice and pretty. Must be before plasticboy/vim-markdown
 Plug 'metakirby5/codi.vim' "in-vim coding scratchpad/repl
-Plug 'AndrewRadev/switch.vim'
+Plug 'AndrewRadev/switch.vim' "hit m to flip between true/false, string/symbol etc.
+Plug 'AndrewRadev/splitjoin.vim' "Split and join with more power using gS and gJ
 Plug 'vim-scripts/BufOnly.vim' "Close all buffers apart from this one with :Bonly
 "}}}
 

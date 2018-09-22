@@ -41,7 +41,8 @@ alias clar="clear"
 alias lear="clear"
 alias xit="exit"
 alias xx="exit"
-alias q=exit
+alias q="exit"
+alias cat="bat"
 
 #relocate
 alias dot="cd ~/repos/dotfiles"
