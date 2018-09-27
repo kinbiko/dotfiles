@@ -16,7 +16,6 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' "fzf in vim
 Plug 'rking/ag.vim' "search inside files
 Plug 'easymotion/vim-easymotion' "Accurate navigation ala vimium
 Plug 'haya14busa/vim-asterisk' "Use * without moving immediately
-Plug 'majutsushi/tagbar' "Tag bar on the right
 "}}}
 
 "{{{ Git
@@ -53,18 +52,13 @@ Plug 'vim-scripts/BufOnly.vim' "Close all buffers apart from this one with :Bonl
 
 "{{{ Languages
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'tag': '*' } "Make vim good with go. Master branch is dev branch, so use latest release instead
-Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
 Plug 'prettier/vim-prettier' "prettier formatter
-" Plug 'kchmck/vim-coffee-script' "Coffescript support
 Plug 'pangloss/vim-javascript' "Makes syntax highlighting etc. more sane for js.
 Plug 'elzr/vim-json' "JSON highlighting + concealment
 Plug 'mxw/vim-jsx' "Support for JSX
 Plug 'plasticboy/vim-markdown' "Amazing markdown support
-" Plug 'tbastos/vim-lua' "Lua support. Entirely redundant if it wasn't for Redis...
 Plug 'uarun/vim-protobuf' "Mmmm protobuf files.
-"Plug 'vim-python/python-syntax' "Self explanatory really. Supports both python 2 and 3
 Plug 'keith/rspec.vim' "Make _spec.rb files nicer
-"Plug 'slim-template/vim-slim' "Syntax highlighting for slim
 Plug 'cespare/vim-toml' "For as long as I use dep when writing go
 Plug 'stephpy/vim-yaml' "Delete this if there's no real use for it
 """}}}
