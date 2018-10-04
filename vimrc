@@ -11,12 +11,12 @@ Plug 'arcticicestudio/nord-vim' "Nord theme
 "{{{ Navigation
 Plug 'scrooloose/nerdtree' "File tree on the left hand side
 Plug 'Xuyuanp/nerdtree-git-plugin' "Nerdtree + git highlighting
-Plug 'wincent/terminus' "Cursor changes in different modes, mouse support
+"Plug 'wincent/terminus' "Cursor changes in different modes, mouse support.
+"Really useful but makes popping into insert mode insanely slow
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' "fzf in vim
 Plug 'rking/ag.vim' "search inside files
 Plug 'easymotion/vim-easymotion' "Accurate navigation ala vimium
 Plug 'haya14busa/vim-asterisk' "Use * without moving immediately
-Plug 'majutsushi/tagbar' "Tag bar on the right
 "}}}
 
 "{{{ Git
@@ -32,17 +32,10 @@ Plug 'tpope/vim-repeat' "Make vim-surround things repeatable with .
 Plug 'cohama/lexima.vim' "Like autoclose + endwise
 "}}}
 
-"{{{ Linting
+"{{{ Misc.
 Plug 'bronson/vim-trailing-whitespace' "Mark trailing whitespace
 Plug 'w0rp/ale' "Async linting engine
-"}}}
-
-"{{{ Tmux
 Plug 'christoomey/vim-tmux-navigator' "Work better with tmux
-Plug 'benmills/vimux' "Integrate with tmux easily
-"}}}
-
-"{{{ Misc.
 Plug 'sickill/vim-pasta' "Context aware pasting + intentation
 Plug 'godlygeek/tabular' "Make aligning nice and pretty. Must be before plasticboy/vim-markdown
 Plug 'metakirby5/codi.vim' "in-vim coding scratchpad/repl
@@ -52,16 +45,11 @@ Plug 'vim-scripts/BufOnly.vim' "Close all buffers apart from this one with :Bonl
 
 "{{{ Languages
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'tag': '*' } "Make vim good with go. Master branch is dev branch, so use latest release instead
-Plug 'ap/vim-css-color' "Make css colours appear in editor in that colour
 Plug 'prettier/vim-prettier' "prettier formatter
 Plug 'pangloss/vim-javascript' "Makes syntax highlighting etc. more sane for js.
 Plug 'elzr/vim-json' "JSON highlighting + concealment
 Plug 'mxw/vim-jsx' "Support for JSX
 Plug 'plasticboy/vim-markdown' "Amazing markdown support
-Plug 'uarun/vim-protobuf' "Mmmm protobuf files.
-Plug 'keith/rspec.vim' "Make _spec.rb files nicer
-Plug 'cespare/vim-toml' "For as long as I use dep when writing go
-Plug 'stephpy/vim-yaml' "Delete this if there's no real use for it
 """}}}
 
 call plug#end()
@@ -74,25 +62,6 @@ colorscheme nord
 "Make comments red. This must be below other style configs to have an effect.
 " FIXME: doesn't currently work - all comments are grey
 highlight comment ctermfg=DarkRed
-
-"{{{ SYNTASTIC
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
-
-let g:syntastic_error_symbol = '無'
-let g:syntastic_warning_symbol = '悪'
-
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
-
-"}}}
 
 let g:rehash256=1
 
@@ -117,49 +86,10 @@ let NERDTreeMinimalUI=1
 let NERDTreeAutoDeleteBuffer=1
 
 let g:NERDTreeDisableFileExtensionHighlight = 1
-"let g:NERDTreeDisableExactMatchHighlight = 1
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
 
-" you can add these colors to your .vimrc to help customizing
-let s:brown = "905532"
-let s:aqua =  "3AFFDB"
-let s:blue = "689FB6"
-let s:darkBlue = "44788E"
-let s:purple = "834F79"
-let s:lightPurple = "834F79"
-let s:red = "AE403F"
-let s:beige = "F5C06F"
-let s:yellow = "F09F17"
-let s:orange = "D4843E"
-let s:darkOrange = "F16529"
-let s:pink = "CB6F6F"
-let s:salmon = "EE6E73"
-let s:green = "8FAA54"
-let s:lightGreen = "31B53E"
-let s:white = "FFFFFF"
-let s:rspec_red = 'FE405F'
-let s:git_orange = 'F54D27'
-
-let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
-let g:NERDTreeExtensionHighlightColor['css'] = s:orange
-let g:NERDTreeExtensionHighlightColor['js'] = s:blue
-let g:NERDTreeExtensionHighlightColor['go'] = s:orange
-let g:NERDTreeExtensionHighlightColor['java'] = s:darkBlue
-let g:NERDTreeExtensionHighlightColor['groovy'] = s:green
-let g:NERDTreeExtensionHighlightColor['rb'] = s:red
-let g:NERDTreeExtensionHighlightColor['json'] = s:blue
-let g:NERDTreeExtensionHighlightColor['vim'] = s:white
-let g:NERDTreeExtensionHighlightColor['xml'] = s:beige
-let g:NERDTreeExtensionHighlightColor['gradle'] = s:beige
-
-let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
-let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange " sets the color for .gitignore files
-let g:NERDTreeExactMatchHighlightColor['Dockerfile'] = s:red " sets the color for .gitignore files
-
-let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid error
-let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
 "}}}
 
 "{{{ ALE
@@ -168,6 +98,7 @@ let g:ale_sign_warning = '臭'
 
 let g:ale_fixers = {
 \  'ruby': ['rubocop'],
+\  'javascript': ['eslint'],
 \}
 "}}}
 
@@ -175,209 +106,128 @@ let g:ale_fixers = {
 let g:jsx_ext_required = 0
 let g:javascript_enable_domhtmlcss = 1 "Makes css/html syntax available in .js files(React)
 
-"{{{ Tagbar
-let g:tagbar_autoclose = 1
-"}}}
-
-" {{{ VIM-GO
-
-" Only use quickfix windows
-let g:go_list_type = "quickfix"
-
-" }}}
 " }}}
 
 "{{{ Writing
-"{{{ TYPOS
+"{{{ Typos in :commands
 if has("user_commands")
-  command! -bang -nargs=? -complete=file E e<bang> <args>
   command! -bang -nargs=? -complete=file W w<bang> <args>
   command! -bang -nargs=? -complete=file Wq wq<bang> <args>
   command! -bang -nargs=? -complete=file WQ wq<bang> <args>
   command! -bang Q q<bang>
 endif
 "}}}
+
 "{{{ ABBREVIATIONS
 iabbrev teh the
 iabbrev adn and
 "}}}
+
 "}}}
 
 "{{{ Mappings
-let mapleader = ','
-let maplocalleader = ' '
+let mapleader = ' '
+let maplocalleader = ','
 
-"{{{Normal mode mappings
+"==========================================================================================
+" Mapping        |   Mode   | Meaning and comments
+"==========================================================================================
+" <local>.        |  Normal  | Switch to previous buffer. Does not switch to unopened arg buffers
+" <local><leader> |  Normal  | Clear current search-highlight
+" <local>v        |  Normal  | Open vimrc
+" <local><local>  |  Normal  | Toggle NERDTree
 
-"{{{ File Navigation
-"
-"Flip between files with ,.
-noremap <leader>. :b#<CR>
+" <leader>n       |  Normal  | Go to next unstaged Git hunk
+" <leader>p       |  Normal  | Go to previous unstaged Git hunk
+" <leader>u       |  Normal  | Undo unstaged Git hunk
+" <leader>]       |  Normal  | Jump to ctagged definition.
+" <leader>[       |  Normal  | Jump back from previous tag jump
+" <leader>f       |  Normal  | Find using vimium-like search feature
+" <leader>v       |  Normal  | Make a vertical split
+" <leader>V       |  Normal  | Make a horizontal split
+" <leader>j       |  Normal  | Create a blank line below
+" <leader>k       |  Normal  | Create a blank line above
+" <leader>m       |  Normal  | Switch between options, e.g. true/false, 's'/:s
+" <leader>z       |  Normal  | Open or close a fold completely
+" <leader><leader>|  Normal  | Close current buffer
 
-"Follow and return from ctagged files
-nnoremap ] g<C-]>
-nnoremap [ <C-t>
+" The following bindings are happily mapped over their native vim option, as I
+" either find the build in feature pretty useless, or not quite right
+" ?               |  Normal  | Fuzzy find file by filename in the current Git repo. TODO: Make this also find newly added files that aren't tracked yet by Git
+" j               |  Normal  | Move down one line, moving to wrapped lines if applicable
+" k               |  Normal  | Move up one line, moving to wrapped lines if applicable
+" H               |  All     | Move to the first non-blank character on this line
+" L               |  All     | Move to the last character on this line
+" <left>          |  Normal  | Switch to previous buffer
+" <right>         |  Normal  | Switch to next buffer
+" <enter>         | !Insert  | Move to the next completely empty line in buffer. Will still work as 'enter' when given a menu buffer with options, e.g. :Ag
+" <backspace>     | !Insert  | Move to the previous completely empty line in buffer
+" #               | !Insert  | Highlight the current word, but do not move to next instance. Continue with n
+" *               | !Insert  | Highlight the current word, but do not move to previous instance. Continue with n
+" s               |  Normal  | Save the current buffer
+" S               |  Normal  | Surround current word with next character
+" Q               |  Normal  | Execute the last played macro
+" ;               |  Normal  | Convenience key for getting to command mode
+" +               |  Normal  | Increment the next number on this line
+" -               |  Normal  | Decrement the next number on this line
+" <>              |  Visual  | In/de-dent lines and remember selection
+" jk              |  All     | Enter normal mode
+" <tab>           |  Insert  | Show autocomplete options
 
-"Fuzzy-find any file in this git repo with ?
+" <c-hjkl>        |  Normal  | Switch window in the given direction. Switches to tmux windows if applicable
+
+nnoremap <localleader>. :b#<CR>
+nnoremap <localleader><leader> :nohlsearch<CR>
+nnoremap <localleader>v :e $MYVIMRC<CR>
+nnoremap <silent> <localleader><localleader> :NERDTreeToggle<CR>
+
+nnoremap <leader>] g<C-]>
+nnoremap <leader>[ <C-t>
+nnoremap <leader>n :GitGutterNextHunk<cr>
+nnoremap <leader>p :GitGutterPrevHunk<cr>
+nnoremap <leader>u :GitGutterUndoHunk<cr>
+nmap <leader>f <Plug>(easymotion-prefix)s
+vnoremap <silent> <leader>v :vsp <CR>
+nnoremap <silent> <leader>V :sp <CR>
+nnoremap <leader>j o<ESC>k
+nnoremap <leader>k O<ESC>j
+nnoremap <leader>m :Switch<CR>
+nnoremap <leader>z zA
+nnoremap <silent> <lleader><lleader> :bp\|bd #<CR>
+
 nnoremap ? :GFiles<CR>
-
-"Move to next/previous git hunks
-nnoremap <c-N> :GitGutterNextHunk<cr>
-nnoremap <c-P> :GitGutterPrevHunk<cr>
-
-"}}}
-
-"{{{ Editor navigation
-
-"Make H be home, L be end
-"Actually map these, and not just noremap, as $ and 0 are annoying to find sometimes
 map H ^
 map L $
 nnoremap j gj
 nnoremap k gk
+noremap <Left> :bp<CR>
+noremap <Right> :bn<CR>
+nnoremap <BS> {
+onoremap <BS> {
+vnoremap <BS> {
+nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
+onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
+vnoremap <CR> }
+nnoremap s :w<CR>
+nmap S ysiw
+map # <Plug>(asterisk-z*)
+map * <Plug>(asterisk-z#)
+nnoremap Q @@
+nnoremap ; :
+nnoremap + <C-a>
+nnoremap - <C-x>
+vnoremap < <gv
+vnoremap > >gv
+vnoremap jk <esc>
+inoremap jk <esc>
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
-"Navigate vim splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-"Make dem evil keys do chores
-noremap <Up> :N<CR>
-noremap <Down> :n<CR>
-noremap <Left> :bp<CR>
-noremap <Right> :bn<CR>
-
-"Literally the best keybindings I know
-nnoremap <BS> {
-onoremap <BS> {
-nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
-onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
-
-"F toggles vimium-like search
-nmap F <Plug>(easymotion-prefix)s
-
-map # <Plug>(asterisk-z*)
-map * <Plug>(asterisk-z#)
-
-"Because :w is too annoying
-nnoremap s :w<CR>
-
-"Next error/warning
-nnoremap <silent> <leader>e <Plug>(ale_next_wrap)
-nnoremap <silent> <leader>f :ALEFix<cr>
-
-"If I had a nickel for every time I mistyped that combo
-"... I'd have a lot of low-valued American coins
-nmap S ysiw
-"}}}
-
-"Make a vertical split with vv
-nnoremap <silent> vv :vsp <CR>
-"Make a horizontal split with VV
-nnoremap <silent> VV :sp <CR>
-
-"Insert blank lines without insert mode
-nnoremap t o<ESC>k
-nnoremap T O<ESC>j
-"Make Q repeat the last recorded marcro
-nnoremap Q @@
-
-"Simplify getting to command mode
-nnoremap ; :
-"I rarely use marks anyway, and probably wanted to hit ;
-nnoremap ' :
-
-"Clear the search highlights
-nnoremap <leader><space> :nohlsearch<CR>
-
-"Leader + v opens vimrc
-nnoremap <leader>v :e $MYVIMRC<CR>
-
-"Leader + Leader opens nerd tree.
-nnoremap <silent> <leader><leader> :NERDTreeToggle<CR>
-
-"Change the current word to be UPPERCASE on U
-"TODO: Switch from simple upper case to CONSTANT_CASE
-nnoremap U vawUew
-
-"Perform git-undo
-nnoremap <c-U> :GitGutterUndoHunk<cr>
-
-nnoremap m :Switch<CR>
-
-"open/close folds entirely
-nnoremap zz zA
-
-" Delete current buffer with local leader
-nnoremap <silent> <localleader><localleader> :bp\|bd #<CR>
-
-"Wait, why isn't this the default?
-nnoremap + <C-a>
-nnoremap - <C-x>
-
-" Open a temporary tagbar for quick naviation with \
-nnoremap \ :TagbarToggle<CR>
-
-" Generate tags with leader + t. This command is somewhat slutty
-nnoremap <leader>t :!ctags -R **/*<CR>
-
-" Make it easier to jump between errors in quickfix list
-nnoremap <silent> <c-o> :cnext<CR>
-nnoremap <silent> <c-i> :cprevious<CR>
-nnoremap <silent> <c-c> :cclose<CR>
-
-"}}}
-
-"{{{Visual mode mappings
-
-"Align blocks of text and keep them selected
-vnoremap < <gv
-vnoremap > >gv
-
-vnoremap jk <esc>
-
-vnoremap <BS> {
-vnoremap <CR> }
-"}}}
-
-"{{{ Insert-mode mappings
-
-"Good for when CAPS-LOCK can't be mapped to escape.
-inoremap jk <esc>
-
-"Auto-complete with tab
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-
-"}}}
-
-"{{{ Operator-pending mappings
-
-onoremap q i"
-onoremap Q a"
-
-"Make 'inside array' be a movement
-onoremap ia i]
-onoremap aa a]
-
-"}}}
-
-"{{{ List of keys that are available for mapping to:
-"Shift-tab (Cannot use just tab in normal mode for terminal reasons)
-"m as marks are unused
-"}}}
-
-"}}}
-
 "{{{ General
-
-"{{{ Folding
-set foldenable "Enable folding
-
-set foldlevelstart=9 "Shows most folds by default
-set foldnestmax=5 "You're writing bad code if you need to up this one
-set foldmethod=indent "Fold based on indentation.
-"}}}
 
 "{{{ Indentation
 set tabstop=2 "columns per tab character
