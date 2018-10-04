@@ -118,45 +118,45 @@ let maplocalleader = ','
 "==========================================================================================
 " <local>.        |  Normal  | Switch to previous buffer. Does not switch to unopened arg buffers
 " <local><leader> |  Normal  | Clear current search-highlight
-" <local>v        |  Normal  | Open vimrc
 " <local><local>  |  Normal  | Toggle NERDTree
+" <local>v        |  Normal  | Open vimrc
 
-" <leader>n       |  Normal  | Go to next unstaged Git hunk
-" <leader>p       |  Normal  | Go to previous unstaged Git hunk
-" <leader>u       |  Normal  | Undo unstaged Git hunk
-" <leader>]       |  Normal  | Jump to ctagged definition.
-" <leader>[       |  Normal  | Jump back from previous tag jump
-" <leader>f       |  Normal  | Find using vimium-like search feature
-" <leader>v       |  Normal  | Make a vertical split
+" <leader><leader>|  Normal  | Close current buffer
 " <leader>V       |  Normal  | Make a horizontal split
+" <leader>[       |  Normal  | Jump back from previous tag jump
+" <leader>]       |  Normal  | Jump to ctagged definition.
+" <leader>f       |  Normal  | Find using vimium-like search feature
 " <leader>j       |  Normal  | Create a blank line below
 " <leader>k       |  Normal  | Create a blank line above
 " <leader>m       |  Normal  | Switch between options, e.g. true/false, 's'/:s
+" <leader>n       |  Normal  | Go to next unstaged Git hunk
+" <leader>p       |  Normal  | Go to previous unstaged Git hunk
+" <leader>u       |  Normal  | Undo unstaged Git hunk
+" <leader>v       |  Normal  | Make a vertical split
 " <leader>z       |  Normal  | Open or close a fold completely
-" <leader><leader>|  Normal  | Close current buffer
 
 " The following bindings are happily mapped over their native vim option, as I
 " either find the build in feature pretty useless, or not quite right
-" ?               |  Normal  | Fuzzy find file by filename in the current Git repo. TODO: Make this also find newly added files that aren't tracked yet by Git
-" j               |  Normal  | Move down one line, moving to wrapped lines if applicable
-" k               |  Normal  | Move up one line, moving to wrapped lines if applicable
-" H               |  All     | Move to the first non-blank character on this line
-" L               |  All     | Move to the last character on this line
-" <left>          |  Normal  | Switch to previous buffer
-" <right>         |  Normal  | Switch to next buffer
-" <enter>         | !Insert  | Move to the next completely empty line in buffer. Will still work as 'enter' when given a menu buffer with options, e.g. :Ag
-" <backspace>     | !Insert  | Move to the previous completely empty line in buffer
 " #               | !Insert  | Highlight the current word, but do not move to next instance. Continue with n
 " *               | !Insert  | Highlight the current word, but do not move to previous instance. Continue with n
-" s               |  Normal  | Save the current buffer
-" S               |  Normal  | Surround current word with next character
-" Q               |  Normal  | Execute the last played macro
-" ;               |  Normal  | Convenience key for getting to command mode
 " +               |  Normal  | Increment the next number on this line
 " -               |  Normal  | Decrement the next number on this line
+" ;               |  Normal  | Convenience key for getting to command mode
 " <>              |  Visual  | In/de-dent lines and remember selection
-" jk              |  All     | Enter normal mode
+" <backspace>     | !Insert  | Move to the previous completely empty line in buffer
+" <enter>         | !Insert  | Move to the next completely empty line in buffer. Will still work as 'enter' when given a menu buffer with options, e.g. :Ag
+" <left>          |  Normal  | Switch to previous buffer
+" <right>         |  Normal  | Switch to next buffer
 " <tab>           |  Insert  | Show autocomplete options
+" ?               |  Normal  | Fuzzy find file by filename in the current Git repo. TODO: Make this also find newly added files that aren't tracked yet by Git
+" H               |  All     | Move to the first non-blank character on this line
+" L               |  All     | Move to the last character on this line
+" Q               |  Normal  | Execute the last played macro
+" S               |  Normal  | Surround current word with next character
+" j               |  Normal  | Move down one line, moving to wrapped lines if applicable
+" jk              |  All     | Enter normal mode
+" k               |  Normal  | Move up one line, moving to wrapped lines if applicable
+" s               |  Normal  | Save the current buffer
 
 " <c-hjkl>        |  Normal  | Switch window in the given direction. Switches to tmux windows if applicable
 
@@ -165,19 +165,19 @@ nnoremap <localleader><leader> :nohlsearch<CR>
 nnoremap <localleader>v :e $MYVIMRC<CR>
 nnoremap <silent> <localleader><localleader> :NERDTreeToggle<CR>
 
-nnoremap <leader>] g<C-]>
+nnoremap <silent> <lleader><lleader> :bp\|bd #<CR>
 nnoremap <leader>[ <C-t>
-nnoremap <leader>n :GitGutterNextHunk<cr>
-nnoremap <leader>p :GitGutterPrevHunk<cr>
-nnoremap <leader>u :GitGutterUndoHunk<cr>
-nmap <leader>f <Plug>(easymotion-prefix)s
-vnoremap <silent> <leader>v :vsp <CR>
+nnoremap <leader>] g<C-]>
 nnoremap <silent> <leader>V :sp <CR>
+vnoremap <silent> <leader>v :vsp <CR>
+nmap <leader>f <Plug>(easymotion-prefix)s
 nnoremap <leader>j o<ESC>k
 nnoremap <leader>k O<ESC>j
 nnoremap <leader>m :Switch<CR>
+nnoremap <leader>n :GitGutterNextHunk<cr>
+nnoremap <leader>p :GitGutterPrevHunk<cr>
+nnoremap <leader>u :GitGutterUndoHunk<cr>
 nnoremap <leader>z zA
-nnoremap <silent> <lleader><lleader> :bp\|bd #<CR>
 
 nnoremap ? :GFiles<CR>
 map H ^
