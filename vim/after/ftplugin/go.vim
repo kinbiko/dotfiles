@@ -1,6 +1,4 @@
-"{{{ Folding
 set foldmethod=syntax "Fold based on syntax.
-"}}}
 
 "{{{ Play nice with gofmt
 set tabstop=4 "columns per tab character
@@ -30,16 +28,16 @@ let g:go_metalinter_deadline = "1s"
 "Print info of the type under the cursor
 let g:go_auto_type_info = 1
 
-nnoremap <localleader>a :GoAlternate<CR>
-nnoremap <localleader>i :GoImports<CR>
+nnoremap <leader>a :GoAlternate<CR>
+nnoremap <leader>i :GoImports<CR>
 
-nnoremap tt :GoTest!<CR>
-nnoremap tf :GoTestFunc!<CR>
-nnoremap cc :GoCoverageToggle<CR>
-nnoremap ] :GoDef<CR>
-nnoremap [ :GoDefPop<CR>
+nnoremap <leader>t :GoTest!<CR>
+nnoremap <leader>T :GoTestFunc!<CR>
+nnoremap <leader>c :GoCoverageToggle<CR>
+nnoremap <leader>] :GoDef<CR>
+nnoremap <leader>[ :GoDefPop<CR>
 
-inoremap ,, <space>:=<space>
+inoremap <leader>= <space>:=<space>
 inoremap nnn if err != nil {}<left><cr><cr><up><tab>
 inoremap testt func Test(t *testing.T){}<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
 
@@ -47,6 +45,6 @@ inoremap sss '%s'
 inoremap ddd %d
 inoremap vvv '%+v'
 
-"Need to have non-red comments for Go to make coverage show up in a nice
-"manner
+"Need to have non-red comments for Go to make coverage show up in a nice manner
 highlight comment ctermfg=darkgray
+let g:go_list_type = "quickfix"

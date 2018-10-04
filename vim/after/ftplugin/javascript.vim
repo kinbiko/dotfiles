@@ -2,7 +2,7 @@
 imap hh <C-y>
 
 "Make cl. insert a console log statement
-inoremap cl. console.log();<left><left>
+inoremap <localleader>l console.log();<left><left>
 
 "Tend to write React, where it's annoying to fold JSX excessively
 set foldlevel=10
