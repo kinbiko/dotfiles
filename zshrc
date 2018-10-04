@@ -42,6 +42,7 @@ alias lear="clear"
 alias xit="exit"
 alias xx="exit"
 alias q=exit
+alias pingu="ping google.com"
 
 #relocate
 alias dot="cd ~/repos/dotfiles"
@@ -100,6 +101,7 @@ alias pp="~/go/bin/pp" # Overriding the Perl package manager
 alias gt="go test -timeout 3s |& pp"
 alias gtr="go test -race"
 alias gover="go test -coverprofile cover.out;go tool cover -html=cover.out"
+alias gosrc="cd $GOPATH/src/github.com"
 
 #Add the current inbox task count to the prompt
 #Some cool symbols:
