@@ -43,6 +43,8 @@ alias xit="exit"
 alias xx="exit"
 alias q=exit
 alias pingu="ping google.com"
+alias q="exit"
+alias cat="bat"
 
 #relocate
 alias dot="cd ~/repos/dotfiles"
