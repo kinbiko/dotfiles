@@ -122,7 +122,6 @@ let maplocalleader = ','
 " <local>v        |  Normal  | Open vimrc
 
 " <leader><leader>|  Normal  | Close current buffer
-" <leader>V       |  Normal  | Make a horizontal split
 " <leader>[       |  Normal  | Jump back from previous tag jump
 " <leader>]       |  Normal  | Jump to ctagged definition.
 " <leader>f       |  Normal  | Find using vimium-like search feature
@@ -132,7 +131,6 @@ let maplocalleader = ','
 " <leader>n       |  Normal  | Go to next unstaged Git hunk
 " <leader>p       |  Normal  | Go to previous unstaged Git hunk
 " <leader>u       |  Normal  | Undo unstaged Git hunk
-" <leader>v       |  Normal  | Make a vertical split
 " <leader>z       |  Normal  | Open or close a fold completely
 
 " The following bindings are happily mapped over their native vim option, as I
@@ -160,6 +158,8 @@ let maplocalleader = ','
 
 " <c-hjkl>        |  Normal  | Switch window in the given direction. Switches to tmux windows if applicable
 
+" t               |  Normal  | Does nothing.
+
 nnoremap <localleader>. :b#<CR>
 nnoremap <localleader><leader> :nohlsearch<CR>
 nnoremap <localleader>v :e $MYVIMRC<CR>
@@ -168,8 +168,6 @@ nnoremap <silent> <localleader><localleader> :NERDTreeToggle<CR>
 nnoremap <silent> <lleader><lleader> :bp\|bd #<CR>
 nnoremap <leader>[ <C-t>
 nnoremap <leader>] g<C-]>
-nnoremap <silent> <leader>V :sp <CR>
-vnoremap <silent> <leader>v :vsp <CR>
 nmap <leader>f <Plug>(easymotion-prefix)s
 nnoremap <leader>j o<ESC>k
 nnoremap <leader>k O<ESC>j
@@ -210,6 +208,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+nnoremap t <NOP>
 
 "}}}
 
