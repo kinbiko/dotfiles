@@ -1,4 +1,4 @@
-set foldmethod=syntax "Fold based on syntax.
+set nofoldenable "Disable folding
 
 "{{{ Play nice with gofmt
 set tabstop=4 "columns per tab character
