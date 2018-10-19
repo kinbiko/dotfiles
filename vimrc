@@ -6,10 +6,11 @@ call plug#begin('~/.vim/plugged')
 
 "{{{ Themes and looks
 Plug 'arcticicestudio/nord-vim' "Nord theme
+Plug 'bronson/vim-trailing-whitespace' "Mark trailing whitespace
 "}}}
 
 "{{{ Navigation
-Plug 'scrooloose/nerdtree' "File tree on the left hand side
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "File tree on the left hand side
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' "fzf in vim
 Plug 'easymotion/vim-easymotion' "Accurate navigation ala vimium
 Plug 'haya14busa/vim-asterisk' "Use * without moving immediately
@@ -22,30 +23,28 @@ Plug 'rhysd/committia.vim' "git commit becomes magic
 "}}}
 
 "{{{ Surrounding syntax
-Plug 'mattn/emmet-vim' "Shortcuts for creating html/jsx boilerplate
 Plug 'tpope/vim-surround' "ysiw syntax for surrounding
 Plug 'tpope/vim-repeat' "Make vim-surround things repeatable with .
 Plug 'cohama/lexima.vim' "Automatically close [], '' etc. including def/end
 "}}}
 
 "{{{ Misc.
-Plug 'bronson/vim-trailing-whitespace' "Mark trailing whitespace
 Plug 'w0rp/ale' "Async linting engine
 Plug 'christoomey/vim-tmux-navigator' "Work better with tmux
 Plug 'sickill/vim-pasta' "Context aware pasting + intentation
-Plug 'godlygeek/tabular' "Make aligning nice and pretty. Must be before plasticboy/vim-markdown
 Plug 'AndrewRadev/switch.vim' "switch between true/false, string/symbol etc.
 Plug 'vim-scripts/BufOnly.vim' "Close all buffers apart from this one with :Bonly
 "}}}
 
 "{{{ Languages
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } "Make vim good with go. Master branch is dev branch, so should use latest release instead, however autocompletion does not work on the latest release as of 2018-10-18
-"Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'  }
-Plug 'prettier/vim-prettier' "prettier formatter
-Plug 'pangloss/vim-javascript' "Makes syntax highlighting etc. more sane for js.
-Plug 'elzr/vim-json' "JSON highlighting + concealment
-Plug 'mxw/vim-jsx' "Support for JSX
-Plug 'plasticboy/vim-markdown' "Amazing markdown support, including header folding and concealment
+Plug 'mattn/emmet-vim', { 'for': ['javascript', 'html', 'xml', 'jsx', 'erb'] } "Shortcuts for creating html/jsx boilerplate
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' } "Make vim good with go. Master branch is dev branch, so should use latest release instead, however autocompletion does not work on the latest release as of 2018-10-18
+"Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh', 'for': 'go'  }
+Plug 'prettier/vim-prettier', { 'for': ['javascript', 'json'] } "prettier formatter
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'json'] } "Makes syntax highlighting etc. more sane for js.
+Plug 'elzr/vim-json', {'for': ['javascript', 'json'] } "JSON highlighting + concealment
+Plug 'mxw/vim-jsx', {'for': ['javascript', 'json', 'jsx'] } "Support for JSX
+Plug 'plasticboy/vim-markdown', {'for': ['markdown'] } "Amazing markdown support, including header folding and concealment
 """}}}
 
 call plug#end()
