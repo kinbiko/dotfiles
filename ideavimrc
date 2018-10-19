@@ -1,6 +1,89 @@
-source ~/.vim/intellij/general-config.vim
-source ~/.vim/intellij/mapping-config.vim
+" Enable tpope surround syntax
+set surround
+
+"{{{ Searching
+set incsearch "search as chars are entered
+set hlsearch "highlight matches
+set ignorecase "Case insensitive search
+set smartcase  "except when explicitly using capital letters
+"}}}
+
+set number "Display line numbers
+set relativenumber "Linenumbers are relative to current line
+
+set timeoutlen=300 ttimeoutlen=0
+
+"{{{ Mappings
+let mapleader = ' '
+" does not work, local leader is hardcoded below, but leaving here for intent
+"let maplocalleader = ','
+
+"==========================================================================================
+" Mapping        |   Mode   | Meaning and comments
+"==========================================================================================
+
+" <local><leader> |  Normal  | Clear current search-highlight
+" <local>v        |  Normal  | Open .ideavimrc
+
+" <leader>[       |  Normal  | Jump back from previous tag jump
+" <leader>]       |  Normal  | Jump to ctagged definition.
+" <leader>j       |  Normal  | Create a blank line below
+" <leader>k       |  Normal  | Create a blank line above
+" <leader>f       |  Normal  | Put `final` at the beginning of the current line
+
+" The following bindings are happily mapped over their native vim option, as I
+" either find the build in feature pretty useless, or not quite right
+" #               | !Insert  | Highlight the current word, and move to next instance. Continue with n
+" *               | !Insert  | Highlight the current word, and move to previous instance. Continue with n
+" +               |  Normal  | Increment the next number on this line
+" -               |  Normal  | Decrement the next number on this line
+" ;               |  Normal  | Convenience key for getting to command mode
+" <backspace>     | !Insert  | Move to the previous completely empty line in file
+" <enter>         | !Insert  | Move to the next completely empty line in file.
+" ?               |  Normal  | Fuzzy find file by filename in the current project
+" H               |  All     | Move to the first non-blank character on this line
+" L               |  All     | Move to the last character on this line
+" Q               |  Normal  | Execute the last played macro
+" S               |  Normal  | Surround current word with next character
+" j               |  Normal  | Move down one line, moving to wrapped lines if applicable
+" jk              |  All     | Enter normal mode
+" k               |  Normal  | Move up one line, moving to wrapped lines if applicable
+
+" s               |  Normal  | Save the current file (but intellij saves for me anyway so this really just noops the normal behaviour of s)
+" t               |  Normal  | Does nothing.
+
+nnoremap ,<leader> :nohlsearch<CR>
+nnoremap ,v :e ~/repos/dotfiles/ideavimrc<CR>
+
+nnoremap <leader>] :action GotoDeclaration<CR>
+nnoremap <leader>[ :action Back<CR>
+nnoremap <leader>j o<ESC>k
+nnoremap <leader>k O<ESC>j
+nnoremap <leader>f Ifinal <esc>
+
+nnoremap * #
+nnoremap # *
+nnoremap + <C-a>
+nnoremap - <C-x>
+nnoremap ; :
+nnoremap <BS> {
+onoremap <BS> {
+vnoremap <BS> {
+nnoremap <CR> }
+onoremap <CR> }
+vnoremap <CR> }
+nnoremap ? :action SearchEverywhere<CR>
+map H ^
+map L $
+nmap Q @@
+nmap S vawS
+nnoremap j gj
+vnoremap jk <esc>
+inoremap jk <esc>
+nnoremap k gk
 
 nnoremap s :w<CR>
+nnoremap t <NOP>
 
-set surround
+"}}}
+
