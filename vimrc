@@ -39,7 +39,8 @@ Plug 'vim-scripts/BufOnly.vim' "Close all buffers apart from this one with :Bonl
 "}}}
 
 "{{{ Languages
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'tag': '*' } "Make vim good with go. Master branch is dev branch, so use latest release instead
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } "Make vim good with go. Master branch is dev branch, so should use latest release instead, however autocompletion does not work on the latest release as of 2018-10-18
+"Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'  }
 Plug 'prettier/vim-prettier' "prettier formatter
 Plug 'pangloss/vim-javascript' "Makes syntax highlighting etc. more sane for js.
 Plug 'elzr/vim-json' "JSON highlighting + concealment
