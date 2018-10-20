@@ -294,6 +294,9 @@ set nowrap "Don't wrap lines by default
 filetype plugin indent on "Enable plugin- and filetype indent
 syntax enable "Use syntax highlighting by default
 
+" Disable the netrw history file which is otherwise added to ~/.vim/.netrwhist
+let g:netrw_dirhistmax = 0
+
 "How to represent non-printable characters
 "In general, don't want tabs, so have them show up as special characters
 set listchars=tab:>-,trail:·,extends:>,precedes:<
