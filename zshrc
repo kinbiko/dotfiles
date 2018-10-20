@@ -48,6 +48,7 @@ alias q=exit
 alias pingu="ping google.com"
 alias q="exit"
 alias cat="bat"
+alias grep="ag"
 
 #relocate
 alias dot="cd $DOTFILES_DIR"
