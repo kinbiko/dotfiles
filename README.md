@@ -79,7 +79,6 @@ Then, you'll probably want to set up the following symlinks:
 $HOME/.vimrc -> $DOTFILES_DIR/vimrc
 $HOME/.vim/ -> $DOTFILES_DIR/vim
 $HOME/.tmux.conf -> $DOTFILES_DIR/tmux.conf
-$HOME/.tmux.conf.local -> $DOTFILES_DIR/tmux.conf.local #if applicable
 $HOME/.ideavimrc -> $DOTFILES_DIR/ideavimrc
 $HOME/.ctags -> $DOTFILES_DIR/ctags
 $HOME/.config/vifm/vifmrc -> $DOTFILES_DIR/vifmrc
