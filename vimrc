@@ -55,7 +55,6 @@ call plug#end()
 colorscheme nord
 
 "Make comments red. This must be below other style configs to have an effect.
-" FIXME: doesn't currently work - all comments are grey
 highlight comment ctermfg=DarkRed
 
 let g:rehash256=1
@@ -146,7 +145,7 @@ let maplocalleader = ','
 " <left>          |  Normal  | Switch to previous buffer
 " <right>         |  Normal  | Switch to next buffer
 " <tab>           |  Insert  | Show autocomplete options
-" ?               |  Normal  | Fuzzy find file by filename in the current Git repo. TODO: Make this also find newly added files that aren't tracked yet by Git
+" ?               |  Normal  | Fuzzy find file by filename in the current Git repo.
 " H               |  All     | Move to the first non-blank character on this line
 " L               |  All     | Move to the last character on this line
 " Q               |  Normal  | Execute the last played macro
@@ -317,10 +316,8 @@ set laststatus=2 " Always display the statusline in all windows
 if !exists("*OpenHelp80Cols")
   function OpenHelp80Cols()
       wincmd L
-      " Slightly larger than 80 charaacers to allow for w-ing through a help
+      " Slightly larger than 80 characters to allow for w-ing through a help
       " file without bouncing left and right
-      " TODO: make this window exactly 80 characters, but disable horizontal
-      " scrolling for help windows
       exec 'vertical resize 93'
   endfunction
   autocmd FileType help :call OpenHelp80Cols()
