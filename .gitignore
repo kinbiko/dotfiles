@@ -4,3 +4,4 @@ vim/plugged/**
 tmux/plugins
 **.local*
 **.spl
+vim/autoload/plug.vim.old
