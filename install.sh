@@ -19,3 +19,10 @@ if [ ! -f ~/.zshrc ]; then
   source ~/repos/dotfiles/install-oh-my-zsh.sh
   echo "source ~/repos/dotfiles/zshrc" > ~/.zshrc
 fi
+
+# Install fonts
+git clone https://github.com/powerline/fonts.git
+cd fonts
+./install.sh
+cd ../
+rm -rf fonts

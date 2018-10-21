@@ -10,7 +10,7 @@ This is also a good way to ask questions about what setting `foo` does if it's n
 
 ## Installation guidelines
 
-> These are not instructions. These are mainly reminders for myself.
+> These are not instructions. These are mainly reminders for myself. There's an install script that might work. But probably doesn't.
 
 Start off by installing [homebrew](https://brew.sh/), then install Git.
 
@@ -83,8 +83,6 @@ $HOME/.ideavimrc -> $DOTFILES_DIR/ideavimrc
 $HOME/.ctags -> $DOTFILES_DIR/ctags
 $HOME/.config/vifm/vifmrc -> $DOTFILES_DIR/vifmrc
 ```
-
-Then install the fonts using `install-fonts.sh`
 
 Set font in `iterm2>profile>text`
 
