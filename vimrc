@@ -154,6 +154,7 @@ let g:javascript_enable_domhtmlcss = 1 "Makes css/html syntax available in .js f
 
 " Enable deoplete on startup
 let g:deoplete#enable_at_startup = 1
+"}}}
 
 "{{{ Writing
 "{{{ Typos in :commands
