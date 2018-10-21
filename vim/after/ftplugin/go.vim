@@ -48,3 +48,6 @@ inoremap vvv '%+v'
 "Need to have non-red comments for Go to make coverage show up in a nice manner
 highlight comment ctermfg=darkgray
 let g:go_list_type = "quickfix"
+
+" The default of 10 seconds is too long
+let g:go_test_timeout= '4s'
