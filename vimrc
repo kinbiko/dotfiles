@@ -51,6 +51,7 @@ Plug 'plasticboy/vim-markdown', {'for': ['markdown'] } "Amazing markdown support
 if has('nvim')
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'zchee/deoplete-go'
 endif
 "}}}
 
