@@ -237,8 +237,13 @@ noremap <Right> :bn<CR>
 " Show autocomplete options
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
-" Fuzzy find file by filename in the current Git repo.
-nnoremap ? :GFiles<CR>
+if has("nvim")
+  " Fuzzy find file by filename in the current Git repo, including unstaged files
+  nnoremap ? :Denite file/rec/git<CR>
+else
+  " Fuzzy find file by filename in the current Git repo.
+  nnoremap ? :GFiles<CR>
+endif
 
 " Move to the first/last non-blank character on this line
 map H ^
