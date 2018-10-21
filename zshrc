@@ -17,7 +17,7 @@ plugins=(vi-mode)
 
 #===EXPORTS===
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 export GOPATH=$HOME/go
 
@@ -34,8 +34,8 @@ source $ZSH/oh-my-zsh.sh
 
 #===ALIASES===
 
-alias v=vim
-alias vi=vim
+alias v=nvim
+alias vi=nvim
 
 #Shell
 alias cl="clear";

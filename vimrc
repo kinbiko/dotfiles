@@ -14,6 +14,10 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "File tree on the left ha
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' "fzf in vim
 Plug 'easymotion/vim-easymotion' "Accurate navigation ala vimium
 Plug 'haya14busa/vim-asterisk' "Use * without moving immediately
+
+if has('nvim')
+  Plug 'Shougo/denite.nvim'
+endif
 "}}}
 
 "{{{ Git
@@ -63,7 +67,7 @@ let g:rehash256=1
 
 "{{{ Plugin configs
 
-"{{{ NERDTREE
+"{{{ NERDTree
 " Prevent fluff from appearing in the file drawer
 let NERDTreeIgnore=['node_modules$', '\~$', '\.git$', '\.DS_Store$', '\.meta$']
 " Show hidden files in NERDTree
@@ -83,6 +87,62 @@ let g:ale_fixers = {
 \  'ruby': ['rubocop'],
 \  'javascript': ['eslint'],
 \}
+"}}}
+
+"{{{ Denite
+if has("nvim")
+  " Change file/rec command.
+  call denite#custom#var('file/rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+  " Move up and down denite selections
+  call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
+  call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
+
+  " Change matchers.
+  call denite#custom#source('file_mru', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
+  call denite#custom#source('file/rec', 'matchers', ['matcher/cpsm'])
+
+  " Change sorters.
+  call denite#custom#source('file/rec', 'sorters', ['sorter/sublime'])
+
+  " Add custom menus
+  let s:menus = {}
+
+  " Example custom menus
+  let s:menus.dotfiles = { 'description': 'Open a commonly edited dotfile' }
+  " TODO: Disable ugly prompt that happen when using the $DOTFILES_DIR environment variable instead of the hardcoded path
+  let s:menus.dotfiles.file_candidates = [
+        \ ['local zshrc', '~/.zshrc'],
+        \ ['local vimrc', '~/.vimrc'],
+        \ ['dotfile zshrc', '~/repos/dotfiles/zshrc'],
+        \ ['dotfile vimrc', '~/repos/dotfiles/vimrc'],
+        \]
+  let s:menus.my_commands = { 'description': 'Just an example of how you can do commands and not just open files' }
+  let s:menus.my_commands.command_candidates = [ ['Split the window', 'vnew'], ['Open zsh menu', 'Denite menu:zsh'] ]
+
+  call denite#custom#var('menu', 'menus', s:menus)
+
+  " Ag command on grep source
+  call denite#custom#var('grep', 'command', ['ag'])
+  call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+  call denite#custom#var('grep', 'recursive_opts', [])
+  call denite#custom#var('grep', 'pattern_opt', [])
+  call denite#custom#var('grep', 'separator', ['--'])
+  call denite#custom#var('grep', 'final_opts', [])
+
+  " Look up files in git with denite 'file/rec/git'
+  call denite#custom#alias('source', 'file/rec/git', 'file/rec')
+  call denite#custom#var('file/rec/git', 'command', ['git', 'ls-files', '-co', '--exclude-standard'])
+
+  " Change default prompt
+  call denite#custom#option('default', 'prompt', '>')
+
+  " Change ignore_globs
+  call denite#custom#filter('matcher/ignore_globs', 'ignore_globs', [ '.git/', '.ropeproject/', '__pycache__/',   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
+
+  " Custom action
+  call denite#custom#action('file', 'test', {context -> execute('let g:foo = 1')})
+  call denite#custom#action('file', 'test2', {context -> denite#do_action(  context, 'open', context['targets'])})
+endif
 "}}}
 
 "Make jsx syntax show up in .js files
@@ -121,8 +181,10 @@ nnoremap <silent> <localleader><localleader> :NERDTreeToggle<CR>
 " Open vimrc
 nnoremap <localleader>v :e $MYVIMRC<CR>
 
-" Close current buffer
-nnoremap <silent> <lleader><lleader> :bp\|bd #<CR>
+" Open Denite menu
+if has("nvim")
+  nnoremap <silent> <leader><leader> :Denite menu<CR>
+endif
 
 " Jump back and forth between tags
 nnoremap <leader>[ <C-t>
