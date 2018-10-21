@@ -276,7 +276,12 @@ set noswapfile "Disable swap files
 " r - concrete settings to ignore marks in files in removable media
 " s - Max size of a register item in Kbyte.
 
-set viminfo='50,<1000,s100,:100,/100,%5,n~/.vim-local/viminfo
+" Ensure nvim local viminfo files are kept separate to regular vim viminfo files
+if !has("nvim")
+  set viminfo='50,<1000,s100,:100,/100,%5,n~/.vim-local/viminfo
+else
+  set viminfo='50,<1000,s100,:100,/100,%5
+endif
 
 "}}}
 
@@ -326,7 +331,9 @@ endif
 set rtp+=/usr/local/opt/fzf
 
 "Highlight what part of the text has changed when doing a vimdiff
-set highlight+=N:DiffText
+if !has("nvim")
+  set highlight+=N:DiffText
+endif
 
 "Tell vim we support 256 colours
 set t_Co=256

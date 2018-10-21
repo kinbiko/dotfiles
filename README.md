@@ -93,3 +93,13 @@ Install vim plugins:
 ```bash
 vim +PlugInstall +qall
 ```
+
+To run with neovim instead of vim:
+
+```
+brew install neovim
+mkdir ~/.config/nvim
+echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after" >> ~/.config/nvim/init.vim
+echo "let &packpath = &runtimepath" >> ~/.config/nvim/init.vim
+echo "source ~/.vimrc" >> ~/.config/nvim/init.vim
+```
