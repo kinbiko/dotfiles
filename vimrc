@@ -14,10 +14,6 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "File tree on the left ha
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' "fzf in vim
 Plug 'easymotion/vim-easymotion' "Accurate navigation ala vimium
 Plug 'haya14busa/vim-asterisk' "Use * without moving immediately
-
-if has('nvim')
-  Plug 'Shougo/denite.nvim'
-endif
 "}}}
 
 "{{{ Git
@@ -43,13 +39,20 @@ Plug 'vim-scripts/BufOnly.vim' "Close all buffers apart from this one with :Bonl
 "{{{ Languages
 Plug 'mattn/emmet-vim', { 'for': ['javascript', 'html', 'xml', 'jsx', 'erb'] } "Shortcuts for creating html/jsx boilerplate
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' } "Make vim good with go. Master branch is dev branch, so should use latest release instead, however autocompletion does not work on the latest release as of 2018-10-18
-"Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh', 'for': 'go'  }
+Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh', 'for': 'go'  }
 Plug 'prettier/vim-prettier', { 'for': ['javascript', 'json'] } "prettier formatter
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'json'] } "Makes syntax highlighting etc. more sane for js.
 Plug 'elzr/vim-json', {'for': ['javascript', 'json'] } "JSON highlighting + concealment
 Plug 'mxw/vim-jsx', {'for': ['javascript', 'json', 'jsx'] } "Support for JSX
 Plug 'plasticboy/vim-markdown', {'for': ['markdown'] } "Amazing markdown support, including header folding and concealment
 """}}}
+
+"{{{ Neovim specific
+if has('nvim')
+  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
+"}}}
 
 call plug#end()
 "}}}
@@ -149,7 +152,8 @@ endif
 let g:jsx_ext_required = 0
 let g:javascript_enable_domhtmlcss = 1 "Makes css/html syntax available in .js files(React)
 
-" }}}
+" Enable deoplete on startup
+let g:deoplete#enable_at_startup = 1
 
 "{{{ Writing
 "{{{ Typos in :commands
