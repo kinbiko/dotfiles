@@ -1,3 +1,11 @@
+# pathmunge adds the first argument to the end of the $PATH only if it's not there already.
+
+pathmunge () {
+  if ! echo "$PATH" | grep -Eq "(^|:)$1($|:)" ; then
+    PATH="$PATH:$1"
+  fi
+}
+
 export ZSH=~/.oh-my-zsh
 ZSH_THEME="avit"
 HYPHEN_INSENSITIVE="true"
@@ -13,8 +21,8 @@ export EDITOR='vim'
 
 export GOPATH=$HOME/go
 
-export PATH=$PATH:~/scripts
-export PATH=$PATH:$GOPATH/bin
+pathmunge "~/scripts"
+pathmunge "$GOPATH/bin"
 
 #Solves a tmux/OS 10 Sirra bug
 export EVENT_NOKQUEUE=1
