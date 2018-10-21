@@ -112,102 +112,100 @@ iabbrev adn and
 let mapleader = ' '
 let maplocalleader = ','
 
-"==========================================================================================
-" Mapping        |   Mode   | Meaning and comments
-"==========================================================================================
-" <local>.        |  Normal  | Switch to previous buffer. Does not switch to unopened arg buffers
-" <local><leader> |  Normal  | Clear current search-highlight
-" <local><local>  |  Normal  | Toggle NERDTree
-" <local>v        |  Normal  | Open vimrc
-
-" <leader><leader>|  Normal  | Close current buffer
-" <leader>[       |  Normal  | Jump back from previous tag jump
-" <leader>]       |  Normal  | Jump to ctagged definition.
-" <leader>f       |  Normal  | Find using vimium-like search feature
-" <leader>j       |  Normal  | Create a blank line below
-" <leader>k       |  Normal  | Create a blank line above
-" <leader>m       |  Normal  | Switch between options, e.g. true/false, 's'/:s
-" <leader>n       |  Normal  | Go to next unstaged Git hunk
-" <leader>p       |  Normal  | Go to previous unstaged Git hunk
-" <leader>u       |  Normal  | Undo unstaged Git hunk
-" <leader>z       |  Normal  | Open or close a fold completely
-
-" The following bindings are happily mapped over their native vim option, as I
-" either find the build in feature pretty useless, or not quite right
-" #               | !Insert  | Highlight the current word, but do not move to next instance. Continue with n
-" *               | !Insert  | Highlight the current word, but do not move to previous instance. Continue with n
-" +               |  Normal  | Increment the next number on this line
-" -               |  Normal  | Decrement the next number on this line
-" ;               |  Normal  | Convenience key for getting to command mode
-" <>              |  Visual  | In/de-dent lines and remember selection
-" <backspace>     | !Insert  | Move to the previous completely empty line in buffer
-" <enter>         | !Insert  | Move to the next completely empty line in buffer. Will still work as 'enter' when given a menu buffer with options, e.g. :Ag
-" <left>          |  Normal  | Switch to previous buffer
-" <right>         |  Normal  | Switch to next buffer
-" <tab>           |  Insert  | Show autocomplete options
-" ?               |  Normal  | Fuzzy find file by filename in the current Git repo.
-" H               |  All     | Move to the first non-blank character on this line
-" L               |  All     | Move to the last character on this line
-" Q               |  Normal  | Execute the last played macro
-" S               |  Normal  | Surround current word with next character
-" j               |  Normal  | Move down one line, moving to wrapped lines if applicable
-" jk              |  All     | Enter normal mode
-" k               |  Normal  | Move up one line, moving to wrapped lines if applicable
-" s               |  Normal  | Save the current buffer
-
-" <c-hjkl>        |  Normal  | Switch window in the given direction. Switches to tmux windows if applicable
-
-" t               |  Normal  | Does nothing.
-
+" Switch to previous buffer. Does not switch to unopened arg buffers
 nnoremap <localleader>. :b#<CR>
+" Clear current search-highlight
 nnoremap <localleader><leader> :nohlsearch<CR>
-nnoremap <localleader>v :e $MYVIMRC<CR>
+" Toggle NERDTree
 nnoremap <silent> <localleader><localleader> :NERDTreeToggle<CR>
+" Open vimrc
+nnoremap <localleader>v :e $MYVIMRC<CR>
 
+" Close current buffer
 nnoremap <silent> <lleader><lleader> :bp\|bd #<CR>
+
+" Jump back and forth between tags
 nnoremap <leader>[ <C-t>
 nnoremap <leader>] g<C-]>
+
+" Find using vimium-like search feature
 nmap <leader>f <Plug>(easymotion-prefix)s
+
+" Create a blank line above/below current line
 nnoremap <leader>j o<ESC>k
 nnoremap <leader>k O<ESC>j
+
+" Switch between options, e.g. true/false, 's'/:s
 nnoremap <leader>m :Switch<CR>
+
+" Go to next/previous unstaged Git hunk
 nnoremap <leader>n :GitGutterNextHunk<cr>
 nnoremap <leader>p :GitGutterPrevHunk<cr>
-nnoremap <leader>u :GitGutterUndoHunk<cr>
-nnoremap <leader>z zA
 
-nnoremap ? :GFiles<CR>
-map H ^
-map L $
-nnoremap j gj
-nnoremap k gk
-noremap <Left> :bp<CR>
-noremap <Right> :bn<CR>
+" Undo unstaged Git hunk
+nnoremap <leader>u :GitGutterUndoHunk<cr>
+
+" Highlight current word, and prepare to cycle through with n. # is forwards, * is backwards
+map # <Plug>(asterisk-z*)
+map * <Plug>(asterisk-z#)
+
+" Increment/Decrement the next number on this line
+nnoremap + <C-a>
+nnoremap - <C-x>
+
+" Convenience key for getting to command mode
+nnoremap ; :
+
+" In/de-dent lines and remember selection
+vnoremap < <gv
+vnoremap > >gv
+
+" Move to the next/previous completely empty line in buffer. Will still work as 'enter' when given a menu buffer with options, e.g. :Ag
 nnoremap <BS> {
 onoremap <BS> {
 vnoremap <BS> {
 nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 vnoremap <CR> }
-nnoremap s :w<CR>
-nmap S ysiw
-map # <Plug>(asterisk-z*)
-map * <Plug>(asterisk-z#)
-nnoremap Q @@
-nnoremap ; :
-nnoremap + <C-a>
-nnoremap - <C-x>
-vnoremap < <gv
-vnoremap > >gv
-vnoremap jk <esc>
-inoremap jk <esc>
+
+" Switch to next/previous buffer
+noremap <Left> :bp<CR>
+noremap <Right> :bn<CR>
+
+" Show autocomplete options
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
+" Fuzzy find file by filename in the current Git repo.
+nnoremap ? :GFiles<CR>
+
+" Move to the first/last non-blank character on this line
+map H ^
+map L $
+
+" Execute the last played macro
+nnoremap Q @@
+
+" Surround current word with next character
+nmap S ysiw
+
+" Move up/down one line, moving to wrapped lines if applicable
+nnoremap j gj
+nnoremap k gk
+
+" Enter normal mode
+vnoremap jk <esc>
+inoremap jk <esc>
+
+" Save the current buffer
+nnoremap s :w<CR>
+
+" Switch window in the given direction. Switches to tmux windows if applicable
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Does nothing.
 nnoremap t <NOP>
 
 "}}}
