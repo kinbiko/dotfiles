@@ -207,6 +207,7 @@ nnoremap <C-H> <C-W><C-H>
 
 " Does nothing.
 nnoremap t <NOP>
+nnoremap <space> <NOP>
 
 "}}}
 

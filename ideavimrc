@@ -78,6 +78,7 @@ inoremap jk <esc>
 " Do nothing.
 nnoremap s :w<CR>
 nnoremap t <NOP>
+nnoremap <space> <NOP>
 
 "}}}
 
