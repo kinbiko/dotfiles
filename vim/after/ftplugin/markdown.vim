@@ -1,19 +1,11 @@
 au Filetype markdown set spell wrap
 
-nnoremap <localleader>c o```<CR><CR>```<UP>
-nmap <localleader>b ysaw*
-nmap <localleader>i ysaw_
-nmap <localleader>s ysaw~
-
-inoremap [[[ -<space>[<space>]<space>
-inoremap ]]] -<space>[x]<space>
-
 "{{{plasticboy/vim-markdown
 "
-"Allow concealing
+"Enable concealment
 set conceallevel=2
 
-"For frontmatter in blogs etc.
+"Understand frontmatter in blogs etc.
 let g:vim_markdown_frontmatter = 1
 
 "}}}

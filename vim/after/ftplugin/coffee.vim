@@ -2,9 +2,6 @@
 nnoremap tt :w<CR>yi':! clear;npm run testlog -- -g "<C-r>0"<CR>
 nnoremap TT :w<CR>yi":! clear;npm run testlog -- -g "<C-r>0"<CR>
 
-"Insert a console log statement
-inoremap <localleader>l console.log()<left>
-
 set foldmethod=indent "Fold based on indentation.
 
 set noautoindent "Manually handling indentation for this filetype
@@ -12,4 +9,3 @@ set tabstop=2 "columns per tab character
 set softtabstop=2 "columns per tab key press in insert mode. Also on backspace
 set shiftwidth=2 "columns per 'indent', used for <, >, and =
 set expandtab "converts tabs to spaces
-

@@ -33,7 +33,6 @@ nnoremap <leader>i :GoImports<CR>
 
 nnoremap <leader>t :GoTest!<CR>
 nnoremap <leader>T :GoTestFunc!<CR>
-nnoremap <leader>c :GoCoverageToggle<CR>
 nnoremap <leader>] :GoDef<CR>
 nnoremap <leader>[ :GoDefPop<CR>
 

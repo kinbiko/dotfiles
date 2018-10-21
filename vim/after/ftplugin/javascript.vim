@@ -42,7 +42,6 @@ let g:javascript_conceal_undefined            = "¿"
 let g:javascript_conceal_NaN                  = "ℕ"
 let g:javascript_conceal_arrow_function       = "⇒"
 
-" Always conceal
+" Always use concealment
 set conceallevel=1
-" See repo README for info on how to toggle if necessary
 "}}}
