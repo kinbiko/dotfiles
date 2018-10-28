@@ -30,6 +30,9 @@ export EVENT_NOKQUEUE=1
 # Wait 10 ms for additional key sequences. Allows you to enter normal mode in zsh faster than the default 0.4s
 export KEYTIMEOUT=1
 
+# Run brew commands without forcing an update first.
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 source $ZSH/oh-my-zsh.sh
 
 #===ALIASES===
