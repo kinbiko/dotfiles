@@ -179,6 +179,9 @@ iabbrev adn and
 let mapleader = ' '
 let maplocalleader = ','
 
+" Keys I rarely use in normal mode (OK to overwrite):
+" WEtTY[]GK\|ZXBM
+
 " Switch to previous buffer. Does not switch to unopened arg buffers
 nnoremap <localleader>. :b#<CR>
 " Clear current search-highlight
