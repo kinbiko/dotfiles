@@ -33,6 +33,7 @@ Plug 'w0rp/ale' "Async linting engine
 Plug 'christoomey/vim-tmux-navigator' "Work better with tmux
 Plug 'sickill/vim-pasta' "Context aware pasting + intentation
 Plug 'AndrewRadev/switch.vim' "switch between true/false, string/symbol etc.
+Plug 'AndrewRadev/sideways.vim' "Move function arguments left<->right
 Plug 'vim-scripts/BufOnly.vim' "Close all buffers apart from this one with :Bonly
 "}}}
 
@@ -202,6 +203,13 @@ nmap <leader>f <Plug>(easymotion-prefix)s
 " Create a blank line above/below current line
 nnoremap <leader>j o<ESC>k
 nnoremap <leader>k O<ESC>j
+
+" Navigate bewteen arguments of a function
+nnoremap <leader>h :SidewaysJumpLeft<CR>
+nnoremap <leader>l :SidewaysJumpRight<CR>
+" Swap function arguments left/right
+nnoremap <leader>H :SidewaysLeft<CR>
+nnoremap <leader>L :SidewaysRight<CR>
 
 " Switch between options, e.g. true/false, 's'/:s
 nnoremap <leader>m :Switch<CR>
