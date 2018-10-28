@@ -57,6 +57,9 @@ alias q="exit"
 alias cat="bat"
 alias grep="ag"
 
+# Hey, I just met you, and this is crazy, but here's my alias, so start vifm, maybe
+alias ls="vifm ."
+
 #relocate
 alias dot="cd $DOTFILES_DIR"
 alias repos="cd ~/repos/"
