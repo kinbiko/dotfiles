@@ -39,6 +39,9 @@ source $ZSH/oh-my-zsh.sh
 
 alias v=nvim
 alias vi=nvim
+alias vim=nvim
+alias vimdiff="nvim -d"
+alias nvimdiff="nvim -d"
 
 #Shell
 alias cl="clear";
