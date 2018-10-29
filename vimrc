@@ -449,7 +449,7 @@ function! InsertTabWrapper()
     if !col || getline('.')[col - 1] !~ '\k'
         return "\<tab>"
     else
-        return "\<c-p>"
+        return "\<c-n>"
     endif
 endfunction
 
