@@ -239,6 +239,9 @@ nnoremap ; :
 vnoremap < <gv
 vnoremap > >gv
 
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
 " Move to the next/previous completely empty line in buffer. Will still work as 'enter' when given a menu buffer with options, e.g. :Ag
 nnoremap <BS> {
 onoremap <BS> {
