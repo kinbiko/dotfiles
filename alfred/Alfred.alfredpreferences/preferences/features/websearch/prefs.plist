@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>42D19395-087D-40FB-8852-2A13F9B8FF0F</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>poke</string>
+			<key>text</key>
+			<string>Search Bulbapedia</string>
+			<key>url</key>
+			<string>https://bulbapedia.bulbagarden.net/wiki/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>A79AF454-FD27-439B-9B52-1654035ACD8D</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>github</string>
+			<key>spaces</key>
+			<string>/</string>
+			<key>text</key>
+			<string>Open github.com/{query}</string>
+			<key>url</key>
+			<string>https://github.com/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>onlyShowEnabledInPrefs</key>
+	<true/>
+</dict>
+</plist>

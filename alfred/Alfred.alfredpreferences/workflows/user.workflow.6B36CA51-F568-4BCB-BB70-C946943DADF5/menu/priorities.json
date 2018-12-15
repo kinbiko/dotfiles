@@ -1,0 +1,30 @@
+[
+  {
+    "title": "1",
+    "subtitle": "Set task priority to 1",
+    "valid": false,
+    "autocomplete": "1",
+    "icon": { "path": "priority.png" }
+  },
+  {
+    "title": "2",
+    "subtitle": "Set task priority to 2",
+    "valid": false,
+    "autocomplete": "2",
+    "icon": { "path": "priority.png" }
+  },
+  {
+    "title": "3",
+    "subtitle": "Set task priority to 3",
+    "valid": false,
+    "autocomplete": "3",
+    "icon": { "path": "priority.png" }
+  },
+  {
+    "title": "4",
+    "subtitle": "Set task priority to 4",
+    "valid": false,
+    "autocomplete": "4",
+    "icon": { "path": "priority.png" }
+  }
+]

@@ -1,0 +1,61 @@
+{
+  "alfredtheme" : {
+    "result" : {
+      "textSpacing" : 4,
+      "subtext" : {
+        "size" : 13,
+        "colorSelected" : "#949694FF",
+        "font" : "System Light",
+        "color" : "#575C63FF"
+      },
+      "shortcut" : {
+        "size" : 16,
+        "colorSelected" : "#FFFFFFFF",
+        "font" : "Andale Mono",
+        "color" : "#86B2BEFF"
+      },
+      "backgroundSelected" : "#565F6EFF",
+      "text" : {
+        "size" : 20,
+        "colorSelected" : "#959795FF",
+        "font" : "Andale Mono",
+        "color" : "#969796FF"
+      },
+      "iconPaddingHorizontal" : 4,
+      "paddingVertical" : 0,
+      "iconSize" : 16
+    },
+    "search" : {
+      "paddingVertical" : 0,
+      "background" : "#3E444E30",
+      "spacing" : 8,
+      "text" : {
+        "size" : 26,
+        "colorSelected" : "#000000FF",
+        "font" : "Source Code Pro for Powerline",
+        "color" : "#CED2D8FF"
+      },
+      "backgroundSelected" : "#FEE9BEFF"
+    },
+    "window" : {
+      "color" : "#3E444EFF",
+      "paddingHorizontal" : 0,
+      "width" : 559,
+      "borderPadding" : 0,
+      "borderColor" : "#0000007F",
+      "blur" : 40,
+      "roundness" : -64,
+      "paddingVertical" : 8
+    },
+    "credit" : "Roger Guldbrandsen",
+    "separator" : {
+      "color" : "#CBCBCBF3",
+      "thickness" : 0
+    },
+    "scrollbar" : {
+      "color" : "#561A72FF",
+      "thickness" : 2
+    },
+    "name" : "Nord"
+  }
+}
