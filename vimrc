@@ -200,6 +200,10 @@ endif
 nnoremap <leader>[ <C-t>
 nnoremap <leader>] g<C-]>
 
+" Copy and paste from within brackets
+nnoremap gb yib
+nnoremap gp vibpyib
+
 " Find using vimium-like search feature
 nmap <leader>f <Plug>(easymotion-prefix)s
 

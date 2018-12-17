@@ -28,6 +28,10 @@ nnoremap ,v :e ~/repos/dotfiles/ideavimrc<CR>
 nnoremap <leader>] :action GotoDeclaration<CR>
 nnoremap <leader>[ :action Back<CR>
 
+" Copy and paste from within brackets
+nnoremap gb yib
+nnoremap gp vibpyib
+
 " Create a blank line above/below current line
 nnoremap <leader>j o<ESC>k
 nnoremap <leader>k O<ESC>j
