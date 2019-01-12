@@ -67,8 +67,6 @@ call plug#end()
 
 colorscheme nord
 
-"Make comments red. This must be below other style configs to have an effect.
-highlight comment ctermfg=DarkRed
 
 let g:rehash256=1
 
@@ -461,6 +459,9 @@ function! InsertTabWrapper()
 endfunction
 
 "}}}
+
+"Make comments red. This must be below other style configs to have an effect.
+highlight comment ctermfg=DarkRed
 
 " The following paths are loaded automatically, but listed here for gf-ing.
 " ~/.vim/after/ftplugin/coffee.vim
