@@ -190,8 +190,6 @@ nnoremap <localleader>. :b#<CR>
 nnoremap <localleader><leader> :nohlsearch<CR>
 " Toggle NERDTree
 nnoremap <silent> <localleader><localleader> :NERDTreeToggle<CR>
-" Open vimrc
-nnoremap <localleader>v :e $MYVIMRC<CR>
 
 " Open Denite menu
 if has("nvim")
