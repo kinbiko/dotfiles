@@ -56,6 +56,10 @@ if has('nvim')
 endif
 "}}}
 
+
+" Really belongs under 'Themes and looks' but its README requests that it's loaded last
+Plug 'ryanoasis/vim-devicons' "Pretty icons per filetype
+
 call plug#end()
 "}}}
 
