@@ -288,6 +288,10 @@ nnoremap k gk
 vnoremap jk <esc>
 inoremap jk <esc>
 
+" Uncomment when using broken keyboard
+"vnoremap kj <esc>
+"inoremap kj <esc>
+
 " Save the current buffer
 nnoremap s :w<CR>
 
