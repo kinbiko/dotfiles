@@ -231,6 +231,7 @@ nnoremap <leader>u :GitGutterUndoHunk<cr>
 " Highlight current word, and prepare to cycle through with n. # is forwards, * is backwards
 map # <Plug>(asterisk-z*)
 map * <Plug>(asterisk-z#)
+map £ :echo "stahp"<CR>
 
 " Increment/Decrement the next number on this line
 nnoremap + <C-a>
