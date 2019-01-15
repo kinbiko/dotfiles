@@ -56,6 +56,10 @@ if has('nvim')
 endif
 "}}}
 
+
+" Really belongs under 'Themes and looks' but its README requests that it's loaded last
+Plug 'ryanoasis/vim-devicons' "Pretty icons per filetype
+
 call plug#end()
 "}}}
 
@@ -63,8 +67,6 @@ call plug#end()
 
 colorscheme nord
 
-"Make comments red. This must be below other style configs to have an effect.
-highlight comment ctermfg=DarkRed
 
 let g:rehash256=1
 
@@ -101,6 +103,8 @@ if has("nvim")
   " Move up and down denite selections
   call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
   call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
+  " Allow for closing the menu buffer with <space><space>
+  call denite#custom#map('insert', '<space><space>', '<denite:leave_mode>', 'noremap')
 
   " Change matchers.
   call denite#custom#source('file_mru', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
@@ -112,18 +116,14 @@ if has("nvim")
   " Add custom menus
   let s:menus = {}
 
-  " Example custom menus
+  " dotfiles menu
   let s:menus.dotfiles = { 'description': 'Open a commonly edited dotfile' }
-  " TODO: Disable ugly prompt that happen when using the $DOTFILES_DIR environment variable instead of the hardcoded path
   let s:menus.dotfiles.file_candidates = [
-        \ ['local zshrc', '~/.zshrc'],
-        \ ['local vimrc', '~/.vimrc'],
-        \ ['dotfile zshrc', '~/repos/dotfiles/zshrc'],
-        \ ['dotfile vimrc', '~/repos/dotfiles/vimrc'],
+        \ ['[lz] local zshrc', '~/.zshrc'],
+        \ ['[lv] local vimrc', '~/.vimrc'],
+        \ ['[dz] dotfile zshrc', '~/repos/dotfiles/zshrc'],
+        \ ['[dv] dotfile vimrc', '~/repos/dotfiles/vimrc'],
         \]
-  let s:menus.my_commands = { 'description': 'Just an example of how you can do commands and not just open files' }
-  let s:menus.my_commands.command_candidates = [ ['Split the window', 'vnew'], ['Open zsh menu', 'Denite menu:zsh'] ]
-
   call denite#custom#var('menu', 'menus', s:menus)
 
   " Ag command on grep source
@@ -188,8 +188,6 @@ nnoremap <localleader>. :b#<CR>
 nnoremap <localleader><leader> :nohlsearch<CR>
 " Toggle NERDTree
 nnoremap <silent> <localleader><localleader> :NERDTreeToggle<CR>
-" Open vimrc
-nnoremap <localleader>v :e $MYVIMRC<CR>
 
 " Open Denite menu
 if has("nvim")
@@ -466,6 +464,9 @@ function! InsertTabWrapper()
 endfunction
 
 "}}}
+
+"Make comments red. This must be below other style configs to have an effect.
+highlight comment ctermfg=DarkRed
 
 " The following paths are loaded automatically, but listed here for gf-ing.
 " ~/.vim/after/ftplugin/coffee.vim
