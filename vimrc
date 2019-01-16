@@ -283,7 +283,6 @@ nnoremap j gj
 nnoremap k gk
 
 " Enter normal mode
-vnoremap jk <esc>
 inoremap jk <esc>
 
 " Uncomment when using broken keyboard
