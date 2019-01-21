@@ -238,6 +238,10 @@ nnoremap - <C-x>
 " Convenience key for getting to command mode
 nnoremap ; :
 
+" Copy to the clipboard with Y
+nnoremap Y V"*y
+vnoremap Y "*y
+
 " In/de-dent lines and remember selection
 vnoremap < <gv
 vnoremap > >gv
