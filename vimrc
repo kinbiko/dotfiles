@@ -227,9 +227,13 @@ nnoremap <leader>p :GitGutterPrevHunk<cr>
 nnoremap <leader>u :GitGutterUndoHunk<cr>
 
 " Highlight current word, and prepare to cycle through with n. # is forwards, * is backwards
-map # <Plug>(asterisk-z*)
-map * <Plug>(asterisk-z#)
+map # <Plug>(asterisk-z*)zz
+map * <Plug>(asterisk-z#)zz
 map £ :echo "stahp"<CR>
+
+" Make search results always appear in the middle of the screen
+nnoremap n nzz
+nnoremap N Nzz
 
 " Increment/Decrement the next number on this line
 nnoremap + <C-a>
