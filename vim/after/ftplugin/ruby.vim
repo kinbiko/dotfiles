@@ -8,7 +8,7 @@ inoremap ppp puts "====================================="
 
 inoremap %% <%=  %><left><left><left>
 
-nmap '' cs"'
+nmap <leader>' cs"'
 
 if filereadable("ruby.local.vim")
   source "ruby.local.vim"
@@ -60,11 +60,11 @@ endfunction
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! MapCR()
-  nnoremap tt :call RunTestFile()<cr>
+  nnoremap <leader>t :call RunTestFile()<cr>
 endfunction
 call MapCR()
-nnoremap TT :call RunNearestTest()<cr>
-nnoremap ta :call RunTests('')<cr>
+nnoremap <leader>T :call RunNearestTest()<cr>
+nnoremap <leader>t :call RunTests('')<cr>
 
 function! RunTestFile(...)
     if a:0
