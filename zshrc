@@ -21,7 +21,7 @@ export EDITOR='nvim'
 
 export GOPATH=$HOME/go
 
-pathmunge "~/scripts"
+pathmunge "$HOME/scripts"
 pathmunge "$GOPATH/bin"
 
 #Solves a tmux/OS 10 Sirra bug
