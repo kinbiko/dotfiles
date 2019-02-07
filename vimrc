@@ -26,6 +26,7 @@ Plug 'rhysd/committia.vim' "git commit becomes magic
 Plug 'tpope/vim-surround' "ysiw syntax for surrounding
 Plug 'tpope/vim-repeat' "Make vim-surround things repeatable with .
 Plug 'cohama/lexima.vim' "Automatically close [], '' etc. including def/end
+Plug 'terryma/vim-expand-region' "Grow selection inside ']}t etc
 "}}}
 
 "{{{ Misc.
@@ -180,7 +181,11 @@ let mapleader = ' '
 let maplocalleader = ','
 
 " Keys I rarely use in normal mode (OK to overwrite):
-" WEtTY[]GK\|ZXBM
+" tTY[]GK\|ZXBM
+
+" Start selecting an expanding/shrinking area with W and E
+map W <Plug>(expand_region_expand)
+map E <Plug>(expand_region_shrink)
 
 " Switch to previous buffer. Does not switch to unopened arg buffers
 nnoremap <localleader>. :b#<CR>
