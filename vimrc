@@ -11,7 +11,6 @@ Plug 'bronson/vim-trailing-whitespace' "Mark trailing whitespace
 
 "{{{ Navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "File tree on the left hand side
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' "fzf in vim
 Plug 'easymotion/vim-easymotion' "Accurate navigation ala vimium
 Plug 'haya14busa/vim-asterisk' "Use * without moving immediately
 "}}}
@@ -432,9 +431,6 @@ if !exists("*OpenHelp80Cols")
   endfunction
   autocmd FileType help :call OpenHelp80Cols()
 endif
-
-"Add fzf to the runtime path
-set rtp+=/usr/local/opt/fzf
 
 "Highlight what part of the text has changed when doing a vimdiff
 if !has("nvim")
