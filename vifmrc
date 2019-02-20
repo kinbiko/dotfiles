@@ -1,15 +1,8 @@
-" vim: filetype=vifm :
-set vicmd=vim
-
-"Enable dd and p for cut and paste
-"set trash
+" Use neovim as the vi command. (TODO: Weird that it doesn't just use the $EDITOR, check if i can remove.)
+set vicmd=nvim
 
 " This is how many directories to store in the directory history.
 set history=100
-
-" Automatically resolve symbolic links on l or Enter.
-set nofollowlinks
-
 
 " Natural sort of (version) numbers within text.
 set sortnumbers
@@ -296,7 +289,6 @@ nnoremap S :sort<cr>
 
 " Toggle visibility of preview window
 nnoremap w :view<cr>
-vnoremap w :view<cr>gv
 
 " Open file in new MacVim tab
 nnoremap o :!mvim --remote-tab-silent %f<cr>
@@ -342,18 +334,17 @@ nnoremap u gh
 nnoremap U u
 nnoremap ; :
 
+"Ensures it starts up with only one pane on startup
+only
+
 " ------------------------------------------------------------------------------
 
 " Various customization examples
 
 " Use ag (the silver searcher) instead of grep
-"
-" set grepprg=ag\ --line-numbers\ %i\ %a\ %s
+
+set grepprg=ag\ --line-numbers\ %i\ %a\ %s
 
 " Add additional place to look for executables
-"
-" let $PATH=$HOME.'/bin/fuse:'.$PATH
 
-" Block particular shortcut
-"
 " nnoremap <left> <nop>

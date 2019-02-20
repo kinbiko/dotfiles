@@ -1,8 +1,8 @@
 # Dotfiles
 
-These are the configuration files for `vim`, `tmux`, `zsh` and other (generally CLI-based) tools I like for my development environment. I've tried to document things as best as I can, but there are still remnants from when I copied stuff from other people's setups, especially around `tmux`, without knowing what I was doing.
+These are the configuration files for `vim`, `tmux`, `zsh` and other (generally CLI-based) tools I like for my development environment. I've tried to document things as best as I can, but some bits I'm sure are still cryptic.
 
-Works best for Mac OS (Mojave). Will need modifications for Linux, but has been done with relative success on arch-based distros.
+Works best for Mac OS (Mojave).
 
 If you find anything here that's useful (steal whatever you want), and would like to show your appreciation, I accept donations in the form of code reviews.
 I've created [this eternal PR](https://github.com/kinbiko/dotfiles/pull/14), where you may leave a comment on anything you think could be improved.
@@ -25,19 +25,16 @@ Then let's install some more goodies:
 ```
 brew install bat
 brew install ctags
-brew install dep
 brew install diff-so-fancy
 brew install fzf
-brew install git
 brew install go
 brew install htop
 brew install node
 brew install the_silver_searcher
-brew install tig
 brew install tmux
 brew install tree
 brew install vifm
-brew install vim
+brew install neovim
 brew install watch
 
 brew cask install alfred
@@ -50,13 +47,14 @@ brew cask install spotify
 brew cask install vlc
 ```
 
-Then clone this repository. I generally tend to put all my non-Go repos in `$HOME/repos/`, and the rest of the guide will assume this was done.
+Then clone this repository. I generally tend to put all my repos in `$HOME/repos/`, and the rest of the guide will assume this was done.
 
 Install `zsh` and `oh-my-zsh`. I've stolen the installation script for `oh-my-zsh`, as at the time of writing the recommended installation process was to run a random shell command from the internet. (I suppose these instructions are too, but at least I know who wrote them.)
 
 ```bash
+export DOTFILES_DIR=~/repos/dotfiles
 brew install zsh
-zsh $DOTFILES_REPO/install-oh-my-zsh.sh
+zsh $DOTFILES_DIR/install-oh-my-zsh.sh
 ```
 
 After installing `zsh` and `oh-my-zsh` you'll want to delete the default `.zshrc` file and replace with:
@@ -72,16 +70,20 @@ source $DOTFILES_DIR/zshrc
 # ...
 ```
 
+Then, you'll probably want to do the same pattern as above (source the dotfiles file, while keeping computer specific config below):
 
-Then, you'll probably want to set up the following symlinks:
-
-```bash
+```
 $HOME/.vimrc -> $DOTFILES_DIR/vimrc
-$HOME/.vim/ -> $DOTFILES_DIR/vim
 $HOME/.tmux.conf -> $DOTFILES_DIR/tmux.conf
 $HOME/.ideavimrc -> $DOTFILES_DIR/ideavimrc
-$HOME/.ctags -> $DOTFILES_DIR/ctags
 $HOME/.config/vifm/vifmrc -> $DOTFILES_DIR/vifmrc
+```
+
+symlink the following:
+
+```bash
+$HOME/.vim/ -> $DOTFILES_DIR/vim
+$HOME/.ctags -> $DOTFILES_DIR/ctags
 ```
 
 Set font in `iterm2>profile>text`
@@ -97,7 +99,6 @@ vim +PlugInstall +qall
 To run with neovim instead of vim:
 
 ```
-brew install neovim
 mkdir ~/.config/nvim
 echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after" >> ~/.config/nvim/init.vim
 echo "let &packpath = &runtimepath" >> ~/.config/nvim/init.vim
