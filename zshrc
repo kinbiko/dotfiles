@@ -113,6 +113,7 @@ alias pp="$GOPATH/bin/pp" # Overriding the Perl package manager
 alias gt="go test -timeout 3s |& pp"
 alias gtr="go test -race"
 alias gosrc="cd $GOPATH/src/github.com"
+alias glint="golangci-lint"
 
 #===Shell magic<3===
 #Enable vim mode in terminal, and set the timeout to 0.1s
