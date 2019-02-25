@@ -110,7 +110,13 @@ alias be="bundle exec"
 
 #Go stuff
 alias pp="$GOPATH/bin/pp" # Overriding the Perl package manager
-alias gt="go test -timeout 3s |& pp"
+gt() {
+  if [[ $# -eq 0 ]] ; then
+    ( nocorrect go test -timeout 3s ./... |& pp )
+  else
+    ( nocorrect go test -timeout 3s $@ |& pp )
+  fi
+}
 alias gtr="go test -race"
 alias gosrc="cd $GOPATH/src/github.com"
 alias glint="golangci-lint"
