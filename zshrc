@@ -122,8 +122,15 @@ alias gosrc="cd $GOPATH/src/github.com"
 alias glint="golangci-lint"
 
 #===Shell magic<3===
+
 #Enable vim mode in terminal, and set the timeout to 0.1s
 bindkey -v
+# Pop open vim to edit the current command with ctrl+x ctrl+x
+# Stolen from wincent
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^x' edit-command-line
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #Tell me when I'm in normal mode in the shell
