@@ -60,6 +60,19 @@ alias q="exit"
 alias cat="bat"
 alias grep="ag"
 
+# Make zsh completion:
+# - Try exact (case-sensitive) match first.
+# - Then fall back to case-insensitive.
+# - Accept abbreviations after . or _ or - (ie. f.b -> foo.bar).
+# - Substring complete (ie. bar -> foobar).
+zstyle ':completion:*' matcher-list '' '+m:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}' '+m:{_-}={-_}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+# Colorize completions using default `ls` colors.
+zstyle ':completion:*' list-colors ''
+
+# tab completing directory appends a slash
+setopt AUTO_PARAM_SLASH
+
 # Hey, I just met you, and this is crazy, but here's my alias, so start vifm, maybe
 alias ls="vifm ."
 alias la="/bin/ls -la"
@@ -109,6 +122,10 @@ alias dps="docker ps --format 'table {{.Names}}	{{.Status}}	{{.ID}}' | sed 's/de
 alias be="bundle exec"
 
 #Go stuff
+# When running go command zsh's autocorrection often incorrectly kicks in, e.g. for './...'
+# Therefore just assume I typed the go command correctly by default
+alias go='nocorrect go'
+
 alias pp="$GOPATH/bin/pp" # Overriding the Perl package manager
 gt() {
   if [[ $# -eq 0 ]] ; then
