@@ -4,6 +4,9 @@ imap hh <C-y>
 "Make cl. insert a console log statement
 inoremap <localleader>l console.log();<left><left>
 
+" Make >> insert a fat arrow
+inoremap >> <space>=><space>
+
 "Tend to write React, where it's annoying to fold JSX excessively
 set foldlevel=10
 set foldmethod=syntax "Fold based on indentation
