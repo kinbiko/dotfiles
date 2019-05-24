@@ -1,0 +1,12 @@
+#!/bin/bash
+
+trap "exit" INT TERM ERR
+trap "kill 0" EXIT
+
+godoc &
+echo "Indexing docs, please wait"
+sleep 1.5
+echo "Indexing done"
+open http://localhost:6060/pkg/$1/
+
+wait
