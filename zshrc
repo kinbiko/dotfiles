@@ -24,6 +24,8 @@ export GOPATH=$HOME/go
 pathmunge "$HOME/scripts"
 pathmunge "$GOPATH/bin"
 
+pathmunge "$DOTFILES_DIR/scripts"
+
 #Solves a tmux/OS 10 Sirra bug
 export EVENT_NOKQUEUE=1
 
@@ -122,6 +124,7 @@ alias dps="docker ps --format 'table {{.Names}}	{{.Status}}	{{.ID}}' | sed 's/de
 alias be="bundle exec"
 
 #Go stuff
+
 # When running go command zsh's autocorrection often incorrectly kicks in, e.g. for './...'
 # Therefore just assume I typed the go command correctly by default
 alias go='nocorrect go'
