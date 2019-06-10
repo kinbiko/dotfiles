@@ -38,8 +38,8 @@ Plug 'vim-scripts/BufOnly.vim' "Close all buffers apart from this one with :Bonl
 
 "{{{ Languages
 Plug 'mattn/emmet-vim', { 'for': ['javascript', 'html', 'xml', 'jsx', 'erb'] } "Shortcuts for creating html/jsx boilerplate
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' } "Make vim good with go. Master branch is dev branch, so should use latest release instead, however autocompletion does not work on the latest release as of 2018-10-18
-Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh', 'for': 'go'  }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go', 'tag': 'v1.20' } "Make vim good with go. Master branch is dev branch, so should use latest release instead
+" Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh', 'for': 'go'  }
 Plug 'prettier/vim-prettier', { 'for': ['javascript', 'json'] } "prettier formatter
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'json'] } "Makes syntax highlighting etc. more sane for js.
 Plug 'elzr/vim-json', {'for': ['javascript', 'json'] } "JSON highlighting + concealment
