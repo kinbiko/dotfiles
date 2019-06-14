@@ -209,7 +209,9 @@ noremap <Right> :bn<CR>
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
 " Fuzzy find file by filename in the current Git repo.
-nnoremap ? :GFiles -- ':!:vendor'<CR>
+" c -- cached, default behaviour
+" o -- additionally add untracked files
+nnoremap ? :GFiles -co -- ':!:vendor'<CR>
 
 nnoremap <leader>F :Tags<CR>
 
