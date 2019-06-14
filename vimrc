@@ -13,6 +13,8 @@ Plug 'bronson/vim-trailing-whitespace' "Mark trailing whitespace
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "File tree on the left hand side
 Plug 'easymotion/vim-easymotion' "Accurate navigation ala vimium
 Plug 'haya14busa/vim-asterisk' "Use * without moving immediately
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 "}}}
 
 "{{{ Git
@@ -49,7 +51,6 @@ Plug 'plasticboy/vim-markdown', {'for': ['markdown'] } "Amazing markdown support
 
 "{{{ Neovim specific
 if has('nvim')
-  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'zchee/deoplete-go'
 endif
@@ -94,60 +95,6 @@ let g:ale_fixers = {
 \}
 "}}}
 
-"{{{ Denite
-if has("nvim")
-  " Change file/rec command.
-  call denite#custom#var('file/rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-  " Move up and down denite selections
-  call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
-  call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
-  " Allow for closing the menu buffer with <space><space>
-  call denite#custom#map('insert', '<space><space>', '<denite:leave_mode>', 'noremap')
-
-  " Change matchers.
-  call denite#custom#source('file_mru', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
-  call denite#custom#source('file/rec', 'matchers', ['matcher/cpsm'])
-
-  " Change sorters.
-  call denite#custom#source('file/rec', 'sorters', ['sorter/sublime'])
-
-  " Add custom menus
-  let s:menus = {}
-
-  " dotfiles menu
-  let s:menus.dotfiles = { 'description': 'Open a commonly edited dotfile' }
-  let s:menus.dotfiles.file_candidates = [
-        \ ['[lz] local zshrc', '~/.zshrc'],
-        \ ['[lv] local vimrc', '~/.vimrc'],
-        \ ['[dz] dotfile zshrc', '~/repos/dotfiles/zshrc'],
-        \ ['[dv] dotfile vimrc', '~/repos/dotfiles/vimrc'],
-        \]
-  call denite#custom#var('menu', 'menus', s:menus)
-
-  " Ag command on grep source
-  call denite#custom#var('grep', 'command', ['ag'])
-  call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
-  call denite#custom#var('grep', 'recursive_opts', [])
-  call denite#custom#var('grep', 'pattern_opt', [])
-  call denite#custom#var('grep', 'separator', ['--'])
-  call denite#custom#var('grep', 'final_opts', [])
-
-  " Look up files in git with denite 'file/rec/git'
-  call denite#custom#alias('source', 'file/rec/git', 'file/rec')
-  call denite#custom#var('file/rec/git', 'command', ['git', 'ls-files', '-co', '--exclude-standard'])
-
-  " Change default prompt
-  call denite#custom#option('default', 'prompt', '>')
-
-  " Change ignore_globs
-  call denite#custom#filter('matcher/ignore_globs', 'ignore_globs', [ '.git/', '.ropeproject/', '__pycache__/',   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
-
-  " Custom action
-  call denite#custom#action('file', 'test', {context -> execute('let g:foo = 1')})
-  call denite#custom#action('file', 'test2', {context -> denite#do_action(  context, 'open', context['targets'])})
-endif
-"}}}
-
 "Make jsx syntax show up in .js files
 let g:jsx_ext_required = 0
 let g:javascript_enable_domhtmlcss = 1 "Makes css/html syntax available in .js files(React)
@@ -186,11 +133,6 @@ nnoremap <localleader>. :b#<CR>
 nnoremap <localleader><leader> :nohlsearch<CR>
 " Toggle NERDTree
 nnoremap <silent> <localleader><localleader> :NERDTreeToggle<CR>
-
-" Open Denite menu
-if has("nvim")
-  nnoremap <silent> <leader><leader> :Denite menu<CR>
-endif
 
 " Jump back and forth between tags
 nnoremap <leader>[ <C-t>
@@ -266,13 +208,9 @@ noremap <Right> :bn<CR>
 " Show autocomplete options
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
-if has("nvim")
-  " Fuzzy find file by filename in the current Git repo, including unstaged files
-  nnoremap ? :Denite file/rec/git<CR>
-else
-  " Fuzzy find file by filename in the current Git repo.
-  nnoremap ? :GFiles<CR>
-endif
+" Fuzzy find file by filename in the current Git repo.
+" Currently does not find files that aren't tracked
+nnoremap ? :GFiles<CR>
 
 " Move to the first/last non-blank character on this line
 map H ^
