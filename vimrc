@@ -194,11 +194,19 @@ nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 vnoremap <CR> }
 
-" Fuzzy find file by filename in the current Git repo.
-" c -- cached, default behaviour
-" o -- additionally add untracked files
-nnoremap ? :GFiles -co -- ':!:vendor'<CR>
+" Open file, but ignore gitignored files with ?
+" If the directory is not a repo it will show all files
+" Grabbed from Dorian Karter https://www.youtube.com/watch?v=aXPQTesFdTI
+fun! FindMeFiles()
+  let is_git = system('git status')
+  if v:shell_error
+    :Files
+  else
+    :GFiles -co -- ':!:vendor'
+  endif
+endfun
 
+nnoremap ? :call FindMeFiles()<CR>
 nnoremap <leader>F :Tags<CR>
 
 " Execute the last played macro
