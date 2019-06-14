@@ -13,14 +13,14 @@ Plug 'bronson/vim-trailing-whitespace' "Mark trailing whitespace
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "File tree on the left hand side
 Plug 'easymotion/vim-easymotion' "Accurate navigation ala vimium
 Plug 'haya14busa/vim-asterisk' "Use * without moving immediately
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
+Plug '/usr/local/opt/fzf' "Put fzf on the path so that it can be used by
+Plug 'junegunn/fzf.vim' "The lightning fast fzf fuzzy finder
 "}}}
 
 "{{{ Git
 Plug 'airblade/vim-gitgutter' "Makes the git gutter with +, ~, and - available
 Plug 'tpope/vim-fugitive' "Most git features available through :G*
-Plug 'rhysd/committia.vim' "git commit becomes magic
+Plug 'rhysd/committia.vim' "Running 'git commit' on the command line enables diff and other niceties
 "}}}
 
 "{{{ Surrounding syntax
@@ -33,20 +33,17 @@ Plug 'cohama/lexima.vim' "Automatically close [], '' etc. including def/end
 Plug 'w0rp/ale' "Async linting engine
 Plug 'christoomey/vim-tmux-navigator' "Work better with tmux
 Plug 'sickill/vim-pasta' "Context aware pasting + intentation
-Plug 'AndrewRadev/switch.vim' "switch between true/false, string/symbol etc.
 Plug 'AndrewRadev/sideways.vim' "Move function arguments left<->right
 Plug 'vim-scripts/BufOnly.vim' "Close all buffers apart from this one with :Bonly
 "}}}
 
 "{{{ Languages
 Plug 'mattn/emmet-vim', { 'for': ['javascript', 'html', 'xml', 'jsx', 'erb'] } "Shortcuts for creating html/jsx boilerplate
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go', 'tag': 'v1.20' } "Make vim good with go. Master branch is dev branch, so should use latest release instead
-" Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh', 'for': 'go'  }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go', 'tag': 'v1.20' } "Make vim good with go. Master branch is dev branch, so should use specific release instead
 Plug 'prettier/vim-prettier', { 'for': ['javascript', 'json'] } "prettier formatter
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'json'] } "Makes syntax highlighting etc. more sane for js.
-Plug 'elzr/vim-json', {'for': ['javascript', 'json'] } "JSON highlighting + concealment
+Plug 'elzr/vim-json', {'for': ['javascript', 'json'] } "JSON syntax (error) highlighting + concealment
 Plug 'mxw/vim-jsx', {'for': ['javascript', 'json', 'jsx'] } "Support for JSX
-Plug 'plasticboy/vim-markdown', {'for': ['markdown'] } "Amazing markdown support, including header folding and concealment
 """}}}
 
 "{{{ Neovim specific
@@ -125,7 +122,22 @@ let mapleader = ' '
 let maplocalleader = ','
 
 " Keys I rarely use in normal mode (OK to overwrite):
-" WEtTY[]GK\|ZXBM
+nnoremap W :echo "vimrc: W is unmapped"<CR>
+nnoremap E :echo "vimrc: E is unmapped"<CR>
+nnoremap t :echo "vimrc: t is unmapped"<CR>
+nnoremap T :echo "vimrc: T is unmapped"<CR>
+nnoremap Y :echo "vimrc: Y is unmapped"<CR>
+nnoremap [ :echo "vimrc: \[ is unmapped"<CR>
+nnoremap ] :echo "vimrc: \] is unmapped"<CR>
+nnoremap H :echo "vimrc: H is unmapped"<CR>
+nnoremap K :echo "vimrc: K is unmapped"<CR>
+nnoremap L :echo "vimrc: L is unmapped"<CR>
+nnoremap \\ :echo "vimrc: backslash is unmapped"<CR>
+nnoremap \| :echo "vimrc: pipe is unmapped"<CR>
+nnoremap Z :echo "vimrc: Z is unmapped"<CR>
+nnoremap X :echo "vimrc: X is unmapped"<CR>
+nnoremap B :echo "vimrc: B is unmapped"<CR>
+nnoremap M :echo "vimrc: M is unmapped"<CR>
 
 " Switch to previous buffer. Does not switch to unopened arg buffers
 nnoremap <localleader>. :b#<CR>
@@ -138,10 +150,6 @@ nnoremap <silent> <localleader><localleader> :NERDTreeToggle<CR>
 nnoremap <leader>[ <C-t>
 nnoremap <leader>] g<C-]>
 
-" Copy and paste from within brackets
-nnoremap gb yib
-nnoremap gp vibpyib
-
 " Find using vimium-like search feature
 nmap <leader>f <Plug>(easymotion-prefix)s
 
@@ -149,19 +157,9 @@ nmap <leader>f <Plug>(easymotion-prefix)s
 nnoremap <leader>j o<ESC>k
 nnoremap <leader>k O<ESC>j
 
-" Navigate bewteen arguments of a function
-nnoremap <leader>h :SidewaysJumpLeft<CR>
-nnoremap <leader>l :SidewaysJumpRight<CR>
 " Swap function arguments left/right
-nnoremap <leader>H :SidewaysLeft<CR>
-nnoremap <leader>L :SidewaysRight<CR>
-
-" Switch between options, e.g. true/false, 's'/:s
-nnoremap <leader>m :Switch<CR>
-
-" Go to next/previous unstaged Git hunk
-nnoremap <leader>n :GitGutterNextHunk<cr>
-nnoremap <leader>p :GitGutterPrevHunk<cr>
+nnoremap <leader>h :SidewaysLeft<CR>
+nnoremap <leader>l :SidewaysRight<CR>
 
 " Undo unstaged Git hunk
 nnoremap <leader>u :GitGutterUndoHunk<cr>
@@ -169,7 +167,6 @@ nnoremap <leader>u :GitGutterUndoHunk<cr>
 " Highlight current word, and prepare to cycle through with n. # is forwards, * is backwards
 map # <Plug>(asterisk-z*)zz
 map * <Plug>(asterisk-z#)zz
-map £ :echo "stahp"<CR>
 
 " Make search results always appear in the middle of the screen
 nnoremap n nzz
@@ -183,15 +180,11 @@ nnoremap - <C-x>
 nnoremap ; :
 
 " Copy to the clipboard with Y
-nnoremap Y V"*y
 vnoremap Y "*y
 
 " In/de-dent lines and remember selection
 vnoremap < <gv
 vnoremap > >gv
-
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Move to the next/previous completely empty line in buffer. Will still work as 'enter' when given a menu buffer with options, e.g. :Ag
 nnoremap <BS> {
@@ -201,23 +194,12 @@ nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 vnoremap <CR> }
 
-" Switch to next/previous buffer
-noremap <Left> :bp<CR>
-noremap <Right> :bn<CR>
-
-" Show autocomplete options
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-
 " Fuzzy find file by filename in the current Git repo.
 " c -- cached, default behaviour
 " o -- additionally add untracked files
 nnoremap ? :GFiles -co -- ':!:vendor'<CR>
 
 nnoremap <leader>F :Tags<CR>
-
-" Move to the first/last non-blank character on this line
-map H ^
-map L $
 
 " Execute the last played macro
 nnoremap Q @@
@@ -232,10 +214,6 @@ nnoremap k gk
 " Enter normal mode
 inoremap jk <esc>
 
-" Uncomment when using broken keyboard
-"vnoremap kj <esc>
-"inoremap kj <esc>
-
 " Save the current buffer
 nnoremap s :w<CR>
 
@@ -244,10 +222,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-" Does nothing.
-nnoremap t <NOP>
-nnoremap <space> <NOP>
 
 "}}}
 
@@ -395,16 +369,6 @@ for d in glob('~/.vim/spell/*.add', 1, 1)
         exec 'mkspell! ' . fnameescape(d)
     endif
 endfor
-
-" Tab toggles auto-complete
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-n>"
-    endif
-endfunction
 
 "}}}
 
