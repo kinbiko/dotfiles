@@ -209,8 +209,9 @@ noremap <Right> :bn<CR>
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
 " Fuzzy find file by filename in the current Git repo.
-" Currently does not find files that aren't tracked
-nnoremap ? :GFiles<CR>
+nnoremap ? :GFiles -- ':!:vendor'<CR>
+
+nnoremap <leader>F :Tags<CR>
 
 " Move to the first/last non-blank character on this line
 map H ^
