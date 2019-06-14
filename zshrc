@@ -189,3 +189,11 @@ extract () {
         "'$1' is not a valid file!"
     fi
 }
+
+# grm opens up the GitHub README for the repo whose slug you provide.
+# e.g. grm kinbiko/jsonassert will open the README of the latest master branch
+# of github.com/kinbiko/jsonassert in vim, stored in a temporary file
+grm() {
+  curl https://raw.githubusercontent.com/$1/master/README.md > /tmp/README.md
+  vim /tmp/README.md
+}
