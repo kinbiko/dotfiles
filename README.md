@@ -104,3 +104,10 @@ echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after" >> ~/.config/nvim/init.
 echo "let &packpath = &runtimepath" >> ~/.config/nvim/init.vim
 echo "source ~/.vimrc" >> ~/.config/nvim/init.vim
 ```
+
+### Newsboat
+
+```bash
+ln -s ~/repos/dotfiles/newsboat/urls ~/.newsboat/urls
+ln -s ~/repos/dotfiles/newsboat/config ~/.newsboat/config
+```

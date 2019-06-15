@@ -1,0 +1,17 @@
+# By default, old articles are cached and have to be fetched manually with R
+# This configures newsboat to download feeds automatically
+auto-reload yes
+
+# Change the default browser from lynx to w3m (which has vim-ish keybindings)
+browser "w3m %u"
+
+# Vim bindings
+unbind-key h
+unbind-key j
+unbind-key k
+unbind-key l
+
+bind-key h quit
+bind-key j down
+bind-key k up
+bind-key l open
