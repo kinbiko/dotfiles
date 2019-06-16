@@ -28,6 +28,7 @@ let g:go_metalinter_deadline = "1s"
 "Print info of the type under the cursor
 " let g:go_auto_type_info = 1
 let g:go_def_mode = 'godef'
+let g:go_def_mapping_enabled = 0
 
 nnoremap <leader>a :GoAlternate<CR>
 nnoremap <leader>i :GoImports<CR>
