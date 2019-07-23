@@ -128,6 +128,7 @@ alias be="bundle exec"
 # When running go command zsh's autocorrection often incorrectly kicks in, e.g. for './...'
 # Therefore just assume I typed the go command correctly by default
 alias go='nocorrect go'
+alias ohgodwhy='go mod why -m'
 
 alias pp="$GOPATH/bin/pp" # Overriding the Perl package manager
 gt() {
