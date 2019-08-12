@@ -133,9 +133,9 @@ alias ohgodwhy='go mod why -m'
 alias pp="$GOPATH/bin/pp" # Overriding the Perl package manager
 gt() {
   if [[ $# -eq 0 ]] ; then
-    ( nocorrect go test -timeout 3s ./... |& pp )
+    ( nocorrect go test -timeout 3s ./... |& pp | grep "FAIL|ok" )
   else
-    ( nocorrect go test -timeout 3s $@ |& pp )
+    ( nocorrect go test -timeout 3s $@ |& pp  | grep "FAIL|ok" )
   fi
 }
 alias gtr="go test -race"
