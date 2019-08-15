@@ -317,6 +317,12 @@ set incsearch "search as chars are entered
 set hlsearch "highlight matches
 set ignorecase "Case insensitive search
 set smartcase  "except when explicitly using capital letters
+
+"nvim only
+if has('nvim')
+  " Make substitute previews immediately
+  set inccommand=nosplit
+endif
 "}}}
 
 "{{{ Splits
