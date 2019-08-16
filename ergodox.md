@@ -54,4 +54,8 @@ https://configure.ergodox-ez.com/ergodox-ez/layouts/Rjr55/latest/0
 
 https://configure.ergodox-ez.com/ergodox-ez/layouts/JaQLB/latest/2
 
-Seems to work well enough.
+- need to remap go to defn and pop in vim or make [] easier to hit in combination with space
+- touch time for tap vs. press is far too short
+- would be good to have quotes on the bottom left row, then brackets above that, the funky symbols above that
+- switch `&*`
+- Make layer 1 arros keys be hjkl. Mouse clicks can be the remaining thumb button on the left
