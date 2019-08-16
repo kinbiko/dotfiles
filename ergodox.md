@@ -57,5 +57,9 @@ https://configure.ergodox-ez.com/ergodox-ez/layouts/JaQLB/latest/2
 - need to remap go to defn and pop in vim or make [] easier to hit in combination with space
 - touch time for tap vs. press is far too short
 - would be good to have quotes on the bottom left row, then brackets above that, the funky symbols above that
-- switch `&*`
 - Make layer 1 arros keys be hjkl. Mouse clicks can be the remaining thumb button on the left
+- switch & and *
+
+# Version 6
+
+https://configure.ergodox-ez.com/ergodox-ez/layouts/9DKbW/latest/1
