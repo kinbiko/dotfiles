@@ -25,10 +25,14 @@ let g:go_highlight_extra_types = 1
 "In case the linter runs for too long
 let g:go_metalinter_deadline = "1s"
 
+let g:go_metalinter_command='golangci-lint'
+
 "Print info of the type under the cursor
-" let g:go_auto_type_info = 1
-let g:go_def_mode = 'godef'
+let g:go_def_mode = 'gopls'
 let g:go_def_mapping_enabled = 0
+
+" reuse buffer if open in a split on godef
+let g:go_def_reuse_buffer = 0
 
 nnoremap <leader>a :GoAlternate<CR>
 nnoremap <leader>i :GoImports<CR>
@@ -52,3 +56,6 @@ let g:go_list_type = "quickfix"
 
 " The default of 10 seconds is too long
 let g:go_test_timeout= '4s'
+
+" If only testify could be a bit less verbose
+let g:go_list_height = 15
