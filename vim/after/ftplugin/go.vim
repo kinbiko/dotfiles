@@ -59,3 +59,6 @@ let g:go_test_timeout= '4s'
 
 " If only testify could be a bit less verbose
 let g:go_list_height = 15
+
+" Make No write since last change stfu
+set autowrite
