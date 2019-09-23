@@ -140,9 +140,9 @@ gt() {
 # gtv is go test, plus a bunch of convenient settings, but also print the logs for any failing tests
 gtv() {
   if [[ $# -eq 0 ]] ; then
-    ( nocorrect go test -timeout 3s ./... |& pp )
+    ( nocorrect go test -timeout 4s ./... -p 1 |& pp )
   else
-    ( nocorrect go test -timeout 3s $@ |& pp )
+    ( nocorrect go test -timeout 4s $@ -p 1 |& pp )
   fi
 }
 
