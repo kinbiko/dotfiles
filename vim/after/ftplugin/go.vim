@@ -43,9 +43,10 @@ nnoremap <leader>] :GoDef<CR>
 nnoremap <leader>[ :GoDefPop<CR>
 
 inoremap <localleader>= <space>:=<space>
-inoremap nnn if err != nil {}<left><cr><cr><up><tab>
+inoremap nnn <esc>:GoIfErr<CR>
 inoremap testt func Test(t *testing.T){}<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
 
+inoremap ccc context.Context
 inoremap sss '%s'
 inoremap ddd %d
 inoremap vvv '%+v'
