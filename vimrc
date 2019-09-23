@@ -30,21 +30,17 @@ Plug 'cohama/lexima.vim' "Automatically close [], '' etc. including def/end
 "}}}
 
 "{{{ Misc.
-Plug 'w0rp/ale' "Async linting engine
 Plug 'christoomey/vim-tmux-navigator' "Work better with tmux
 Plug 'sickill/vim-pasta' "Context aware pasting + intentation
-Plug 'AndrewRadev/sideways.vim' "Move function arguments left<->right
-Plug 'vim-scripts/BufOnly.vim' "Close all buffers apart from this one with :Bonly
 "}}}
 
 "{{{ Languages
 Plug 'mattn/emmet-vim', { 'for': ['javascript', 'html', 'xml', 'jsx', 'erb'] } "Shortcuts for creating html/jsx boilerplate
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go', 'tag': 'v1.20' } "Make vim good with go. Master branch is dev branch, so should use specific release instead
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' } "Make vim good with go. Master branch is dev branch, so should use specific release instead
 Plug 'prettier/vim-prettier', { 'for': ['javascript', 'json'] } "prettier formatter
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'json'] } "Makes syntax highlighting etc. more sane for js.
 Plug 'elzr/vim-json', {'for': ['javascript', 'json'] } "JSON syntax (error) highlighting + concealment
 Plug 'mxw/vim-jsx', {'for': ['javascript', 'json', 'jsx'] } "Support for JSX
-Plug 'honza/vim-snippets'
 """}}}
 
 "{{{ Neovim specific
@@ -139,19 +135,6 @@ if has('nvim')
 "}}}
 
 endif
-
-"{{{ ALE
-" TODO: Looks like I've lost these symbols now, probably because coc is doing
-" the linting. Figure out how to set these characters in coc. Can/should I
-" delete ALE?
-let g:ale_sign_error = '嫌'
-let g:ale_sign_warning = '臭'
-
-let g:ale_fixers = {
-\  'ruby': ['rubocop'],
-\  'javascript': ['eslint'],
-\}
-"}}}
 
 "Make jsx syntax show up in .js files
 let g:jsx_ext_required = 0
