@@ -256,7 +256,7 @@ mouse:
     #   - (macOS) open
     #   - (Linux) xdg-open
     #   - (Windows) explorer
-    #launcher: xdg-open
+    launcher: open
 
     # URL modifiers
     #
@@ -420,7 +420,7 @@ key_bindings:
   #- { key: C,      mods: Command, action: Copy             }
   #- { key: H,      mods: Command, action: Hide             }
   #- { key: Q,      mods: Command, action: Quit             }
-  #- { key: W,      mods: Command, action: Quit             }
+  - { key: W,      mods: Command, action: None             }
 
   - { key: Paste,                   action: Paste                            }
   - { key: Copy,                    action: Copy                             }
