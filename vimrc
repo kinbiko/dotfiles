@@ -167,7 +167,6 @@ let maplocalleader = ','
 nnoremap W :echo "vimrc: W is unmapped"<CR>
 nnoremap E :echo "vimrc: E is unmapped"<CR>
 nnoremap t :echo "vimrc: t is unmapped"<CR>
-nnoremap T :echo "vimrc: T is unmapped"<CR>
 nnoremap Y :echo "vimrc: Y is unmapped"<CR>
 nnoremap [ :echo "vimrc: \[ is unmapped"<CR>
 nnoremap ] :echo "vimrc: \] is unmapped"<CR>
@@ -194,6 +193,8 @@ nnoremap <leader>] g<C-]>
 
 " Find using vimium-like search feature
 nmap <leader>f <Plug>(easymotion-prefix)s
+
+nnoremap <silent> T :Tags <C-R><C-W><CR>
 
 " Create a blank line above/below current line
 nnoremap <leader>j o<ESC>k
