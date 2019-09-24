@@ -67,4 +67,11 @@ https://configure.ergodox-ez.com/ergodox-ez/layouts/9DKbW/latest/1
 - ctrl + esc thing is still a bit awkward when trying to quickly ctrl+a in tmux for instance. Might be best to only have it as ctrl.
 - having @ and ~ right next to each other can lead to awkward executions of a register when I want to change the capitalisation of a character in vim
 - It's a bit awkward reaching the most common numbers right now. consider moving numbers to half above the hjkl keys and half below.
+- Also, let's make the number rows 01234,56789 as 1 and 0 are used together a lot.
 - Need to get ^ back to an easier position to hit.
+
+# Version 7
+
+https://configure.ergodox-ez.com/ergodox-ez/layouts/bv5gg/latest/0
+
+- 
