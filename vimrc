@@ -177,7 +177,6 @@ nnoremap \\ :echo "vimrc: backslash is unmapped"<CR>
 nnoremap \| :echo "vimrc: pipe is unmapped"<CR>
 nnoremap Z :echo "vimrc: Z is unmapped"<CR>
 nnoremap X :echo "vimrc: X is unmapped"<CR>
-nnoremap B :echo "vimrc: B is unmapped"<CR>
 nnoremap M :echo "vimrc: M is unmapped"<CR>
 
 " Switch to previous buffer. Does not switch to unopened arg buffers
@@ -186,6 +185,7 @@ nnoremap <localleader>. :b#<CR>
 nnoremap <localleader><leader> :nohlsearch<CR>
 " Toggle NERDTree
 nnoremap <silent> <localleader><localleader> :NERDTreeToggle<CR>
+nnoremap <silent> ., :NERDTreeFind<CR>
 
 " Jump back and forth between tags
 nnoremap <leader>[ <C-t>
@@ -193,8 +193,6 @@ nnoremap <leader>] g<C-]>
 
 " Find using vimium-like search feature
 nmap <leader>f <Plug>(easymotion-prefix)s
-
-nnoremap <silent> T :Tags <C-R><C-W><CR>
 
 " Create a blank line above/below current line
 nnoremap <leader>j o<ESC>k
@@ -250,7 +248,8 @@ fun! FindMeFiles()
 endfun
 
 nnoremap ? :call FindMeFiles()<CR>
-nnoremap <leader>F :Tags<CR>
+nnoremap B :Buffer<CR>
+nnoremap <silent> T :Tags <C-R><C-W><CR>
 
 " Execute the last played macro
 nnoremap Q @@
