@@ -45,6 +45,7 @@ nnoremap <leader>[ :GoDefPop<CR>
 inoremap <localleader>= <space>:=<space>
 inoremap nnn <esc>:GoIfErr<CR>
 inoremap testt func Test(t *testing.T){}<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
+inoremap stt t.Run(, func(t *testing.T){})<ESC>22hi
 
 inoremap ccc context.Context
 inoremap sss '%s'
