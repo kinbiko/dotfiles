@@ -48,6 +48,8 @@ inoremap testt func Test(t *testing.T){}<left><left><left><left><left><left><lef
 inoremap stt t.Run(, func(t *testing.T){})<ESC>22hi
 
 inoremap ccc context.Context
+inoremap cbb context.Background()
+inoremap iii interface{}
 inoremap sss '%s'
 inoremap ddd %d
 inoremap vvv '%+v'
