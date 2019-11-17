@@ -77,3 +77,7 @@ https://configure.ergodox-ez.com/ergodox-ez/layouts/bv5gg/latest/0
 - Add red/green/refactor backlight buttons
 - Right now creating code blocks in markdown and escaping in strings or typing postgres commands is really awkward.
   Make ``` and \ easier to reach. Maybe instead of - and = on the big keys on the lhs which I never use.
+
+# Version 8
+
+https://configure.ergodox-ez.com/ergodox-ez/layouts/x9Jqo/latest/0
