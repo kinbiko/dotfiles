@@ -53,6 +53,7 @@ inoremap iii interface{}
 inoremap sss '%s'
 inoremap ddd %d
 inoremap vvv '%+v'
+inoremap poid primitive.ObjectID
 
 "Need to have non-red comments for Go to make coverage show up in a nice manner
 highlight comment ctermfg=darkgray
