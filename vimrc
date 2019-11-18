@@ -198,10 +198,6 @@ nmap <leader>f <Plug>(easymotion-prefix)s
 nnoremap <leader>j o<ESC>k
 nnoremap <leader>k O<ESC>j
 
-" Swap function arguments left/right
-nnoremap <leader>h :SidewaysLeft<CR>
-nnoremap <leader>l :SidewaysRight<CR>
-
 " Undo unstaged Git hunk
 nnoremap <leader>u :GitGutterUndoHunk<cr>
 
