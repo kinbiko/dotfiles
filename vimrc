@@ -15,6 +15,7 @@ Plug 'easymotion/vim-easymotion' "Accurate navigation ala vimium
 Plug 'haya14busa/vim-asterisk' "Use * without moving immediately
 Plug '/usr/local/opt/fzf' "Put fzf on the path so that it can be used by
 Plug 'junegunn/fzf.vim' "The lightning fast fzf fuzzy finder
+Plug 'ludovicchabant/vim-gutentags' "Regenerate the tags file automatically
 "}}}
 
 "{{{ Git
