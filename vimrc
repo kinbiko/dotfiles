@@ -15,6 +15,7 @@ Plug 'easymotion/vim-easymotion' "Accurate navigation ala vimium
 Plug 'haya14busa/vim-asterisk' "Use * without moving immediately
 Plug '/usr/local/opt/fzf' "Put fzf on the path so that it can be used by
 Plug 'junegunn/fzf.vim' "The lightning fast fzf fuzzy finder
+Plug 'yuki-ycino/fzf-preview.vim' "Preview when finding stuff with fzf
 "}}}
 
 "{{{ Git
@@ -140,6 +141,14 @@ endif
 let g:jsx_ext_required = 0
 let g:javascript_enable_domhtmlcss = 1 "Makes css/html syntax available in .js files(React)
 
+" Rate of fzf window as a number between 0 and 1.
+" This opens the window in full screen.
+" Use ctrl+s to fullscreen
+let g:fzf_preview_rate = 0.2
+
+" Change the default value from u/d to l/r
+let g:fzf_preview_default_key_bindings = 'ctrl-l:preview-page-down,ctrl-h:preview-page-up,?:toggle-preview'
+
 "}}}
 
 "{{{ Writing
@@ -231,20 +240,8 @@ nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 vnoremap <CR> }
 
-" Open file, but ignore gitignored files with ?
-" If the directory is not a repo it will show all files
-" Grabbed from Dorian Karter https://www.youtube.com/watch?v=aXPQTesFdTI
-fun! FindMeFiles()
-  let is_git = system('git status')
-  if v:shell_error
-    :Files
-  else
-    :GFiles -co -- ':!:vendor'
-  endif
-endfun
-
-nnoremap ? :call FindMeFiles()<CR>
-nnoremap B :Buffer<CR>
+nnoremap ? :ProjectFilesPreview<CR>
+nnoremap B :BuffersPreview<CR>
 nnoremap <silent> T :Tags <C-R><C-W><CR>
 
 " Execute the last played macro
