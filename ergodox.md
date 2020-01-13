@@ -81,3 +81,6 @@ https://configure.ergodox-ez.com/ergodox-ez/layouts/bv5gg/latest/0
 # Version 8
 
 https://configure.ergodox-ez.com/ergodox-ez/layouts/x9Jqo/latest/0
+
+- make layer 1 caps lock be esc
+- enter can be layer 1 space
