@@ -56,7 +56,7 @@ inoremap vvv '%+v'
 inoremap poid primitive.ObjectID
 
 "Need to have non-red comments for Go to make coverage show up in a nice manner
-highlight comment ctermfg=darkgray
+highlight comment ctermfg=yellow
 let g:go_list_type = "quickfix"
 
 " The default of 10 seconds is too long
