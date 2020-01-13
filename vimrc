@@ -440,3 +440,7 @@ highlight comment ctermfg=DarkRed
 " ~/.vim/after/ftplugin/vim.vim
 " ~/.vim/after/ftplugin/xml.vim
 " ~/.vim/after/ftplugin/yaml.vim
+
+
+"I also wwant to add the following to the end of cut: | cut -s -f4- -d":" | awk '{$1=$1;print}'
+command! -bang -nargs=? -complete=dir Ag call fzf#vim#ag(<q-args>, {'options': ['--layout=reverse', '--preview', 'echo {} | cut -s -f4- -d":"']}, <bang>0)
