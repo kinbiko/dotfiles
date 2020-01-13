@@ -134,15 +134,15 @@ alias pp="$GOPATH/bin/pp" # Overriding the Perl package manager
 
 # gt is go test, plus a bunch of convenient settings
 gt() {
-  gtv | grep "FAIL|ok"
+  gtv | grep "FAIL|ok  "
 }
 
 # gtv is go test, plus a bunch of convenient settings, but also print the logs for any failing tests
 gtv() {
   if [[ $# -eq 0 ]] ; then
-    ( nocorrect go test -timeout 4s ./... -p 1 |& pp )
+    ( nocorrect go test -timeout 12s ./... -p 1 |& pp )
   else
-    ( nocorrect go test -timeout 4s $@ -p 1 |& pp )
+    ( nocorrect go test -timeout 12s $@ -p 1 |& pp )
   fi
 }
 
