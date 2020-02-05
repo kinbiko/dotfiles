@@ -150,6 +150,10 @@ let g:fzf_preview_rate = 0.2
 " Change the default value from u/d to l/r
 let g:fzf_preview_default_key_bindings = 'ctrl-l:preview-page-down,ctrl-h:preview-page-up,?:toggle-preview'
 
+" Ensure that I can enter markdown checkboxes without generating a double
+" space like this: [  ]. (should only have a single space inside when hitting
+" space)
+let g:lexima_enable_space_rules=0
 "}}}
 
 "{{{ Writing
