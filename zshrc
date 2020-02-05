@@ -75,10 +75,6 @@ zstyle ':completion:*' list-colors ''
 # tab completing directory appends a slash
 setopt AUTO_PARAM_SLASH
 
-# Hey, I just met you, and this is crazy, but here's my alias, so start vifm, maybe
-alias ls="vifm ."
-alias la="/bin/ls -la"
-
 #relocate
 alias dot="cd $DOTFILES_DIR"
 alias repos="cd ~/repos/"
