@@ -9,3 +9,6 @@ set conceallevel=2
 let g:vim_markdown_frontmatter = 1
 
 "}}}
+
+inoremap qqq - [ ] Q:<space>
+inoremap aaa <space>   - A:<space>
