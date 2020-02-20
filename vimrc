@@ -39,7 +39,7 @@ Plug 'sickill/vim-pasta' "Context aware pasting + intentation
 "{{{ Languages
 Plug 'mattn/emmet-vim', { 'for': ['javascript', 'html', 'xml', 'jsx', 'erb'] } "Shortcuts for creating html/jsx boilerplate
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' } "Make vim good with go. Master branch is dev branch, so should use specific release instead
-Plug 'prettier/vim-prettier', { 'for': ['javascript', 'json'] } "prettier formatter
+Plug 'prettier/vim-prettier', { 'for': ['javascript', 'json', 'markdown', 'md'] } "prettier formatter
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'json'] } "Makes syntax highlighting etc. more sane for js.
 Plug 'elzr/vim-json', {'for': ['javascript', 'json'] } "JSON syntax (error) highlighting + concealment
 Plug 'mxw/vim-jsx', {'for': ['javascript', 'json', 'jsx'] } "Support for JSX
