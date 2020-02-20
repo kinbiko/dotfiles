@@ -247,7 +247,7 @@ vnoremap <CR> }
 
 nnoremap ? :ProjectFilesPreview<CR>
 nnoremap B :BuffersPreview<CR>
-nnoremap <silent> T :Tags <C-R><C-W><CR>
+nnoremap <silent> T :Tags <C-R><C-W><CR> !_test.go !mock
 
 " Execute the last played macro
 nnoremap Q @@
