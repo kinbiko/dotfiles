@@ -25,7 +25,7 @@ let g:go_highlight_extra_types = 1
 "In case the linter runs for too long
 let g:go_metalinter_deadline = "1s"
 
-let g:go_metalinter_command='golangci-lint'
+let g:go_metalinter_command='golangci-lint run --print-issued-lines=false'
 
 "Print info of the type under the cursor
 let g:go_def_mode = 'gopls'
@@ -54,6 +54,9 @@ inoremap sss '%s'
 inoremap ddd %d
 inoremap vvv '%+v'
 inoremap poid primitive.ObjectID
+
+set foldmethod=syntax
+let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment', 'comment']
 
 "Need to have non-red comments for Go to make coverage show up in a nice manner
 highlight comment ctermfg=yellow
