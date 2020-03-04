@@ -109,7 +109,7 @@ alias ........="cd ../../../../../../../" #Mariana Trench
 #At this point you probably want 'cd /' anyway...
 
 #Tmux
-alias ta="tmux attach"
+alias ta="tmux -u attach"
 
 #Docker
 alias dcd="docker-compose down"
