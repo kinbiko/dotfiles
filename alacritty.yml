@@ -44,7 +44,8 @@ window:
   decorations: buttonless
 
   # When true, alacritty starts maximized.
-  start_maximized: false
+  # start_maximized: false
+  startup_mode: Maximized
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -62,7 +63,7 @@ scrolling:
   # to allow mouse scrolling for applications like `man`.
   #
   # Specifying `0` will disable faux scrolling.
-  faux_multiplier: 3
+  # faux_multiplier: 3
 
   # Scroll to the bottom when new text is written to the terminal.
   auto_scroll: false
@@ -86,7 +87,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: Knack Nerd Font
+    family: Hack Nerd Font
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -146,10 +147,10 @@ font:
   use_thin_strokes: true
 
 # Display the time it takes to redraw each frame.
-render_timer: false
+# render_timer: false
 
 # Keep the log file after quitting Alacritty.
-persistent_logging: false
+# persistent_logging: false
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
