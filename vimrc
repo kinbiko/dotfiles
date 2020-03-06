@@ -285,8 +285,8 @@ nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 vnoremap <CR> }
 
-nnoremap ? :ProjectFilesPreview<CR>
-nnoremap B :BuffersPreview<CR>
+nnoremap <silent> ? :<C-u>FzfPreviewProjectFiles<CR>
+nnoremap <silent> B :FzfPreviewAllBuffers<CR>
 nnoremap <silent> T :Tags <C-R><C-W><CR> !_test.go !mock
 
 " Execute the last played macro
@@ -361,7 +361,8 @@ set number "Display the actual line number for the current line
 
 "{{{ Command mode
 set wildmenu "makes the command-line completion better
-set confirm "instead of aborting because of unsaved changes, ask
+"Commented as it collides with FzfPreview
+"set confirm "instead of aborting because of unsaved changes, ask
 set cmdheight=1 "set the command line height to 1
 "}}}
 
