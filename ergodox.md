@@ -18,16 +18,14 @@ https://configure.ergodox-ez.com/ergodox-ez/layouts/gaAw4/latest/1
 
 Future ideas and bugs to be squashed:
 
-+ Get rid of numbers along the top entirely. I rarely hit the right one, and it's probably easier for me to hit two modes to get it into a mode where the numpad becomes available.  Then I won't be as tempted to use the top row for programming buttons like !"$%^&*()_+=- etc.
-+ Make layer 1 + caps lock do backspace.
-+ Mouse button clicks
-+ The lights doesn't appear to work with this one. I think I chose glow, which might not match what my keyboard is capable of.
-+ caps lock becomes ctrl when held or escape when not held
-+ big button []{} goes away in favour of second layer
-+ left 'enter' is layer 2
-+ Clean up weird stuff in layer 0
-
-
+- Get rid of numbers along the top entirely. I rarely hit the right one, and it's probably easier for me to hit two modes to get it into a mode where the numpad becomes available. Then I won't be as tempted to use the top row for programming buttons like !"\$%^&\*()\_+=- etc.
+- Make layer 1 + caps lock do backspace.
+- Mouse button clicks
+- The lights doesn't appear to work with this one. I think I chose glow, which might not match what my keyboard is capable of.
+- caps lock becomes ctrl when held or escape when not held
+- big button []{} goes away in favour of second layer
+- left 'enter' is layer 2
+- Clean up weird stuff in layer 0
 
 ## version 2
 
@@ -35,7 +33,7 @@ https://configure.ergodox-ez.com/ergodox-ez/layouts/XbMwy/latest/2
 
 ### Bugs and future ideas
 
-* Has no way of doing minus or equals
+- Has no way of doing minus or equals
 
 ## Version 3
 
@@ -58,7 +56,7 @@ https://configure.ergodox-ez.com/ergodox-ez/layouts/JaQLB/latest/2
 - touch time for tap vs. press is far too short
 - would be good to have quotes on the bottom left row, then brackets above that, the funky symbols above that
 - Make layer 1 arros keys be hjkl. Mouse clicks can be the remaining thumb button on the left
-- switch & and *
+- switch & and \*
 
 # Version 6
 
@@ -76,7 +74,7 @@ https://configure.ergodox-ez.com/ergodox-ez/layouts/bv5gg/latest/0
 
 - Add red/green/refactor backlight buttons
 - Right now creating code blocks in markdown and escaping in strings or typing postgres commands is really awkward.
-  Make ``` and \ easier to reach. Maybe instead of - and = on the big keys on the lhs which I never use.
+  Make \`\`\` and \ easier to reach. Maybe instead of - and = on the big keys on the lhs which I never use.
 
 # Version 8
 
@@ -84,3 +82,4 @@ https://configure.ergodox-ez.com/ergodox-ez/layouts/x9Jqo/latest/0
 
 - make layer 1 caps lock be esc
 - enter can be layer 1 space
+- re-map the RHS bottom row arrow keys to something more useful, as I keep using layer 1 + hjkl anyway for arrows
