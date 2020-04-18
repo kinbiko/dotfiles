@@ -239,6 +239,7 @@ nnoremap <localleader>. :b#<CR>
 nnoremap <localleader><leader> :nohlsearch<CR>
 " Toggle NERDTree
 nnoremap <silent> <localleader><localleader> :NERDTreeToggle<CR>
+" Find file in current buffer in NERDTree
 nnoremap <silent> ., :NERDTreeFind<CR>
 
 " Jump back and forth between tags
