@@ -83,3 +83,5 @@ https://configure.ergodox-ez.com/ergodox-ez/layouts/x9Jqo/latest/0
 - make layer 1 caps lock be esc
 - enter can be layer 1 space
 - re-map the RHS bottom row arrow keys to something more useful, as I keep using layer 1 + hjkl anyway for arrows
+  - mouse movement
+- expose F keys
