@@ -11,6 +11,11 @@ inoremap >> <space>=><space>
 set foldlevel=10
 set foldmethod=syntax "Fold based on indentation
 
+set tabstop=2 "number of VISUAL SPACES per tab
+set softtabstop=2 "Number of spaces per tab when editing
+set shiftwidth=2 "Indenting is 4 spaces
+set expandtab "converts tabs to spaces
+
 "{{{ prettier/vim-prettier
 " max line lengh that prettier will wrap on
 let g:prettier#config#print_width = 80
