@@ -17,6 +17,8 @@ Plug '/usr/local/opt/fzf' "Put fzf on the path so that it can be used by
 Plug 'junegunn/fzf.vim' "The lightning fast fzf fuzzy finder
 Plug 'ludovicchabant/vim-gutentags' "Regenerate the tags file automatically
 Plug 'yuki-ycino/fzf-preview.vim' "Preview when finding stuff with fzf
+Plug 'camspiers/animate.vim' "Make the below super fancy
+Plug 'camspiers/lens.vim' "Resize windows when switching between them
 "}}}
 
 "{{{ Git
