@@ -278,12 +278,13 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Move to the next/previous completely empty line in buffer. Will still work as 'enter' when given a menu buffer with options, e.g. :Ag
-nnoremap <BS> {
 onoremap <BS> {
-vnoremap <BS> {
-nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
-vnoremap <CR> }
+" weaning myself off these bindings in favour of the arrow keys
+"nnoremap <BS> {
+"nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
+"vnoremap <BS> {
+"vnoremap <CR> }
 
 nnoremap <silent> ? :<C-u>FzfPreviewProjectFiles<CR>
 nnoremap <silent> B :FzfPreviewAllBuffers<CR>
