@@ -70,7 +70,8 @@ let g:rehash256=1
 
 "{{{ NERDTree
 " Prevent fluff from appearing in the file drawer
-let NERDTreeIgnore=['node_modules$', '\~$', '\.git$', '\.DS_Store$', '\.meta$']
+let NERDTreeIgnore=['node_modules$', '\~$', '\.git$', '\.DS_Store$', '\.meta$', 'tags$', 'tags.lock$', 'tags.temp$']
+
 " Show hidden files in NERDTree
 let NERDTreeShowHidden=1
 " Ignore the help-instructions at the top of NERDTree
