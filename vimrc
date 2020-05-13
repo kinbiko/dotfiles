@@ -220,7 +220,6 @@ let mapleader = ' '
 let maplocalleader = ','
 
 " Keys I rarely use in normal mode (OK to overwrite):
-nnoremap W :echo "vimrc: W is unmapped"<CR>
 nnoremap E :echo "vimrc: E is unmapped"<CR>
 nnoremap t :echo "vimrc: t is unmapped"<CR>
 nnoremap Y :echo "vimrc: Y is unmapped"<CR>
@@ -314,7 +313,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Open notes repo with Ctrl+W
-nnoremap <C-W> :Files ~/repos/notes/<CR>
+nnoremap W :Files ~/repos/notes/<CR>
 
 "}}}
 
