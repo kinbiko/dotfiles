@@ -72,7 +72,8 @@ let g:rehash256=1
 
 "{{{ NERDTree
 " Prevent fluff from appearing in the file drawer
-let NERDTreeIgnore=['node_modules$', '\~$', '\.git$', '\.DS_Store$', '\.meta$']
+let NERDTreeIgnore=['node_modules$', '\~$', '\.git$', '\.DS_Store$', '\.meta$', 'tags$', 'tags.lock$', 'tags.temp$']
+
 " Show hidden files in NERDTree
 let NERDTreeShowHidden=1
 " Ignore the help-instructions at the top of NERDTree
@@ -81,7 +82,12 @@ let NERDTreeMinimalUI=1
 let NERDTreeAutoDeleteBuffer=1
 "}}}
 
+inoremap <C-j> <down>
+inoremap <C-k> <up>
+
 if has('nvim')
+  " Use K to show documentation in preview window.
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 "{{{ COC
   " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
@@ -121,21 +127,6 @@ if has('nvim')
     imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
   endif
 
-  " Use `[g` and `]g` to navigate diagnostics
-  nmap <silent> [g <Plug>(coc-diagnostic-prev)
-  nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-  " GoTo code navigation.
-  nmap <silent> gd <Plug>(coc-definition)
-  nmap <silent> gy <Plug>(coc-type-definition)
-  nmap <silent> gi <Plug>(coc-implementation)
-  nmap <silent> gr <Plug>(coc-references)
-
-  inoremap <C-j> <down>
-  inoremap <C-k> <up>
-
-  " Use K to show documentation in preview window.
-  nnoremap <silent> K :call <SID>show_documentation()<CR>
 
   function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
@@ -161,21 +152,13 @@ if has('nvim')
 
   " Mappings using CoCList:
   " Show all diagnostics.
-  nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+  nnoremap <silent> <space>d  :<C-u>CocList diagnostics<cr>
   " Manage extensions.
   nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
   " Show commands.
   nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
   " Find symbol of current document.
   nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-  " Search workspace symbols.
-  nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-  " Do default action for next item.
-  nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-  " Do default action for previous item.
-  nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-  " Resume latest coc list.
-  nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 "}}}
 
 endif
@@ -234,12 +217,30 @@ nnoremap Z :echo "vimrc: Z is unmapped"<CR>
 nnoremap X :echo "vimrc: X is unmapped"<CR>
 nnoremap M :echo "vimrc: M is unmapped"<CR>
 
+" Make arrow key navigation more useful
+" Reader Note: I've programmed a second layer on my ergodox keyboard to map
+" hjkl to the arrow keys. So even when I do use the arrow keys (as defined
+" below) I don't leave the home row :)
+nnoremap <right> w
+nnoremap <left> b
+nnoremap <up> {
+nnoremap <down> }
+vnoremap <right> w
+vnoremap <left> b
+vnoremap <up> {
+vnoremap <down> }
+onoremap <right> w
+onoremap <left> b
+onoremap <up> {
+onoremap <down> }
+
 " Switch to previous buffer. Does not switch to unopened arg buffers
 nnoremap <localleader>. :b#<CR>
 " Clear current search-highlight
 nnoremap <localleader><leader> :nohlsearch<CR>
 " Toggle NERDTree
 nnoremap <silent> <localleader><localleader> :NERDTreeToggle<CR>
+" Find file in current buffer in NERDTree
 nnoremap <silent> ., :NERDTreeFind<CR>
 
 " Jump back and forth between tags
@@ -279,12 +280,13 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Move to the next/previous completely empty line in buffer. Will still work as 'enter' when given a menu buffer with options, e.g. :Ag
-nnoremap <BS> {
 onoremap <BS> {
-vnoremap <BS> {
-nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
 onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
-vnoremap <CR> }
+" weaning myself off these bindings in favour of the arrow keys
+"nnoremap <BS> {
+"nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
+"vnoremap <BS> {
+"vnoremap <CR> }
 
 nnoremap <silent> ? :<C-u>FzfPreviewProjectFiles<CR>
 nnoremap <silent> B :FzfPreviewAllBuffers<CR>

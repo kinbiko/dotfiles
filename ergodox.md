@@ -80,6 +80,13 @@ https://configure.ergodox-ez.com/ergodox-ez/layouts/bv5gg/latest/0
 
 https://configure.ergodox-ez.com/ergodox-ez/layouts/x9Jqo/latest/0
 
+- make hitting ctrl+tab easier
+- left 'enter' key is never used.
 - make layer 1 caps lock be esc
-- enter can be layer 1 space
 - re-map the RHS bottom row arrow keys to something more useful, as I keep using layer 1 + hjkl anyway for arrows
+  - mouse movement
+- expose F keys
+
+# Version 9
+
+https://configure.ergodox-ez.com/ergodox-ez/layouts/Jwj5m/latest/1

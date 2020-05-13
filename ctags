@@ -1,4 +1,5 @@
 --exclude=.git
+--exclude=node_modules
 --exclude=.hg
 --exclude=log
 --exclude=tmp
