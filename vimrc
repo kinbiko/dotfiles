@@ -216,6 +216,13 @@ nnoremap Z :echo "vimrc: Z is unmapped"<CR>
 nnoremap X :echo "vimrc: X is unmapped"<CR>
 nnoremap M :echo "vimrc: M is unmapped"<CR>
 
+" Make 0 take me to the first non-blank character of the line.
+nnoremap 0 ^
+
+" Make marks be more precise with '
+onoremap ' `
+nnoremap ' `
+
 " Make arrow key navigation more useful
 " Reader Note: I've programmed a second layer on my ergodox keyboard to map
 " hjkl to the arrow keys. So even when I do use the arrow keys (as defined
