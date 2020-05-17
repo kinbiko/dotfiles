@@ -87,6 +87,8 @@ let g:fzf_preview_default_key_bindings = 'ctrl-l:preview-page-down,ctrl-h:previe
 " space)
 let g:lexima_enable_space_rules=0
 
+let g:coc_config_home='~/repos/dotfiles/vim/coc-settings.json'
+
 if has("user_commands")
   command! -bang -nargs=? -complete=file W w<bang> <args>
   command! -bang -nargs=? -complete=file Wq wq<bang> <args>
