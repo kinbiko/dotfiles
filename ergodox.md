@@ -90,3 +90,5 @@ https://configure.ergodox-ez.com/ergodox-ez/layouts/x9Jqo/latest/0
 # Version 9
 
 https://configure.ergodox-ez.com/ergodox-ez/layouts/Jwj5m/latest/1
+
+- Re-enable modifier keys in other levels
