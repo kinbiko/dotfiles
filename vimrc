@@ -40,7 +40,7 @@ colorscheme nord
 
 let g:rehash256=1
 
-let NERDTreeIgnore=['node_modules$', '\~$', '\.git$', '\.DS_Store$', '\.meta$', 'tags$', 'tags.lock$', 'tags.temp$']
+let NERDTreeIgnore=['node_modules$', '\~$', '\.git$', '\.DS_Store$', '\.meta$', 'tags$', 'tags.lock$', 'tags.temp$', '.idea$']
 let NERDTreeShowHidden=1
 " Ignore the help-instructions at the top of NERDTree
 let NERDTreeMinimalUI=1
