@@ -31,6 +31,9 @@ Plug 'mxw/vim-jsx', {'for': ['javascript', 'json', 'jsx'] } "Support for JSX
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Protocol client
 Plug 'ryanoasis/vim-devicons' "Pretty icons per filetype. Must be loaded last.
 
+" Trialing these plugins
+Plug 'romainl/vim-qf' " Plugin for making quick-fix windows better?
+
 call plug#end()
 
 colorscheme nord
