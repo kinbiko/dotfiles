@@ -23,4 +23,3 @@ unlet b:current_syntax
 syntax include @SH syntax/sh.vim
 let b:current_syntax = s:current_syntax
 syntax region shLine matchgroup=dockerfileKeyword start=/\v^\s*(RUN|CMD|ENTRYPOINT)\s/ end=/\v$/ contains=@SH
-

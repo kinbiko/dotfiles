@@ -44,7 +44,7 @@ nnoremap <leader>[ :GoDefPop<CR>
 
 inoremap <localleader>= <space>:=<space>
 inoremap nnn <esc>:GoIfErr<CR>
-inoremap testt func Test(t *testing.T){}<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
+inoremap testt func Test(t *testing.T){}<esc>15hi
 inoremap stt t.Run(, func(t *testing.T){})<ESC>22hi
 
 inoremap ccc context.Context
@@ -53,7 +53,6 @@ inoremap iii interface{}
 inoremap sss '%s'
 inoremap ddd %d
 inoremap vvv '%+v'
-inoremap poid primitive.ObjectID
 
 set foldmethod=syntax
 let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment', 'comment']
@@ -64,9 +63,6 @@ let g:go_list_type = "quickfix"
 
 " The default of 10 seconds is too long
 let g:go_test_timeout= '4s'
-
-" If only testify could be a bit less verbose
-let g:go_list_height = 15
 
 " Make No write since last change stfu
 set autowrite
