@@ -92,3 +92,4 @@ https://configure.ergodox-ez.com/ergodox-ez/layouts/x9Jqo/latest/0
 https://configure.ergodox-ez.com/ergodox-ez/layouts/Jwj5m/latest/1
 
 - Re-enable modifier keys in other levels
+- Set up a layer change button on both sides of the keyboard
