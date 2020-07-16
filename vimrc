@@ -106,7 +106,7 @@ let mapleader = ' '
 let maplocalleader = ','
 
 " Keys I rarely use in normal mode (OK to overwrite):
-" t E H L M X Y Z [ ] \ |
+" t E H L M X Y Z [ ] \ | <left> <right>
 
 " Make 0 take me to the first non-blank character of the line.
 nnoremap 0 ^
@@ -122,12 +122,6 @@ nnoremap ' `
 nnoremap <up> {
 vnoremap <up> {
 onoremap <up> {
-nnoremap <right> w
-vnoremap <right> w
-onoremap <right> w
-nnoremap <left> b
-vnoremap <left> b
-onoremap <left> b
 nnoremap <down> }
 vnoremap <down> }
 onoremap <down> }
