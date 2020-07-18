@@ -91,5 +91,5 @@ https://configure.ergodox-ez.com/ergodox-ez/layouts/x9Jqo/latest/0
 
 https://configure.ergodox-ez.com/ergodox-ez/layouts/Jwj5m/latest/1
 
-- Re-enable modifier keys in other levels
-- Set up a layer change button on both sides of the keyboard
+- Re-enable modifier keys in other levels so that the order in which modifier keys and layer shifting keys are hit doesn't matter.
+- Set up a layer change button on both sides of the keyboard so that using the mouse movement keys becomes one handed if necessary.
