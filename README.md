@@ -1,16 +1,13 @@
 # Dotfiles
 
-These are the configuration files for `vim`, `tmux`, `zsh` and other (generally CLI-based) tools I like for my development environment. I've tried to document things as best as I can, but some bits I'm sure are still cryptic.
+These are the configuration files for `vim`, `tmux`, `zsh` and other (generally CLI-based) tools I like for my development environment.
+I've tried to document things as best as I can, but some bits I'm sure are still cryptic.
 
 Works best for Mac OS (Mojave).
 
-If you find anything here that's useful (steal whatever you want), and would like to show your appreciation, I accept donations in the form of code reviews.
-I've created [this eternal PR](https://github.com/kinbiko/dotfiles/pull/14), where you may leave a comment on anything you think could be improved.
-This is also a good way to ask questions about what setting `foo` does if it's not clear from the comments.
+## Install
 
-## Installation guidelines
-
-> These are not instructions. These are mainly reminders for myself. There's an install script that might work. But probably doesn't.
+> **These reminders for myself, not instructions.**
 
 Start off by installing [homebrew](https://brew.sh/), then install Git.
 
@@ -20,42 +17,61 @@ brew install git
 
 There may be issues here around XCode CLI tools. Figure it out.
 
-Then let's install some more goodies:
+Then let's install some more goodies. These probably won't work as-is, as the correct tap must be specified for many.
 
 ```
 brew install bat
+brew install cmus
 brew install ctags
+brew install ctop
 brew install diff-so-fancy
+brew install fpp
 brew install fzf
+brew install gh
 brew install go
 brew install htop
-brew install node
+brew install mongodb-community-shell
+brew install neofetch
+brew install neovim
+brew install pandoc
 brew install the_silver_searcher
+brew install tig
 brew install tmux
 brew install tree
+brew install unrar
 brew install vifm
-brew install neovim
+brew install vim
+brew install w3m
 brew install watch
+brew install weechat
+brew install wget
+brew install youtube-dl
+brew install zsh
 
+brew cask install alacritty
 brew cask install alfred
 brew cask install dash
 brew cask install docker
-brew cask install intellij-idea-ce
+brew cask install font-hack-nerd-font
+brew cask install google-cloud-sdk
 brew cask install iterm2
-brew cask install java
+brew cask install keycastr
+brew cask install now
+brew cask install obs
+brew cask install postman
 brew cask install spotify
+brew cask install steam
+brew cask install transmission
+brew cask install virtualbox
 brew cask install vlc
 ```
 
-Then clone this repository. I generally tend to put all my repos in `$HOME/repos/`, and the rest of the guide will assume this was done.
+Then clone this repository.
+I generally tend to put all my repos in `$HOME/repos/`.
 
-Install `zsh` and `oh-my-zsh`. I've stolen the installation script for `oh-my-zsh`, as at the time of writing the recommended installation process was to run a random shell command from the internet. (I suppose these instructions are too, but at least I know who wrote them.)
+> Note: I usually define this path as a `DOTFILES_DIR` environment variable in `~/.zshrc`, but no guarantees that renaming this is all that's required to use a different directory.
 
-```bash
-export DOTFILES_DIR=~/repos/dotfiles
-brew install zsh
-zsh $DOTFILES_DIR/install-oh-my-zsh.sh
-```
+Install `oh-my-zsh` based on the official installation instructions.
 
 After installing `zsh` and `oh-my-zsh` you'll want to delete the default `.zshrc` file and replace with:
 
@@ -76,7 +92,6 @@ Then, you'll probably want to do the same pattern as above (source the dotfiles 
 $HOME/.vimrc -> $DOTFILES_DIR/vimrc
 $HOME/.tmux.conf -> $DOTFILES_DIR/tmux.conf
 $HOME/.ideavimrc -> $DOTFILES_DIR/ideavimrc
-$HOME/.config/vifm/vifmrc -> $DOTFILES_DIR/vifmrc
 ```
 
 symlink the following:
@@ -86,9 +101,8 @@ $HOME/.vim/ -> $DOTFILES_DIR/vim
 $HOME/.ctags -> $DOTFILES_DIR/ctags
 ```
 
-Set font in `iterm2>profile>text`
-
-You'll then probably want to set up the Alfred <-> Dash integration. For which you'll probably need the Dash/Alfred license keys.
+You'll then probably want to set up the Alfred <-> Dash integration.
+For which you'll probably need the Dash/Alfred license keys.
 
 Install vim plugins:
 
@@ -103,11 +117,4 @@ mkdir ~/.config/nvim
 echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after" >> ~/.config/nvim/init.vim
 echo "let &packpath = &runtimepath" >> ~/.config/nvim/init.vim
 echo "source ~/.vimrc" >> ~/.config/nvim/init.vim
-```
-
-### Newsboat
-
-```bash
-ln -s ~/repos/dotfiles/newsboat/urls ~/.newsboat/urls
-ln -s ~/repos/dotfiles/newsboat/config ~/.newsboat/config
 ```
