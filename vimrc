@@ -22,7 +22,7 @@ Plug 'cohama/lexima.vim' "Automatically close [], '' etc. including def/end
 Plug 'christoomey/vim-tmux-navigator' "Work better with tmux
 Plug 'machakann/vim-highlightedyank' "Highlight when yanking so you don't need to pop into visual mode constantly
 Plug 'sickill/vim-pasta' "Context aware pasting + intentation
-Plug 'mattn/emmet-vim', { 'for': ['javascript', 'html', 'xml', 'jsx', 'erb'] } "Shortcuts for creating html/jsx boilerplate
+Plug 'mattn/emmet-vim', { 'for': ['javascript', 'html', 'xml', 'jsx', 'erb', 'markdown'] } "Shortcuts for creating html/jsx boilerplate
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' } "Make vim good with go. Master branch is dev branch, so should use specific release instead
 Plug 'prettier/vim-prettier', { 'for': ['javascript', 'json', 'markdown', 'md'] } "prettier formatter
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'json'] } "Makes syntax highlighting etc. more sane for js.
@@ -109,7 +109,7 @@ let mapleader = ' '
 let maplocalleader = ','
 
 " Keys I rarely use in normal mode (OK to overwrite):
-" t E H L M X Y Z [ ] \ |
+" t E H L M X Y Z [ ] \ | <left> <right>
 
 " Make 0 take me to the first non-blank character of the line.
 nnoremap 0 ^
@@ -125,12 +125,6 @@ nnoremap ' `
 nnoremap <up> {
 vnoremap <up> {
 onoremap <up> {
-nnoremap <right> w
-vnoremap <right> w
-onoremap <right> w
-nnoremap <left> b
-vnoremap <left> b
-onoremap <left> b
 nnoremap <down> }
 vnoremap <down> }
 onoremap <down> }
