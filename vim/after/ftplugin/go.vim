@@ -36,6 +36,7 @@ let g:go_def_reuse_buffer = 0
 
 nnoremap <leader>a :GoAlternate<CR>
 nnoremap <leader>i :GoImports<CR>
+nnoremap L :GoMetaLinter<CR>
 
 nnoremap <leader>t :GoTest!<CR>
 nnoremap <leader>T :GoTestFunc!<CR>

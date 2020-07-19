@@ -60,9 +60,8 @@ endfunction
 nnoremap <silent> H :call <SID>show_documentation()<CR>
 
 " Mappings using CoCList:
-nnoremap <silent> <leader>e :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <leader>c :<C-u>CocList commands<cr>
-nnoremap <silent> <leader>o :<C-u>CocList outline<cr>
+nnoremap E :CocList diagnostics<cr>
+nnoremap <leader>c :CocCommand<cr>
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-leader> pumvisible() ? "<C-n>" : coc#refresh()
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
@@ -116,7 +115,7 @@ nnoremap <localleader>. :b#<CR>
 " Clear current search-highlight
 nnoremap <localleader><leader> :nohlsearch<CR>
 nnoremap <silent> <localleader><localleader> :NERDTreeToggle<CR>
-nnoremap <silent> ., :NERDTreeFind<CR>
+nnoremap <silent> .<localleader> :NERDTreeFind<CR>
 
 " Jump back and forth between tags
 nnoremap <leader>[ <C-t>
@@ -124,6 +123,8 @@ nnoremap <leader>] g<C-]>
 
 " Find using vimium-like search feature
 nmap <leader>f <Plug>(easymotion-prefix)s
+
+nnoremap ? :Files<CR>
 
 " Undo unstaged Git hunk
 nnoremap <leader>u :GitGutterUndoHunk<cr>
@@ -253,6 +254,3 @@ endfor
 
 "Make comments red. This must be below other style configs to have an effect.
 highlight comment ctermfg=DarkRed
-
-"I also wwant to add the following to the end of cut: | cut -s -f4- -d":" | awk '{$1=$1;print}'
-command! -bang -nargs=? -complete=dir Ag call fzf#vim#ag(<q-args>, {'options': ['--layout=reverse', '--preview', 'echo {} | cut -s -f4- -d":"']}, <bang>0)
