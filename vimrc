@@ -48,13 +48,6 @@ set shortmess+=c
 " Always show the signcolumn, otherwise it would shift the text each time diagnostics appear/become resolved.
 set signcolumn=yes
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> pumvisible() ? "<C-n>" : coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -63,13 +56,18 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" Use H to show documentation in preview window.
+nnoremap <silent> H :call <SID>show_documentation()<CR>
 
 " Mappings using CoCList:
-nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <space>c :<C-u>CocList commands<cr>
-nnoremap <silent> <space>o :<C-u>CocList outline<cr>
+nnoremap <silent> <leader>e :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <leader>c :<C-u>CocList commands<cr>
+nnoremap <silent> <leader>o :<C-u>CocList outline<cr>
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-leader> pumvisible() ? "<C-n>" : coc#refresh()
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Ensure that I can enter markdown checkboxes without generating a double
 " space like this: [  ]. (should only have a single space inside when hitting
@@ -92,7 +90,8 @@ let mapleader = ' '
 let maplocalleader = ','
 
 " Keys I rarely use in normal mode (OK to overwrite):
-" t E H L M X Y Z [ ] \ | <left> <right>
+" tags: unused not used available
+" t E K L M X Y Z [ ] \ | <left> <right>
 
 " Make 0 take me to the first non-blank character of the line.
 nnoremap 0 ^
@@ -176,9 +175,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-" Open notes repo with Ctrl+W
-nnoremap W :Files ~/repos/notes/<CR>
 
 set tabstop=2 "columns per tab character
 set softtabstop=2 "columns per tab key press in insert mode. Also on backspace
