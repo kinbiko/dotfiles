@@ -10,9 +10,6 @@ Plug 'easymotion/vim-easymotion' "Accurate navigation ala vimium
 Plug 'haya14busa/vim-asterisk' "Use * without moving immediately
 Plug '/usr/local/opt/fzf' "Put fzf on the path so that it can be used by
 Plug 'junegunn/fzf.vim' "The lightning fast fzf fuzzy finder
-Plug 'yuki-ycino/fzf-preview.vim' "Preview when finding stuff with fzf
-Plug 'camspiers/animate.vim' "Make the below super fancy
-Plug 'camspiers/lens.vim' "Resize windows when switching between them
 Plug 'airblade/vim-gitgutter' "Makes the git gutter with +, ~, and - available
 Plug 'tpope/vim-fugitive' "Most git features available through :G*
 Plug 'rhysd/committia.vim' "Running 'git commit' on the command line enables diff and other niceties
@@ -25,14 +22,9 @@ Plug 'sickill/vim-pasta' "Context aware pasting + intentation
 Plug 'mattn/emmet-vim', { 'for': ['javascript', 'html', 'xml', 'jsx', 'erb', 'markdown'] } "Shortcuts for creating html/jsx boilerplate
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' } "Make vim good with go. Master branch is dev branch, so should use specific release instead
 Plug 'prettier/vim-prettier', { 'for': ['javascript', 'json', 'markdown', 'md'] } "prettier formatter
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'json'] } "Makes syntax highlighting etc. more sane for js.
 Plug 'elzr/vim-json', {'for': ['javascript', 'json'] } "JSON syntax (error) highlighting + concealment
-Plug 'mxw/vim-jsx', {'for': ['javascript', 'json', 'jsx'] } "Support for JSX
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Protocol client
 Plug 'ryanoasis/vim-devicons' "Pretty icons per filetype. Must be loaded last.
-
-" Trialing these plugins
-Plug 'romainl/vim-qf' " Plugin for making quick-fix windows better?
 
 call plug#end()
 
@@ -78,15 +70,6 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>c :<C-u>CocList commands<cr>
 nnoremap <silent> <space>o :<C-u>CocList outline<cr>
-
-"Make jsx syntax show up in .js files
-let g:jsx_ext_required = 0
-let g:javascript_enable_domhtmlcss = 1 "Makes css/html syntax available in .js files(React)
-
-let g:fzf_preview_rate = 0.2
-
-" Change the default value from u/d to l/r
-let g:fzf_preview_default_key_bindings = 'ctrl-l:preview-page-down,ctrl-h:preview-page-up,?:toggle-preview'
 
 " Ensure that I can enter markdown checkboxes without generating a double
 " space like this: [  ]. (should only have a single space inside when hitting
@@ -171,10 +154,6 @@ vnoremap Y "*y
 " In/de-dent lines and remember selection
 vnoremap H <gv
 vnoremap L >gv
-
-nnoremap <silent> ? :<C-u>FzfPreviewProjectFiles<CR>
-nnoremap <silent> B :FzfPreviewAllBuffers<CR>
-nnoremap <silent> T :Tags <C-R><C-W><CR> !_test.go !mock
 
 " Execute the last played macro
 nnoremap Q @@
