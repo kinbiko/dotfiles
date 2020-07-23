@@ -93,3 +93,7 @@ https://configure.ergodox-ez.com/ergodox-ez/layouts/Jwj5m/latest/1
 
 - Re-enable modifier keys in other levels so that the order in which modifier keys and layer shifting keys are hit doesn't matter.
 - Set up a layer change button on both sides of the keyboard so that using the mouse movement keys becomes one handed if necessary.
+
+## Drastic change proposal
+
+Persistent layers for different 'modes', e.g. 'browsing', 'writing', 'programming'
