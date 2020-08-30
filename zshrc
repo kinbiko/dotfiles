@@ -94,7 +94,7 @@ alias pull="git pull"
 alias push="git push"
 alias fetch="git fetch -p"
 alias effyou="git push -f"
-alias glog='git log --graph --pretty=format:'\''%Cred%h%Creset %an: %s %Cblue[%GS]%Creset - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset'\'' --abbrev-commit --date=relative'
+alias glog='git log --graph --pretty=format:'\''%Cred%h%Creset %Cgreen(%cr)%Creset%Cblue[%an]%Creset %s%Creset%C(yellow)%d%Creset'\'' --abbrev-commit --date=relative'
 # I swear by my pretty floral bonnet, I will commit you
 alias gorram="git commit --amend --no-edit"
 alias gorramit="git commit --amend --no-edit"
