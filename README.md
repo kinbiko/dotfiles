@@ -33,6 +33,7 @@ brew install htop
 brew install mongodb-community-shell
 brew install neofetch
 brew install neovim
+brew install node
 brew install pandoc
 brew install the_silver_searcher
 brew install tig
@@ -47,6 +48,8 @@ brew install weechat
 brew install wget
 brew install youtube-dl
 brew install zsh
+
+brew tap homebrew/cask-fonts
 
 brew cask install alacritty
 brew cask install alfred
@@ -113,8 +116,10 @@ vim +PlugInstall +qall
 To run with neovim instead of vim:
 
 ```
-mkdir ~/.config/nvim
+mkdir -p ~/.config/nvim
 echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after" >> ~/.config/nvim/init.vim
 echo "let &packpath = &runtimepath" >> ~/.config/nvim/init.vim
 echo "source ~/.vimrc" >> ~/.config/nvim/init.vim
 ```
+
+Install prettier as that's required for one of the vim plugins (for markdown, js, ts, css)
