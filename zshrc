@@ -35,6 +35,14 @@ export KEYTIMEOUT=1
 # Run brew commands without forcing an update first.
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+# Set up completion for programs that define these under site-functions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 #===ALIASES===
