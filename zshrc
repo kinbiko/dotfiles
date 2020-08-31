@@ -203,3 +203,6 @@ extract () {
         "'$1' is not a valid file!"
     fi
 }
+
+# Needed so that GPG knows how to open the TUI for entering the PGP password.
+export GPG_TTY=$(tty)
