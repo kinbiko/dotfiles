@@ -28,6 +28,10 @@ Plug 'ryanoasis/vim-devicons' "Pretty icons per filetype. Must be loaded last.
 
 call plug#end()
 
+" Setting this explicitly means I can copy Japanese to the clipboard without
+" mojibake
+lang en_US.UTF-8
+
 colorscheme nord
 
 let g:rehash256=1
