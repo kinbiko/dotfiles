@@ -17,17 +17,14 @@ plugins=(vi-mode)
 
 #===EXPORTS===
 
+# Needed so that GPG knows how to open the TUI for entering the PGP password.
+export GPG_TTY=$(tty)
+
 export EDITOR='nvim'
 
 export GOPATH=$HOME/go
 
-pathmunge "$HOME/scripts"
 pathmunge "$GOPATH/bin"
-
-pathmunge "$DOTFILES_DIR/scripts"
-
-#Solves a tmux/OS 10 Sirra bug
-export EVENT_NOKQUEUE=1
 
 # Wait 10 ms for additional key sequences. Allows you to enter normal mode in zsh faster than the default 0.4s
 export KEYTIMEOUT=1
@@ -48,10 +45,8 @@ source $ZSH/oh-my-zsh.sh
 #===ALIASES===
 
 alias v=nvim
-alias vi=nvim
 alias vim=nvim
 alias vimdiff="nvim -d"
-alias nvimdiff="nvim -d"
 
 #Shell
 alias cl="clear";
@@ -64,7 +59,6 @@ alias clar="clear"
 alias lear="clear"
 alias xit="exit"
 alias xx="exit"
-alias q=exit
 alias pingu="ping google.com"
 alias q="exit"
 alias cat="bat"
@@ -86,16 +80,12 @@ setopt AUTO_PARAM_SLASH
 #relocate
 alias dot="cd $DOTFILES_DIR"
 alias repos="cd ~/repos/"
-alias gosrc="cd $GOPATH/src/github.com/"
 
 #Git
 alias g=git
-alias gi=git
 alias gs="git status"
 alias gd="clear; git diff"
-alias gdw="clear; git diff -w"
 alias gdc="clear; git diff --cached"
-alias gdcw="clear; git diff -w --cached"
 alias ga="git add -A"
 alias add="clear; git add -p"
 alias pull="git pull"
@@ -104,19 +94,11 @@ alias fetch="git fetch -p"
 alias effyou="git push -f"
 alias glog='git log --graph --pretty=format:'\''%Cred%h%Creset %Cgreen(%cr)%Creset%Cblue[%an]%Creset %s%Creset%C(yellow)%d%Creset'\'' --abbrev-commit --date=relative'
 # I swear by my pretty floral bonnet, I will commit you
+alias amend="git commit --amend"
 alias gorram="git commit --amend --no-edit"
 alias gorramit="git commit --amend --no-edit"
 alias gorammit="git commit --amend --no-edit"
 alias gorrammit="git commit --amend --no-edit"
-
-alias ..="cd ../" # Swimming pool
-alias ...="cd ../../" # Free diver
-alias ....="cd ../../../" # New Zealand fur seal
-alias .....="cd ../../../../" # New Zealand sea lion
-alias ......="cd ../../../../../" # Southern elephant seal
-alias .......="cd ../../../../../../" # Sperm whale
-alias ........="cd ../../../../../../../" #Mariana Trench
-#At this point you probably want 'cd /' anyway...
 
 #Tmux
 alias ta="tmux -u attach"
@@ -125,45 +107,30 @@ alias ta="tmux -u attach"
 alias dcd="docker-compose down"
 alias dcu="docker-compose up"
 
-#Ruby stuff
-alias be="bundle exec"
-
 #Go stuff
 
 # When running go command zsh's autocorrection often incorrectly kicks in, e.g. for './...'
 # Therefore just assume I typed the go command correctly by default
 alias go='nocorrect go'
-alias ohgodwhy='go mod why -m'
 
 alias pp="$GOPATH/bin/pp" # Overriding the Perl package manager
-
-# gt is go test, plus a bunch of convenient settings
-gt() {
-  gtv | grep "FAIL|ok  "
-}
 
 # gtv is go test, plus a bunch of convenient settings, but also print the logs for any failing tests
 gtv() {
   if [[ $# -eq 0 ]] ; then
-    ( nocorrect go test -timeout 12s ./... -p 1 |& pp )
+    ( nocorrect go test ./... -p 1 -json | tparse |& pp )
   else
-    ( nocorrect go test -timeout 12s $@ -p 1 |& pp )
+    ( nocorrect go test $@ -p 1 -json | tparse |& pp )
   fi
 }
 
 alias gtr="go test -race"
-alias gosrc="cd $GOPATH/src/github.com"
 alias glint="golangci-lint"
 
 #===Shell magic<3===
 
 #Enable vim mode in terminal, and set the timeout to 0.1s
 bindkey -v
-# Pop open vim to edit the current command with ctrl+x ctrl+x
-# Stolen from wincent
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '^x^x' edit-command-line
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -177,9 +144,6 @@ function zle-line-init zle-keymap-select {
 #Enable the above function on startup and when modes change
 zle -N zle-line-init
 zle -N zle-keymap-select
-
-# If rbenv is installed, then initialise it
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # extract can decompress most compressed files, assuming the correct tool is installed.
 # Cred to DevRant user Jilano: https://devrant.com/users/Jilano
@@ -203,6 +167,3 @@ extract () {
         "'$1' is not a valid file!"
     fi
 }
-
-# Needed so that GPG knows how to open the TUI for entering the PGP password.
-export GPG_TTY=$(tty)
