@@ -85,6 +85,7 @@ Pro tip: Create a git repository of the home directory, so you can go back in ti
    1. Disable spotlight cmd + space shortcut in keyboard -> shortuts -> spotlight
    1. Set alfred shortcut to cmd + space
    1. Set up jisho shortcut https://github.com/janclarin/jisho-alfred
+   1. Set up clipboard history. Map to `cmd + p` (who prints these days anyway?)
 1. Install other 'cask' apps:
    ```bash
    brew cask install docker
