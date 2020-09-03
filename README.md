@@ -75,7 +75,7 @@ Pro tip: Create a git repository of the home directory, so you can go back in ti
    echo "source ~/.vimrc" >> ~/.config/nvim/init.vim
    echo "source ~/repos/dotfiles/vimrc" >> ~/.vimrc
    ```
-1. Install the pretty font that's defined in the alacritty config: `brew tap homebrew/cask-fonts` `brew install font-hack-nerd-font`
+1. Install the pretty font that's defined in the alacritty config: `brew tap homebrew/cask-fonts` `brew cask install font-hack-nerd-font`
 1. oh-my-zsh:
    1. WARNING: This next step will override your `~/.zshrc`, make a copy, as you don't want the results!
    1. Install oh-my-zsh according to their instructions.
