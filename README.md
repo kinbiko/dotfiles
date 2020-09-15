@@ -25,6 +25,7 @@ Pro tip: Create a git repository of the home directory, so you can go back in ti
    1. Automatically hide and show dock (to get back some screen real estate)
    1. Remove most apps from the dock apart from (final list:) Finder, Chrome, Alacritty, Trash
 1. Set system-wide dark mode.
+1. Automatically hide the menu bar.
 1. Keep track of 'none' recent items.
 1. Revert scroll direction
 1. Trackpad:
