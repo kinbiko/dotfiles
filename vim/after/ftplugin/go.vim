@@ -34,15 +34,16 @@ let g:go_def_mapping_enabled = 0
 " reuse buffer if open in a split on godef
 let g:go_def_reuse_buffer = 0
 
+nnoremap <leader>[ :GoDefPop<CR>
+nnoremap <leader>] :GoDef<CR>
 nnoremap <leader>a :GoAlternate<CR>
+nnoremap <leader>c :GoCoverageToggle!<CR>
+nnoremap <leader>d :GoDoc<CR>
+nnoremap <leader>s :GoFillStruct<CR>
 nnoremap <leader>i :GoImports<CR>
-nnoremap L :GoMetaLinter<CR>
-
+nnoremap <leader>l :GoMetaLinter<CR>
 nnoremap <leader>t :GoTest!<CR>
 nnoremap <leader>T :GoTestFunc!<CR>
-nnoremap <leader>c :GoCoverageToggle!<CR>
-nnoremap <leader>] :GoDef<CR>
-nnoremap <leader>[ :GoDefPop<CR>
 
 inoremap <localleader>= <space>:=<space>
 inoremap nnn <esc>:GoIfErr<CR>
@@ -68,3 +69,19 @@ let g:go_test_timeout= '4s'
 
 " Make No write since last change stfu
 set autowrite
+
+" Use quickfix windows for all tool-windows
+let g:go_list_type = "quickfix"
+" Give the metalinter a bit extra time to run
+let g:go_metalinter_deadline = "5s"
+
+" Stolen from fatih's dotfiles
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_enabled = ['vet', 'golint']
+
+let g:go_info_mode = 'gopls'
+let g:go_rename_command='gopls'
+let g:go_gopls_complete_unimported = 1
+let g:go_implements_mode='gopls'
+let g:go_diagnostics_enabled = 1
+let g:go_doc_popup_window = 1
