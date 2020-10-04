@@ -10,6 +10,7 @@ Plug 'easymotion/vim-easymotion' "Accurate navigation ala vimium
 Plug 'haya14busa/vim-asterisk' "Use * without moving immediately
 Plug '/usr/local/opt/fzf' "Put fzf on the path so that it can be used by
 Plug 'junegunn/fzf.vim' "The lightning fast fzf fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'airblade/vim-gitgutter' "Makes the git gutter with +, ~, and - available
 Plug 'tpope/vim-fugitive' "Most git features available through :G*
 Plug 'rhysd/committia.vim' "Running 'git commit' on the command line enables diff and other niceties
@@ -36,7 +37,7 @@ colorscheme nord
 
 let g:rehash256=1
 
-let NERDTreeIgnore=['node_modules$', '\~$', '\.git$', '\.DS_Store$', '\.meta$', 'tags$', 'tags.lock$', 'tags.temp$', '.idea$']
+let NERDTreeIgnore=['node_modules$', '\~$', '\.git$', '\.DS_Store$', '\.meta$', 'tags$', 'tags.lock$', 'tags.temp$', '.idea$', '.env$']
 let NERDTreeShowHidden=1
 " Ignore the help-instructions at the top of NERDTree
 let NERDTreeMinimalUI=1
