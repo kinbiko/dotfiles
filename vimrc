@@ -19,9 +19,9 @@ Plug 'tpope/vim-repeat' "Make vim-surround things repeatable with .
 Plug 'cohama/lexima.vim' "Automatically close [], '' etc. including def/end
 Plug 'christoomey/vim-tmux-navigator' "Work better with tmux
 Plug 'machakann/vim-highlightedyank' "Highlight when yanking so you don't need to pop into visual mode constantly
-Plug 'sickill/vim-pasta' "Context aware pasting + intentation
+Plug 'sickill/vim-pasta' "Context aware pasting + indentation
 Plug 'mattn/emmet-vim', { 'for': ['javascript', 'html', 'xml', 'jsx', 'erb', 'markdown', 'typescript'] } "Shortcuts for creating html/jsx boilerplate
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' } "Make vim good with go. Master branch is dev branch, so should use specific release instead
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' } "Make vim good with go.
 Plug 'prettier/vim-prettier', { 'for': ['javascript', 'json', 'css', 'markdown', 'md', 'typescript'] } "prettier formatter
 Plug 'elzr/vim-json', {'for': ['javascript', 'json'] } "JSON syntax (error) highlighting + concealment
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Protocol client
