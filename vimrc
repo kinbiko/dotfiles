@@ -22,6 +22,7 @@ Plug 'machakann/vim-highlightedyank' "Highlight when yanking so you don't need t
 Plug 'sickill/vim-pasta' "Context aware pasting + indentation
 Plug 'mattn/emmet-vim', { 'for': ['javascript', 'html', 'xml', 'jsx', 'erb', 'markdown', 'typescript'] } "Shortcuts for creating html/jsx boilerplate
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' } "Make vim good with go.
+Plug 'rust-lang/rust.vim' " Official Rust plugin.
 Plug 'prettier/vim-prettier', { 'for': ['javascript', 'json', 'css', 'markdown', 'md', 'typescript'] } "prettier formatter
 Plug 'elzr/vim-json', {'for': ['javascript', 'json'] } "JSON syntax (error) highlighting + concealment
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Protocol client
