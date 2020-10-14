@@ -62,6 +62,7 @@ Pro tip: Create a git repository of the home directory, so you can go back in ti
    ln -s repos/dotfiles/tmux .tmux
    ln -s repos/dotfiles/ctags .ctags
    ```
+1. Configure global git ignore: `git config --global core.excludesFile '~/repos/dotfiles/.gitignore-global'`
 1. `brew cask install alacritty` so you can continue with a good terminal.
 1. `brew install fzf` and run `/usr/local/opt/fzf/install` and answer yes to auto-completion and key bindings, but no to updating shell config files.
 1. Install these other programs from `brew`: `bat ctags diff-so-fancy pff jq gh go htop neovim the_silver_searcher tmux tree up wget node`
