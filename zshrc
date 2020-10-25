@@ -63,6 +63,7 @@ alias pingu="ping google.com"
 alias q="exit"
 alias cat="bat"
 alias grep="ag"
+alias top="zenith"
 
 # Make zsh completion:
 # - Try exact (case-sensitive) match first.
