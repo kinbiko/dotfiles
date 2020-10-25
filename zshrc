@@ -168,3 +168,11 @@ extract () {
         "'$1' is not a valid file!"
     fi
 }
+
+function ag() {
+  emulate -L zsh
+
+  # Stolen and slightly tweaked from wincent
+  # whenever ag is invoked, actually call it with less as a pager, and do fancy thhings with colours
+  command ag --pager="less -iFMRSX" --color-path=34\;1 --color-line-number=35 --color-match=35\;1\;4 "$@"
+}
