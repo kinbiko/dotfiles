@@ -176,3 +176,7 @@ function ag() {
   # whenever ag is invoked, actually call it with less as a pager, and do fancy thhings with colours
   command ag --pager="less -iFMRSX" --color-path=34\;1 --color-line-number=35 --color-match=35\;1\;4 "$@"
 }
+
+function checkout() {
+  git checkout "$(git branch -a | fzf | tr -d '[:space:]')"
+}
