@@ -260,3 +260,10 @@ endfor
 
 "Make comments red. This must be below other style configs to have an effect.
 highlight comment ctermfg=DarkRed
+
+" Super hacky plugin to shell out to github.com/kinbiko/kokodoko and fetch the
+" Github link to the current line(s)
+" Yes, that is an undo of the automatic replacing of text in the visual
+" mapping...
+nnoremap <silent> oiuy :!kokodoko % <C-R>=line(".")<CR><CR>
+vnoremap <silent> oiuy :!kokodoko % <C-R>=line("'<")<CR>-<C-R>=line("'>")<CR><CR>u
