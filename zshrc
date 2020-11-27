@@ -177,6 +177,10 @@ function ag() {
   command ag --pager="less -iFMRSX" --color-path=34\;1 --color-line-number=35 --color-match=35\;1\;4 "$@"
 }
 
+# Setting ag as the default source for fzf and have it apply to ctrl+t
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 function checkout() {
   git checkout "$(git branch -a | fzf | tr -d '[:space:]')"
 }
