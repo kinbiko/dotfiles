@@ -41,7 +41,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background, but no title bar buttons
-  decorations: none
+  decorations: buttonless
 
   # When true, alacritty starts maximized.
   # start_maximized: false
