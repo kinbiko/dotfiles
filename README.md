@@ -99,6 +99,7 @@ Pro tip: Create a git repository of the home directory, so you can go back in ti
    ```console
    go get -u github.com/mfridman/tparse
    go get -u github.com/kinbiko/mokku/cmd/mokku
+   go get -u github.com/kinbiko/kokodoko/cmd/kokodoko
    ```
 
 TODO:
