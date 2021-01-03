@@ -27,6 +27,7 @@ Plug 'prettier/vim-prettier', { 'for': ['javascript', 'json', 'css', 'markdown',
 Plug 'elzr/vim-json', {'for': ['javascript', 'json'] } "JSON syntax (error) highlighting + concealment
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Protocol client
 Plug 'ryanoasis/vim-devicons' "Pretty icons per filetype. Must be loaded last.
+Plug 'JamshedVesuna/vim-markdown-preview' "Preview markdown files with ctrl+p
 
 call plug#end()
 
@@ -267,3 +268,8 @@ highlight comment ctermfg=DarkRed
 " mapping...
 nnoremap <silent> oiuy :!kokodoko % <C-R>=line(".")<CR><CR>
 vnoremap <silent> oiuy :!kokodoko % <C-R>=line("'<")<CR>-<C-R>=line("'>")<CR><CR>u
+
+" Use github markdown (requires that 'grip' is installed)
+let vim_markdown_preview_github=1
+" Set the default browser to Chrome instead of Safari (default)
+let vim_markdown_preview_browser='Google Chrome'
