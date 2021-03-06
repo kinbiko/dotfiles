@@ -114,7 +114,4 @@ Pro tip: Create a git repository of the home directory, so you can go back in ti
    go get -u github.com/kinbiko/mokku/cmd/mokku
    go get -u github.com/kinbiko/kokodoko/cmd/kokodoko
    ```
-
-TODO:
-
-- Hiding fluffy directories from finder that I can't delete (e.g. Music, Movies, etc.)
+1. Hide fluffy directories from finder that I can't delete: `chflags hidden Applications Movies Music Pictures Public`
