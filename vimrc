@@ -24,10 +24,12 @@ Plug 'mattn/emmet-vim', { 'for': ['javascript', 'html', 'xml', 'jsx', 'erb', 'ma
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' } "Make vim good with go.
 Plug 'rust-lang/rust.vim' " Official Rust plugin.
 Plug 'hashivim/vim-terraform' " Terraform support
-Plug 'prettier/vim-prettier', { 'for': ['javascript', 'json', 'css', 'markdown', 'md', 'typescript'] } "prettier formatter
+Plug 'prettier/vim-prettier', { 'for': ['javascript', 'json', 'css', 'markdown', 'md', 'typescript', 'typescriptreact'] } "prettier formatter
 Plug 'elzr/vim-json', {'for': ['javascript', 'json'] } "JSON syntax (error) highlighting + concealment
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Protocol client
 Plug 'ryanoasis/vim-devicons' "Pretty icons per filetype. Must be loaded last.
+Plug 'leafgarland/typescript-vim' "Typescript syntax highlighting
+Plug 'peitalin/vim-jsx-typescript' "tsx syntax highlighting
 
 call plug#end()
 
