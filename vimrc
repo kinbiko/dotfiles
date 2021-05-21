@@ -28,8 +28,10 @@ Plug 'prettier/vim-prettier', { 'for': ['javascript', 'json', 'css', 'markdown',
 Plug 'elzr/vim-json', {'for': ['javascript', 'json'] } "JSON syntax (error) highlighting + concealment
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Protocol client
 Plug 'ryanoasis/vim-devicons' "Pretty icons per filetype. Must be loaded last.
+Plug 'pangloss/vim-javascript' "Syntax highlighting and concealment for JavaScript
+Plug 'maxmellon/vim-jsx-pretty' " Make JSX look good (technically this supports TSX too, but has perf issues)
 Plug 'leafgarland/typescript-vim' "Typescript syntax highlighting
-Plug 'peitalin/vim-jsx-typescript' "tsx syntax highlighting
+Plug 'peitalin/vim-jsx-typescript' "TSX syntax highlighting without the perf issues
 
 call plug#end()
 
@@ -67,6 +69,16 @@ endfunction
 
 " Use H to show documentation in preview window.
 nnoremap <silent> H :call <SID>show_documentation()<CR>
+
+let g:coc_global_extensions = [
+  \ 'coc-css',
+  \ 'coc-go',
+  \ 'coc-jest',
+  \ 'coc-json',
+  \ 'coc-rust-analyzer',
+  \ 'coc-sh',
+  \ 'coc-tsserver',
+  \ ]
 
 " Mappings using CoCList:
 nnoremap E :CocList diagnostics<cr>
