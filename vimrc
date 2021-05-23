@@ -43,6 +43,9 @@ colorscheme nord
 
 let g:rehash256=1
 
+let mapleader = ' '
+let maplocalleader = ','
+
 let NERDTreeIgnore=['node_modules$', '\~$', '\.git$', '\.DS_Store$', '\.meta$', 'tags$', 'tags.lock$', 'tags.temp$', '.idea$', '.env$']
 let NERDTreeShowHidden=1
 " Ignore the help-instructions at the top of NERDTree
@@ -80,11 +83,20 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ ]
 
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
+
+nnoremap <silent> <leader>] <Plug>(coc-type-definition)
+nnoremap <silent> <leader>[ <Plug>(coc-references)
+nnoremap <silent> <leader>i :<C-u>CocCommand editor.action.organizeImport<CR>
+
 " Mappings using CoCList:
 nnoremap E :CocList diagnostics<cr>
-nnoremap <leader>c :CocCommand<cr>
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-leader> pumvisible() ? "<C-n>" : coc#refresh()
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -94,7 +106,7 @@ inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<
 " space)
 let g:lexima_enable_space_rules=0
 
-let g:coc_config_home='~/repos/dotfiles/vim/coc-settings.json'
+let g:coc_config_home='~/repos/dotfiles/vim/'
 
 if has("user_commands")
   command! -bang -nargs=? -complete=file W w<bang> <args>
@@ -105,9 +117,6 @@ endif
 
 iabbrev teh the
 iabbrev adn and
-
-let mapleader = ' '
-let maplocalleader = ','
 
 " Keys I rarely use in normal mode (OK to overwrite):
 " tags: unused not used available
@@ -139,8 +148,8 @@ nnoremap <silent> <localleader><localleader> :NERDTreeToggle<CR>
 nnoremap <silent> .<localleader> :NERDTreeFind<CR>
 
 " Jump back and forth between tags
-nnoremap <leader>[ <C-t>
-nnoremap <leader>] g<C-]>
+"nnoremap <leader>[ <C-t>
+"nnoremap <leader>] g<C-]>
 
 " Find using vimium-like search feature
 nmap <leader>f <Plug>(easymotion-prefix)s
