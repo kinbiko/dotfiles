@@ -115,3 +115,7 @@ Pro tip: Create a git repository of the home directory, so you can go back in ti
    go get -u github.com/kinbiko/kokodoko/cmd/kokodoko
    ```
 1. Hide fluffy directories from finder that I can't delete: `chflags hidden Applications Movies Music Pictures Public`
+1. Set up `all-repos`:
+   1. Install `all-repos`: `pip3 install all-repos`
+   1. Move `all-repos.json` and `repos.json` to the home directory
+   1. run `all-repos-clone` in the home directory.
