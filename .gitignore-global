@@ -6,3 +6,6 @@ tags
 
 # Work around OSX' bad design decision.
 .DS_Store
+
+# Don't ever want to commit editor config
+.idea/
