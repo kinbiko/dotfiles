@@ -1,0 +1,88 @@
+" Enable tpope surround syntax
+set surround
+
+"{{{ Searching
+set incsearch "search as chars are entered
+set hlsearch "highlight matches
+set ignorecase "Case insensitive search
+set smartcase  "except when explicitly using capital letters
+"}}}
+
+set number "Display line numbers
+set relativenumber "Linenumbers are relative to current line
+
+set timeoutlen=300 ttimeoutlen=0
+
+"{{{ Mappings
+let mapleader = ' '
+" does not work, local leader is hardcoded below, but leaving here for intent
+let maplocalleader = ','
+
+" <local><leader> |  Normal  | Clear current search-highlight
+nnoremap ,<leader> :nohlsearch<CR>
+
+" <local>v        |  Normal  | Open .ideavimrc
+nnoremap ,v :e ~/repos/dotfiles/ideavimrc<CR>
+
+" Jump back and forth between tags
+nnoremap <leader>] :action GotoDeclaration<CR>
+nnoremap <leader>[ :action Back<CR>
+
+" Copy and paste from within brackets
+nnoremap gb yib
+nnoremap gp vibpyib
+
+" Create a blank line above/below current line
+nnoremap <leader>j o<ESC>k
+nnoremap <leader>k O<ESC>j
+
+" Put `final` at the beginning of the current line
+nnoremap <leader>f Ifinal <esc>
+
+" Swap # and *
+nnoremap * #
+nnoremap # *
+
+" Increment/Decrement the next number on this line
+nnoremap + <C-a>
+nnoremap - <C-x>
+
+" Convenience key for getting to command mode
+nnoremap ; :
+
+" Move to the next/previous completely empty line in buffer
+nnoremap <BS> {
+onoremap <BS> {
+vnoremap <BS> {
+nnoremap <CR> }
+onoremap <CR> }
+vnoremap <CR> }
+
+" Fuzzy find file by filename in the current project
+nnoremap ? :action SearchEverywhere<CR>
+
+" Move to the first/last non-blank character on this line
+map H ^
+map L $
+
+" Execute the last played macro
+nmap Q @@
+
+" Surround current word with next character
+nmap S vawS
+
+" Move up/down one line, moving to wrapped lines if applicable
+nnoremap j gj
+nnoremap k gk
+
+" Enter normal mode
+inoremap jk <esc>
+inoremap ,= <space>:=<space>
+
+" Do nothing.
+nnoremap s :w<CR>
+nnoremap t <NOP>
+nnoremap <space> <NOP>
+
+"}}}
+
