@@ -105,8 +105,8 @@ alias gorrammit="git commit --amend --no-edit"
 alias ta="tmux -u attach"
 
 #Docker
-alias dcd="docker-compose down"
-alias dcu="docker-compose up"
+alias dcd="docker compose down"
+alias dcu="docker compose up"
 
 #Go stuff
 
