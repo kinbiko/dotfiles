@@ -1,6 +1,9 @@
 # pathmunge adds the first argument to the end of the $PATH only if it's not there already.
-
 pathmunge () {
+  # If the PATH contains the new value then don't do anything, otherwise append
+  # to the end of the PATH.
+  # -E -- interpret as extended regexp
+  # -q -- Don't print -- only care about a true/false value
   if ! echo "$PATH" | grep -Eq "(^|:)$1($|:)" ; then
     PATH="$PATH:$1"
   fi
@@ -15,13 +18,9 @@ COMPLETION_WAITING_DOTS="true"
 
 plugins=(vi-mode)
 
-#===EXPORTS===
-
 # Needed so that GPG knows how to open the TUI for entering the PGP password.
 export GPG_TTY=$(tty)
-
 export EDITOR='nvim'
-
 export GOPATH=$HOME/go
 
 pathmunge "$GOPATH/bin"
@@ -41,29 +40,7 @@ if type brew &>/dev/null; then
 fi
 
 source $ZSH/oh-my-zsh.sh
-
-#===ALIASES===
-
-alias v=nvim
-alias vim=nvim
-alias vimdiff="nvim -d"
-
-#Shell
-alias cl="clear";
-alias cls="clear";
-alias claer="clear"
-alias clare="clear"
-alias caler="clear"
-alias cler="clear"
-alias clar="clear"
-alias lear="clear"
-alias xit="exit"
-alias xx="exit"
-alias pingu="ping google.com"
-alias q="exit"
-alias cat="bat"
-alias grep="ag"
-alias top="zenith"
+source $DOTFILES_DIR/./aliases.sh
 
 # Make zsh completion:
 # - Try exact (case-sensitive) match first.
@@ -78,73 +55,13 @@ zstyle ':completion:*' list-colors ''
 # tab completing directory appends a slash
 setopt AUTO_PARAM_SLASH
 
-#relocate
-alias dot="cd $DOTFILES_DIR"
-alias repos="cd ~/repos/"
-
-#Git
-alias g=git
-alias gs="git status"
-alias gd="clear; git diff"
-alias gdc="clear; git diff --cached"
-alias ga="git add -A"
-alias add="clear; git add -p"
-alias pull="git pull"
-alias push="git push"
-alias fetch="git fetch -p"
-alias effyou="git push -f"
-alias glog='git log --graph --pretty=format:'\''%Cred%h%Creset %Cgreen(%cr)%Creset%Cblue[%an]%Creset %s%Creset%C(yellow)%d%Creset'\'' --abbrev-commit --date=relative'
-# I swear by my pretty floral bonnet, I will commit you
-alias amend="git commit --amend"
-alias gorram="git commit --amend --no-edit"
-alias gorramit="git commit --amend --no-edit"
-alias gorammit="git commit --amend --no-edit"
-alias gorrammit="git commit --amend --no-edit"
-
-#Tmux
-alias ta="tmux -u attach"
-
-#Docker
-alias dcd="docker compose down"
-alias dcu="docker compose up"
-
-#Go stuff
-
-# When running go command zsh's autocorrection often incorrectly kicks in, e.g. for './...'
-# Therefore just assume I typed the go command correctly by default
-alias go='nocorrect go'
-
-alias pp="$GOPATH/bin/pp" # Overriding the Perl package manager
-
-# gtv is go test, plus a bunch of convenient settings, but also print the logs for any failing tests
-gtv() {
-  if [[ $# -eq 0 ]] ; then
-    ( nocorrect go test ./... -p 1 -json | tparse |& pp )
-  else
-    ( nocorrect go test $@ -p 1 -json | tparse |& pp )
-  fi
-}
-
-alias gtr="go test -race"
-alias glint="golangci-lint"
-
-#===Shell magic<3===
-
 #Enable vim mode in terminal, and set the timeout to 0.1s
 bindkey -v
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-#Tell me when I'm in normal mode in the shell
-function zle-line-init zle-keymap-select {
-    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]% %{$reset_color%}"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
-    zle reset-prompt
-}
-
-#Enable the above function on startup and when modes change
-zle -N zle-line-init
-zle -N zle-keymap-select
+# Disable the default right-hand-side status
+RPS1=""
 
 # extract can decompress most compressed files, assuming the correct tool is installed.
 # Cred to DevRant user Jilano: https://devrant.com/users/Jilano
@@ -175,12 +92,4 @@ function ag() {
   # Stolen and slightly tweaked from wincent
   # whenever ag is invoked, actually call it with less as a pager, and do fancy thhings with colours
   command ag --pager="less -iFMRSX" --color-path=34\;1 --color-line-number=35 --color-match=35\;1\;4 "$@"
-}
-
-# Setting ag as the default source for fzf and have it apply to ctrl+t
-export FZF_DEFAULT_COMMAND='ag -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-function checkout() {
-  git checkout "$(git branch -a | fzf | tr -d '[:space:]')"
 }
