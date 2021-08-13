@@ -21,3 +21,4 @@ let("NERDTreeIgnore", {
 vim.api.nvim_command("autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif")
 
 vim.api.nvim_set_keymap('n', ',,', ':NERDTreeToggle<cr>', { noremap=true, silent=true }) -- Open/close NERDTree
+vim.api.nvim_set_keymap('n', '.<localleader>', ':NERDTreeFind<cr>', { noremap=true, silent=true })

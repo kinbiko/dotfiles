@@ -1,7 +1,8 @@
 require('plugins')
 require('general')
-require('nerdtree')
 require('mappings')
+
+require('nerdtree')
 
 vim.cmd([[
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
