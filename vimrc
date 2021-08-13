@@ -1,13 +1,6 @@
 set nocompatible
 filetype off
 
-call plug#begin('~/.vim/plugged')
-
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' } "Make vim good with go.
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Protocol client
-
-call plug#end()
-
 " Setting this explicitly means I can copy Japanese to the clipboard without
 " mojibake
 lang en_US.UTF-8

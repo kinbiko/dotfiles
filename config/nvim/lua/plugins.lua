@@ -60,5 +60,19 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- Make vim good with Go
+  use {
+    'fatih/vim-go',
+    ft = {'go'},
+    run = ':GoUpdateBinaries'
+  }
+
+  -- LSP
+  -- TODO: Replace with built-in LSP
+  use {
+    'neoclide/coc.nvim',
+    branch = 'release'
+  }
+
 end)
 
