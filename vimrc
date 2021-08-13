@@ -77,13 +77,6 @@ endif
 iabbrev teh the
 iabbrev adn and
 
-" Keys I rarely use in normal mode (OK to overwrite):
-" tags: unused not used available
-" t E K L M X Y Z [ ] \ | <left> <right>
-
-" Make 0 take me to the first non-blank character of the line.
-nnoremap 0 ^
-
 " Make marks be more precise with '
 onoremap ' `
 nnoremap ' `
