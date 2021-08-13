@@ -1,4 +1,5 @@
 require('plugins')
+require('nerdtree')
 
 vim.cmd([[
 set runtimepath^=~/.vim runtimepath+=~/.vim/after

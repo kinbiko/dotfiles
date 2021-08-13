@@ -12,13 +12,6 @@ let g:rehash256=1
 let mapleader = ' '
 let maplocalleader = ','
 
-let NERDTreeIgnore=['node_modules$', '\~$', '\.git$', '\.DS_Store$', '\.meta$', 'tags$', 'tags.lock$', 'tags.temp$', '.idea$', '.env$']
-let NERDTreeShowHidden=1
-" Ignore the help-instructions at the top of NERDTree
-let NERDTreeMinimalUI=1
-" Delete the NERDTree buffer when it's the only one left
-let NERDTreeAutoDeleteBuffer=1
-
 " How long after the last keypress that CursorHold events execute.
 set updatetime=300
 
