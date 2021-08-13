@@ -3,8 +3,6 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
-Plug '/usr/local/opt/fzf' "Put fzf on the path so that it can be used by
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' } "Make vim good with go.
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Protocol client
 

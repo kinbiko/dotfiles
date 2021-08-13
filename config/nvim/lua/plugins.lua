@@ -52,5 +52,13 @@ return require('packer').startup(function(use)
     ft = {'javascript', 'json' }
   }
 
+  -- Install the fzf binary as well
+  use {
+    'junegunn/fzf',
+    run = function()
+      vim.fn['fzf#install']()
+    end
+  }
+
 end)
 
