@@ -5,10 +5,6 @@ filetype off
 " mojibake
 lang en_US.UTF-8
 
-colorscheme nord
-
-let g:rehash256=1
-
 let mapleader = ' '
 let maplocalleader = ','
 

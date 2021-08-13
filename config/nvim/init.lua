@@ -1,4 +1,5 @@
 require('plugins')
+require('general')
 require('nerdtree')
 require('mappings')
 
