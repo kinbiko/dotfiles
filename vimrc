@@ -3,34 +3,13 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'arcticicestudio/nord-vim' "Nord theme
-Plug 'bronson/vim-trailing-whitespace' "Mark trailing whitespace
-Plug 'easymotion/vim-easymotion' "Accurate navigation ala vimium
-Plug 'haya14busa/vim-asterisk' "Use * without moving immediately
 Plug '/usr/local/opt/fzf' "Put fzf on the path so that it can be used by
-Plug 'junegunn/fzf.vim' "The lightning fast fzf fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'airblade/vim-gitgutter' "Makes the git gutter with +, ~, and - available
-Plug 'tpope/vim-fugitive' "Most git features available through :G*
-Plug 'rhysd/committia.vim' "Running 'git commit' on the command line enables diff and other niceties
-Plug 'tpope/vim-surround' "ysiw syntax for surrounding
-Plug 'tpope/vim-repeat' "Make vim-surround things repeatable with .
-Plug 'cohama/lexima.vim' "Automatically close [], '' etc. including def/end
-Plug 'christoomey/vim-tmux-navigator' "Work better with tmux
-Plug 'machakann/vim-highlightedyank' "Highlight when yanking so you don't need to pop into visual mode constantly
-Plug 'sickill/vim-pasta' "Context aware pasting + indentation
 Plug 'mattn/emmet-vim', { 'for': ['javascript', 'html', 'xml', 'jsx', 'erb', 'markdown', 'typescript'] } "Shortcuts for creating html/jsx boilerplate
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' } "Make vim good with go.
-Plug 'rust-lang/rust.vim' " Official Rust plugin.
-Plug 'hashivim/vim-terraform' " Terraform support
 Plug 'prettier/vim-prettier', { 'for': ['javascript', 'json', 'css', 'markdown', 'md', 'typescript', 'typescriptreact'] } "prettier formatter
 Plug 'elzr/vim-json', {'for': ['javascript', 'json'] } "JSON syntax (error) highlighting + concealment
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Protocol client
-Plug 'ryanoasis/vim-devicons' "Pretty icons per filetype. Must be loaded last.
-Plug 'pangloss/vim-javascript' "Syntax highlighting and concealment for JavaScript
-Plug 'maxmellon/vim-jsx-pretty' " Make JSX look good (technically this supports TSX too, but has perf issues)
-Plug 'leafgarland/typescript-vim' "Typescript syntax highlighting
-Plug 'peitalin/vim-jsx-typescript' "TSX syntax highlighting without the perf issues
 
 call plug#end()
 
