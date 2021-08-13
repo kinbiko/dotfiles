@@ -25,32 +25,32 @@ return require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator' -- Work better with tmux
   use 'machakann/vim-highlightedyank' -- Highlight when yanking so you don't need to pop into visual mode constantly
   use 'sickill/vim-pasta' -- Context aware pasting + indentation
-  use 'rust-lang/rust.vim' --  Official Rust plugin.
-  use 'hashivim/vim-terraform' --  Terraform support
-  use 'ryanoasis/vim-devicons' -- Pretty icons per filetype. Must be loaded last.
-  use 'pangloss/vim-javascript' -- Syntax highlighting and concealment for JavaScript
-  use 'maxmellon/vim-jsx-pretty' --  Make JSX look good (technically this supports TSX too, but has perf issues)
-  use 'leafgarland/typescript-vim' -- Typescript syntax highlighting
-  use 'peitalin/vim-jsx-typescript' -- TSX syntax highlighting without the perf issues
+  use 'ryanoasis/vim-devicons' -- Pretty icons per filetype. Must be loaded after NERDTree.
+
+  local web_fts = { 'css', 'html', 'javascript', 'json', 'jsx', 'typescript', 'typescriptreact' }
+
+  local cat = function(t1, t2)
+    local ret = {}
+    for _,v in ipairs(t1) do table.insert(ret, v) end
+    for _,v in ipairs(t2) do table.insert(ret, v) end
+    return ret
+  end
 
  -- Shortcuts for creating html/jsx boilerplate
   use {
     'mattn/emmet-vim',
-    ft = { 'javascript', 'html', 'xml', 'jsx', 'markdown', 'typescript' },
+    ft = cat(web_fts, { 'xml', 'markdown', 'md' }),
     cmd = 'EmmetInstall'
   }
 
-  -- Prettier formatter
-  use {
-    'prettier/vim-prettier',
-    ft = {'javascript', 'json', 'css', 'markdown', 'md', 'typescript', 'typescriptreact'}
-  }
-
-  -- JSON syntax (error) highlighting + concealment
-  use {
-    'elzr/vim-json',
-    ft = {'javascript', 'json' }
-  }
+  use { 'prettier/vim-prettier', ft = cat(web_fts, {'markdown', 'md' }) } -- Prettier formatter
+  use { 'elzr/vim-json', ft = {'javascript', 'json' } } -- JSON syntax (error) highlighting + concealment
+  use { 'rust-lang/rust.vim', ft='rust' } --  Official Rust plugin.
+  use { 'hashivim/vim-terraform', ft='hcl' } --  Terraform support
+  use { 'pangloss/vim-javascript', ft=web_fts } -- Syntax highlighting and concealment for JavaScript
+  use { 'maxmellon/vim-jsx-pretty', ft=web_fts } --  Make JSX look good (technically this supports TSX too, but has perf issues)
+  use { 'leafgarland/typescript-vim', ft=web_fts } -- Typescript syntax highlighting
+  use { 'peitalin/vim-jsx-typescript', ft=web_fts } -- TSX syntax highlighting without the perf issues
 
   -- Install the fzf binary as well
   use {
