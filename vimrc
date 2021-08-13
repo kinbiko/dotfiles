@@ -5,7 +5,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'arcticicestudio/nord-vim' "Nord theme
 Plug 'bronson/vim-trailing-whitespace' "Mark trailing whitespace
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } "File tree on the left hand side
 Plug 'easymotion/vim-easymotion' "Accurate navigation ala vimium
 Plug 'haya14busa/vim-asterisk' "Use * without moving immediately
 Plug '/usr/local/opt/fzf' "Put fzf on the path so that it can be used by
