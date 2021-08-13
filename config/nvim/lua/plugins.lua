@@ -32,5 +32,25 @@ return require('packer').startup(function(use)
   use 'maxmellon/vim-jsx-pretty' --  Make JSX look good (technically this supports TSX too, but has perf issues)
   use 'leafgarland/typescript-vim' -- Typescript syntax highlighting
   use 'peitalin/vim-jsx-typescript' -- TSX syntax highlighting without the perf issues
+
+ -- Shortcuts for creating html/jsx boilerplate
+  use {
+    'mattn/emmet-vim',
+    ft = { 'javascript', 'html', 'xml', 'jsx', 'markdown', 'typescript' },
+    cmd = 'EmmetInstall'
+  }
+
+  -- Prettier formatter
+  use {
+    'prettier/vim-prettier',
+    ft = {'javascript', 'json', 'css', 'markdown', 'md', 'typescript', 'typescriptreact'}
+  }
+
+  -- JSON syntax (error) highlighting + concealment
+  use {
+    'elzr/vim-json',
+    ft = {'javascript', 'json' }
+  }
+
 end)
 
