@@ -63,6 +63,8 @@ map('v', '<', '<gv', {noremap=true, silent=true})
 map('v', '>', '>gv', {noremap=true, silent=true})
 map('v', 'H', '<gv', {noremap=true, silent=true})
 map('v', 'L', '>gv', {noremap=true, silent=true})
+map('n', '>', '>>', {noremap=true, silent=true})
+map('n', '<', '<<', {noremap=true, silent=true})
 
 -- Execute the last played macro
 map('n', 'Q', '@@', {noremap=true, silent=true})
