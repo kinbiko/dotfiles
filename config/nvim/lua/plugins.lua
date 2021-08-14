@@ -43,14 +43,14 @@ return require('packer').startup(function(use)
     cmd = 'EmmetInstall'
   }
 
-  use { 'prettier/vim-prettier', ft = cat(web_fts, {'markdown', 'md' }) } -- Prettier formatter
-  use { 'elzr/vim-json', ft = {'javascript', 'json' } } -- JSON syntax (error) highlighting + concealment
-  use { 'rust-lang/rust.vim', ft='rust' } --  Official Rust plugin.
-  use { 'hashivim/vim-terraform', ft='hcl' } --  Terraform support
-  use { 'pangloss/vim-javascript', ft=web_fts } -- Syntax highlighting and concealment for JavaScript
-  use { 'maxmellon/vim-jsx-pretty', ft=web_fts } --  Make JSX look good (technically this supports TSX too, but has perf issues)
-  use { 'leafgarland/typescript-vim', ft=web_fts } -- Typescript syntax highlighting
-  use { 'peitalin/vim-jsx-typescript', ft=web_fts } -- TSX syntax highlighting without the perf issues
+  use 'prettier/vim-prettier' -- Prettier formatter
+  use 'elzr/vim-json' -- JSON syntax (error) highlighting + concealment
+  use 'rust-lang/rust.vim'--  Official Rust plugin.
+  use 'hashivim/vim-terraform' --  Terraform support
+  use 'pangloss/vim-javascript'-- Syntax highlighting and concealment for JavaScript
+  use 'maxmellon/vim-jsx-pretty' --  Make JSX look good (technically this supports TSX too, but has perf issues)
+  use 'leafgarland/typescript-vim' -- Typescript syntax highlighting
+  use 'peitalin/vim-jsx-typescript' -- TSX syntax highlighting without the perf issues
 
   -- Install the fzf binary as well
   use {
@@ -63,7 +63,6 @@ return require('packer').startup(function(use)
   -- Make vim good with Go
   use {
     'fatih/vim-go',
-    ft = {'go'},
     run = ':GoUpdateBinaries'
   }
 
