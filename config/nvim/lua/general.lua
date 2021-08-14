@@ -60,6 +60,8 @@ vim.o.wrap = false -- Don't wrap lines by default
 vim.o.listchars='tab:>-,trail:·,extends:>,precedes:<'
 vim.o.list = true -- turn the above on
 
+vim.o.autowrite = true -- Make No write since last change stfu
+
 -- Allows you to hide a buffer without saving it
 vim.o.hidden = true
 

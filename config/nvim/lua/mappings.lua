@@ -1,7 +1,4 @@
-local map = function(kind, lhs, rhs, opts)
-  vim.api.nvim_set_keymap(kind, lhs, rhs, opts)
-end
-
+local map = require('util').map
 -- Keys I rarely use in normal mode (OK to overwrite):
 -- t E K L M X Y Z [ ] \ | <left> <right>
 
