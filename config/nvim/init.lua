@@ -1,5 +1,7 @@
-require('plugins')
-require('general')
-require('mappings')
+require('kinbiko.plugins')
+require('kinbiko.general')
+require('kinbiko.mappings')
+require('kinbiko.lsp')
+require('kinbiko.completion')
 
-require('nerdtree')
+require('kinbiko.nerdtree')

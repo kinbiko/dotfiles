@@ -10,6 +10,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Packer can manage itself
 
   use 'arcticicestudio/nord-vim' -- Nord theme
+  use 'folke/tokyonight.nvim' -- TokyoNight theme
   use 'preservim/nerdtree' -- File tree on the left hand side
 
   use 'bronson/vim-trailing-whitespace' -- Mark trailing whitespace
@@ -65,13 +66,20 @@ return require('packer').startup(function(use)
     'fatih/vim-go',
     run = ':GoUpdateBinaries'
   }
+  use 'neovim/nvim-lspconfig' -- Easy LSP configuration
+  use 'kabouzeid/nvim-lspinstall' -- Install LSP servers on demand with LSPInstall
 
-  -- LSP
-  -- TODO: Replace with built-in LSP
-  use {
-    'neoclide/coc.nvim',
-    branch = 'release'
-  }
+  -- This is a bit excessive: Only importing to avoid having documentation show
+  -- up in a nofile buffer (instead of a quickfix window) that I have to close
+  -- after each completion. If I could figure out how to make this window a
+  -- floating window or a quickfix window then I might not care about this
+  -- particular plugin
+  use 'nvim-lua/completion-nvim'
 
+  -- TODO: Check these plugins out when
+  -- https://github.com/ms-jpq/coq_nvim/issues/11 has been resolved.
+  -- use { 'ms-jpq/coq_nvim', branch='coq' }
+  -- use { 'ms-jpq/coq.artifacts', branch='artifacts' }
+  -- use { 'ms-jpq/chadtree', branch='chad', run = 'python3 -m chadtree deps'}
 end)
 

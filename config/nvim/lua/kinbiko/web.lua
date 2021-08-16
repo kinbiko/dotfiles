@@ -1,4 +1,4 @@
-local map = require('util').map
+local map = require('kinbiko.util').map
 
 vim.cmd([[
 augroup prettier_group

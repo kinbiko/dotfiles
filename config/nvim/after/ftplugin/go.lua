@@ -1,4 +1,4 @@
-local map = require('util').map
+require('kinbiko.mappings').registerGoMappings()
 
 -- Play nice with gofmt
 -- Make tabs just show up as spaces without any further clutter
@@ -49,26 +49,3 @@ vim.g.go_implements_mode='gopls' -- Use the LSP for GoImplements
 vim.g.go_gopls_complete_unimported = 1 -- Include suggestions from unimported packages
 vim.g.go_diagnostics_level = 2 -- Treat both warnings and errors in diagnostics.
 vim.g.go_doc_popup_window = 1 -- Use a floating window for docs :GoDoc and K instead of a preview window.
-
-map('n', '<leader>[', ':GoDefPop<cr>', {noremap = true, silent = true})
-map('n', '<leader>]', ':GoDef<cr>', {noremap = true, silent = true})
-
-map('n', '<leader>a', ':GoAlternate<cr>', {noremap = true, silent = true})
-map('n', '<leader>c', ':GoCoverageToggle!<cr>', {noremap = true, silent = true})
-map('n', '<leader>d', ':GoDoc<cr>', {noremap = true, silent = true})
-map('n', '<leader>s', ':GoFillStruct<cr>', {noremap = true, silent = true})
-map('n', '<leader>i', ':GoImports<cr>', {noremap = true, silent = true})
-map('n', '<leader>l', ':GoMetaLinter<cr>', {noremap = true, silent = true})
-map('n', '<leader>t', ':GoTest!<cr>', {noremap = true, silent = true})
-map('n', '<leader>T', ':GoTestFunc!<cr>', {noremap = true, silent = true})
-
-map('i', '<localleader>=', ' := ', {noremap = true, silent = true})
-map('i', 'nnn', '<esc>:GoIfErr<cr>', {noremap = true, silent = true})
-map('i', 'testt', 'nnn', {noremap = true, silent = true})
-map('i', 'stt', 't.Run(tc.name, func(t *testing.T){})<left><left>', {noremap = true, silent = true})
-map('i', 'ccc', 'context.Context', {noremap = true, silent = true})
-map('i', 'cbb', 'context.Background()', {noremap = true, silent = true})
-map('i', 'iii', 'interface{}', {noremap = true, silent = true})
-map('i', 'sss', "'%s'", {noremap = true, silent = true})
-map('i', 'ddd', '%d', {noremap = true, silent = true})
-map('i', 'vvv', '%+v', {noremap = true, silent = true})

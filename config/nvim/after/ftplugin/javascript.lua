@@ -1,1 +1,1 @@
-require('web')
+require('kinbiko.web')

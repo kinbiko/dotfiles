@@ -1,5 +1,6 @@
 -- Set the colorscheme
-vim.g.colors_name = 'nord'
+vim.g.tokyonight_style = 'night'
+vim.g.colors_name = 'tokyonight'
 
 -- Setting this explicitly means I can copy Japanese to the clipboard without mojibake
 -- TODO: Find the *right* config option (not vim.cmd) for this -- it's too
