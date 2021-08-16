@@ -2,7 +2,6 @@ local lc = require('lspconfig')
 local li = require('lspinstall')
 local m = require('kinbiko.mappings')
 
-
 local on_attach = function(_, bufnr)
   m.registerLSPMappings(bufnr)
   -- Enable completion triggered by <c-x><c-o>
@@ -12,6 +11,7 @@ local on_attach = function(_, bufnr)
 end
 
 -- == Lua (sumneko/lua-language-server) ==
+
 -- Configure lua language server for neovim development
 local lua_settings = {
   Lua = {
@@ -106,6 +106,7 @@ local function setup_servers()
     if server == "go" then config.settings = go_settings end
     if server == "html" then config.settings = html_settings end
     if server == "json" then config.settings = json_settings end
+    if server == "lua" then config.settings = lua_settings end
     if server == "php" then config.settings = php_settings end
     if server == "python" then config.settings = python_settings end
     if server == "ruby" then config.settings = ruby_settings end
