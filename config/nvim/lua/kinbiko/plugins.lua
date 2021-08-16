@@ -76,6 +76,8 @@ return require('packer').startup(function(use)
   -- particular plugin
   use 'nvim-lua/completion-nvim'
 
+  use 'mhinz/vim-startify' -- Pretty start screen
+
   -- TODO: Check these plugins out when
   -- https://github.com/ms-jpq/coq_nvim/issues/11 has been resolved.
   -- use { 'ms-jpq/coq_nvim', branch='coq' }
