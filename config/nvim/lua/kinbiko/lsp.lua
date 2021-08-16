@@ -2,21 +2,6 @@ local lc = require('lspconfig')
 local li = require('lspinstall')
 local m = require('kinbiko.mappings')
 
--- Notes from kabouzeid/nvim-lspinstall:
--- css - css-language-features
--- dockerfile - docker-langserver
--- go - gopls
--- html - html-language-features
--- json - json-language-features
--- lua - sumneko/lua-language-server
--- php - intelephense
--- python - pyright-langserver
--- ruby - solargraph
--- rust - rust-analyzer
--- tailwindcss - tailwindcss-intellisense
--- terraform - terraform-ls
--- typescript - typescript-language-server
--- yaml - yaml-language-server
 
 local on_attach = function(_, bufnr)
   m.registerLSPMappings(bufnr)
@@ -26,6 +11,7 @@ local on_attach = function(_, bufnr)
   require('completion').on_attach()
 end
 
+-- == Lua (sumneko/lua-language-server) ==
 -- Configure lua language server for neovim development
 local lua_settings = {
   Lua = {
@@ -45,15 +31,65 @@ local lua_settings = {
   }
 }
 
+-- == CSS (css-language-features) ==
+
+local css_settings = {}
+
+-- == Dockerfile (docker-langserver)==
+
+local dockerfile_settings = {}
+
+-- == Go (gopls)==
+
+local go_settings = {}
+
+-- == HTML (html-language-features)==
+
+local html_settings = {}
+
+-- == JSON (json-language-features)==
+
+local json_settings = {}
+
+-- == PHP (intelephense)==
+
+local php_settings = {}
+
+-- == Python (pyright-langserver)==
+
+local python_settings = {}
+
+-- == Ruby (solargraph)==
+
+local ruby_settings = {}
+
+-- == Rust (rust-analyzer)==
+
+local rust_settings = {}
+
+-- == TailwindCSS (tailwindcss-intellisense)==
+
+local tailwindcss_settings = {}
+
+-- == Terraform (terraform-ls)==
+
+local terraform_settings = {}
+
+-- == TypeScript (typescript-language-server)==
+
+local typescript_settings = {}
+
+-- == YAML (yaml-language-server)==
+
+local yaml_settings = {}
+
 -- config that activates keymaps and enables snippet support
 local function make_config()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   return {
-    -- enable snippet support
-    capabilities = capabilities,
-    -- map buffer local keybindings when the language server attaches
-    on_attach = on_attach,
+    capabilities = capabilities, -- enable snippet support
+    on_attach = on_attach, -- map buffer local keybindings when the language server attaches
   }
 end
 
@@ -65,9 +101,19 @@ local function setup_servers()
     local config = make_config()
 
     -- language specific config
-    if server == "lua" then
-      config.settings = lua_settings
-    end
+    if server == "css" then config.settings = css_settings end
+    if server == "dockerfile" then config.settings = dockerfile_settings end
+    if server == "go" then config.settings = go_settings end
+    if server == "html" then config.settings = html_settings end
+    if server == "json" then config.settings = json_settings end
+    if server == "php" then config.settings = php_settings end
+    if server == "python" then config.settings = python_settings end
+    if server == "ruby" then config.settings = ruby_settings end
+    if server == "rust" then config.settings = rust_settings end
+    if server == "tailwindcss" then config.settings = tailwindcss_settings end
+    if server == "terraform" then config.settings = terraform_settings end
+    if server == "typescript" then config.settings = typescript_settings end
+    if server == "yaml" then config.settings = yaml_settings end
 
     lc[server].setup(config)
   end
