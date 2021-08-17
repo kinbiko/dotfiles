@@ -83,5 +83,14 @@ return require('packer').startup(function(use)
   -- use { 'ms-jpq/coq_nvim', branch='coq' }
   -- use { 'ms-jpq/coq.artifacts', branch='artifacts' }
   -- use { 'ms-jpq/chadtree', branch='chad', run = 'python3 -m chadtree deps'}
+
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup{}
+    end
+  }
+
 end)
 
