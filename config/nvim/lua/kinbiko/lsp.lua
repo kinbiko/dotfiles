@@ -1,5 +1,6 @@
 local lc = require('lspconfig')
 local li = require('lspinstall')
+local coq = require('coq')
 local m = require('kinbiko.mappings')
 
 local on_attach = function(_, bufnr)
@@ -116,7 +117,7 @@ local function setup_servers()
     if server == "typescript" then config.settings = typescript_settings end
     if server == "yaml" then config.settings = yaml_settings end
 
-    lc[server].setup(config)
+    lc[server].setup(coq.lsp_ensure_capabilities(config))
   end
 end
 

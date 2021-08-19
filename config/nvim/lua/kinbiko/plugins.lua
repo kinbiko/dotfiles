@@ -78,11 +78,7 @@ return require('packer').startup(function(use)
 
   use 'mhinz/vim-startify' -- Pretty start screen
 
-  -- TODO: Check these plugins out when
-  -- https://github.com/ms-jpq/coq_nvim/issues/11 has been resolved.
-  -- use { 'ms-jpq/coq_nvim', branch='coq' }
-  -- use { 'ms-jpq/coq.artifacts', branch='artifacts' }
-  -- use { 'ms-jpq/chadtree', branch='chad', run = 'python3 -m chadtree deps'}
+  use { 'ms-jpq/coq_nvim', branch='coq' }
 
   use {
     "folke/trouble.nvim",
