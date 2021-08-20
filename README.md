@@ -76,7 +76,6 @@ Pro tip: Create a git repository of the home directory, so you can go back in ti
    ```
 1. Symlink (assuming you're in `~`):
    ```
-   ln -s repos/dotfiles/alacritty.yml .alacritty.yml
    ln -s repos/dotfiles/vim .vim
    ln -s repos/dotfiles/tmux.conf .tmux.conf
    ln -s repos/dotfiles/tmux .tmux
