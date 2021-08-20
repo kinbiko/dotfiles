@@ -150,4 +150,9 @@ function mappings:mapEmmet()
   map('i', 'hh', '<C-y>', { silent = true })
 end
 
+function mappings:mapNERDTree()
+  map('n', ',,', ':NERDTreeToggle<cr>', silentnoremap) -- Open/close NERDTree
+  map('n', '.<localleader>', ':NERDTreeFind<cr>', silentnoremap) -- Find the current file in NERDTree
+end
+
 return mappings
