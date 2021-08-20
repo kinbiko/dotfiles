@@ -76,8 +76,7 @@ Pro tip: Create a git repository of the home directory, so you can go back in ti
    ```
 1. Symlink (assuming you're in `~`):
    ```
-   ln -s repos/dotfiles/tmux.conf .tmux.conf
-   ln -s repos/dotfiles/tmux .tmux
+   ln -s $DOTFILES_DIR/config/tmux ~/.config/tmux
    ```
 1. Configure global git ignore: `git config --global core.excludesFile '~/repos/dotfiles/.gitignore-global'`
 1. Install the pretty font that's defined in the alacritty config: `brew tap homebrew/cask-fonts;brew install font-hack-nerd-font`
