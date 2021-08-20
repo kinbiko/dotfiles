@@ -3,9 +3,7 @@ vim.g.tokyonight_style = 'night'
 vim.g.colors_name = 'tokyonight'
 
 -- Setting this explicitly means I can copy Japanese to the clipboard without mojibake
--- TODO: Find the *right* config option (not vim.cmd) for this -- it's too
--- annoying to google and all the config options on the global vim namespace
--- are implemented with magic.
+-- There's no non-vim.cmd solution for this as of 2021-08-20 according to tjdevries.
 vim.cmd('lang en_US.UTF-8')
 
 vim.o.tabstop = 2 -- columns per tab character
