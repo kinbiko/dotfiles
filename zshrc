@@ -9,6 +9,9 @@ pathmunge () {
   fi
 }
 
+# I think this is more or less the default anyway...
+export XDG_CONFIG_HOME="$HOME/.config"
+
 export ZSH=~/.oh-my-zsh
 ZSH_THEME="avit"
 HYPHEN_INSENSITIVE="true"
