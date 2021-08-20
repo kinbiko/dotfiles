@@ -10,3 +10,4 @@ config/*
 !config/nvim/
 !config/alacritty/
 !config/tmux/
+!config/git/
