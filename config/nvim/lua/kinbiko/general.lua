@@ -84,16 +84,3 @@ vim.g.netrw_dirhistmax = 0
 -- space like this: [  ]. (should only have a single space inside when hitting
 -- space)
 vim.g.lexima_enable_space_rules = 0
-
--- The .spl files are ignored by default, because they're ugly binary files.
--- However, these files should be regenerated based on the .add files which are
--- committed and may be changed on different computers.
--- Based on https://stackoverflow.com/q/27240638/2422278
--- TODO: Rewrite in Lua
-vim.cmd([[
-for d in glob('~/.vim/spell/*.add', 1, 1)
-    if filereadable(d) && (!filereadable(d . '.spl') || getftime(d) > getftime(d . '.spl'))
-        exec 'mkspell! ' . fnameescape(d)
-    endif
-endfor
-]])
