@@ -76,16 +76,14 @@ Pro tip: Create a git repository of the home directory, so you can go back in ti
    ```
 1. Symlink (assuming you're in `~`):
    ```
-   ln -s repos/dotfiles/vim .vim
    ln -s repos/dotfiles/tmux.conf .tmux.conf
    ln -s repos/dotfiles/tmux .tmux
-   ln -s repos/dotfiles/ctags .ctags
    ```
 1. Configure global git ignore: `git config --global core.excludesFile '~/repos/dotfiles/.gitignore-global'`
 1. Install the pretty font that's defined in the alacritty config: `brew tap homebrew/cask-fonts;brew install font-hack-nerd-font`
 1. `brew install alacritty` so you can continue with a good terminal.
 1. `brew install fzf` and run `/usr/local/opt/fzf/install` and answer yes to auto-completion and key bindings, but no to updating shell config files.
-1. Install these other programs from `brew`: `bat ctags diff-so-fancy fpp jq gh go lazygit neovim the_silver_searcher tmux tree up wget zenith node docker google-cloud-sdk postman`
+1. Install these other programs from `brew`: `bat diff-so-fancy fpp jq gh go lazygit neovim the_silver_searcher tmux tree up wget zenith node docker google-cloud-sdk postman`
 1. Install `prettier` from npm: `npm install -g prettier`
 1. Run `compaudit | xargs chmod g-w` to ensure you have access to the completion files that were created in the previous step.
 1. neovim:
