@@ -138,12 +138,6 @@ function mappings:registerGoMappings()
   map('i', 'ddd', '%d', silentnoremap)
   map('i', 'vvv', '%+v', silentnoremap)
 
-  --[[
-  map('n', '<leader>[', ':GoDefPop<cr>', silentnoremap)
-  map('n', '<leader>]', ':GoDef<cr>', silentnoremap)
-  map('n', '<leader>d', ':GoDoc<cr>', silentnoremap)
-  --]]
-
 end
 
 function mappings:mapEmmet()
