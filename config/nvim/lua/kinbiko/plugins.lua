@@ -28,19 +28,10 @@ return require('packer').startup(function(use)
   use 'sickill/vim-pasta' -- Context aware pasting + indentation
   use 'ryanoasis/vim-devicons' -- Pretty icons per filetype. Must be loaded after NERDTree.
 
-  local web_fts = { 'css', 'html', 'javascript', 'json', 'jsx', 'typescript', 'typescriptreact' }
-
-  local cat = function(t1, t2)
-    local ret = {}
-    for _,v in ipairs(t1) do table.insert(ret, v) end
-    for _,v in ipairs(t2) do table.insert(ret, v) end
-    return ret
-  end
-
  -- Shortcuts for creating html/jsx boilerplate
   use {
     'mattn/emmet-vim',
-    ft = cat(web_fts, { 'xml', 'markdown', 'md' }),
+    ft = { 'css', 'html', 'javascript', 'json', 'typescript', 'typescriptreact', 'markdown' },
     cmd = 'EmmetInstall'
   }
 
