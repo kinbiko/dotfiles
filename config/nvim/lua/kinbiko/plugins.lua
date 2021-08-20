@@ -53,13 +53,7 @@ return require('packer').startup(function(use)
   use 'leafgarland/typescript-vim' -- Typescript syntax highlighting
   use 'peitalin/vim-jsx-typescript' -- TSX syntax highlighting without the perf issues
 
-  -- Install the fzf binary as well
-  use {
-    'junegunn/fzf',
-    run = function()
-      vim.fn['fzf#install']()
-    end
-  }
+  use { 'junegunn/fzf', run = vim.fn['fzf#install'] } -- Install the fzf binary as well
 
   -- Make vim good with Go
   use {
