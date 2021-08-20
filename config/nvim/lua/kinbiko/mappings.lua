@@ -1,6 +1,9 @@
-local map = require('kinbiko.util').map
 -- Keys I rarely use in normal mode (OK to overwrite):
 -- t E L M X Y Z [ ] \ | <left> <right>
+
+local function map(kind, lhs, rhs, opts)
+  vim.api.nvim_set_keymap(kind, lhs, rhs, opts)
+end
 
 local silentnoremap = {noremap = true, silent = true}
 
@@ -141,6 +144,10 @@ function mappings:registerGoMappings()
   map('n', '<leader>d', ':GoDoc<cr>', silentnoremap)
   --]]
 
+end
+
+function mappings:mapEmmet()
+  map('i', 'hh', '<C-y>', { silent = true })
 end
 
 return mappings

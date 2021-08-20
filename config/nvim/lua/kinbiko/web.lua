@@ -1,4 +1,4 @@
-local map = require('kinbiko.util').map
+require('kinbiko.mappings').mapEmmet()
 
 vim.cmd([[
 augroup prettier_group
@@ -6,6 +6,3 @@ augroup prettier_group
   autocmd BufWritePre *.jsx,*.js,*.tsx,*.ts,*.md PrettierAsync
 augroup END
 ]])
-
--- Enable Emmet
-map('i', 'hh', '<C-y>', { silent = true })
