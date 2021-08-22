@@ -6,13 +6,13 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.api.nvim_command 'packadd packer.nvim'
 end
 
-return require('packer').startup(function(use)
+require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Packer can manage itself
 
   use 'arcticicestudio/nord-vim' -- Nord theme
   use 'folke/tokyonight.nvim' -- TokyoNight theme
   use 'preservim/nerdtree' -- File tree on the left hand side
-
+  use 'stevearc/stickybuf.nvim' -- Make NERDTree stay NERDTree, even when I'm stupid.
   use 'bronson/vim-trailing-whitespace' -- Mark trailing whitespace
   use 'easymotion/vim-easymotion' -- Accurate navigation ala vimium
   use 'haya14busa/vim-asterisk' -- Use * without moving immediately
@@ -27,6 +27,8 @@ return require('packer').startup(function(use)
   use 'machakann/vim-highlightedyank' -- Highlight when yanking so you don't need to pop into visual mode constantly
   use 'sickill/vim-pasta' -- Context aware pasting + indentation
   use 'ryanoasis/vim-devicons' -- Pretty icons per filetype. Must be loaded after NERDTree.
+  use 'folke/twilight.nvim' -- "reading" mode that disables distant syntax highlighting
+  use 'mhinz/vim-startify' -- Pretty start screen
 
  -- Shortcuts for creating html/jsx boilerplate
   use {
@@ -61,17 +63,35 @@ return require('packer').startup(function(use)
   -- particular plugin
   use 'nvim-lua/completion-nvim'
 
-  use 'mhinz/vim-startify' -- Pretty start screen
 
+  -- This is a big fat plugin that I'm really only using to make autocompletion useful.
   use { 'ms-jpq/coq_nvim', branch='coq' }
 
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      require("trouble").setup{}
+      require("trouble").setup({})
     end
   }
 
-end)
 
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim', -- Utility functions for Lua. Direct dependency.
+      'nvim-treesitter/nvim-treesitter' -- Optional dependency.
+    }
+  }
+
+  -- LSP powered code skimming tool. Requires some TLC to get it working well.
+  -- use 'stevearc/aerial.nvim'
+
+  -- Easymotion on speed. Takes some cgetting used to and mapping is awkward.
+  -- use 'ggandor/lightspeed.nvim'
+
+  -- This plugin is really nice, but it doesn't play nicely with NERDTree,
+  -- easymotion, and other plugins (false-positive dimming of active windows)
+  -- use 'sunjon/shade.nvim' -- Dim the non-active windows
+
+end)

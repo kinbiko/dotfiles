@@ -1,5 +1,5 @@
 -- Keys I rarely use in normal mode (OK to overwrite):
--- t E L M X Y Z [ ] \ | <left> <right>
+-- t E L M X Y Z [ ] \ |
 
 local function map(kind, lhs, rhs, opts)
   vim.api.nvim_set_keymap(kind, lhs, rhs, opts)
@@ -33,10 +33,24 @@ map('n', '<localleader><leader>', ':nohlsearch<CR>', silentnoremap)
 map('n', '<leader>f', '<Plug>(easymotion-prefix)s', {})
 
 -- Pop open a window for fuzzy-finding and opening a file in the repo.
-map('n', '?', ':Files<cr>', silentnoremap)
+map('n', '?', '<cmd>Telescope git_files<cr>', silentnoremap)
+
+-- Pop open a window for grepping for any text in the repo
+map('n', '_', '<cmd>Telescope live_grep<cr>', silentnoremap)
+
+-- Find any type in the workspace dynamically
+map('n', 'T', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', silentnoremap)
+
+-- Go to definition and pop back up
+-- Don't do noremap to allow accessing LSP behaviour
+map('n', '<right>', 'gd', { silent = true })
+map('n', '<left>', '<c-t>', { silent = true })
 
 -- Undo the unstaged Git hunk
 map('n', '<leader>u', ':GitGutterUndoHunk<cr>', silentnoremap)
+
+-- Read the code with focus on one section at the time.
+map('n', '<leader>R', ':Twilight<cr>', silentnoremap)
 
 -- More intuitive to me than ctrl+n and ctrl+p
 map('i', '<c-j>', '<c-n>', silentnoremap)
@@ -109,22 +123,25 @@ function mappings:registerLSPMappings(bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   bufmap('n', 'gd',         '<cmd>lua vim.lsp.buf.definition()<CR>', silentnoremap)
   bufmap('n', 'K',          '<cmd>lua vim.lsp.buf.hover()<CR>', silentnoremap)
-  bufmap('n', 'gi',         '<cmd>lua vim.lsp.buf.implementation()<CR>', silentnoremap)
-  bufmap('i', '<c-p>',      '<cmd>lua vim.lsp.buf.signature_help()<CR>', silentnoremap) -- Muscle-memory from IntelliJ
-  bufmap('n', '<leader>D',  '<cmd>lua vim.lsp.buf.type_definition()<CR>', silentnoremap)
-  bufmap('n', '<leader>r',  '<cmd>lua vim.lsp.buf.rename()<CR>', silentnoremap)
-  bufmap('n', '<leader>a',  '<cmd>lua vim.lsp.buf.code_action()<CR>', silentnoremap)
   bufmap('n', '<leader>#',  '<cmd>lua vim.lsp.buf.references()<CR>', silentnoremap)
+  bufmap('n', '<leader>D',  '<cmd>lua vim.lsp.buf.type_definition()<CR>', silentnoremap)
+  bufmap('n', '<leader>a',  '<cmd>lua vim.lsp.buf.code_action()<CR>', silentnoremap)
   bufmap('n', '<leader>e',  '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', silentnoremap)
-  bufmap('n', '<leader>i',  '<cmd>lua vim.lsp.buf.formatting()<CR>', silentnoremap)
+  bufmap('n', '<leader>i',  '<cmd>Telescope lsp_implementations<cr>', silentnoremap)
+  bufmap('n', '<leader>r',  '<cmd>lua vim.lsp.buf.rename()<CR>', silentnoremap)
+
+  bufmap('i', '<c-p>',      '<cmd>lua vim.lsp.buf.signature_help()<CR>', silentnoremap) -- Muscle-memory from IntelliJ
 end
 
 function mappings:registerGoMappings()
   map('n', '<leader>a', ':GoAlternate<cr>', silentnoremap)
-  map('n', '<leader>i', ':GoImports<cr>', silentnoremap)
+  map('n', 'gi',        ':GoImports<cr>', silentnoremap)
   map('n', '<leader>l', ':GoMetaLinter<cr>', silentnoremap)
   map('n', '<leader>t', ':GoTest!<cr>', silentnoremap)
   map('n', '<leader>T', ':GoTestFunc!<cr>', silentnoremap)
+
+  map('n', '<right>', ':GoDef<cr>', silentnoremap)
+  map('n', '<left>', ':GoDefPop<cr>', silentnoremap)
 
   map('i', '<localleader><localleader><localleader>', '<esc>:GoFillStruct<cr>i', silentnoremap)
   map('i', '<localleader>=', ' := ', silentnoremap)
