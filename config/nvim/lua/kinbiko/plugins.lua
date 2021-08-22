@@ -95,4 +95,9 @@ require('packer').startup(function(use)
   -- easymotion, and other plugins (false-positive dimming of active windows)
   -- use 'sunjon/shade.nvim' -- Dim the non-active windows
 
+  -- Looks interesting, but also looks like it has horrible default bindings
+  -- use 'jakewvincent/mkdnflow.nvim'
+
+  -- Opposite of J for splitting parameters across lines
+  -- use 'AckslD/nvim-revJ.lua'
 end)
