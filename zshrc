@@ -43,7 +43,7 @@ if type brew &>/dev/null; then
 fi
 
 source $ZSH/oh-my-zsh.sh
-source $DOTFILES_DIR/./aliases.sh
+source $DOTFILES_DIR/aliases.sh
 
 # Make zsh completion:
 # - Try exact (case-sensitive) match first.

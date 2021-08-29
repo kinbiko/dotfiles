@@ -52,3 +52,5 @@ alias pp="$GOPATH/bin/pp" # Overriding the Perl package manager
 
 alias gtr="go test -race"
 alias glint="golangci-lint"
+
+alias brb="clear;cowsay brb;sleep 1800"
