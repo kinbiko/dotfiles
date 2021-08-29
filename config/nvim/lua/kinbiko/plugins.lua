@@ -32,11 +32,7 @@ require('packer').startup(function(use)
   use 'nacro90/numb.nvim' -- Preview the line while typing :<number>
 
  -- Shortcuts for creating html/jsx boilerplate
-  use {
-    'mattn/emmet-vim',
-    ft = { 'css', 'html', 'javascript', 'json', 'typescript', 'typescriptreact', 'markdown' },
-    cmd = 'EmmetInstall'
-  }
+  use 'mattn/emmet-vim'
 
   use 'prettier/vim-prettier' -- Prettier formatter
   use 'elzr/vim-json' -- JSON syntax (error) highlighting + concealment
