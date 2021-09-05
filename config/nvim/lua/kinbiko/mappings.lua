@@ -32,14 +32,27 @@ map('n', '<localleader><leader>', ':nohlsearch<CR>', silentnoremap)
 -- Find using vimium-like search feature
 map('n', '<leader>f', '<Plug>(easymotion-prefix)s', {})
 
--- Pop open a window for fuzzy-finding and opening a file in the repo.
-map('n', '?', '<cmd>Telescope git_files<cr>', silentnoremap)
+-- Pop open a window for grepping for filename under the current directory.
+-- Useful big searches across lots of repos from a parent directory
+map('n', '?F', ':Files<cr>', silentnoremap)
+-- Pop open a window for finding code actions for the current cursor location
+map('n', '?A', ':Ag<cr>', silentnoremap)
 
 -- Pop open a window for grepping for any text in the repo
-map('n', '_', '<cmd>Telescope live_grep<cr>', silentnoremap)
-
+map('n', '?S', '<cmd>Telescope live_grep<cr>', silentnoremap)
+-- Pop open a window for finding and running commands by name
+map('n', '?:', '<cmd>Telescope commands<cr>', silentnoremap)
+-- Pop open a window for finding and running recent searches
+map('n', '?H', '<cmd>Telescope search_history<cr>', silentnoremap)
+-- Pop open a window for finding quickfix items
+map('n', '?Q', '<cmd>Telescope quickfix<cr>', silentnoremap)
+-- Pop open a window for finding references to the word under the cursor
+map('n', '?R', '<cmd>Telescope lsp_references<cr>', silentnoremap)
 -- Find any type in the workspace dynamically
-map('n', 'T', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', silentnoremap)
+map('n', '?T', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', silentnoremap)
+
+-- Remind me of the above mappings
+map('n', '??', ':echo "A Ag; F FZF; H Search history; Q quickfix; R references; S grep; T types; : commands"<CR>', { noremap = true })
 
 -- Go to definition and pop back up
 -- Don't do noremap to allow accessing LSP behaviour
