@@ -1,9 +1,7 @@
 -- Keys I rarely use in normal mode (OK to overwrite):
 -- t E L M X Y Z [ ] \ |
 
-local function map(kind, lhs, rhs, opts)
-  vim.api.nvim_set_keymap(kind, lhs, rhs, opts)
-end
+local map = vim.api.nvim_set_keymap
 
 local silentnoremap = {noremap = true, silent = true}
 
