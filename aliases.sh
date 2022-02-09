@@ -9,8 +9,6 @@ alias cler="clear"
 alias clar="clear"
 alias lear="clear"
 
-alias xit="exit"
-alias xx="exit"
 alias q="exit"
 
 alias pingu="ping google.com"
@@ -52,5 +50,3 @@ alias pp="$GOPATH/bin/pp" # Overriding the Perl package manager
 
 alias gtr="go test -race"
 alias glint="golangci-lint"
-
-alias brb="clear;cowsay brb;sleep 1800"
