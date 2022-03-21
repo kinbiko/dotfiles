@@ -9,7 +9,6 @@ end
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Packer can manage itself
 
-  use 'arcticicestudio/nord-vim' -- Nord theme
   use 'folke/tokyonight.nvim' -- TokyoNight theme
   use 'preservim/nerdtree' -- File tree on the left hand side
   use 'stevearc/stickybuf.nvim' -- Make NERDTree stay NERDTree, even when I'm stupid.
@@ -30,10 +29,7 @@ require('packer').startup(function(use)
   use 'folke/twilight.nvim' -- "reading" mode that disables distant syntax highlighting
   use 'mhinz/vim-startify' -- Pretty start screen
   use 'nacro90/numb.nvim' -- Preview the line while typing :<number>
-
- -- Shortcuts for creating html/jsx boilerplate
-  use 'mattn/emmet-vim'
-
+  use 'mattn/emmet-vim' -- Shortcuts for creating html/jsx boilerplate
   use 'prettier/vim-prettier' -- Prettier formatter
   use 'elzr/vim-json' -- JSON syntax (error) highlighting + concealment
   use 'rust-lang/rust.vim'--  Official Rust plugin.
@@ -42,6 +38,7 @@ require('packer').startup(function(use)
   use 'maxmellon/vim-jsx-pretty' --  Make JSX look good (technically this supports TSX too, but has perf issues)
   use 'leafgarland/typescript-vim' -- Typescript syntax highlighting
   use 'peitalin/vim-jsx-typescript' -- TSX syntax highlighting without the perf issues
+  use 'ray-x/lsp_signature.nvim' -- Keep the function signature docs up while filling in params
 
   use { 'junegunn/fzf', run = vim.fn['fzf#install'] } -- Install the fzf binary as well
 
@@ -51,7 +48,7 @@ require('packer').startup(function(use)
     run = ':GoUpdateBinaries'
   }
   use 'neovim/nvim-lspconfig' -- Easy LSP configuration
-  use 'kabouzeid/nvim-lspinstall' -- Install LSP servers on demand with LSPInstall
+  use 'williamboman/nvim-lsp-installer' -- Install LSP servers on demand with LSPInstall
 
   -- This is a bit excessive: Only importing to avoid having documentation show
   -- up in a nofile buffer (instead of a quickfix window) that I have to close
@@ -72,6 +69,10 @@ require('packer').startup(function(use)
     end
   }
 
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+  }
 
   use {
     'nvim-telescope/telescope.nvim',
@@ -81,19 +82,5 @@ require('packer').startup(function(use)
     }
   }
 
-  -- LSP powered code skimming tool. Requires some TLC to get it working well.
-  -- use 'stevearc/aerial.nvim'
-
-  -- Easymotion on speed. Takes some cgetting used to and mapping is awkward.
-  -- use 'ggandor/lightspeed.nvim'
-
-  -- This plugin is really nice, but it doesn't play nicely with NERDTree,
-  -- easymotion, and other plugins (false-positive dimming of active windows)
-  -- use 'sunjon/shade.nvim' -- Dim the non-active windows
-
-  -- Looks interesting, but also looks like it has horrible default bindings
-  -- use 'jakewvincent/mkdnflow.nvim'
-
-  -- Opposite of J for splitting parameters across lines
-  -- use 'AckslD/nvim-revJ.lua'
+  use "folke/which-key.nvim"
 end)

@@ -1,130 +1,79 @@
-local lc = require('lspconfig')
-local li = require('lspinstall')
-local coq = require('coq')
+local lsp_installer = require("nvim-lsp-installer")
 local m = require('kinbiko.mappings')
 
-local on_attach = function(_, bufnr)
-  m.registerLSPMappings(bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+-- Include the servers you want to have installed by default below
+local servers = {
+    "bashls",
+    "eslint",
+    "golangci_lint_ls",
+    "gopls",
+    "intelephense",
+    "sumneko_lua",
+    "tailwindcss",
+    "terraformls",
+    "tsserver",
+}
 
-  require('completion').on_attach()
+for _, name in pairs(servers) do
+  local server_is_found, server = lsp_installer.get_server(name)
+  if server_is_found and not server:is_installed() then
+    server:install()
+  end
 end
+
 
 -- == Lua (sumneko/lua-language-server) ==
 
 -- Configure lua language server for neovim development
 local lua_settings = {
-  Lua = {
-    runtime = {
-      version = 'LuaJIT', -- LuaJIT in the case of Neovim
-      path = vim.split(package.path, ';'),
-    },
-    diagnostics = {
-      globals = {'vim'}, -- Get the language server to recognize the `vim` global
-    },
-    workspace = { -- Make the server aware of Neovim runtime files
-      library = {
-        [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-        [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT', -- LuaJIT in the case of Neovim
+        path = vim.split(package.path, ';'),
       },
-    },
+      diagnostics = {
+        globals = {'vim'}, -- Get the language server to recognize the `vim` global
+      },
+      workspace = { -- Make the server aware of Neovim runtime files
+        library = {
+          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+        },
+      },
+    }
   }
 }
 
--- == CSS (css-language-features) ==
-
-local css_settings = {}
-
--- == Dockerfile (docker-langserver)==
-
-local dockerfile_settings = {}
-
 -- == Go (gopls)==
 
-local go_settings = {}
-
--- == HTML (html-language-features)==
-
-local html_settings = {}
-
--- == JSON (json-language-features)==
-
-local json_settings = {}
-
--- == PHP (intelephense)==
-
-local php_settings = {}
-
--- == Python (pyright-langserver)==
-
-local python_settings = {}
-
--- == Ruby (solargraph)==
-
-local ruby_settings = {}
-
--- == Rust (rust-analyzer)==
-
-local rust_settings = {}
-
--- == TailwindCSS (tailwindcss-intellisense)==
-
-local tailwindcss_settings = {}
-
--- == Terraform (terraform-ls)==
-
-local terraform_settings = {}
-
--- == TypeScript (typescript-language-server)==
-
-local typescript_settings = {}
-
--- == YAML (yaml-language-server)==
-
-local yaml_settings = {}
-
--- config that activates keymaps and enables snippet support
-local function make_config()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  return {
-    capabilities = capabilities, -- enable snippet support
-    on_attach = on_attach, -- map buffer local keybindings when the language server attaches
-  }
-end
-
--- lsp-install
-local function setup_servers()
-  li.setup()
-
-  for _, server in pairs(li.installed_servers()) do
-    local config = make_config()
-
-    -- language specific config
-    if server == "css" then config.settings = css_settings end
-    if server == "dockerfile" then config.settings = dockerfile_settings end
-    if server == "go" then config.settings = go_settings end
-    if server == "html" then config.settings = html_settings end
-    if server == "json" then config.settings = json_settings end
-    if server == "lua" then config.settings = lua_settings end
-    if server == "php" then config.settings = php_settings end
-    if server == "python" then config.settings = python_settings end
-    if server == "ruby" then config.settings = ruby_settings end
-    if server == "rust" then config.settings = rust_settings end
-    if server == "tailwindcss" then config.settings = tailwindcss_settings end
-    if server == "terraform" then config.settings = terraform_settings end
-    if server == "typescript" then config.settings = typescript_settings end
-    if server == "yaml" then config.settings = yaml_settings end
-
-    lc[server].setup(coq.lsp_ensure_capabilities(config))
+local go_settings = {
+  on_attach = function(_, _)
+    require("lsp_signature").on_attach()
   end
-end
+}
 
-setup_servers()
+-- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
+-- or if the server is already installed).
+lsp_installer.on_server_ready(function(server)
+    m.registerLSPMappings()
+    vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    local opts = {}
 
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-li.post_install_hook = function ()
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
+    if server.name == "sumneko_lua" then
+      opts = lua_settings
+    end
+    if server.name == "gopls" then
+      opts = go_settings
+    end
 
+    -- (optional) Customize the options passed to the server
+    -- if server.name == "tsserver" then
+    --     opts.root_dir = function() ... end
+    -- end
+
+    -- This setup() function will take the provided server configuration and decorate it with the necessary properties
+    -- before passing it onwards to lspconfig.
+    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    server:setup(opts)
+end)

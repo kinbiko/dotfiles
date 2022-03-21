@@ -38,7 +38,7 @@ vim.g.go_def_reuse_buffer = 0
 -- manually.
 vim.g.go_list_type = 'quickfix'
 
-vim.g.go_test_timeout = '4s' -- The default of 10 seconds is too long
+vim.g.go_test_timeout = '5s' -- The default of 10 seconds is too long
 
 vim.g.go_metalinter_autosave_enabled = {'vet', 'golint'} -- The metalinter linters to run on save
 vim.g.go_metalinter_enabled = {} -- Let the metalinter run all linters when manually invoked

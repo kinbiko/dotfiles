@@ -3,7 +3,10 @@
 **.local*
 **.spl
 config/*
+
 !config/nvim/
 !config/alacritty/
 !config/tmux/
 !config/git/
+
+config/nvim/plugin/packer_compiled.lua
