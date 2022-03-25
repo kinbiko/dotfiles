@@ -72,7 +72,7 @@ Seems to work alright on both `arm64` and `amd64` machines, just remember the `a
 1. Symlink the `$XDG_CONFIG_HOME` directory: `ln -s $DOTFILES_DIR/config/ ~/.config`
 1. Install the pretty font that's defined in the alacritty config: `brew tap homebrew/cask-fonts;brew install font-hack-nerd-font`
 1. `brew install alacritty` so you can continue with a good terminal.
-1. Install these other programs from `brew`: `bat diff-so-fancy fpp jq gh go lazygit neovim node the_silver_searcher tmux tree up wget zenith`
+1. Install these other programs from `brew`: `bat diff-so-fancy fpp jq gh go neovim node the_silver_searcher tmux tree up wget zenith`
 1. Install `prettier` from npm: `npm install -g prettier`
 1. Run `compaudit | xargs chmod g-w` to ensure you have access to the completion files that were created in the previous step.
 1. `oh-my-zsh`:

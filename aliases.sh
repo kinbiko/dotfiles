@@ -21,7 +21,7 @@ alias htop="top"
 alias dot="cd $DOTFILES_DIR"
 
 alias g="git"
-alias gs="lazygit"
+alias gs="git status"
 alias gd="clear; git diff"
 alias gdc="clear; git diff --cached"
 alias ga="git add -A"
