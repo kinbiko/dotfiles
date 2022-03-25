@@ -1,9 +1,0 @@
-{
-    "output_dir": "repos",
-    "source": "all_repos.source.json_file",
-    "source_settings": {
-        "filename": "repos.json"
-    },
-    "push": "all_repos.push.readonly",
-    "push_settings": {}
-}
