@@ -27,7 +27,6 @@ require('packer').startup(function(use)
   use 'sickill/vim-pasta' -- Context aware pasting + indentation
   use 'ryanoasis/vim-devicons' -- Pretty icons per filetype. Must be loaded after NERDTree.
   use 'folke/twilight.nvim' -- "reading" mode that disables distant syntax highlighting
-  use 'mhinz/vim-startify' -- Pretty start screen
   use 'nacro90/numb.nvim' -- Preview the line while typing :<number>
   use 'mattn/emmet-vim' -- Shortcuts for creating html/jsx boilerplate
   use 'prettier/vim-prettier' -- Prettier formatter

@@ -59,6 +59,8 @@ o.wrap = false -- Don't wrap lines by default
 o.listchars='tab:>-,trail:·,extends:>,precedes:<'
 o.list = true -- turn the above on
 
+o.shortmess = o.shortmess .. 'I' -- Disable the 'welcome' message on starting without a path
+
 o.autowrite = true -- Make No write since last change stfu
 
 -- Allows you to hide a buffer without saving it
