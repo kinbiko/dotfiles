@@ -25,8 +25,6 @@ map('n', '?S', '<cmd>Telescope live_grep<cr>', snr) -- Pop open a window for gre
 map('n', '?:', '<cmd>Telescope commands<cr>', snr) -- Pop open a window for finding and running commands by name
 map('n', '?H', '<cmd>Telescope search_history<cr>', snr) -- Pop open a window for finding and running recent searches
 map('n', '?Q', '<cmd>Telescope quickfix<cr>', snr) -- Pop open a window for finding quickfix items
-map('n', '?R', '<cmd>Telescope lsp_references<cr>', snr) -- Pop open a window for finding references to the word under the cursor
-map('n', '?T', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', snr) -- Find any type in the workspace dynamically
 
 map('n', '0', '^', snr) -- Make 0 take me to the first non-blank character of the line.
 map('n', "'", '`', snr) -- Make jumping to a mark more precise than just the beginning of the line in normal mode
@@ -71,30 +69,31 @@ function mappings:registerLSPMappings()
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   map('n', 'gd',         '<cmd>lua vim.lsp.buf.definition()<CR>', snr)
   map('n', 'K',          '<cmd>lua vim.lsp.buf.hover()<CR>', snr)
-  map('n', '<leader>r',  '<cmd>lua vim.lsp.buf.references()<CR>', snr)
-  map('n', '<leader>d',  '<cmd>lua vim.lsp.buf.type_definition()<CR>', snr)
-  map('n', '<leader>a',  '<cmd>lua vim.lsp.buf.code_action()<CR>', snr)
-  map('n', '<leader>e',  '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', snr)
-  map('n', '<leader>i',  '<cmd>Telescope lsp_implementations<cr>', snr)
-  map('n', '<leader>c',  '<cmd>lua vim.lsp.buf.rename()<CR>', snr)
-  map('i', '<c-p>',      '<cmd>lua vim.lsp.buf.signature_help()<CR>', snr) -- Muscle-memory from IntelliJ
+  map('n', '<leader>r',  '<cmd>lua vim.lsp.buf.rename()<CR>', snr)
+  map('n', '<leader>d',  '<cmd>lua vim.diagnostic.open_float()<CR>', snr)
+
+  map('n', '?R', '<cmd>Telescope lsp_references<cr>', snr) -- Pop open a window for finding references to the word under the cursor
+  map('n', '?T', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', snr) -- Find any type in the workspace dynamically
+  map('n', '?i',  '<cmd>Telescope lsp_implementations<cr>', snr) -- Find implementations of an interface
 end
 
 function mappings:registerGoMappings()
   bufmap('n', '<leader>a', '<cmd>GoAlternate<cr>', snr) -- Switch between test and production files
-  bufmap('n', 'gi',        '<cmd>GoImports<cr>', snr) -- Run goimports
+  bufmap('n', '<leader>i', '<cmd>GoImports<cr>', snr) -- Run goimports
   bufmap('n', '<leader>l', '<cmd>GoMetaLinter<cr>', snr) -- Run the linter
   bufmap('n', '<leader>t', '<cmd>GoTest!<cr>', snr) -- Run all the tests in the current package
   bufmap('n', '<leader>T', '<cmd>GoTestFunc!<cr>', snr) -- Run the test function the curser is currently {o,i}n
   bufmap('n', '<right>', '<cmd>GoDef<cr>', snr) -- Override the default LSP go-to-defn
   bufmap('n', '<left>', '<cmd>GoDefPop<cr>', snr) -- Override the default LSP pop back
-  bufmap('i', '<localleader>=', ' := ', snr) -- Shorthand for defining a new var
-  bufmap('i', '<leader><leader>b', 'context.Background()', snr) -- background context snippet
-  bufmap('i', '<leader><leader>c', 'context.Context', snr) -- context type snippet
-  bufmap('i', '<leader><leader>e', '<cmd>GoIfErr<cr>', snr) -- if err != nil shorthand that returns the error & any default values
-  bufmap('i', '<leader><leader>f', '<cmd>GoFillStruct<cr>i', snr) -- Populate struct with all its default values
-  bufmap('i', '<leader><leader>s', 't.Run(tc.name, func(t *testing.T){})<left><left>', snr) -- Sub-test function snippet
-  bufmap('i', '<leader><leader>t', 'func Test(t *testing.T) {}<esc>16hi', snr) -- Top-level test function snippet
+
+  -- Snippets have ^ as prefix
+  bufmap('i', '^=', ' := ', snr) -- Shorthand for defining a new var
+  bufmap('i', '^b', 'context.Background()', snr) -- background context snippet
+  bufmap('i', '^c', 'context.Context', snr) -- context type snippet
+  bufmap('i', '^e', '<cmd>GoIfErr<cr>', snr) -- if err != nil shorthand that returns the error & any default values
+  bufmap('i', '^f', '<cmd>GoFillStruct<cr>i', snr) -- Populate struct with all its default values
+  bufmap('i', '^s', 't.Run(tc.name, func(t *testing.T){})<left><left>', snr) -- Sub-test function snippet
+  bufmap('i', '^t', 'func Test(t *testing.T) {}<esc>16hi', snr) -- Top-level test function snippet
 end
 
 function mappings:mapEmmet()
