@@ -22,11 +22,14 @@ for _, name in pairs(servers) do
 end
 
 
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 -- == Lua (sumneko/lua-language-server) ==
 
 -- Configure lua language server for neovim development
 local lua_settings = {
   settings = {
+    capabilities = capabilities,
     Lua = {
       runtime = {
         version = 'LuaJIT', -- LuaJIT in the case of Neovim
@@ -48,6 +51,9 @@ local lua_settings = {
 -- == Go (gopls)==
 
 local go_settings = {
+  settings = {
+    capabilities = capabilities,
+  },
   on_attach = function(_, _)
     require("lsp_signature").on_attach()
   end
@@ -58,7 +64,11 @@ local go_settings = {
 lsp_installer.on_server_ready(function(server)
     m.registerLSPMappings()
     vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    local opts = {}
+    local opts = {
+      settings = {
+        capabilities = capabilities
+      }
+    }
 
     if server.name == "sumneko_lua" then
       opts = lua_settings

@@ -84,3 +84,6 @@ vim.g.netrw_dirhistmax = 0
 -- space like this: [  ]. (should only have a single space inside when hitting
 -- space)
 vim.g.lexima_enable_space_rules = 0
+
+-- required by nvim-cmp
+vim.o.completeopt='menu,menuone,noselect'
