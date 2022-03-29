@@ -1,14 +1,10 @@
--- Setup nvim-cmp.
-local cmp = require'cmp'
+local cmp = require('cmp')
 
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
   mapping = {
@@ -24,10 +20,7 @@ cmp.setup({
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'vsnip' }, -- For vsnip users.
-    -- { name = 'luasnip' }, -- For luasnip users.
-    -- { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
+    { name = 'luasnip' },
   }, {
     { name = 'buffer' },
   })
@@ -59,32 +52,19 @@ cmp.setup.cmdline(':', {
 })
 
 -- === L3MON4D3/LuaSnip stuff ===
-local function prequire(...)
-local status, lib = pcall(require, ...)
-if (status) then return lib end
-    return nil
-end
 
-local luasnip = prequire('luasnip')
-local cmp = prequire("cmp")
-
+local luasnip = require('luasnip')
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
 local check_back_space = function()
     local col = vim.fn.col('.') - 1
-    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        return true
-    else
-        return false
-    end
+    return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
 end
 
 _G.tab_complete = function()
-    if cmp and cmp.visible() then
-        cmp.select_next_item()
-    elseif luasnip and luasnip.expand_or_jumpable() then
+    if luasnip and luasnip.expand_or_jumpable() then
         return t("<Plug>luasnip-expand-or-jump")
     elseif check_back_space() then
         return t "<Tab>"
@@ -93,10 +73,9 @@ _G.tab_complete = function()
     end
     return ""
 end
+
 _G.s_tab_complete = function()
-    if cmp and cmp.visible() then
-        cmp.select_prev_item()
-    elseif luasnip and luasnip.jumpable(-1) then
+    if luasnip and luasnip.jumpable(-1) then
         return t("<Plug>luasnip-jump-prev")
     else
         return t "<S-Tab>"
