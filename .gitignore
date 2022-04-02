@@ -4,9 +4,10 @@
 **.spl
 config/*
 
-!config/nvim/
 !config/alacritty/
-!config/tmux/
+!config/gh-dash/
 !config/git/
+!config/nvim/
+!config/tmux/
 
 config/nvim/plugin/packer_compiled.lua
