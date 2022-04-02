@@ -16,7 +16,7 @@ map('', '<up>', '{', snr) -- Previous paragraph
 map('', '<down>', '}', snr) -- Next paragraph
 map('n', '<localleader>.', '<cmd>b#<cr>', snr) -- Switch to the previous buffer.
 map('n', '<localleader><leader>', '<cmd>nohlsearch<CR>', snr) -- Clear the current search highlight
-map('n', '<leader>f', '<Plug>(easymotion-prefix)s', {}) -- Find using vimium-like search feature
+map('n', '<leader>f', '<Plug>Lightspeed_omni_s', {}) -- Find using vimium-like search feature
 
 -- Pop open a window for quickly finding various things:
 map('n', '?F', '<cmd>Files<cr>', snr) -- Search across lots of files relative to current directory but agnostic of repo

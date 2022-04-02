@@ -13,7 +13,6 @@ require('packer').startup(function(use)
   use 'preservim/nerdtree' -- File tree on the left hand side
   use 'stevearc/stickybuf.nvim' -- Make NERDTree stay NERDTree, even when I'm stupid.
   use 'bronson/vim-trailing-whitespace' -- Mark trailing whitespace
-  use 'easymotion/vim-easymotion' -- Accurate navigation ala vimium
   use 'haya14busa/vim-asterisk' -- Use * without moving immediately
   use 'junegunn/fzf.vim' -- The lightning fast fzf fuzzy finder
   use 'airblade/vim-gitgutter' -- Makes the git gutter with +, ~, and - available
@@ -65,5 +64,10 @@ require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
+
+  -- Disabling the mappings that the following plugin will add (f/F/t/T/s/S)
+  -- before sourcing the plugin
+  vim.g.lightspeed_no_default_keymaps = 1
+  use 'ggandor/lightspeed.nvim' -- Accurate navigation ala vimium
 
 end)
