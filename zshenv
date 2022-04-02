@@ -14,7 +14,6 @@ alias q="exit"
 alias pingu="ping google.com"
 
 alias cat="bat"
-alias grep="ag"
 alias top="zenith"
 alias htop="top"
 

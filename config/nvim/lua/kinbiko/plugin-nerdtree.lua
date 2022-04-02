@@ -4,7 +4,7 @@ vim.g.NERDTreeMinimalUI = 1 -- Hide the "help" instructions that's shown at the 
 vim.g.NERDTreeShowHidden = 1 -- Show hidden files (dotfiles)
 
 -- Ignore these from showing up in NERDTree
-vim.g.NERDTreeIgnore = { 'node_modules$', '.git$', '.DS_Store$', '.meta$', 'tags$', 'tags.lock$', 'tags.temp$', '.idea$', '.env$' }
+vim.g.NERDTreeIgnore = { 'node_modules$', '.git$', '.DS_Store$', '.meta$', 'tags$', 'tags.lock$', 'tags.temp$', '.idea$', '\\.env$' }
 
 -- Exit Vim if NERDTree is the only window remaining in the only tab.
 -- Note: Copied directly from the NERDTree README.

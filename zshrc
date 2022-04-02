@@ -46,7 +46,6 @@ if type brew &>/dev/null; then
 fi
 
 source $ZSH/oh-my-zsh.sh
-source $DOTFILES_DIR/aliases.sh
 
 # Make zsh completion:
 # - Try exact (case-sensitive) match first.
@@ -99,3 +98,9 @@ function ag() {
   # whenever ag is invoked, actually call it with less as a pager, and do fancy thhings with colours
   command ag --pager="less -iFMRSX" --color-path=34\;1 --color-line-number=35 --color-match=35\;1\;4 "$@"
 }
+# Most aliases are kept in zshenv but some part of my zsh startup script
+# (probably in oh-my-zsh somewhere) probably uses grep, and a special flag of
+# grep, that's not mirrored in ag, hence the script spits out an error whenever
+# you open a new shell.
+# This particular alias is therefore defined here instead.
+alias grep="ag"
