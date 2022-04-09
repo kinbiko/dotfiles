@@ -59,8 +59,8 @@ map('n', '<C-L>', '<C-W><C-L>', snr) -- More easily switch window right
 map('n', '<C-H>', '<C-W><C-H>', snr) -- More easily switch window left
 map('n', '<C-C>', '<cmd>cclose<cr>', snr) -- Close the quickfix window
 map('n', '<leader><esc>', '<cmd>cclose<cr>', snr) -- Close the quickfix window
-map('n', '<leader>G', '<cmd>!kokodoko % <C-R>=line(".")<CR><CR>', snr) -- Fetch link to current line in GitHub
-map('v', '<leader>G', [[<cmd>!kokodoko % <C-R>=line("'<")<CR>-<C-R>=line("'>")<CR><CR>u]], snr)-- Fetch link to selected lines in GitHub
+map('n', '<leader>G', ':!kokodoko % <C-R>=line(".")<CR><CR>', snr) -- Fetch link to current line in GitHub
+map('v', '<leader>G', [[:!kokodoko % <C-R>=line("'<")<CR>-<C-R>=line("'>")<CR><CR>u]], snr)-- Fetch link to selected lines in GitHub
 map('n', '<leader>R', '<cmd>Twilight<cr>', snr) -- Read the code with focus on one section at the time.
 
 local function bufmap(...) vim.api.nvim_buf_set_keymap(0, ...) end
