@@ -83,6 +83,7 @@ function mappings:registerGoMappings()
   bufmap('n', '<leader>l', '<cmd>GoMetaLinter<cr>', snr) -- Run the linter
   bufmap('n', '<leader>t', '<cmd>GoTest!<cr>', snr) -- Run all the tests in the current package
   bufmap('n', '<leader>T', '<cmd>GoTestFunc!<cr>', snr) -- Run the test function the curser is currently {o,i}n
+  bufmap('n', '<leader>c', '<cmd>GoCoverageToggle<cr>', snr) -- Run the test function the curser is currently {o,i}n
   bufmap('n', '<right>', '<cmd>GoDef<cr>', snr) -- Override the default LSP go-to-defn
   bufmap('n', '<left>', '<cmd>GoDefPop<cr>', snr) -- Override the default LSP pop back
 
