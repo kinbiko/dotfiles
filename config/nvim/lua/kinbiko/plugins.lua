@@ -20,7 +20,6 @@ require('packer').startup(function(use)
   use 'bronson/vim-trailing-whitespace' -- Mark trailing whitespace
   use 'haya14busa/vim-asterisk' -- Use * without moving immediately
   use 'junegunn/fzf.vim' -- The lightning fast fzf fuzzy finder
-  use 'airblade/vim-gitgutter' -- Makes the git gutter with +, ~, and - available
   use 'tpope/vim-fugitive' -- Most git features available through :Git foo
   use 'rhysd/committia.vim' -- Running 'git commit' on the command line enables diff and other niceties
   use 'tpope/vim-surround' -- ysiw syntax for surrounding
