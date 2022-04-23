@@ -10,7 +10,12 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Packer can manage itself
 
   use 'folke/tokyonight.nvim' -- TokyoNight theme
-  use 'preservim/nerdtree' -- File tree on the left hand side
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+    }
+  }
   use 'stevearc/stickybuf.nvim' -- Make NERDTree stay NERDTree, even when I'm stupid.
   use 'bronson/vim-trailing-whitespace' -- Mark trailing whitespace
   use 'haya14busa/vim-asterisk' -- Use * without moving immediately
@@ -24,8 +29,6 @@ require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator' -- Work better with tmux
   use 'machakann/vim-highlightedyank' -- Highlight when yanking so you don't need to pop into visual mode constantly
   use 'sickill/vim-pasta' -- Context aware pasting + indentation
-  use 'ryanoasis/vim-devicons' -- Pretty icons per filetype. Must be loaded after NERDTree. Unfortunate duplication of kyazdani42/nvim-web-devicons
-  use 'tiagofumo/vim-nerdtree-syntax-highlight' -- Add color to the filenames and icons in NERDTree
   use 'folke/twilight.nvim' -- "reading" mode that disables distant syntax highlighting
   use 'nacro90/numb.nvim' -- Preview the line while typing :<number>
   use 'mattn/emmet-vim' -- Shortcuts for creating html/jsx boilerplate

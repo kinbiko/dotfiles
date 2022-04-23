@@ -101,9 +101,9 @@ function mappings:mapEmmet()
   map('i', 'hh', '<C-y>', { silent = true })
 end
 
-function mappings:mapNERDTree()
-  map('n', '<localleader><localleader>', '<cmd>NERDTreeToggle<cr>', snr) -- Open/close NERDTree
-  map('n', '<localleader>f', '<cmd>NERDTreeFind<cr>', snr) -- Find the current file in NERDTree
+function mappings:mapFileBrowser()
+  map('n', '<localleader><localleader>', '<cmd>NvimTreeToggle<cr>', snr) -- Open/close file browser
+  map('n', '<localleader>f', '<cmd>NvimTreeFindFile<cr>', snr) -- Find the current file in file browser
 end
 
 return mappings
