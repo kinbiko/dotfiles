@@ -104,6 +104,12 @@ https://configure.ergodox-ez.com/ergodox-ez/layouts/53oKe/latest/3
 - Set up a layer change button on both sides of the keyboard so that using the mouse movement keys becomes one handed if necessary.
 - Make the mouse more usable by tweaking the advanced mouse config settings. Ideally, consistent movement without inertia, but perhaps a bit faster.
 
+# Version 11
+
+Replace the windows layer with an excalidraw layer instead.
+
+https://configure.zsa.io/ergodox-ez/layouts/ZDnb5/latest/0
+
 ## Drastic change proposal
 
 Persistent layers for different 'modes', e.g. 'browsing', 'writing', 'programming'
