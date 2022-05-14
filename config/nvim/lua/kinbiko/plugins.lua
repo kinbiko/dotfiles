@@ -10,7 +10,6 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Packer can manage itself
 
   use 'L3MON4D3/LuaSnip'
-  use 'bronson/vim-trailing-whitespace' -- Mark trailing whitespace
   use 'christoomey/vim-tmux-navigator' -- Work better with tmux
   use 'cohama/lexima.vim' -- Automatically close [], '' etc. including def/end
   use 'elzr/vim-json' -- JSON syntax (error) highlighting + concealment
