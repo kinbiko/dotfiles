@@ -5,7 +5,7 @@ vim.g.user_emmet_install_global = false
 vim.cmd([[
 augroup web_group
   autocmd!
-  autocmd BufWritePre *.jsx,*.js,*.tsx,*.ts,*.md PrettierAsync
+  autocmd BufWritePre *.jsx,*.js,*.tsx,*.ts,*.md,*.html PrettierAsync
   autocmd FileType html,typescriptreact,typescript,javascript EmmetInstall
 augroup END
 ]])
