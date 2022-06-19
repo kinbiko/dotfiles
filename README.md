@@ -12,7 +12,7 @@ These are the configuration files for CLI and TUI based tools I use in my local 
   - [`upversion`](https://github.com/kinbiko/semver): for generating the correct next Git tag.
   - [`mokku`](https://github.com/kinbiko/mokku): for generating Go mocks that don't suck.
 
-Works best for Mac OS (Catalina).
+Works best for Mac OS (Big Sur).
 Seems to work alright on both `arm64` and `amd64` machines, just remember the `arch -arm64` prefix occasionally.
 
 ## Steps from a fresh install
@@ -29,8 +29,10 @@ Seems to work alright on both `arm64` and `amd64` machines, just remember the `a
       1. Darkreader
       1. Password Manager
       1. Refined Github
-      1. Rikaikun
+      1. Tampermonkey
+      1. Ublock origin
       1. Vimium
+      1. Yomichan
    1. Set as default browser
 1. Set up the Mac dock:
    1. Move it to the left-hand side
@@ -60,7 +62,7 @@ Seems to work alright on both `arm64` and `amd64` machines, just remember the `a
 1. Change language with alt + space, and have only two input sources:
    1. American English
    1. Hiragana
-1. Install Magnet from the app store. (paid -- I believe there's a free alternative out there too, but I bought Magnet before I knew about it)
+1. Install BetterSnapTool.
 1. Clone this repo to `~/repos/dotfiles`
 1. Make this your `~/.zshrc`:
    ```
@@ -72,20 +74,20 @@ Seems to work alright on both `arm64` and `amd64` machines, just remember the `a
 1. Symlink the `$XDG_CONFIG_HOME` directory: `ln -s $DOTFILES_DIR/config/ ~/.config`
 1. Install the pretty font that's defined in the alacritty config: `brew tap homebrew/cask-fonts;brew install font-hack-nerd-font`
 1. `brew install alacritty` so you can continue with a good terminal.
-1. Install these other programs from `brew`: `bat diff-so-fancy fpp jq gh go neovim node the_silver_searcher tmux tree up wget zenith`
+1. Install these other programs from `brew`: `bat diff-so-fancy fpp jq gh go golangci-lint jq neovim node pandoc pre-commit terraform the_silver_searcher tmux tree up wget zenith`
+1. Run `compaudit | xargs chmod g-w` to ensure you have access to the completion files that were created in the previous step.
+1. Install these other casks from `brew`: `alfred anki google-cloud-sdk spotify`
 1. Install `gh dash` with `gh extension install dlvhdr/gh-dash`
 1. Install `prettier` from npm: `npm install -g prettier`
-1. Run `compaudit | xargs chmod g-w` to ensure you have access to the completion files that were created in the previous step.
 1. `oh-my-zsh`:
    1. WARNING: This next step will override your `~/.zshrc`, make a copy, as you don't want the results!
    1. Install oh-my-zsh according to their instructions.
    1. replace `~/.zshrc` with the copy
 1. Alfred:
-   1. `brew install alfred` (definitely avoid app store -- it's horribly outdated)
    1. Disable spotlight cmd + space shortcut in keyboard -> shortuts -> spotlight
    1. Set alfred shortcut to cmd + space
    1. Add Nord theme to Alfred: https://www.alfredapp.com/extras/theme/5Y8E7URIWQ/
-   1. Set up jisho shortcut https://github.com/janclarin/jisho-alfred
+   1. Set up [jisho shortcut](https://github.com/janclarin/jisho-alfred)
    1. Set up clipboard history. Map to `cmd + p` (who prints these days anyway?)
 1. Install go development tools:
    ```console
@@ -94,7 +96,3 @@ Seems to work alright on both `arm64` and `amd64` machines, just remember the `a
    go get -u github.com/kinbiko/semver/cmd/upversion
    ```
 1. Hide fluffy directories from finder that I can't delete: `chflags hidden Applications Movies Music Pictures Public`
-1. Set up `all-repos`:
-   1. Install `all-repos`: `pip3 install all-repos`
-   1. Move `all-repos.json` and `repos.json` to the home directory
-   1. run `all-repos-clone` in the home directory.
