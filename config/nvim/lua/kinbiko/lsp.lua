@@ -5,7 +5,7 @@ local m = require('kinbiko.mappings')
 local servers = {
     "bashls",
     "eslint",
-    "golangci_lint_ls",
+    -- "golangci_lint_ls", -- this has *serious* performance issues
     "gopls",
     "intelephense",
     "sumneko_lua",
