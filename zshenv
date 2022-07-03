@@ -1,3 +1,5 @@
+export DOTFILES_DIR=$HOME/repos/dotfiles
+
 alias v="nvim"
 alias vim="nvim"
 alias vimdiff="nvim -d"
