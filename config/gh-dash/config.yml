@@ -1,19 +1,19 @@
 prSections:
-  - title: My Pull Requests
-    filters: is:open author:@me
-  - title: Needs My Review
-    filters: is:open review-requested:@me
- #- title: Subscribed
- #  filters: is:open -author:@me repo:cli/cli repo:dlvhdr/gh-dash
- #  limit: 50 # optional limit per section
+- title: Needs My Review
+  filters: is:open review-requested:@me
+- title: My Pull Requests
+  filters: is:open author:@me
 issuesSections:
-  - title: Created Issues
-    filters: is:open author:@me
-  - title: Assigned Issues
-    filters: is:open assignee:@me
+- title: jsonassert
+  filters: is:open repo:kinbiko/jsonassert
+- title: mokku
+  filters: is:open repo:kinbiko/mokku
+- title: bugsnag
+  filters: is:open repo:kinbiko/bugsnag
 defaults:
-  prsLimit: 20 # global limit
-  issuesLimit: 20 # global limit
   preview:
     open: true
-    width: 60
+    width: 80
+  prsLimit: 20
+  issuesLimit: 20
+  view: issues
