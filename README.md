@@ -74,7 +74,7 @@ Seems to work alright on both `arm64` and `amd64` machines, just remember the `a
 1. Symlink the `$XDG_CONFIG_HOME` directory: `ln -s $DOTFILES_DIR/config/ ~/.config`
 1. Install the pretty font that's defined in the alacritty config: `brew tap homebrew/cask-fonts;brew install font-hack-nerd-font`
 1. `brew install alacritty` so you can continue with a good terminal.
-1. Install these other programs from `brew`: `bat diff-so-fancy fpp jq gh go golangci-lint neovim node pandoc pre-commit terraform the_silver_searcher tmux tree up urlview wget zenith`
+1. Install these other programs from `brew`: `bat btop diff-so-fancy fpp jq gh go golangci-lint neovim node pandoc pre-commit terraform the_silver_searcher tmux tree up urlview wget`
 1. Run `compaudit | xargs chmod g-w` to ensure you have access to the completion files that were created in the previous step.
 1. Install these other casks from `brew`: `alfred anki google-cloud-sdk spotify`
 1. Install `gh dash` with `gh extension install dlvhdr/gh-dash`

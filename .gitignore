@@ -9,5 +9,6 @@ config/*
 !config/git/
 !config/nvim/
 !config/tmux/
+!config/btop/
 
 config/nvim/plugin/packer_compiled.lua

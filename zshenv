@@ -16,7 +16,7 @@ alias q="exit"
 alias pingu="ping google.com"
 
 alias cat="bat"
-alias top="zenith"
+alias top="btop"
 alias htop="top"
 
 alias dot="cd $DOTFILES_DIR"
