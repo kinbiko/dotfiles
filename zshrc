@@ -64,6 +64,8 @@ setopt AUTO_PARAM_SLASH
 bindkey -v
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag --files-with-matches --hidden'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Disable the default right-hand-side status
 RPS1=""
