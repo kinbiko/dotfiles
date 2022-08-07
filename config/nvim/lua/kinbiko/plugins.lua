@@ -13,6 +13,7 @@ require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator' -- Work better with tmux
   use 'cohama/lexima.vim' -- Automatically close [], '' etc. including def/end
   use 'elzr/vim-json' -- JSON syntax (error) highlighting + concealment
+  use 'evanleck/vim-svelte' -- Better support for Svelte
   use { 'fatih/vim-go', run = ':GoUpdateBinaries' } -- Make vim good with Go
   use 'folke/tokyonight.nvim' -- TokyoNight theme
   use 'folke/twilight.nvim' -- "reading" mode that disables distant syntax highlighting
