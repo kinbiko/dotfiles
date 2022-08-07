@@ -19,7 +19,7 @@ map('n', '<localleader><leader>', '<cmd>nohlsearch<CR>', snr) -- Clear the curre
 map('n', '<leader>f', '<Plug>Lightspeed_omni_s', {}) -- Find using vimium-like search feature
 
 -- Pop open a window for quickly finding various things:
-map('n', '?F', '<cmd>Files<cr>', snr) -- Search across lots of files relative to current directory but agnostic of repo
+map('n', '?F', '<cmd>GFiles<cr>', snr) -- Search across lots of files relative to current directory, respecting .gitignore
 map('n', '?A', '<cmd>Ag<cr>', snr) -- Find code actions for the current cursor location
 map('n', '?S', '<cmd>Telescope live_grep<cr>', snr) -- Pop open a window for grepping for any text in the repo
 map('n', '?:', '<cmd>Telescope commands<cr>', snr) -- Pop open a window for finding and running commands by name
