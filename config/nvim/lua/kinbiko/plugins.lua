@@ -18,6 +18,7 @@ require('packer').startup(function(use)
   use 'folke/tokyonight.nvim' -- TokyoNight theme
   use 'folke/twilight.nvim' -- "reading" mode that disables distant syntax highlighting
   use 'folke/which-key.nvim' -- Reminders of which key-bindings are available if getting stuck half-way through a binding
+  use 'hashivim/vim-terraform' -- Terraform syntax highlighting etc.
   use 'haya14busa/vim-asterisk' -- Use * without moving immediately
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-cmdline'
