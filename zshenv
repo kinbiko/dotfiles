@@ -51,3 +51,6 @@ alias pp="$GOPATH/bin/pp" # Overriding the Perl package manager
 
 alias gtr="go test -race"
 alias glint="golangci-lint"
+
+# Shorthand for editing an issue after first listing available issues
+alias iedit='gh issue edit $(gh issue list | fzf | cut -f 1)'
