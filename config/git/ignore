@@ -11,3 +11,6 @@ tags
 .idea/
 
 TODO.md
+
+# If I choose to save a session with :mksession
+Session.vim
