@@ -33,6 +33,7 @@ brew install alacritty # good terminal emulator
 brew install alfred # Productivity heaven
 brew install anki # Flashcards
 brew install deepl # Translation app, much better than google translate
+brew install obsidian # Second brain
 brew install spotify # Music
 
 # Expected to be installed in vim config
