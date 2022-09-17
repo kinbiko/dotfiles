@@ -1,39 +1,123 @@
 # Dotfiles (MacOS)
 
-These are the configuration files for CLI and TUI based tools I use in my local development environment:
+Works best for Mac OS (silicon).
 
-- Terminal: `alacritty`
-- Editor: `nvim`
-- Shell: `zsh`
-- Fuzzy finders: `ag` and `fzf`
-- Honorable mentions: `tmux`, `git`
-- Self-authored tools:
-  - [`kokodoko`](https://github.com/kinbiko/kokodoko): for quickly generating links to GitHub.
-  - [`upversion`](https://github.com/kinbiko/semver): for generating the correct next Git tag.
-  - [`mokku`](https://github.com/kinbiko/mokku): for generating Go mocks that don't suck.
+## Setup steps from a fresh install
 
-Works best for Mac OS (Big Sur).
-Seems to work alright on both `arm64` and `amd64` machines, just remember the `arch -arm64` prefix occasionally.
+### Create a Git repo of home directory
 
-## Steps from a fresh install
+Open Terminal (for now) and run `git init` in the home directory, so you can go back in time if you mess up.
+You'll be prompted to install xcode command line tools. Accept. Wait.
 
-1. Create a Git repository of the home directory, so you can go back in time if you mess up.
-1. Type `git init` in the home directory.
-   - You'll be prompted to install xcode command line tools. Accept.
-   - Try `git init` in the home directory again, and use `config/git/gitignore-for-home-dir` as the `.gitignore` for this repo.
-1. Password manager
-1. Chrome
-   1. Dev tools in dark mode
-   1. Extensions:
-      1. Adblock Plus
-      1. Darkreader
-      1. Password Manager
-      1. Refined Github
-      1. Tampermonkey
-      1. Ublock origin
-      1. Vimium
-      1. Yomichan
-   1. Set as default browser
+Once that's done set up the git repo in home with (replace with appropriate email):
+
+```
+git config --global user.name "kinbiko"
+git config --global user.email "your@email.com"
+
+# Try `git init` in the home directory again.
+cd
+git init
+
+# Use `config/git/gitignore-for-home-dir` as the `.gitignore` for this repo:
+curl https://raw.githubusercontent.com/kinbiko/dotfiles/master/config/git/git-ignore-for-home-dir > .gitignore
+git add .
+git commit -m 'Initial commit'
+```
+
+### Start getting access
+
+Set up the password manager, and install Chrome.
+Set Chrome as the default browser and set up sync to get extensions, settings, and bookmarks set up.
+Make sure the password manager browser plugin works.
+
+### Fetch and use this repo
+
+Set up SSH keys in GitHub following [the official instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+
+Clone this repo:
+
+```
+cd
+mkdir repos
+cd repos
+git clone git@github.com:kinbiko/dotfiles.git
+```
+
+Set up zsh: `setup/set-up-zsh.sh`
+
+If you close your current shell and open a new one, it should look pretty (and have a few extra features).
+That said, most software is not yet installed.
+
+### Install software
+
+Install `brew` and install packages with `setup/install-brew-and-apps.sh`.
+
+You can now close Terminal and use Alacritty instead.
+
+Install [BetterSnapTool](https://folivora.ai/bettersnaptool) (not free -> no brew cask available).
+
+### Post-install software configuration
+
+#### Alfred
+
+- Disable spotlight cmd + space shortcut in keyboard -> shortuts -> spotlight
+- Set Alfred shortcut to `cmd + space`
+- Add the [Nord theme to Alfred](https://www.alfredapp.com/extras/theme/5Y8E7URIWQ/).
+- ~~Set up [jisho shortcut](https://github.com/janclarin/jisho-alfred)~~ This is sadly broken.
+- Set up clipboard history. Map to `cmd + p` (who prints these days anyway?)
+
+#### Sign git commits with GPG
+
+Follow [the GitHub instructions](https://docs.github.com/en/authentication/managing-commit-signature-verification) if you get lost.
+
+**Always check that these steps still follow best security practices**.
+
+The following will prompt you to follow an interactive setup:
+
+```
+gpg --full-gen-key
+```
+
+Defaults are fine, but set your email to be the same as your GitHub email.
+
+Run `gpg --list-secret-keys` to see your generated key ID.
+Generate the public key using this ID:
+
+```
+$ gpg --armor --export $KEY_ID | pbcopy
+```
+
+Add this GPG key to GitHub via the UI.
+
+Configure git to always sign commits:
+
+```
+git config --global gpg.program $(which gpg)
+git config --global user.signingkey $KEY_ID
+git config --global commit.gpgsign true
+```
+
+Then set the pinentry program to be pinentry-mac and restart the gpg-agent:
+
+```
+echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
+killall gpg-agent
+```
+
+#### Other
+
+Basically, I can't be arsed to write up detailed instructions for these tools.
+
+- Set up Japanese language learning software: Yomichan and Anki
+- Set up any auth required for ops and infra (`google-cloud-sdk`, `terraform`, `k8s`, `gh`, etc.)
+
+## System preferences
+
+Run `setup/mac-system-config.sh`
+
+Do the rest manually for now, until I figure out the command-line commands to run for all of these.
+
 1. Set up the Mac dock:
    1. Move it to the left-hand side
    1. Make icons much smaller
@@ -53,46 +137,8 @@ Seems to work alright on both `arm64` and `amd64` machines, just remember the `a
    1. System voice to fast, and start speaking with `CMD + ESC`
    1. Zoom with ctrl + scroll
    1. Pointer control -> trackpad- > 3-finger drag
-1. Keyboard:
-   1. turn caps lock into ctrl
-   1. Make key repeat super fast, not though GUI, but with commands: `https://apple.stackexchange.com/a/83923`
-1. GitHub:
-   1. Set up SSH keys and GPG keys following their official instructions. (Google it, any links might break)
-1. Install [homebrew](https://brew.sh/)
 1. Change language with alt + space, and have only two input sources:
    1. American English
    1. Hiragana
-1. Install BetterSnapTool.
-1. Clone this repo to `~/repos/dotfiles`
-1. Make this your `~/.zshrc`:
-   ```
-   export DOTFILES_DIR=$HOME/repos/dotfiles
-   source $DOTFILES_DIR/zshrc
-   # Configurations specific to this computer
-   # ...
-   ```
-1. Symlink the `$XDG_CONFIG_HOME` directory: `ln -s $DOTFILES_DIR/config/ ~/.config`
-1. Install the pretty font that's defined in the alacritty config: `brew tap homebrew/cask-fonts;brew install font-hack-nerd-font`
-1. `brew install alacritty` so you can continue with a good terminal.
-1. Install these other programs from `brew`: `bat btop diff-so-fancy fpp jq gh go golangci-lint neovim node pandoc pre-commit terraform the_silver_searcher tmux tree up urlview wget`
-1. Run `compaudit | xargs chmod g-w` to ensure you have access to the completion files that were created in the previous step.
-1. Install these other casks from `brew`: `alfred anki google-cloud-sdk spotify`
-1. Install `gh dash` with `gh extension install dlvhdr/gh-dash`
-1. Install `prettier` from npm: `npm install -g prettier`
-1. `oh-my-zsh`:
-   1. WARNING: This next step will override your `~/.zshrc`, make a copy, as you don't want the results!
-   1. Install oh-my-zsh according to their instructions.
-   1. replace `~/.zshrc` with the copy
-1. Alfred:
-   1. Disable spotlight cmd + space shortcut in keyboard -> shortuts -> spotlight
-   1. Set alfred shortcut to cmd + space
-   1. Add Nord theme to Alfred: https://www.alfredapp.com/extras/theme/5Y8E7URIWQ/
-   1. Set up [jisho shortcut](https://github.com/janclarin/jisho-alfred)
-   1. Set up clipboard history. Map to `cmd + p` (who prints these days anyway?)
-1. Install go development tools:
-   ```console
-   go get -u github.com/kinbiko/mokku/cmd/mokku
-   go get -u github.com/kinbiko/kokodoko/cmd/kokodoko
-   go get -u github.com/kinbiko/semver/cmd/upversion
-   ```
-1. Hide fluffy directories from finder that I can't delete: `chflags hidden Applications Movies Music Pictures Public`
+1. Keyboard:
+   1. Turn caps lock into ctrl
