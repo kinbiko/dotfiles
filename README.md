@@ -105,6 +105,14 @@ echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
 killall gpg-agent
 ```
 
+### FZF
+
+Install shell bindings like ctrl+r and ctrl+t.
+
+```
+/opt/homebrew/opt/fzf/install # Install key bindings
+```
+
 #### Other
 
 Basically, I can't be arsed to write up detailed instructions for these tools.
