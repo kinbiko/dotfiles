@@ -61,7 +61,6 @@ require('packer').startup(function(use)
   use 'rhysd/committia.vim' -- Running 'git commit' on the command line enables diff and other niceties
   use 'saadparwaiz1/cmp_luasnip'
   use 'sickill/vim-pasta' -- Context aware pasting + indentation
-  use 'stevearc/stickybuf.nvim' -- Make NERDTree stay NERDTree, even when I'm stupid.
   use 'tpope/vim-fugitive' -- Most git features available through :Git foo
   use 'tpope/vim-repeat' -- Make vim-surround things repeatable with .
   use 'tpope/vim-surround' -- ysiw syntax for surrounding
