@@ -22,6 +22,7 @@ brew install neovim # Editor
 brew install node # Global installation required to install prettier
 brew instlal pinentry-mac # Lets you enter passwords with a TUI when signing git commits
 brew install pre-commit # Framework for setting up Git hooks
+brew install rg # Ripgrep, ag but faster
 brew install terraform # Infra as code
 brew install the_silver_searcher # ag grep alternative
 brew install tmux # Terminal multiplexer
