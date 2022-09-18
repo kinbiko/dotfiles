@@ -103,7 +103,7 @@ end
 
 function mappings:mapFileBrowser()
   map('n', '<localleader><localleader>', '<cmd>NvimTreeToggle<cr>', snr) -- Open/close file browser
-  map('n', '<localleader>f', '<cmd>NvimTreeFindFile<cr>', snr) -- Find the current file in file browser
+  map('n', '<localleader>f', '<cmd>NvimTreeFindFileToggle<cr>', snr) -- Find the current file in file browser
 end
 
 return mappings
