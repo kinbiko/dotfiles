@@ -87,3 +87,6 @@ vim.g.lexima_enable_space_rules = 0
 
 -- required by nvim-cmp
 vim.o.completeopt='menu,menuone,noselect'
+
+-- Don't exit tmux zoom mode if attempting to navigate out of vim
+vim.g.tmux_navigator_disable_when_zoomed = 1
