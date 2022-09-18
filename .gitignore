@@ -10,5 +10,3 @@ config/*
 !config/nvim/
 !config/tmux/
 !config/btop/
-
-config/nvim/plugin/packer_compiled.lua
