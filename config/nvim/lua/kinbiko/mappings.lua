@@ -87,14 +87,15 @@ function mappings:registerGoMappings()
   bufmap('n', '<right>', '<cmd>GoDef<cr>', snr) -- Override the default LSP go-to-defn
   bufmap('n', '<left>', '<cmd>GoDefPop<cr>', snr) -- Override the default LSP pop back
 
-  -- Snippets have ^ as prefix
-  bufmap('i', '^=', ' := ', snr) -- Shorthand for defining a new var
-  bufmap('i', '^b', 'context.Background()', snr) -- background context snippet
-  bufmap('i', '^c', 'context.Context', snr) -- context type snippet
-  bufmap('i', '^e', '<cmd>GoIfErr<cr>', snr) -- if err != nil shorthand that returns the error & any default values
-  bufmap('i', '^f', '<cmd>GoFillStruct<cr>i', snr) -- Populate struct with all its default values
-  bufmap('i', '^s', 't.Run(tc.name, func(t *testing.T){})<left><left>', snr) -- Sub-test function snippet
-  bufmap('i', '^t', 'func Test(t *testing.T) {}<esc>16hi', snr) -- Top-level test function snippet
+  -- Snippets have \ as prefix
+  bufmap('i', '\\=', ' := ', snr) -- Shorthand for defining a new var
+  bufmap('i', '\\b', 'context.Background()', snr) -- background context snippet
+  bufmap('i', '\\c', 'context.Context', snr) -- context type snippet
+  bufmap('i', '\\e', '<cmd>GoIfErr<cr>', snr) -- if err != nil shorthand that returns the error & any default values
+  bufmap('i', '\\f', '<cmd>GoFillStruct<cr>i', snr) -- Populate struct with all its default values
+  bufmap('i', '\\t', 'func Test(t *testing.T) {}<esc>16hi', snr) -- Top-level test function snippet
+  -- Big fat snippet for generating test table:
+  bufmap('i', '\\s', 'for _, tc := range []struct{<cr>name string<cr>in   any<cr>exp  any<cr>} {<cr>{},<esc>o} {<cr>t.Run(tc.name, func(t *testing.T) {<cr>got, err := myFunc(tc.in)<cr>if err != nil {<cr>t.Fatalf(`unexpected error "%s"`, err.Error())<cr>}<cr>if got != tc.exp {<cr>t.Errorf(`expected "%+v" but got "%+v"`, tc.exp, got)<cr>}<cr>})<cr>}<esc>8kfm', snr)
 end
 
 function mappings:mapEmmet()
