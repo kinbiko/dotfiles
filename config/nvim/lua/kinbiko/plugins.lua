@@ -29,6 +29,8 @@ require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator' -- ✅ 2022-09-18. Work better with tmux.
   use 'haya14busa/vim-asterisk'        -- ❓ 2022-09-18. Use * without moving immediately
   use 'junegunn/fzf.vim'               -- ❓ 2022-09-18. The lightning fast fzf fuzzy finder
+  use 'junegunn/fzf'                   -- ✅ 2022-09-21. Install the fzf binary
+
   use 'nacro90/numb.nvim'              -- ❓ 2022-09-18. Preview the line while typing :<number>
   use {
     'kyazdani42/nvim-tree.lua', -- ✅ 2022-09-18.
@@ -84,5 +86,4 @@ require('packer').startup(function(use)
   -- Git
   use 'rhysd/committia.vim' -- ❓ 2022-09-18. Running 'git commit' on the command line enables diff and other niceties
   use 'tpope/vim-fugitive'  -- ❓ 2022-09-18. Most git features available through :Git foo
-
 end)
