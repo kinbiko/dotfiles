@@ -23,6 +23,7 @@ map('n', '?F', '<cmd>Telescope find_files<cr>', snr) -- Search across lots of fi
 map('n', '?S', '<cmd>Telescope live_grep<cr>', snr) -- Pop open a window for grepping for any text in the repo
 map('n', '?R', '<cmd>Telescope lsp_references<cr>', snr) -- Pop open a window for finding references to the word under the cursor
 map('n', '?I',  '<cmd>Telescope lsp_implementations<cr>', snr) -- Find implementations of an interface
+map('n', '?W', '<cmd>Telescope grep_string<cr>', snr) -- Live grep for the word under the cursor
 
 map('n', '0', '^', snr) -- Make 0 take me to the first non-blank character of the line.
 map('n', "'", '`', snr) -- Make jumping to a mark more precise than just the beginning of the line in normal mode
