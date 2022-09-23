@@ -1,6 +1,5 @@
 -- Set the colorscheme
-vim.g.tokyonight_style = 'night'
-vim.cmd('colorscheme tokyonight')
+vim.cmd('colorscheme tokyonight-night')
 
 local o = vim.o
 
