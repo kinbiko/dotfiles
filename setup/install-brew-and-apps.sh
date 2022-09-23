@@ -20,7 +20,7 @@ brew install google-cloud-sdk # For interacting with GCP
 brew install gpg # For PGP signing
 brew install neovim # Editor
 brew install node # Global installation required to install prettier
-brew instlal pinentry-mac # Lets you enter passwords with a TUI when signing git commits
+brew install pinentry-mac # Lets you enter passwords with a TUI when signing git commits
 brew install pre-commit # Framework for setting up Git hooks
 brew install rg # Super fast grep-like application, used by FZF and telescope.nvim
 brew install terraform # Infra as code
