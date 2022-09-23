@@ -64,7 +64,7 @@ setopt AUTO_PARAM_SLASH
 bindkey -v
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='ag --files-with-matches --hidden'
+export FZF_DEFAULT_COMMAND='rg --files-with-matches --hidden .'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Disable the default right-hand-side status
@@ -93,16 +93,9 @@ extract () {
     fi
 }
 
-function ag() {
-  emulate -L zsh
-
-  # Stolen and slightly tweaked from wincent
-  # whenever ag is invoked, actually call it with less as a pager, and do fancy thhings with colours
-  command ag --pager="less -iFMRSX" --color-path=34\;1 --color-line-number=35 --color-match=35\;1\;4 "$@"
-}
 # Most aliases are kept in zshenv but some part of my zsh startup script
 # (probably in oh-my-zsh somewhere) probably uses grep, and a special flag of
-# grep, that's not mirrored in ag, hence the script spits out an error whenever
+# grep, that's not mirrored in rg, hence the script spits out an error whenever
 # you open a new shell.
 # This particular alias is therefore defined here instead.
-alias grep="ag"
+alias grep="rg"

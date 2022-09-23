@@ -14,3 +14,8 @@ TODO.md
 
 # If I choose to save a session with :mksession
 Session.vim
+
+# This is obviously not necessary for normal git use,
+# but adding it here to ignore files under .git/ when
+# using ripgrep which respects git ignored files.
+.git/
