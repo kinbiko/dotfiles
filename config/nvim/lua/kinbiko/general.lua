@@ -1,11 +1,13 @@
--- Set the colorscheme
-vim.cmd('colorscheme tokyonight-night')
+-- There's no non-vim.cmd solution for this as of 2021-08-20 according to tjdevries.
+vim.cmd[[
+" Set the colorscheme
+colorscheme tokyonight-night
+
+" Setting this explicitly means I can copy Japanese to the clipboard without mojibake
+lang en_US.UTF-8
+]]
 
 local o = vim.o
-
--- Setting this explicitly means I can copy Japanese to the clipboard without mojibake
--- There's no non-vim.cmd solution for this as of 2021-08-20 according to tjdevries.
-vim.cmd('lang en_US.UTF-8')
 
 o.tabstop = 2 -- columns per tab character
 o.softtabstop = 2 -- columns per tab key press in insert mode. Also on backspace
@@ -71,21 +73,10 @@ o.ruler = false
 o.laststatus = 0
 o.showcmd = false
 
-o.formatoptions= o.formatoptions .. 'j' -- Behave more reasonable when merging lines with J
-
 -- Define the window border characters for splits etc.
 o.fillchars = o.fillchars .. 'vert:│,fold: ,diff: '
 
+o.completeopt='menu,menuone,noselect' -- required by nvim-cmp
+
 -- Disable the netrw history file which is otherwise added to ~/.vim/.netrwhist
 vim.g.netrw_dirhistmax = 0
-
--- Ensure that I can enter markdown checkboxes without generating a double
--- space like this: [  ]. (should only have a single space inside when hitting
--- space)
-vim.g.lexima_enable_space_rules = 0
-
--- required by nvim-cmp
-vim.o.completeopt='menu,menuone,noselect'
-
--- Don't exit tmux zoom mode if attempting to navigate out of vim
-vim.g.tmux_navigator_disable_when_zoomed = 1

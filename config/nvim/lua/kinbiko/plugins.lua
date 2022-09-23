@@ -16,6 +16,11 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- ❓ 2022-09-18. Packer can manage itself
 
   -- Editing
+
+  -- Ensure that I can enter markdown checkboxes without generating a double
+  -- space like this: [  ]. (should only have a single space inside when hitting
+  -- space)
+  vim.g.lexima_enable_space_rules = 0
   use 'cohama/lexima.vim'     -- ✅ 2022-09-18. Automatically close [], '' etc. including def/end
   use 'mattn/emmet-vim'       -- ❓ 2022-09-18. Shortcuts for creating html/jsx boilerplate
   use 'prettier/vim-prettier' -- ❓ 2022-09-18. Prettier formatter
@@ -25,13 +30,16 @@ require('packer').startup(function(use)
 
   -- Navigating
   vim.g.lightspeed_no_default_keymaps = 1 -- Stop lightspeed from adding (f/t/s) default mappings
-  use 'ggandor/lightspeed.nvim'        -- ❓ 2022-09-18. Accurate navigation ala vimium
+  use 'ggandor/lightspeed.nvim' -- ❓ 2022-09-18. Accurate navigation ala vimium
+
+  vim.g.tmux_navigator_disable_when_zoomed = 1 -- Don't exit tmux zoom mode if attempting to navigate out of vim
   use 'christoomey/vim-tmux-navigator' -- ✅ 2022-09-18. Work better with tmux.
+
   use 'haya14busa/vim-asterisk'        -- ❓ 2022-09-18. Use * without moving immediately
   use 'junegunn/fzf.vim'               -- ❓ 2022-09-18. The lightning fast fzf fuzzy finder
   use 'junegunn/fzf'                   -- ✅ 2022-09-21. Install the fzf binary
-
   use 'nacro90/numb.nvim'              -- ❓ 2022-09-18. Preview the line while typing :<number>
+
   use {
     'kyazdani42/nvim-tree.lua', -- ✅ 2022-09-18.
     requires = {
