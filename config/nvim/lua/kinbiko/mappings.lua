@@ -19,12 +19,10 @@ map('n', '<localleader><leader>', '<cmd>nohlsearch<CR>', snr) -- Clear the curre
 map('n', '<leader>f', '<Plug>Lightspeed_omni_s', {}) -- Find using vimium-like search feature
 
 -- Pop open a window for quickly finding various things:
-map('n', '?F', '<cmd>GFiles<cr>', snr) -- Search across lots of files relative to current directory, respecting .gitignore
-map('n', '?A', '<cmd>Ag<cr>', snr) -- Find code actions for the current cursor location
+map('n', '?F', '<cmd>Telescope find_files<cr>', snr) -- Search across lots of files relative to current directory, respecting .gitignore
 map('n', '?S', '<cmd>Telescope live_grep<cr>', snr) -- Pop open a window for grepping for any text in the repo
-map('n', '?:', '<cmd>Telescope commands<cr>', snr) -- Pop open a window for finding and running commands by name
-map('n', '?H', '<cmd>Telescope search_history<cr>', snr) -- Pop open a window for finding and running recent searches
-map('n', '?Q', '<cmd>Telescope quickfix<cr>', snr) -- Pop open a window for finding quickfix items
+map('n', '?R', '<cmd>Telescope lsp_references<cr>', snr) -- Pop open a window for finding references to the word under the cursor
+map('n', '?I',  '<cmd>Telescope lsp_implementations<cr>', snr) -- Find implementations of an interface
 
 map('n', '0', '^', snr) -- Make 0 take me to the first non-blank character of the line.
 map('n', "'", '`', snr) -- Make jumping to a mark more precise than just the beginning of the line in normal mode
@@ -71,10 +69,6 @@ function mappings:registerLSPMappings()
   map('n', 'K',          '<cmd>lua vim.lsp.buf.hover()<CR>', snr)
   map('n', '<leader>r',  '<cmd>lua vim.lsp.buf.rename()<CR>', snr)
   map('n', '<leader>d',  '<cmd>lua vim.diagnostic.open_float()<CR>', snr)
-
-  map('n', '?R', '<cmd>Telescope lsp_references<cr>', snr) -- Pop open a window for finding references to the word under the cursor
-  map('n', '?T', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', snr) -- Find any type in the workspace dynamically
-  map('n', '?i',  '<cmd>Telescope lsp_implementations<cr>', snr) -- Find implementations of an interface
 end
 
 function mappings:registerGoMappings()
