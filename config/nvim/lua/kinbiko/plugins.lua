@@ -22,11 +22,11 @@ require('packer').startup(function(use)
   -- space)
   vim.g.lexima_enable_space_rules = 0
   use 'cohama/lexima.vim'     -- ✅ 2022-09-18. Automatically close [], '' etc. including def/end
-  use 'mattn/emmet-vim'       -- ❓ 2022-09-18. Shortcuts for creating html/jsx boilerplate
-  use 'prettier/vim-prettier' -- ❓ 2022-09-18. Prettier formatter
-  use 'tpope/vim-repeat'      -- ❓ 2022-09-18. Make vim-surround things repeatable with .
-  use 'tpope/vim-surround'    -- ❓ 2022-09-18. ysiw syntax for surrounding
-  use 'sickill/vim-pasta'     -- ❓ 2022-09-18. Context aware pasting + indentation
+  use 'mattn/emmet-vim'       -- ✅ 2022-09-23. Shortcuts for creating html/jsx boilerplate
+  use 'prettier/vim-prettier' -- ✅ 2022-09-24. Prettier formatter
+  use 'tpope/vim-repeat'      -- ✅ 2022-09-24. Make vim-surround things repeatable with .
+  use 'tpope/vim-surround'    -- ✅ 2022-09-24. ysiw syntax for surrounding
+  use 'sickill/vim-pasta'     -- ✅ 2022-09-24. Context aware pasting + indentation
 
   -- Navigating
   vim.g.lightspeed_no_default_keymaps = 1 -- Stop lightspeed from adding (f/t/s) default mappings
