@@ -26,7 +26,6 @@ require('packer').startup(function(use)
   use 'prettier/vim-prettier' -- ✅ 2022-09-24. Prettier formatter
   use 'tpope/vim-repeat'      -- ✅ 2022-09-24. Make vim-surround things repeatable with .
   use 'tpope/vim-surround'    -- ✅ 2022-09-24. ysiw syntax for surrounding
-  use 'sickill/vim-pasta'     -- ✅ 2022-09-24. Context aware pasting + indentation
 
   -- Navigating
   vim.g.lightspeed_no_default_keymaps = 1 -- Stop lightspeed from adding (f/t/s) default mappings
