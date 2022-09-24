@@ -44,8 +44,8 @@ cmp.setup({
     -- Set `select` to `false` to only confirm explicitly selected items.
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
     ['<C-Space>'] = cmp.mapping(tab_forward, { 'i', 's', 'c' }),
-    ["<Tab>"] = cmp.mapping(tab_forward, { 'i', 's', 'c' }),
-    ["<S-Tab>"] = cmp.mapping(tab_backward, { 'i', 's', 'c' }),
+    ["<Tab>"] = cmp.mapping(tab_forward, { 'i', 's', }),
+    ["<S-Tab>"] = cmp.mapping(tab_backward, { 'i', 's', }),
   },
   sources = {
     { name = 'luasnip' },

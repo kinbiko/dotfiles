@@ -1,5 +1,5 @@
 local lsp_installer = require("nvim-lsp-installer")
-local m = require('kinbiko.mappings')
+local mappings = require('kinbiko.mappings')
 
 -- Include the servers you want to have installed by default below
 local servers = {
@@ -62,7 +62,7 @@ local go_settings = {
 -- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
 -- or if the server is already installed).
 lsp_installer.on_server_ready(function(server)
-    m.registerLSPMappings()
+    mappings.registerLSPMappings()
     vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     local opts = {
       settings = {
