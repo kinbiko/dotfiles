@@ -31,7 +31,6 @@ require('packer').startup(function(use)
   vim.g.lightspeed_no_default_keymaps = 1 -- Stop lightspeed from adding (f/t/s) default mappings
   use 'ggandor/lightspeed.nvim' -- ✅ 2022-09-24. Accurate navigation ala vimium.
 
-  vim.g.tmux_navigator_disable_when_zoomed = 1 -- Don't exit tmux zoom mode if attempting to navigate out of vim
   use 'christoomey/vim-tmux-navigator' -- ✅ 2022-09-18. Work better with tmux.
   use 'haya14busa/vim-asterisk'        -- ✅ 2022-09-24. Use * without moving immediately
   use 'nacro90/numb.nvim'              -- ✅ 2022-09-24. Preview the line while typing :<number>
@@ -84,6 +83,7 @@ require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'           -- ❓ 2022-09-18. "Easy" LSP configuration
 
   -- Git
-  use 'rhysd/committia.vim' -- ❓ 2022-09-18. Running 'git commit' on the command line enables diff and other niceties
+  use 'rhysd/committia.vim' -- ✅ 2022-09-18. Running 'git commit' on the command line enables diff and other niceties.
+                            -- ⚡ 2022-09-25. Does not work well with --amend
   use 'tpope/vim-fugitive'  -- ❓ 2022-09-18. Most git features available through :Git foo
 end)

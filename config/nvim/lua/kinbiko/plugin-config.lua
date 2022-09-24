@@ -348,3 +348,6 @@ twilight.setup({
 
 -- Format terraform files whenever I save
 vim.g.terraform_fmt_on_save = 1
+
+-- Don't exit tmux zoom mode if attempting to navigate out of vim
+vim.g.tmux_navigator_disable_when_zoomed = 1

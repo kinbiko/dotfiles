@@ -60,6 +60,7 @@ map('n', '<leader>G', ':!kokodoko % <C-R>=line(".")<CR><CR>', snr) -- Fetch link
 map('v', '<leader>G', [[:!kokodoko % <C-R>=line("'<")<CR>-<C-R>=line("'>")<CR><CR>u]], snr)-- Fetch link to selected lines in GitHub
 map('n', '<leader>R', '<cmd>Twilight<cr>', snr) -- Read the code with focus on one section at the time.
 map('i', '<C-\\>', '<Plug>luasnip-expand-or-jump', {}) -- Trigger snippet insertion
+map('n', '<localleader>g', '<cmd>G<cr>', snr)
 
 
 local function bufmap(...) vim.api.nvim_buf_set_keymap(0, ...) end
