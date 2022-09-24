@@ -351,3 +351,8 @@ vim.g.terraform_fmt_on_save = 1
 
 -- Don't exit tmux zoom mode if attempting to navigate out of vim
 vim.g.tmux_navigator_disable_when_zoomed = 1
+
+-- Ensure that I can enter markdown checkboxes without generating a double
+-- space like this: [  ]. (should only have a single space inside when hitting
+-- space)
+vim.g.lexima_enable_space_rules = 0
