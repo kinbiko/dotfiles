@@ -29,15 +29,12 @@ require('packer').startup(function(use)
 
   -- Navigating
   vim.g.lightspeed_no_default_keymaps = 1 -- Stop lightspeed from adding (f/t/s) default mappings
-  use 'ggandor/lightspeed.nvim' -- ❓ 2022-09-18. Accurate navigation ala vimium
+  use 'ggandor/lightspeed.nvim' -- ✅ 2022-09-24. Accurate navigation ala vimium.
 
   vim.g.tmux_navigator_disable_when_zoomed = 1 -- Don't exit tmux zoom mode if attempting to navigate out of vim
   use 'christoomey/vim-tmux-navigator' -- ✅ 2022-09-18. Work better with tmux.
-
-  use 'haya14busa/vim-asterisk'        -- ❓ 2022-09-18. Use * without moving immediately
-  use 'junegunn/fzf.vim'               -- ❓ 2022-09-18. The lightning fast fzf fuzzy finder
-  use 'junegunn/fzf'                   -- ✅ 2022-09-21. Install the fzf binary
-  use 'nacro90/numb.nvim'              -- ❓ 2022-09-18. Preview the line while typing :<number>
+  use 'haya14busa/vim-asterisk'        -- ✅ 2022-09-24. Use * without moving immediately
+  use 'nacro90/numb.nvim'              -- ✅ 2022-09-24. Preview the line while typing :<number>
 
   use {
     'kyazdani42/nvim-tree.lua', -- ✅ 2022-09-18.
