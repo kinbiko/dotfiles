@@ -1,5 +1,12 @@
 local cmp = require('cmp')
+local lightspeed = require('lightspeed')
+local lualine = require('lualine')
 local luasnip = require('luasnip')
+local mappings = require('kinbiko.mappings')
+local numb = require('numb')
+local nvim_tree = require('nvim-tree')
+local twilight = require("twilight")
+local which_key = require("which-key")
 
 vim.cmd[[set completeopt=menu,menuone,noselect]]
 
@@ -49,12 +56,10 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-  }, {
-    { name = 'buffer' },
   })
 })
 
-require('lightspeed').setup({
+lightspeed.setup({
   ignore_case = true,
   exit_after_idle_msecs = { -- Keep waiting for my slow fingers.
     labeled = nil,
@@ -63,7 +68,7 @@ require('lightspeed').setup({
   jump_to_unique_chars = false,
 })
 
-require('lualine').setup {
+lualine.setup({
   options = {
     icons_enabled = true,
     theme = 'auto',
@@ -80,13 +85,13 @@ require('lualine').setup {
     lualine_y = {'location'},
     lualine_z = {'mode'}
   }
-}
+})
 
-require('numb').setup()
+numb.setup()
 
 -- setup with all defaults
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
-require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
+nvim_tree.setup({ -- BEGIN_DEFAULT_OPTS
   auto_reload_on_write = true,
   create_in_closed_folder = false,
   disable_netrw = true,
@@ -336,12 +341,11 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
       watcher = false,
     },
   },
-} -- END_DEFAULT_OPTS
+}) -- END_DEFAULT_OPTS
 
-require('kinbiko.mappings').mapFileBrowser()
+mappings.mapFileBrowser()
 
-
-require("twilight").setup({
+twilight.setup({
   dimming = {
     alpha = 0.25, -- amount of dimming
     inactive = true, -- when true, other windows will be fully dimmed (unless they contain the same buffer)
@@ -349,7 +353,7 @@ require("twilight").setup({
   context = 3 -- amount of lines we will try to show around the current line
 })
 
-require("which-key").setup{
+which_key.setup{
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
     registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode

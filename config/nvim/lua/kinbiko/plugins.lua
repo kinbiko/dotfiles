@@ -43,7 +43,7 @@ require('packer').startup(function(use)
     }
   }
   use {
-    'nvim-telescope/telescope.nvim', -- ❓ 2022-09-18. Floating window of various search results.
+    'nvim-telescope/telescope.nvim', -- ✅ 2022-09-24. Floating window of various search results.
     requires = {
       'nvim-lua/plenary.nvim', -- Utility functions for Lua. Direct dependency.
       'nvim-treesitter/nvim-treesitter' -- Optional dependency.
@@ -52,8 +52,8 @@ require('packer').startup(function(use)
 
   -- Style
   use 'folke/tokyonight.nvim'         -- ✅ 2022-09-18. TokyoNight theme
-  use 'folke/twilight.nvim'           -- ❓ 2022-09-18. "reading" mode that disables distant syntax highlighting
-  use 'machakann/vim-highlightedyank' -- ❓ 2022-09-18. Highlight when yanking so you don't need to pop into visual mode constantly
+  use 'folke/twilight.nvim'           -- ✅ 2022-09-24. "reading" mode that disables distant syntax highlighting
+  use 'machakann/vim-highlightedyank' -- ✅ 2022-09-24. Highlight when yanking so you don't need to pop into visual mode constantly
   use {
     'nvim-lualine/lualine.nvim', -- ❓ 2022-09-18. Pretty status bar
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
