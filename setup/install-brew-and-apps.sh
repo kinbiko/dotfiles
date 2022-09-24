@@ -40,6 +40,9 @@ brew install spotify # Music
 # Expected to be installed in vim config
 go install github.com/kinbiko/kokodoko/cmd/kokodoko@latest
 
+# Expected to be installed in the Jisho.org Alfred workflow
+go install github.com/kinbiko/jisho-alfred@latest
+
 # Not required
 go install github.com/kinbiko/mokku/cmd/mokku@latest
 go install github.com/kinbiko/semver/cmd/upversion@latest

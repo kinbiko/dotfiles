@@ -64,7 +64,7 @@ Install [BetterSnapTool](https://folivora.ai/bettersnaptool) (not free -> no bre
 - Disable spotlight cmd + space shortcut in keyboard -> shortuts -> spotlight
 - Set Alfred shortcut to `cmd + space`
 - Add the [Nord theme to Alfred](https://www.alfredapp.com/extras/theme/5Y8E7URIWQ/).
-- ~~Set up [jisho shortcut](https://github.com/janclarin/jisho-alfred)~~ This is sadly broken.
+- Set up [the Jisho.org workflow](https://github.com/kinbiko/jisho-alfred).
 - Set up clipboard history. Map to `cmd + p` (who prints these days anyway?)
 
 #### Sign git commits with GPG
