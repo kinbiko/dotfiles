@@ -66,13 +66,13 @@ require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip' -- ✅ 2022-09-24. Set up completion based on snippet framework.
 
   -- Language support
-  use 'elzr/vim-json'               -- ❓ 2022-09-18. JSON syntax (error) highlighting + concealment
-  use 'evanleck/vim-svelte'         -- ❓ 2022-09-18. Better support for Svelte
-  use 'hashivim/vim-terraform'      -- ❓ 2022-09-18. Terraform syntax highlighting etc.
-  use 'leafgarland/typescript-vim'  -- ❓ 2022-09-18. Typescript syntax highlighting
-  use 'maxmellon/vim-jsx-pretty'    -- ❓ 2022-09-18. Make JSX look good (technically this supports TSX too, but has perf issues)
-  use 'pangloss/vim-javascript'     -- ❓ 2022-09-18. Syntax highlighting and concealment for JavaScript
-  use 'peitalin/vim-jsx-typescript' -- ❓ 2022-09-18. TSX syntax highlighting without the perf issues
+  use 'elzr/vim-json'               -- ✅ 2022-09-25. JSON syntax (error) highlighting + concealment
+  use 'evanleck/vim-svelte'         -- ✅ 2022-09-25. Better support for Svelte
+  use 'hashivim/vim-terraform'      -- ✅ 2022-09-25. Terraform syntax highlighting etc.
+  use 'leafgarland/typescript-vim'  -- ✅ 2022-09-25. Typescript syntax highlighting
+  use 'maxmellon/vim-jsx-pretty'    -- ✅ 2022-09-25. Make JSX look good (technically this supports TSX too, but has perf issues)
+  use 'pangloss/vim-javascript'     -- ✅ 2022-09-25. Syntax highlighting and concealment for JavaScript
+  use 'peitalin/vim-jsx-typescript' -- ✅ 2022-09-25. TSX syntax highlighting without the perf issues
   use {
     'fatih/vim-go', -- ❓ 2022-09-18. Make vim good with Go
     run = ':GoUpdateBinaries',

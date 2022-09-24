@@ -345,3 +345,6 @@ twilight.setup({
   },
   context = 3 -- amount of lines we will try to show around the current line
 })
+
+-- Format terraform files whenever I save
+vim.g.terraform_fmt_on_save = 1
