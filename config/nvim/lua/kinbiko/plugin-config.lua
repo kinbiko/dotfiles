@@ -1,4 +1,88 @@
-local m = require 'kinbiko.mappings'
+local cmp = require('cmp')
+local luasnip = require('luasnip')
+
+vim.cmd[[set completeopt=menu,menuone,noselect]]
+
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body) -- For `luasnip` users.
+    end,
+  },
+  mapping = {
+    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ['<C-e>'] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+  },
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+require('lightspeed').setup({
+  ignore_case = true,
+  exit_after_idle_msecs = { -- Keep waiting for my slow fingers.
+    labeled = nil,
+    unlabeled = nil,
+  },
+  jump_to_unique_chars = false,
+})
+
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    always_divide_middle = true,
+    globalstatus = true,
+  },
+  sections = {
+    lualine_a = {'branch', 'diff', 'diagnostics'},
+    lualine_b = {},
+    lualine_c = {'filename', 'filetype'},
+    lualine_x = {'progress'},
+    lualine_y = {'location'},
+    lualine_z = {'mode'}
+  }
+}
+
+require('numb').setup()
 
 -- setup with all defaults
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
@@ -254,5 +338,78 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
   },
 } -- END_DEFAULT_OPTS
 
+require('kinbiko.mappings').mapFileBrowser()
 
-m.mapFileBrowser()
+
+require("twilight").setup({
+  dimming = {
+    alpha = 0.25, -- amount of dimming
+    inactive = true, -- when true, other windows will be fully dimmed (unless they contain the same buffer)
+  },
+  context = 3 -- amount of lines we will try to show around the current line
+})
+
+require("which-key").setup{
+  plugins = {
+    marks = true, -- shows a list of your marks on ' and `
+    registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+    spelling = {
+      enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+      suggestions = 20, -- how many suggestions should be shown in the list?
+    },
+    -- the presets plugin, adds help for a bunch of default keybindings in Neovim
+    -- No actual key bindings are created
+    presets = {
+      operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+      motions = true, -- adds help for motions
+      text_objects = true, -- help for text objects triggered after entering an operator
+      windows = true, -- default bindings on <c-w>
+      nav = true, -- misc bindings to work with windows
+      z = true, -- bindings for folds, spelling and others prefixed with z
+      g = true, -- bindings for prefixed with g
+    },
+  },
+  -- add operators that will trigger motion and text object completion
+  -- to enable all native operators, set the preset / operators plugin above
+  operators = { gc = "Comments" },
+  key_labels = {
+    -- override the label used to display some keys. It doesn't effect WK in any other way.
+    -- For example:
+    -- ["<space>"] = "SPC",
+    -- ["<cr>"] = "RET",
+    -- ["<tab>"] = "TAB",
+  },
+  icons = {
+    breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
+    separator = "➜", -- symbol used between a key and it's label
+    group = "+", -- symbol prepended to a group
+  },
+  popup_mappings = {
+    scroll_down = '<c-d>', -- binding to scroll down inside the popup
+    scroll_up = '<c-u>', -- binding to scroll up inside the popup
+  },
+  window = {
+    border = "none", -- none, single, double, shadow
+    position = "bottom", -- bottom, top
+    margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+    padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]
+    winblend = 0
+  },
+  layout = {
+    height = { min = 4, max = 25 }, -- min and max height of the columns
+    width = { min = 20, max = 50 }, -- min and max width of the columns
+    spacing = 3, -- spacing between columns
+    align = "left", -- align columns left, center or right
+  },
+  ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
+  hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "}, -- hide mapping boilerplate
+  show_help = true, -- show help message on the command line when the popup is visible
+  triggers = "auto", -- automatically setup triggers
+  -- triggers = {"<leader>"} -- or specify a list manually
+  triggers_blacklist = {
+    -- I have several shorthands in insert-mode, so this prevents the plugin from popping up.
+    i = { "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m" },
+    v = { "j", "k" },
+    n = { "." },
+  },
+}

@@ -30,8 +30,6 @@ map('n', "'", '`', snr) -- Make jumping to a mark more precise than just the beg
 map('o', "'", '`', snr) -- Make jumping to a mark more precise than just the beginning of the line when awaiting an operator
 map('n', '<right>', 'gd', { silent = true }) -- Go to definition
 map('n', '<left>', '<c-t>', { silent = true }) -- Pop back up
-map('i', '<c-j>', '<c-n>', snr) -- Auto-complete
-map('i', '<c-k>', '<c-p>', snr) -- Auto-complete (go back)
 map('', '*', '<Plug>(asterisk-z*)zz', {silent=true}) -- Make * mark the current word and n will go forward
 map('', '#', '<Plug>(asterisk-z#)zz', {silent=true}) -- Make # mark the current work and n will go backward
 map('n', 'n', 'nzz', snr) -- Make forward search results always appear in the middle of the screen
