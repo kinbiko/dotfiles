@@ -1,5 +1,5 @@
 -- Keys I rarely use in normal mode (OK to overwrite):
--- t E L M X Y Z [ ] \ |
+-- t E L M X Y Z [ ] |
 
 local map = vim.api.nvim_set_keymap
 
@@ -59,6 +59,8 @@ map('n', '<leader><esc>', '<cmd>cclose<cr>', snr) -- Close the quickfix window
 map('n', '<leader>G', ':!kokodoko % <C-R>=line(".")<CR><CR>', snr) -- Fetch link to current line in GitHub
 map('v', '<leader>G', [[:!kokodoko % <C-R>=line("'<")<CR>-<C-R>=line("'>")<CR><CR>u]], snr)-- Fetch link to selected lines in GitHub
 map('n', '<leader>R', '<cmd>Twilight<cr>', snr) -- Read the code with focus on one section at the time.
+map('i', '<C-\\>', '<Plug>luasnip-expand-or-jump', {}) -- Trigger snippet insertion
+
 
 local function bufmap(...) vim.api.nvim_buf_set_keymap(0, ...) end
 local mappings = {}
@@ -80,15 +82,10 @@ function mappings:registerGoMappings()
   bufmap('n', '<right>', '<cmd>GoDef<cr>', snr) -- Override the default LSP go-to-defn
   bufmap('n', '<left>', '<cmd>GoDefPop<cr>', snr) -- Override the default LSP pop back
 
-  -- Snippets have \ as prefix
-  bufmap('i', '\\=', ' := ', snr) -- Shorthand for defining a new var
-  bufmap('i', '\\b', 'context.Background()', snr) -- background context snippet
-  bufmap('i', '\\c', 'context.Context', snr) -- context type snippet
+  -- Most other snippets are handled by luasnip
   bufmap('i', '\\e', '<cmd>GoIfErr<cr>', snr) -- if err != nil shorthand that returns the error & any default values
   bufmap('i', '\\f', '<cmd>GoFillStruct<cr>i', snr) -- Populate struct with all its default values
-  bufmap('i', '\\t', 'func Test(t *testing.T) {}<esc>16hi', snr) -- Top-level test function snippet
-  -- Big fat snippet for generating test table:
-  bufmap('i', '\\s', 'for _, tc := range []struct{<cr>name string<cr>in   any<cr>exp  any<cr>} {<cr>{},<esc>o} {<cr>t.Run(tc.name, func(t *testing.T) {<cr>got, err := myFunc(tc.in)<cr>if err != nil {<cr>t.Fatalf(`unexpected error "%s"`, err.Error())<cr>}<cr>if got != tc.exp {<cr>t.Errorf(`expected "%+v" but got "%+v"`, tc.exp, got)<cr>}<cr>})<cr>}<esc>8kfm', snr)
+  bufmap('i', ',=', ' := ', snr) -- Insert variable assignment without needing to find :
 end
 
 function mappings:mapEmmet()

@@ -61,7 +61,7 @@ require('packer').startup(function(use)
   }
 
   -- Autocomplete and snippets
-  use 'L3MON4D3/LuaSnip'         -- ❓ 2022-09-18.
+  use 'L3MON4D3/LuaSnip'         -- ✅ 2022-09-24. Snippet framework.
   use 'hrsh7th/nvim-cmp'         -- ✅ 2022-09-24. Completion framework, supports many kinds of completion, to be installed separately.
   use 'hrsh7th/cmp-nvim-lsp'     -- ✅ 2022-09-24. Set up completion based on LSP information.
   use 'saadparwaiz1/cmp_luasnip' -- ✅ 2022-09-24. Set up completion based on snippet framework.

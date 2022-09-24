@@ -1,0 +1,34 @@
+snippet cb Insert a Background context.Context value
+	context.Background()
+
+snippet cc Insert a context.Context type reference
+	context.Context
+
+snippet test Insert a top level test
+	func Test${1:FunctionUnderTest}(t *testing.T) {
+		for _, tc := range []struct {
+			name string
+			in   any
+			exp  any
+		}{
+			{"simple", ${2:in}, ${3:exp}},${0}
+		} {
+			t.Run(tc.name, func(t *testing.T) {
+				got, err := ${1:FunctionUnderTest}(tc.in)
+				if err != nil {
+					t.Fatalf("unexpected error '%s'", err.Error())
+				}
+				if got != tc.exp {
+					t.Errorf("expected to get '%v' but got '%v' for input '%v'", tc.exp, got, tc.in)
+				}
+			})
+		}
+
+		t.Run("failure case", func(t *testing.T) {
+			in := ${4:ErrorInput}
+			got, err := ${1:FunctionUnderTest}(in)
+			if err == nil {
+				t.Fatalf("missing expected error, got '%v' for '%v'", got, in)
+			}
+		})
+	}
