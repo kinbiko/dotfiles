@@ -35,6 +35,7 @@ require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator' -- ✅ 2022-09-18. Work better with tmux.
   use 'haya14busa/vim-asterisk'        -- ✅ 2022-09-24. Use * without moving immediately
   use 'nacro90/numb.nvim'              -- ✅ 2022-09-24. Preview the line while typing :<number>
+  use 'folke/which-key.nvim'           -- ❓ 2022-09-18. Reminders of which key-bindings are available if getting stuck half-way through a binding
 
   use {
     'kyazdani42/nvim-tree.lua', -- ✅ 2022-09-18.
@@ -61,13 +62,9 @@ require('packer').startup(function(use)
 
   -- Autocomplete and snippets
   use 'L3MON4D3/LuaSnip'         -- ❓ 2022-09-18.
-  use 'hrsh7th/cmp-buffer'       -- ❓ 2022-09-18.
-  use 'hrsh7th/cmp-cmdline'      -- ❓ 2022-09-18.
-  use 'hrsh7th/cmp-nvim-lsp'     -- ❓ 2022-09-18.
-  use 'hrsh7th/cmp-path'         -- ❓ 2022-09-18.
-  use 'hrsh7th/nvim-cmp'         -- ❓ 2022-09-18.
-  use 'saadparwaiz1/cmp_luasnip' -- ❓ 2022-09-18.
-  use 'folke/which-key.nvim'     -- ❓ 2022-09-18. Reminders of which key-bindings are available if getting stuck half-way through a binding
+  use 'hrsh7th/nvim-cmp'         -- ✅ 2022-09-24. Completion framework, supports many kinds of completion, to be installed separately.
+  use 'hrsh7th/cmp-nvim-lsp'     -- ✅ 2022-09-24. Set up completion based on LSP information.
+  use 'saadparwaiz1/cmp_luasnip' -- ✅ 2022-09-24. Set up completion based on snippet framework.
 
   -- Language support
   use 'elzr/vim-json'               -- ❓ 2022-09-18. JSON syntax (error) highlighting + concealment
