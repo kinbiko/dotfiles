@@ -35,7 +35,6 @@ require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator' -- ✅ 2022-09-18. Work better with tmux.
   use 'haya14busa/vim-asterisk'        -- ✅ 2022-09-24. Use * without moving immediately
   use 'nacro90/numb.nvim'              -- ✅ 2022-09-24. Preview the line while typing :<number>
-  use 'folke/which-key.nvim'           -- ❓ 2022-09-18. Reminders of which key-bindings are available if getting stuck half-way through a binding
 
   use {
     'kyazdani42/nvim-tree.lua', -- ✅ 2022-09-18.
@@ -56,7 +55,7 @@ require('packer').startup(function(use)
   use 'folke/twilight.nvim'           -- ✅ 2022-09-24. "reading" mode that disables distant syntax highlighting
   use 'machakann/vim-highlightedyank' -- ✅ 2022-09-24. Highlight when yanking so you don't need to pop into visual mode constantly
   use {
-    'nvim-lualine/lualine.nvim', -- ❓ 2022-09-18. Pretty status bar
+    'nvim-lualine/lualine.nvim', -- ✅ 2022-09-24. Pretty status bar
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
   }
 
