@@ -6,6 +6,11 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.api.nvim_command 'packadd packer.nvim'
 end
 
+local function is_work_computer()
+  return os.getenv('KINBIKO_ENV') == 'work'
+end
+
+
 require('packer').startup(function(use)
   use { 'wbthomason/packer.nvim', commit='6afb67460283f0e990d35d229fd38fdc04063e0a'} -- ❓ 2022-09-18. Packer can manage itself
 
@@ -15,6 +20,9 @@ require('packer').startup(function(use)
   use { 'prettier/vim-prettier', commit='5e6cca21e12587c02e32a06bf423519eb1e9f1b2' } -- Prettier formatter
   use { 'tpope/vim-repeat', commit='24afe922e6a05891756ecf331f39a1f6743d3d5a' }      -- Make vim-surround things repeatable with .
   use { 'tpope/vim-surround', commit='bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea' }    -- ysiw syntax for surrounding
+  if not is_work_computer() then
+    use { 'github/copilot.vim', commit='af9da6457790b651871b687b8f47d130cde083fc' }  -- AI code generator
+  end
 
   -- Navigating
   vim.g.lightspeed_no_default_keymaps = 1 -- Stop lightspeed from adding (f/t/s) default mappings. Must be set before loading.
