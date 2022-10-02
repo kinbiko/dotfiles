@@ -84,6 +84,7 @@ require('packer').startup(function(use)
   use { 'neovim/nvim-lspconfig' }           -- ❓ 2022-09-18. "Easy" LSP configuration
 
   -- Git
-  use { 'rhysd/committia.vim', commit='0b4df1a7f48ffbc23b009bd14d58ee1be541917c' } -- Running 'git commit' on the command line enables diff and other niceties. ⚡ 2022-09-25. Does not work well with --amend
-  use { 'tpope/vim-fugitive', commit='dd8107cabf5fe85df94d5eedcae52415e543f208' }  -- Most git features available through :Git foo
+  use { 'rhysd/git-messenger.vim', commit='8a61bdfa351d4df9a9118ee1d3f45edbed617072' } -- Show the commit message for the current line.
+  use { 'rhysd/committia.vim', commit='0b4df1a7f48ffbc23b009bd14d58ee1be541917c' }     -- Running 'git commit' on the command line enables diff and other niceties. ⚡ 2022-09-25. Does not work well with --amend
+  use { 'tpope/vim-fugitive', commit='dd8107cabf5fe85df94d5eedcae52415e543f208' }      -- Most git features available through :Git foo
 end)
