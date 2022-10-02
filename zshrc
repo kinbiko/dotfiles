@@ -28,6 +28,8 @@ export GOPATH=$HOME/go
 
 pathmunge "$GOPATH/bin"
 
+pathmunge "$HOME/scripts"
+
 # Wait 10 ms for additional key sequences. Allows you to enter normal mode in zsh faster than the default 0.4s
 export KEYTIMEOUT=1
 
