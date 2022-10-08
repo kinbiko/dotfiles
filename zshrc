@@ -95,6 +95,13 @@ extract () {
     fi
 }
 
+# Quickly source any environment variables in a local `.env` file.
+function dotenv() {
+  if [ -f .env ]; then
+    export $(cat .env | xargs)
+  fi
+}
+
 # Most aliases are kept in zshenv but some part of my zsh startup script
 # (probably in oh-my-zsh somewhere) probably uses grep, and a special flag of
 # grep, that's not mirrored in rg, hence the script spits out an error whenever
