@@ -108,3 +108,12 @@ function dotenv() {
 # you open a new shell.
 # This particular alias is therefore defined here instead.
 alias grep="rg"
+
+# Calls Git by default, unless the command is `git commit`, in which case we
+# run commitizen
+function git() {
+    case $* in
+        commit* ) cz c ;;
+        * ) command git "$@" ;;
+    esac
+}
