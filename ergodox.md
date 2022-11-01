@@ -110,6 +110,12 @@ Replace the windows layer with an excalidraw layer instead.
 
 https://configure.zsa.io/ergodox-ez/layouts/ZDnb5/latest/0
 
+# Version 12
+
+https://configure.zsa.io/ergodox-ez/layouts/A0r90/latest/0
+
+Make mouse movements more precise, remove unused layer and some keys.
+
 ## Drastic change proposal
 
 Persistent layers for different 'modes', e.g. 'browsing', 'writing', 'programming'
