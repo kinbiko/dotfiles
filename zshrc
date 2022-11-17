@@ -110,10 +110,11 @@ function dotenv() {
 alias grep="rg"
 
 # Calls Git by default, unless the command is `git commit`, in which case we
-# run commitizen
+# run commitizen. Run git committ to bypass.
 function git() {
     case $* in
-        commit* ) cz c ;;
+        committ* ) command git commit "${@:2}" ;;
+        commit ) cz c ;;
         * ) command git "$@" ;;
     esac
 }
