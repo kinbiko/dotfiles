@@ -116,6 +116,10 @@ https://configure.zsa.io/ergodox-ez/layouts/A0r90/latest/0
 
 Make mouse movements more precise, remove unused layer and some keys.
 
+# Version 13
+
+- Scroll speed is waay to fast, after some initial very slowness.
+
 ## Drastic change proposal
 
 Persistent layers for different 'modes', e.g. 'browsing', 'writing', 'programming'
