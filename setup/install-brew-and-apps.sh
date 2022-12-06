@@ -19,11 +19,13 @@ brew install go # Go programming language
 brew install golangci-lint # Linter for Go
 brew install google-cloud-sdk # For interacting with GCP
 brew install gpg # For PGP signing
+brew install grpcurl # For making gRPC requests from the command line
 brew install neovim # Editor
 brew install node # Global installation required to install prettier
 brew install pinentry-mac # Lets you enter passwords with a TUI when signing git commits
 brew install pre-commit # Framework for setting up Git hooks
 brew install rg # Super fast grep-like application, used by FZF and telescope.nvim
+brew install sourcegraph/src-cli/src-cli # The 'src' Sourcegraph CLI
 brew install terraform # Infra as code
 brew install tmux # Terminal multiplexer
 brew install tree # Show folders and files easily
