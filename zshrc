@@ -118,3 +118,49 @@ function git() {
         * ) command git "$@" ;;
     esac
 }
+
+
+# The following kubernetes commands were stolen from @eqyiel.
+# Onto @eqyiel the glory
+kubectl() {
+  if ! type __start_kubectl >/dev/null 2>&1; then
+    source <(command kubectl completion zsh)
+    compdef k=kubectl
+  fi
+  command kubectl "$@"
+}
+
+_kk__ls() {
+  kubectl get pods -o json | jq -r '.items[] | .metadata.name + "/" +  .spec.containers[].name'
+}
+
+_kk__pod() {
+  _kk__ls | fzf
+}
+
+_kk__cpod() {
+  _kk__pod | tr -d '\n' | pbcopy
+}
+
+_kk__exec() {
+  local pod_slash_container="$(_kk__pod)"
+  pod="$(echo ${pod_slash_container} | cut --delimiter='/' --fields=1)"
+  container="$(echo ${pod_slash_container} | cut --delimiter='/' --fields=2)"
+  # https://github.com/junegunn/fzf/issues/1849#issuecomment-581519151
+  print -z -- kubectl exec -it "${pod}" --container "${container}" '-- '
+}
+
+kk() {
+  if [ $# -eq 0 ]; then
+    echo "Usage:\n"
+    echo "    kk <cmd>"
+    return 1
+  fi
+  local cmdname=$1; shift
+  if type "_kk__$cmdname" >/dev/null 2>&1; then
+    "_kk__$cmdname" "$@"
+  else
+    echo "Unknown command $cmdname"
+    return 1
+  fi
+}
