@@ -33,6 +33,9 @@ brew install tree # Show folders and files easily
 brew install up # Incrementally build long pipes
 brew install urlview # Required for fpp
 
+# basic unix utils as you expect them to work
+brew install coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt grep
+
 # UI Apps
 brew install alacritty # good terminal emulator
 brew install alfred # Productivity heaven
