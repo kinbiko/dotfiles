@@ -8,6 +8,7 @@ brew tap homebrew/cask-fonts;brew install font-hack-nerd-font
 
 # Command line tools
 brew install bat # cat but pretty
+brew install cue-lang/tap/cue # CUE binary
 brew install btop # top but prettier
 brew install diff-so-fancy # Even better git diffs
 brew install fd # Opinionated alternative to 'find'.

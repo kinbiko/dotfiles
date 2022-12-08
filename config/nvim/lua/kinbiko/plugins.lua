@@ -72,6 +72,7 @@ require('packer').startup(function(use)
   use { 'maxmellon/vim-jsx-pretty', commit='6989f1663cc03d7da72b5ef1c03f87e6ddb70b41' }    -- Make JSX look good (technically this supports TSX too, but has perf issues)
   use { 'pangloss/vim-javascript', commit='c470ce1399a544fe587eab950f571c83cccfbbdc' }     -- Syntax highlighting and concealment for JavaScript
   use { 'peitalin/vim-jsx-typescript', commit='22df470d92651426f2377e3166488672f7b4b4ef' } -- TSX syntax highlighting without the perf issues
+  use { 'jjo/vim-cue', commit='bd1a62303d096aa24fe4160a475645087f8770b3' }                 -- CUE syntax highlighting
   use {
     'fatih/vim-go', -- Make vim good with Go
     commit='22b2273cfe562ac1c1af976ce77f18a3b1776f3c',
