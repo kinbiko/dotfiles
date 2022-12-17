@@ -44,6 +44,7 @@ map('v', 'L', '>gv', snr) -- indent lines and remember the selection
 map('v', '<', '<gv', snr) -- dedent lines and remember the selection
 map('n', '<', '<<', snr) -- dedent lines and remember the selection
 map('v', 'H', '<gv', snr) -- dedent lines and remember the selection
+map('v', 'p', '"_dP', snr) -- Execute the last played macro
 map('n', 'Q', '@@', snr) -- Execute the last played macro
 map('n', 'S', 'ysiw', {silent=true}) -- Surround the current word with the following character
 map('n', 'j', 'gj', snr) -- Move down wrapped lines intuitively, not literally

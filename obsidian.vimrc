@@ -7,9 +7,6 @@ nmap <down> }
 
 nmap 0 ^
 
-nmap n nzz
-nmap N Nzz
-
 nmap + <C-a>
 nmap - <C-x>
 
@@ -18,3 +15,5 @@ nmap ; :
 nmap Q @@
 
 imap jk <C-c>
+
+vmap p "_dP
