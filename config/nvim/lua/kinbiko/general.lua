@@ -1,11 +1,5 @@
--- There's no non-vim.cmd solution for this as of 2021-08-20 according to tjdevries.
-vim.cmd[[
-" Set the colorscheme
-colorscheme tokyonight-night
-
-" Setting this explicitly means I can copy Japanese to the clipboard without mojibake
-lang en_US.UTF-8
-]]
+vim.cmd.colorscheme('tokyonight-night') -- Today is not the day of cyan. Make it pretty instead.
+vim.cmd.lang('en_US.UTF-8')             -- Setting this explicitly means I can copy Japanese to the clipboard without mojibake
 
 local o = vim.o
 
