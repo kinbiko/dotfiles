@@ -335,6 +335,9 @@ nvim_tree.setup({ -- BEGIN_DEFAULT_OPTS
     },
   },
 }) -- END_DEFAULT_OPTS
+-- Make NvimTree's window transparent
+vim.api.nvim_set_hl(0, "NvimTreeNormal", {bg = 'none'})
+vim.api.nvim_set_hl(0, "NvimTreeNormalNC", {bg = 'none'})
 
 mappings.mapFileBrowser()
 

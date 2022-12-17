@@ -1,6 +1,10 @@
 vim.cmd.colorscheme('tokyonight-night') -- Today is not the day of cyan. Make it pretty instead.
 vim.cmd.lang('en_US.UTF-8')             -- Setting this explicitly means I can copy Japanese to the clipboard without mojibake
 
+vim.api.nvim_set_hl(0, "Normal", {bg = 'none'}) -- Make normal text transparent
+vim.api.nvim_set_hl(0, "NormalNC", {bg = 'none'}) -- Make normal text in non-current windows transparent
+vim.api.nvim_set_hl(0, "Visual", {bg = 'none', fg = 'yellow'}) -- Make visually selected text yellow
+
 local o = vim.o
 
 o.tabstop = 2 -- columns per tab character
