@@ -2,7 +2,6 @@ local cmp = require('cmp')
 local lightspeed = require('lightspeed')
 local lualine = require('lualine')
 local luasnip = require('luasnip')
-local mappings = require('kinbiko.mappings')
 local numb = require('numb')
 local nvim_tree = require('nvim-tree')
 local twilight = require("twilight")
@@ -339,7 +338,8 @@ nvim_tree.setup({ -- BEGIN_DEFAULT_OPTS
 vim.api.nvim_set_hl(0, "NvimTreeNormal", {bg = 'none'})
 vim.api.nvim_set_hl(0, "NvimTreeNormalNC", {bg = 'none'})
 
-mappings.mapFileBrowser()
+vim.api.nvim_set_keymap('n', '<localleader><localleader>', '<cmd>NvimTreeToggle<cr>', {noremap = true, silent = true}) -- Open/close file browser
+vim.api.nvim_set_keymap('n', '<localleader>f', '<cmd>NvimTreeFindFileToggle<cr>', {noremap = true, silent = true}) -- Find the current file in file browser
 
 twilight.setup({
   dimming = {

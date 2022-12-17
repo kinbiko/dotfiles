@@ -59,11 +59,27 @@ require('packer').startup(function(use)
   }
 
   -- Autocomplete and snippets
-  use { 'L3MON4D3/LuaSnip', commit='d36c063b7f6e701852f7880f1314656592a61b4f' }         -- Snippet framework.
-  use { 'hrsh7th/nvim-cmp', commit='17a55b3d5498c617855d015bbcad0c872d10c879' }         -- Completion framework, supports many kinds of completion, to be installed separately.
-  use { 'hrsh7th/cmp-nvim-lsp', commit='affe808a5c56b71630f17aa7c38e15c59fd648a8' }     -- Set up completion based on LSP information.
-  use { 'saadparwaiz1/cmp_luasnip', commit='a9de941bcbda508d0a45d28ae366bb3f08db2e36' } -- Set up completion based on snippet framework.
+  use {
+  'VonHeikemen/lsp-zero.nvim',
+  requires = {
+    -- LSP Support
+    {'neovim/nvim-lspconfig'},
+    {'williamboman/mason.nvim'},
+    {'williamboman/mason-lspconfig.nvim'},
 
+    -- Autocompletion
+    {'hrsh7th/nvim-cmp'},
+    {'hrsh7th/cmp-buffer'},
+    {'hrsh7th/cmp-path'},
+    {'saadparwaiz1/cmp_luasnip'},
+    {'hrsh7th/cmp-nvim-lsp'},
+    {'hrsh7th/cmp-nvim-lua'},
+
+    -- Snippets
+    {'L3MON4D3/LuaSnip'},
+    {'rafamadriz/friendly-snippets'},
+  }
+}
   -- Language support
   use { 'elzr/vim-json', commit='3727f089410e23ae113be6222e8a08dd2613ecf2' }               -- JSON syntax (error) highlighting + concealment
   use { 'evanleck/vim-svelte', commit='1080030d6a1bc6582389c133a07552ba0a442410' }         -- Better support for Svelte
@@ -81,8 +97,7 @@ require('packer').startup(function(use)
 
   -- LSP
   use { 'ray-x/lsp_signature.nvim' }        -- ❓ 2022-09-18. Keep the function signature docs up while filling in params
-  use { 'williamboman/nvim-lsp-installer' } -- ❓ 2022-09-18. Install LSP servers on demand with LSPInstall
-  use { 'neovim/nvim-lspconfig' }           -- ❓ 2022-09-18. "Easy" LSP configuration
+  -- use { 'williamboman/nvim-lsp-installer' } -- ❓ 2022-09-18. Install LSP servers on demand with LSPInstall
 
   -- Git
   use { 'rhysd/git-messenger.vim', commit='8a61bdfa351d4df9a9118ee1d3f45edbed617072' } -- Show the commit message for the current line.

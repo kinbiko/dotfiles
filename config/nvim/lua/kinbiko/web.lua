@@ -1,4 +1,4 @@
-require('kinbiko.mappings').mapEmmet()
+vim.api.nvim_set_keymap('i', 'hh', '<C-y>', { silent = true })
 
 vim.g.user_emmet_install_global = false
 

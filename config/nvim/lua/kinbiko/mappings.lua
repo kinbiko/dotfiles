@@ -29,7 +29,7 @@ map('n', '0', '^', snr) -- Make 0 take me to the first non-blank character of th
 map('n', "'", '`', snr) -- Make jumping to a mark more precise than just the beginning of the line in normal mode
 map('o', "'", '`', snr) -- Make jumping to a mark more precise than just the beginning of the line when awaiting an operator
 map('n', '<right>', 'gd', { silent = true }) -- Go to definition
-map('n', '<left>', '<c-t>', { silent = true }) -- Pop back up
+map('n', '<left>', '<c-o>', { silent = true }) -- Pop back up
 map('', '*', '<Plug>(asterisk-z*)zz', {silent=true}) -- Make * mark the current word and n will go forward
 map('', '#', '<Plug>(asterisk-z#)zz', {silent=true}) -- Make # mark the current work and n will go backward
 map('n', 'n', 'nzz', snr) -- Make forward search results always appear in the middle of the screen
@@ -63,41 +63,3 @@ map('n', '<leader>R', '<cmd>Twilight<cr>', snr) -- Read the code with focus on o
 map('i', '<C-\\>', '<Plug>luasnip-expand-or-jump', {}) -- Trigger snippet insertion
 map('n', '<localleader>g', '<cmd>G<cr>', snr) -- Show interactive Git status so you don't need to leave vim.
 map('n', '<leader>b', '<cmd>GitMessenger<cr>', snr) -- Open popup of git commit info.
-
-
-local function bufmap(...) vim.api.nvim_buf_set_keymap(0, ...) end
-local mappings = {}
-function mappings:registerLSPMappings()
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  map('n', 'gd',         '<cmd>lua vim.lsp.buf.definition()<CR>', snr)
-  map('n', 'K',          '<cmd>lua vim.lsp.buf.hover()<CR>', snr)
-  map('n', '<leader>r',  '<cmd>lua vim.lsp.buf.rename()<CR>', snr)
-  map('n', '<leader>d',  '<cmd>lua vim.diagnostic.open_float()<CR>', snr)
-end
-
-function mappings:registerGoMappings()
-  bufmap('n', '<leader>a', '<cmd>GoAlternate<cr>', snr) -- Switch between test and production files
-  bufmap('n', '<leader>i', '<cmd>GoImports<cr>', snr) -- Run goimports
-  bufmap('n', '<leader>l', '<cmd>GoMetaLinter<cr>', snr) -- Run the linter
-  bufmap('n', '<leader>t', '<cmd>GoTest!<cr>', snr) -- Run all the tests in the current package
-  bufmap('n', '<leader>T', '<cmd>GoTestFunc!<cr>', snr) -- Run the test function the curser is currently {o,i}n
-  bufmap('n', '<leader>c', '<cmd>GoCoverageToggle<cr>', snr) -- Run the test function the curser is currently {o,i}n
-  bufmap('n', '<right>', '<cmd>GoDef<cr>', snr) -- Override the default LSP go-to-defn
-  bufmap('n', '<left>', '<cmd>GoDefPop<cr>', snr) -- Override the default LSP pop back
-
-  -- Most other snippets are handled by luasnip
-  bufmap('i', '\\e', '<cmd>GoIfErr<cr>', snr) -- if err != nil shorthand that returns the error & any default values
-  bufmap('i', '\\f', '<cmd>GoFillStruct<cr>i', snr) -- Populate struct with all its default values
-  bufmap('i', ',=', ' := ', snr) -- Insert variable assignment without needing to find :
-end
-
-function mappings:mapEmmet()
-  map('i', 'hh', '<C-y>', { silent = true })
-end
-
-function mappings:mapFileBrowser()
-  map('n', '<localleader><localleader>', '<cmd>NvimTreeToggle<cr>', snr) -- Open/close file browser
-  map('n', '<localleader>f', '<cmd>NvimTreeFindFileToggle<cr>', snr) -- Find the current file in file browser
-end
-
-return mappings

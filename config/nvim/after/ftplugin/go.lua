@@ -1,4 +1,16 @@
-require('kinbiko.mappings').registerGoMappings()
+local snr = {noremap = true, silent = true}
+local function bufmap(...) vim.api.nvim_buf_set_keymap(0, ...) end
+bufmap('n', '<leader>a', '<cmd>GoAlternate<cr>', snr) -- Switch between test and production files
+bufmap('n', '<leader>i', '<cmd>GoImports<cr>', snr) -- Run goimports
+bufmap('n', '<leader>l', '<cmd>GoMetaLinter<cr>', snr) -- Run the linter
+bufmap('n', '<leader>t', '<cmd>GoTest!<cr>', snr) -- Run all the tests in the current package
+bufmap('n', '<leader>T', '<cmd>GoTestFunc!<cr>', snr) -- Run the test function the curser is currently {o,i}n
+bufmap('n', '<leader>c', '<cmd>GoCoverageToggle<cr>', snr) -- Run the test function the curser is currently {o,i}n
+
+-- Most other snippets are handled by luasnip
+bufmap('i', '\\e', '<cmd>GoIfErr<cr>', snr) -- if err != nil shorthand that returns the error & any default values
+bufmap('i', '\\f', '<cmd>GoFillStruct<cr>i', snr) -- Populate struct with all its default values
+bufmap('i', ',=', ' := ', snr) -- Insert variable assignment without needing to find :
 
 -- Play nice with gofmt
 -- Make tabs just show up as spaces without any further clutter

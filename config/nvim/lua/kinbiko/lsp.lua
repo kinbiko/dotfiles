@@ -1,8 +1,8 @@
-local lsp_installer = require("nvim-lsp-installer")
-local mappings = require('kinbiko.mappings')
+local lsp = require('lsp-zero')
 
--- Include the servers you want to have installed by default below
-local servers = {
+lsp.preset('recommended')
+
+lsp.ensure_installed({
     "bashls",
     "eslint",
     -- "golangci_lint_ls", -- this has *serious* performance issues
@@ -12,71 +12,28 @@ local servers = {
     "tailwindcss",
     "terraformls",
     "tsserver",
-}
+})
 
-for _, name in pairs(servers) do
-  local server_is_found, server = lsp_installer.get_server(name)
-  if server_is_found and not server:is_installed() then
-    server:install()
-  end
-end
+local cmp = require('cmp')
+local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_mappings = lsp.defaults.cmp_mappings({
+  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+  ['<C-Space>'] = cmp.mapping.complete(),
+})
+lsp.setup_nvim_cmp({mapping = cmp_mappings})
+lsp.nvim_workspace()
 
+lsp.setup()
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
--- == Lua (sumneko/lua-language-server) ==
-
--- Configure lua language server for neovim development
-local lua_settings = {
-  settings = {
-    capabilities = capabilities,
-    Lua = {
-      runtime = {
-        version = 'LuaJIT', -- LuaJIT in the case of Neovim
-        path = vim.split(package.path, ';'),
-      },
-      diagnostics = {
-        globals = {'vim'}, -- Get the language server to recognize the `vim` global
-      },
-      workspace = { -- Make the server aware of Neovim runtime files
-        library = {
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-        },
-      },
-    }
-  }
-}
-
--- == Go (gopls)==
-
-local go_settings = {
-  settings = {
-    capabilities = capabilities,
-  },
-  on_attach = function(_, _)
-    require("lsp_signature").on_attach()
-  end
-}
-
--- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
--- or if the server is already installed).
-lsp_installer.on_server_ready(function(server)
-    mappings.registerLSPMappings()
-    vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    local opts = {
-      settings = {
-        capabilities = capabilities
-      }
-    }
-
-    if server.name == "sumneko_lua" then
-      opts = lua_settings
-    end
-    if server.name == "gopls" then
-      opts = go_settings
-    end
-
-    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-    server:setup(opts)
+lsp.on_attach(function(_, bufnr)
+  local opts = {buffer = bufnr, remap = false, silent = true}
+  vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
+  vim.keymap.set('n', '<right>', function() vim.lsp.buf.definition() end, opts)
+  vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
+  vim.keymap.set('n', '<leader>r', function() vim.lsp.buf.rename() end, opts)
+  vim.keymap.set('n', '<leader>d', function() vim.diagnostic.open_float() end, opts)
+  vim.keymap.set('n', '<leader>ca', function() vim.lsp.buf.code_action() end, opts)
+  vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
 end)
