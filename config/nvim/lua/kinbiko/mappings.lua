@@ -20,8 +20,13 @@ map('n', '<leader>f', '<Plug>Lightspeed_omni_s', {}) -- Find using vimium-like s
 
 -- Pop open a window for quickly finding various things:
 map('n', '?F', '<cmd>Telescope find_files<cr>', snr) -- Search across lots of files relative to current directory, respecting .gitignore
-map('n', '?S', '<cmd>Telescope live_grep<cr>', snr) -- Pop open a window for grepping for any text in the repo
+vim.keymap.set("n", "?S", function() -- Pop open a window for grepping for any text in the repo
+  require("telescope.builtin").live_grep({
+    glob_pattern = "!*{mock*,_test.go}"
+  })
+end)
 map('n', '?R', '<cmd>Telescope lsp_references<cr>', snr) -- Pop open a window for finding references to the word under the cursor
+
 map('n', '?I',  '<cmd>Telescope lsp_implementations<cr>', snr) -- Find implementations of an interface
 map('n', '?W', '<cmd>Telescope grep_string<cr>', snr) -- Live grep for the word under the cursor
 
