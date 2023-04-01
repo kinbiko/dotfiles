@@ -3,14 +3,18 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
 lsp.ensure_installed({
-    "bashls",
-    "eslint",
-    -- "golangci_lint_ls", -- this has *serious* performance issues
+    "bashls", -- bash-language-server
+    "dockerls", -- dockerfile-langauge-server
+    "eslint", -- vscode-langservers-extracted
+    "golangci_lint_ls",
     "gopls",
     "intelephense",
-    "sumneko_lua",
-    "tailwindcss",
-    "terraformls",
+    "jdtls",
+    "ltex", --ltex-ls
+    "lua_ls", -- lua-language-server
+    "sqlls",
+    "tailwindcss", -- tailwindcss-intellisense
+    "terraformls", -- the official LSP. terraform-ls
     "tsserver",
 })
 
