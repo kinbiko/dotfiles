@@ -25,7 +25,13 @@ vim.keymap.set("n", "?S", function() -- Pop open a window for grepping for any t
     glob_pattern = "!*{mock*,_test.go}"
   })
 end)
-map('n', '?R', '<cmd>Telescope lsp_references<cr>', snr) -- Pop open a window for finding references to the word under the cursor
+map('n', '?R', '<cmd>Telescope lsp_references<cr>', snr)
+
+vim.keymap.set("n", "?R", function() -- Pop open a window for finding references to the word under the cursor
+  require("telescope.builtin").lsp_references({
+    glob_pattern = "!*{mock*,_test.go}"
+  })
+end)
 
 map('n', '?I',  '<cmd>Telescope lsp_implementations<cr>', snr) -- Find implementations of an interface
 map('n', '?W', '<cmd>Telescope grep_string<cr>', snr) -- Live grep for the word under the cursor
