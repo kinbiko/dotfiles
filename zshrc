@@ -164,3 +164,7 @@ kk() {
     return 1
   fi
 }
+
+gitroot() {
+  cd $(git rev-parse --show-toplevel)
+}
