@@ -58,6 +58,9 @@ require('packer').startup(function(use)
     'nvim-lualine/lualine.nvim', -- Pretty status bar
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
   }
+  use {
+    'echasnovski/mini.nvim'
+  }
 
   -- Autocomplete and snippets
   use {
