@@ -30,6 +30,16 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" }, -- show hex colors in css and js etc.
 
     { "haya14busa/vim-asterisk" },
+    {
+      "folke/twilight.nvim",
+      opts = {
+        dimming = {
+          alpha = 0.25, -- amount of dimming
+          inactive = true, -- when true, other windows will be fully dimmed (unless they contain the same buffer)
+        },
+        context = 3, -- amount of lines we will try to show around the current line
+      },
+    },
 
     { "ggandor/leap.nvim", keys = disable_key_bindings },
     { "ggandor/flit.nvim", keys = disable_key_bindings },
