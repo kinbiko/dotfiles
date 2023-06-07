@@ -1,5 +1,2 @@
-require('kinbiko.plugins')
-require('kinbiko.general')
-require('kinbiko.mappings')
-require('kinbiko.plugin-config')
-require('kinbiko.lsp')
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
