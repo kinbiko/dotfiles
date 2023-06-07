@@ -51,8 +51,8 @@ map(n, "<C-C>", "<cmd>cclose<cr>") -- Close the quickfix window
 map(n, "<leader>G", ':!kokodoko % <C-R>=line(".")<CR><CR>') -- Fetch link to current line in GitHub
 map(v, "<leader>G", [[:!kokodoko % <C-R>=line("'<")<CR>-<C-R>=line("'>")<CR><CR>u]]) -- Fetch link to selected lines in GitHub
 
--- map('', '*', '<Plug>(asterisk-z*)zz', {silent=true}) -- Make * mark the current word and n will go forward -- TODO: Add asterisk-z back in
--- map('', '#', '<Plug>(asterisk-z#)zz', {silent=true}) -- Make # mark the current work and n will go backward -- TODO: Add asterisk-z back in
+map("", "*", "<Plug>(asterisk-z*)zz", { silent = true }) -- Make * mark the current word and n will go forward
+map("", "#", "<Plug>(asterisk-z#)zz", { silent = true }) -- Make # mark the current work and n will go backward
 -- map(n, "S", "ysiw", { silent = true }) -- Surround the current word with the following character -- TODO: Add surround back in or learn the other surround plugin
 -- TODO: Figure out how to smoothly change into a tmux window from vim
 
