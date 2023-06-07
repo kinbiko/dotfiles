@@ -29,6 +29,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.ui.mini-animate" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" }, -- show hex colors in css and js etc.
 
+    { "haya14busa/vim-asterisk" },
+
     { "ggandor/leap.nvim", keys = disable_key_bindings },
     { "ggandor/flit.nvim", keys = disable_key_bindings },
 
