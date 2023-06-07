@@ -1,5 +1,5 @@
 -- Keys I rarely use in normal mode (OK to overwrite):
--- t E L M X Y Z [ ] |
+-- t L M X Y Z [ ] |
 
 local map = vim.api.nvim_set_keymap
 

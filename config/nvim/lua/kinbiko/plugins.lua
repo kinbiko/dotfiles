@@ -31,7 +31,10 @@ require('packer').startup(function(use)
   -- Navigating
   vim.g.lightspeed_no_default_keymaps = 1 -- Stop lightspeed from adding (f/t/s) default mappings. Must be set before loading.
   use { 'ggandor/lightspeed.nvim' } -- Accurate navigation ala vimium.
-
+  use {
+    'google/executor.nvim',
+    requires = { 'MunifTanjim/nui.nvim' }
+  }
   use { 'christoomey/vim-tmux-navigator' } -- Work better with tmux.
   use { 'haya14busa/vim-asterisk' }        -- Use * without moving immediately
   use { 'nacro90/numb.nvim' }              -- Preview the line while typing :<number>

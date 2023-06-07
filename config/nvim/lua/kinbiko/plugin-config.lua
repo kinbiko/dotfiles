@@ -5,6 +5,7 @@ local luasnip = require('luasnip')
 local numb = require('numb')
 local nvim_tree = require('nvim-tree')
 local twilight = require("twilight")
+local executor = require('executor')
 
 require("luasnip.loaders.from_snipmate").lazy_load()
 
@@ -386,3 +387,11 @@ require'nvim-treesitter.configs'.setup {
 }
 
 require('mini.indentscope').setup()
+
+executor.setup({
+  use_split = false, -- Use pop-up, not a separate split
+})
+vim.api.nvim_set_keymap('n', 'ER', ':ExecutorRun<cr>', {})
+vim.api.nvim_set_keymap('n', 'EE', ':ExecutorToggleDetail<cr>', {})
+vim.api.nvim_set_keymap('n', 'EW', ':ExecutorReset<cr>', {}) -- "Wipe" (ergonomically easier to hit than C for 'clean' or D for 'delete')
+
