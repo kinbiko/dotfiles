@@ -53,14 +53,9 @@ map(v, "<leader>G", [[:!kokodoko % <C-R>=line("'<")<CR>-<C-R>=line("'>")<CR><CR>
 
 map("", "*", "<Plug>(asterisk-z*)zz", { silent = true }) -- Make * mark the current word and n will go forward
 map("", "#", "<Plug>(asterisk-z#)zz", { silent = true }) -- Make # mark the current work and n will go backward
--- map(n, "S", "ysiw", { silent = true }) -- Surround the current word with the following character -- TODO: Add surround back in or learn the other surround plugin
+map(n, "<leader>R", "<cmd>Twilight<cr>") -- Read the code with focus on one section at the time
+
 -- TODO: Figure out how to smoothly change into a tmux window from vim
-
--- map(n, "<leader>R", "<cmd>Twilight<cr>") -- Read the code with focus on one section at the time. -- TODO: Re-install twilight
-
--- -- TODO: Disable lazygit in favour of fugitive, since lazygit doesn't work well with commit signing. Also verify that this statement is true
--- map(n, "<localleader>g", "<cmd>G<cr>") -- Show interactive Git status so you don't need to leave vim.
--- map(n, "<leader>b", "<cmd>GitMessenger<cr>") -- Open popup of git commit info.
 
 --[[ TODO: Change the telescope live_grep and lsp_references feature to ignore mock and test files.
 vim.keymap.set("n", "?S", function() -- Pop open a window for grepping for any text in the repo
