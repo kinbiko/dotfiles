@@ -10,17 +10,18 @@ local disable_key_bindings = function()
   return {}
 end
 
+local function is_work_computer()
+  return os.getenv("KINBIKO_ENV") == "work"
+end
+
 require("lazy").setup({
   spec = {
-    -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { import = "lazyvim.plugins.extras.coding.copilot", enabled = not is_work_computer() },
+
     { "ggandor/leap.nvim", keys = disable_key_bindings },
     { "ggandor/flit.nvim", keys = disable_key_bindings },
-    -- import any extras modules here
-    -- { import = "lazyvim.plugins.extras.lang.typescript" },
-    -- { import = "lazyvim.plugins.extras.lang.json" },
-    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
-    -- import/override with your plugins
+
     { import = "plugins" },
   },
   defaults = {
