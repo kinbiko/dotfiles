@@ -18,6 +18,16 @@ require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "lazyvim.plugins.extras.coding.copilot", enabled = not is_work_computer() },
+    { import = "lazyvim.plugins.extras.test.core" },
+    { import = "lazyvim.plugins.extras.dap.core" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
+    { import = "lazyvim.plugins.extras.lang.go" },
+    { import = "lazyvim.plugins.extras.lang.json" },
+    { import = "lazyvim.plugins.extras.lang.tailwind" },
+    { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.linting.eslint" },
+    { import = "lazyvim.plugins.extras.ui.mini-animate" },
+    { import = "lazyvim.plugins.extras.util.mini-hipatterns" }, -- show hex colors in css and js etc.
 
     { "ggandor/leap.nvim", keys = disable_key_bindings },
     { "ggandor/flit.nvim", keys = disable_key_bindings },
