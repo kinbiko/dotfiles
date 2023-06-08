@@ -4,7 +4,7 @@
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Make this your `~/.zshrc` (the oh-my-zsh generated `.zshrc` will be overwritten. That's OK):
-cat << EOF > ~/.zshrc
+cat <<EOF >~/.zshrc
 export DOTFILES_DIR=$HOME/repos/dotfiles
 source $DOTFILES_DIR/zshrc
 

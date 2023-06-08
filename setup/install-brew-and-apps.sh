@@ -4,44 +4,45 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Install the pretty font that's defined in the alacritty config
-brew tap homebrew/cask-fonts;brew install font-hack-nerd-font
+brew tap homebrew/cask-fonts
+brew install font-sauce-code-pro-nerd-font
 
 # Command line tools
-brew install bat # cat but pretty
-brew install cue-lang/tap/cue # CUE binary
-brew install btop # top but prettier
-brew install diff-so-fancy # Even better git diffs
-brew install fd # Opinionated alternative to 'find'.
-brew install fpp # Open URLs visible in the terminal with the keyboard
-brew install fzf # Fuzzy finder. Vim plugin doesn't install to path, nor sets up shell keybindings
-brew install jq # Query JSON
-brew install gh # GitHub CLI
-brew install go # Go programming language
-brew install golangci-lint # Linter for Go
-brew install google-cloud-sdk # For interacting with GCP
-brew install gpg # For PGP signing
-brew install grpcurl # For making gRPC requests from the command line
-brew install --HEAD neovim # Editor
-brew install node # Global installation required to install prettier
-brew install pinentry-mac # Lets you enter passwords with a TUI when signing git commits
-brew install pre-commit # Framework for setting up Git hooks
-brew install rg # Super fast grep-like application, used by FZF and telescope.nvim
+brew install bat                         # cat but pretty
+brew install cue-lang/tap/cue            # CUE binary
+brew install btop                        # top but prettier
+brew install diff-so-fancy               # Even better git diffs
+brew install fd                          # Opinionated alternative to 'find'.
+brew install fpp                         # Open URLs visible in the terminal with the keyboard
+brew install fzf                         # Fuzzy finder. Vim plugin doesn't install to path, nor sets up shell keybindings
+brew install jq                          # Query JSON
+brew install gh                          # GitHub CLI
+brew install go                          # Go programming language
+brew install golangci-lint               # Linter for Go
+brew install google-cloud-sdk            # For interacting with GCP
+brew install gpg                         # For PGP signing
+brew install grpcurl                     # For making gRPC requests from the command line
+brew install --HEAD neovim               # Editor
+brew install node                        # Global installation required to install prettier
+brew install pinentry-mac                # Lets you enter passwords with a TUI when signing git commits
+brew install pre-commit                  # Framework for setting up Git hooks
+brew install rg                          # Super fast grep-like application, used by FZF and telescope.nvim
 brew install sourcegraph/src-cli/src-cli # The 'src' Sourcegraph CLI
-brew install terraform # Infra as code
-brew install tmux # Terminal multiplexer
-brew install tree # Show folders and files easily
-brew install up # Incrementally build long pipes
-brew install urlview # Required for fpp
+brew install terraform                   # Infra as code
+brew install tmux                        # Terminal multiplexer
+brew install tree                        # Show folders and files easily
+brew install up                          # Incrementally build long pipes
+brew install urlview                     # Required for fpp
 
 # basic unix utils as you expect them to work
 brew install coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt grep
 
 # UI Apps
 brew install alacritty # good terminal emulator
-brew install alfred # Productivity heaven
-brew install anki # Flashcards
-brew install deepl # Translation app, much better than google translate
-brew install obsidian # Second brain
+brew install alfred    # Productivity heaven
+brew install anki      # Flashcards
+brew install deepl     # Translation app, much better than google translate
+brew install obsidian  # Second brain
 
 # Expected to be installed in vim config
 go install github.com/kinbiko/kokodoko/cmd/kokodoko@latest
