@@ -16,7 +16,7 @@ end
 
 require("lazy").setup({
   spec = {
-    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "tokyonight-night" } },
     { import = "lazyvim.plugins.extras.coding.copilot", enabled = not is_work_computer() },
     { import = "lazyvim.plugins.extras.test.core" },
     { import = "lazyvim.plugins.extras.dap.core" },
@@ -54,7 +54,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight" } },
+  install = { colorscheme = { "tokyonight-night" } },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {
