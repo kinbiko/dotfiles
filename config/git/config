@@ -1,0 +1,42 @@
+[delta "villsau"]
+  # author: https://github.com/torarnv
+  # Theme for delta when doing diffs
+  dark = true
+  file-style = omit
+  hunk-header-decoration-style = omit
+  hunk-header-file-style = magenta
+  hunk-header-line-number-style = dim magenta
+  hunk-header-style = file line-number syntax
+  line-numbers = false
+  minus-emph-style = bold red 52
+  minus-empty-line-marker-style = normal "#3f0001"
+  minus-non-emph-style = dim red
+  minus-style = bold red
+  plus-emph-style = bold green 22
+  plus-empty-line-marker-style = normal "#002800"
+  plus-non-emph-style = dim green
+  plus-style = bold green
+  syntax-theme = OneHalfDark
+  whitespace-error-style = reverse red
+  zero-style = dim syntax
+[include]
+  # Let a local gitconfig override with machine specific config
+  path = ~/.local.gitconfig
+[core]
+  pager = delta
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    features = villsau
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    side-by-side = true
+    line-numbers = true
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
