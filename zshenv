@@ -15,7 +15,7 @@ alias q="exit"
 
 alias pingu="ping google.com"
 
-alias cat="bat"
+alias cat="bat --theme=Nord"
 alias top="btop"
 alias htop="top"
 
