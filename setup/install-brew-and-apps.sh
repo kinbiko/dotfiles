@@ -11,7 +11,7 @@ brew install font-sauce-code-pro-nerd-font
 brew install bat                         # cat but pretty
 brew install cue-lang/tap/cue            # CUE binary
 brew install btop                        # top but prettier
-brew install diff-so-fancy               # Even better git diffs
+brew install git-delta                   # Even better git diffs
 brew install fd                          # Opinionated alternative to 'find'.
 brew install fpp                         # Open URLs visible in the terminal with the keyboard
 brew install fzf                         # Fuzzy finder. Vim plugin doesn't install to path, nor sets up shell keybindings
