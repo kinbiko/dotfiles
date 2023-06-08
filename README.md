@@ -1,13 +1,13 @@
-# Dotfiles (MacOS)
+# Dotfiles (macOS)
 
-Works best for Mac OS (silicon).
+Works best for macOS (silicon).
 
 ## Setup steps from a fresh install
 
 ### Create a Git repo of home directory
 
 Open Terminal (for now) and run `git init` in the home directory, so you can go back in time if you mess up.
-You'll be prompted to install xcode command line tools. Accept. Wait.
+You'll be prompted to install Xcode command line tools. Accept. Wait.
 
 Once that's done set up the git repo in home with (replace with appropriate email):
 
