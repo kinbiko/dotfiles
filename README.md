@@ -57,6 +57,8 @@ You can now close Terminal and use Alacritty instead.
 
 Install [BetterSnapTool](https://folivora.ai/bettersnaptool) (not free -> no brew cask available).
 
+Install [iWallpaper](https://apps.apple.com/us/app/iwallpaper-live-wallpaper/id1552826194?mt=12).
+
 ### Post-install software configuration
 
 #### Alfred
