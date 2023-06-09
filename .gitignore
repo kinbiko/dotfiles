@@ -7,6 +7,9 @@ config/*
 !config/alacritty/
 !config/bat/
 !config/btop/
+!config/gh/
 !config/git/
 !config/nvim/
 !config/tmux/
+
+config/gh/hosts.yml
