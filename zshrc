@@ -4,7 +4,7 @@ pathmunge () {
   # to the end of the PATH.
   # -E -- interpret as extended regexp
   # -q -- Don't print -- only care about a true/false value
-  if ! echo "$PATH" | grep -Eq "(^|:)$1($|:)" ; then
+  if ! echo "$PATH" | g\rep -Eq "(^|:)$1($|:)" ; then
     PATH="$PATH:$1"
   fi
 }
@@ -12,14 +12,55 @@ pathmunge () {
 # I think this is more or less the default anyway...
 export XDG_CONFIG_HOME="$HOME/.config"
 
-export ZSH=~/.oh-my-zsh
-ZSH_THEME="avit"
+# This makes copy and pasting in the shell be the same as the system clipboard
+if (( ${+commands[pbcopy]} )) && (( ${+commands[pbpaste]} )); then
+  function clipcopy() { cat "${1:-/dev/stdin}" | pbcopy; }
+  function clippaste() { pbpaste; }
+elif [ -n "${TMUX:-}" ] && (( ${+commands[tmux]} )); then
+  function clipcopy() { tmux load-buffer "${1:--}"; }
+  function clippaste() { tmux save-buffer -; }
+fi
+
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
+setopt interactivecomments
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt share_history          # share command history data
+
+# Start typing + [Up-Arrow] - fuzzy find history forward
+if [[ -n "${terminfo[kcuu1]}" ]]; then
+  autoload -U up-line-or-beginning-search
+  zle -N up-line-or-beginning-search
+  bindkey -M viins "${terminfo[kcuu1]}" up-line-or-beginning-search
+  bindkey -M vicmd "${terminfo[kcuu1]}" up-line-or-beginning-search
+fi
+
+# Start typing + [Down-Arrow] - fuzzy find history backward
+if [[ -n "${terminfo[kcud1]}" ]]; then
+  autoload -U down-line-or-beginning-search
+  zle -N down-line-or-beginning-search
+  bindkey -M viins "${terminfo[kcud1]}" down-line-or-beginning-search
+  bindkey -M vicmd "${terminfo[kcud1]}" down-line-or-beginning-search
+fi
+
+# [Shift-Tab] - move through the completion menu backwards
+if [[ -n "${terminfo[kcbt]}" ]]; then
+  bindkey -M viins "${terminfo[kcbt]}" reverse-menu-complete
+  bindkey -M vicmd "${terminfo[kcbt]}" reverse-menu-complete
+fi
+
+bindkey '\C-v' edit-command-line
+
+source "$DOTFILES_DIR/vi-mode.zsh"
+
 HYPHEN_INSENSITIVE="true"
 DISABLE_AUTO_UPDATE="true"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
-
-plugins=(vi-mode)
 
 # Needed so that GPG knows how to open the TUI for entering the PGP password.
 export GPG_TTY=$(tty)
@@ -47,7 +88,7 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-source $ZSH/oh-my-zsh.sh
+source "$DOTFILES_DIR/theme.zsh"
 
 # Make zsh completion:
 # - Try exact (case-sensitive) match first.
@@ -62,17 +103,11 @@ zstyle ':completion:*' list-colors ''
 # tab completing directory appends a slash
 setopt AUTO_PARAM_SLASH
 
-#Enable vim mode in terminal, and set the timeout to 0.1s
-bindkey -v
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_COMMAND='rg --files-with-matches --hidden .'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS='--preview "bat --color=always --style=numbers --line-range=:500 {}"'
-
-# Disable the default right-hand-side status
-RPS1=""
 
 # extract can decompress most compressed files, assuming the correct tool is installed.
 # Cred to DevRant user Jilano: https://devrant.com/users/Jilano
@@ -97,32 +132,11 @@ extract () {
     fi
 }
 
-# Quickly source any environment variables in a local `.env` file.
-function dotenv() {
-  if [ -f .env ]; then
-    export $(cat .env | xargs)
-  fi
+gitroot() {
+  cd $(git rev-parse --show-toplevel)
 }
 
-# Most aliases are kept in zshenv but some part of my zsh startup script
-# (probably in oh-my-zsh somewhere) probably uses grep, and a special flag of
-# grep, that's not mirrored in rg, hence the script spits out an error whenever
-# you open a new shell.
-# This particular alias is therefore defined here instead.
-alias grep="rg"
-
-# Calls Git by default, unless the command is `git commit`, in which case we
-# run commitizen. Run git committ to bypass.
-function git() {
-    case $* in
-        committ* ) command git commit "${@:2}" ;;
-        commit ) cz c ;;
-        * ) command git "$@" ;;
-    esac
-}
-
-
-# The following kubernetes commands were stolen from @eqyiel.
+# The following kubernetes command was stolen from @eqyiel.
 # Onto @eqyiel the glory
 kubectl() {
   if ! type __start_kubectl >/dev/null 2>&1; then
@@ -130,43 +144,4 @@ kubectl() {
     compdef k=kubectl
   fi
   command kubectl "$@"
-}
-
-_kk__ls() {
-  kubectl get pods -o json | jq -r '.items[] | .metadata.name + "/" +  .spec.containers[].name'
-}
-
-_kk__pod() {
-  _kk__ls | fzf
-}
-
-_kk__cpod() {
-  _kk__pod | tr -d '\n' | pbcopy
-}
-
-_kk__exec() {
-  local pod_slash_container="$(_kk__pod)"
-  pod="$(echo ${pod_slash_container} | cut --delimiter='/' --fields=1)"
-  container="$(echo ${pod_slash_container} | cut --delimiter='/' --fields=2)"
-  # https://github.com/junegunn/fzf/issues/1849#issuecomment-581519151
-  print -z -- kubectl exec -it "${pod}" --container "${container}" '-- '
-}
-
-kk() {
-  if [ $# -eq 0 ]; then
-    echo "Usage:\n"
-    echo "    kk <cmd>"
-    return 1
-  fi
-  local cmdname=$1; shift
-  if type "_kk__$cmdname" >/dev/null 2>&1; then
-    "_kk__$cmdname" "$@"
-  else
-    echo "Unknown command $cmdname"
-    return 1
-  fi
-}
-
-gitroot() {
-  cd $(git rev-parse --show-toplevel)
 }

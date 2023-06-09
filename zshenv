@@ -56,3 +56,7 @@ alias tf=terraform
 
 # Shorthand for editing an issue after first listing available issues
 alias iedit='gh issue edit $(gh issue list | fzf | cut -f 1)'
+
+alias grep="rg"
+
+alias la='ls -lAh'
