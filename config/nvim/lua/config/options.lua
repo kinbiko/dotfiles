@@ -23,5 +23,10 @@ o.listchars = "tab:>-,trail:·,extends:>,precedes:<"
 -- Define the window border characters for splits etc.
 o.fillchars = o.fillchars .. "vert:│,fold: ,diff: "
 
+-- Allow for directives in sourcecode to adjust vim settings, e.g.
+-- # vim: syntax=toml:
+-- in git config files etc.
+o.modeline = true
+
 -- Disable the netrw history file which is otherwise added to ~/.vim/.netrwhist
 vim.g.netrw_dirhistmax = 0
