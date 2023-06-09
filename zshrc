@@ -66,8 +66,10 @@ setopt AUTO_PARAM_SLASH
 bindkey -v
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 export FZF_DEFAULT_COMMAND='rg --files-with-matches --hidden .'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS='--preview "bat --color=always --style=numbers --line-range=:500 {}"'
 
 # Disable the default right-hand-side status
 RPS1=""

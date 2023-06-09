@@ -15,9 +15,9 @@ alias q="exit"
 
 alias pingu="ping google.com"
 
-alias cat="bat --theme=Nord"
+alias cat="bat"
 alias top="btop"
-alias htop="top"
+alias htop="btop"
 
 alias dot="cd $DOTFILES_DIR"
 

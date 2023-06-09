@@ -5,8 +5,8 @@
 config/*
 
 !config/alacritty/
-!config/gh-dash/
+!config/bat/
+!config/btop/
 !config/git/
 !config/nvim/
 !config/tmux/
-!config/btop/
