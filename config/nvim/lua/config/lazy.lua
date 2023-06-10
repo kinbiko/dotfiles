@@ -12,6 +12,7 @@ end
 
 require("lazy").setup({
   spec = {
+    -- LazyVim native plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "tokyonight-night" } },
     { import = "lazyvim.plugins.extras.coding.copilot", enabled = not is_work_computer() },
     { import = "lazyvim.plugins.extras.test.core" },
@@ -24,13 +25,17 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.linting.eslint" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" }, -- show hex colors in css and js etc.
 
+    -- Disable some plugins that LazyVim adds by default
     { "mini.surround", enabled = false },
     { "ggandor/leap.nvim", enabled = false }, -- TODO: Properly set up keybindings and then use.
     { "ggandor/flit.nvim", enabled = false }, -- TODO: Also what's the difference between flit and leap?
+    { "akinsho/bufferline.nvim", enabled = false },
+    { "lukas-reineke/indent-blankline.nvim", enabled = false },
 
+    -- Add other plugins that I want
     { "tpope/vim-repeat" }, -- Make vim-surround things repeatable with .
     { "tpope/vim-surround" }, -- ysiw syntax for surrounding
-    { "haya14busa/vim-asterisk" },
+    { "haya14busa/vim-asterisk" }, -- Make * and # stay on the first element before iterating
     {
       "folke/twilight.nvim",
       opts = {
@@ -42,6 +47,7 @@ require("lazy").setup({
       },
     },
 
+    -- Source the ../plugins directory for overriding LazyVim plugins.
     { import = "plugins" },
   },
   defaults = {
