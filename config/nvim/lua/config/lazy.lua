@@ -32,11 +32,13 @@ require("lazy").setup({
     { "akinsho/bufferline.nvim", enabled = false },
     { "lukas-reineke/indent-blankline.nvim", enabled = false },
     { "goolord/alpha-nvim", enabled = false }, -- Splashscreen. More distracting than useful.
+    { "nvim-neo-tree/neo-tree.nvim", enabled = false }, -- A decent tree browser, but I prefer nvim-tree
 
     -- Add other plugins that I want
     { "tpope/vim-repeat" }, -- Make vim-surround things repeatable with .
     { "tpope/vim-surround" }, -- ysiw syntax for surrounding
     { "haya14busa/vim-asterisk" }, -- Make * and # stay on the first element before iterating
+    { "kyazdani42/nvim-tree.lua" },
     {
       "folke/twilight.nvim",
       opts = {

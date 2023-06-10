@@ -4,6 +4,10 @@
 
 vim.cmd.lang("en_US.UTF-8") -- Setting this explicitly means I can copy Japanese to the clipboard without mojibake
 
+-- Don't put these in keymaps.lua as they get loaded too late for plugins to know what the leaders are.
+vim.g.mapleader = " " -- This is already the LazyVim default, but explicitly stating again for clarity.
+vim.g.maplocalleader = "," -- This is ' ' by default as LazyVim has it defined.
+
 local o = vim.o
 
 o.clipboard = "" -- LazyVim sets this to 'unnamedplus' which pollutes the system clipboard for every yank/delete/etc.
