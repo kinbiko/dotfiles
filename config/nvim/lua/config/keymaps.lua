@@ -10,7 +10,6 @@ local n = "n"
 local o = "o"
 local v = "v"
 
--- Silent, noremap
 local map = function(mode, lhs, rhs, opts)
   opts = opts or { silent = true, remap = false }
   vim.keymap.set(mode, lhs, rhs, opts)
@@ -26,7 +25,6 @@ map(n, "0", "^") -- Make 0 take me to the first non-blank character of the line.
 map(n, "'", "`") -- Make jumping to a mark more precise than just the beginning of the line in normal mode
 map(o, "'", "`") -- Make jumping to a mark more precise than just the beginning of the line when awaiting an operator
 
--- NOTE: LazyVim tries hard to overwrite this mapping when lazy loading the (disabled) leap.nvim plugin.
 map(n, "s", "<cmd>w<cr>") -- Quick-save the current buffer
 
 map(n, "<right>", "gd", { silent = true }) -- Go to definition
@@ -38,7 +36,7 @@ map(n, "-", "<c-x>") -- Intuitive decrement
 
 -- NOTE: Resist the temptation to rewrite ":" to "<cmd>" as these mappings require a closing <cr>.
 -- Also trying to silence it prevents the command mode from being visible.
-map(n, ";", ":", { noremap = true }) -- Conveniently enter command mode
+map(n, ";", ":", { remap = true }) -- Conveniently enter command mode
 
 map(v, "Y", '"*y') -- Copy to the system clipboard
 map(v, ">", ">gv") -- indent lines and remember the selection
@@ -70,3 +68,9 @@ vim.keymap.set("n", "?R", function() -- Pop open a window for finding references
   })
 end)
 --]]
+
+-- Explicitly disallow bindings I don't use and don't want anything to happen if I accidentally use it
+local deny_list = { "&" }
+for _, k in ipairs(deny_list) do
+  map(n, k, "<nop>")
+end
