@@ -1,3 +1,4 @@
+# Stolen from oh-my-zsh's official plugin
 # Control whether to force a redraw on each mode change.
 #
 # Resetting the prompt on every mode change can cause lag when switching modes.

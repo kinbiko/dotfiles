@@ -44,19 +44,12 @@ brew install anki      # Flashcards
 brew install deepl     # Translation app, much better than google translate
 brew install obsidian  # Second brain
 
-# Expected to be installed in vim config
-go install github.com/kinbiko/kokodoko/cmd/kokodoko@latest
+go install github.com/kinbiko/kokodoko/cmd/kokodoko@latest # Required by neovim bindings
+go install github.com/kinbiko/jisho-alfred@latest          # Required by the Jisho.org Alfred workflow
 
-# Expected to be installed in the Jisho.org Alfred workflow
-go install github.com/kinbiko/jisho-alfred@latest
-
-# Not required
+# Optional
 go install github.com/kinbiko/mokku/cmd/mokku@latest
 go install github.com/kinbiko/semver/cmd/upversion@latest
-
-# Makes panic output pretty when piping log output in with
-# go run myapp |& pp
-go install github.com/maruel/panicparse/v2/cmd/pp@latest
 
 # Install prettier from npm (used by vim)
 npm install -g prettier

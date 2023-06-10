@@ -4,8 +4,6 @@ autoload -U colors && colors
 # Enable ls colors
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
-setopt prompt_subst
-
 typeset +H _current_dir="%{$fg_bold[blue]%}%3~%{$reset_color%}"
 typeset +H _return_status=" %{$fg_bold[red]%}%(?..☠︎☠︎☠︎)%{$reset_color%}"
 
@@ -27,3 +25,6 @@ ${fg[white]}λ${fg[yellow]}%{$reset_color%} '
 
 # This shows up when a command runs longer than one line
 PROMPT2='${fg[white]}︙%{$reset_color%}'
+
+# Colorize completions using default `ls` colors.
+zstyle ':completion:*' list-colors ''
