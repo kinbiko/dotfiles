@@ -31,6 +31,7 @@ require("lazy").setup({
     { "ggandor/flit.nvim", enabled = false }, -- TODO: Also what's the difference between flit and leap?
     { "akinsho/bufferline.nvim", enabled = false },
     { "lukas-reineke/indent-blankline.nvim", enabled = false },
+    { "goolord/alpha-nvim", enabled = false }, -- Splashscreen. More distracting than useful.
 
     -- Add other plugins that I want
     { "tpope/vim-repeat" }, -- Make vim-surround things repeatable with .
