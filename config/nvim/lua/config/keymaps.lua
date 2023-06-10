@@ -51,8 +51,9 @@ map(n, "<C-C>", "<cmd>cclose<cr>") -- Close the quickfix window
 map(n, "<leader>G", ':!kokodoko % <C-R>=line(".")<CR><CR>') -- Fetch link to current line in GitHub
 map(v, "<leader>G", [[:!kokodoko % <C-R>=line("'<")<CR>-<C-R>=line("'>")<CR><CR>u]]) -- Fetch link to selected lines in GitHub
 
-map("", "*", "<Plug>(asterisk-z*)zz", { silent = true }) -- Make * mark the current word and n will go forward
-map("", "#", "<Plug>(asterisk-z#)zz", { silent = true }) -- Make # mark the current work and n will go backward
+map(n, "S", "ysiw", { silent = true, remap = true }) -- Surround the current word with the following character
+map("", "*", "<Plug>(asterisk-z*)zz") -- Make * mark the current word and n will go forward
+map("", "#", "<Plug>(asterisk-z#)zz") -- Make # mark the current work and n will go backward
 map(n, "<leader>R", "<cmd>Twilight<cr>") -- Read the code with focus on one section at the time
 
 -- TODO: Figure out how to smoothly change into a tmux window from vim

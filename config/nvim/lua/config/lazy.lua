@@ -6,10 +6,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
-local disable_key_bindings = function()
-  return {}
-end
-
 local function is_work_computer()
   return os.getenv("KINBIKO_ENV") == "work"
 end
@@ -28,6 +24,12 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.linting.eslint" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" }, -- show hex colors in css and js etc.
 
+    { "mini.surround", enabled = false },
+    { "ggandor/leap.nvim", enabled = false }, -- TODO: Properly set up keybindings and then use.
+    { "ggandor/flit.nvim", enabled = false }, -- TODO: Also what's the difference between flit and leap?
+
+    { "tpope/vim-repeat" }, -- Make vim-surround things repeatable with .
+    { "tpope/vim-surround" }, -- ysiw syntax for surrounding
     { "haya14busa/vim-asterisk" },
     {
       "folke/twilight.nvim",
@@ -39,9 +41,6 @@ require("lazy").setup({
         context = 3, -- amount of lines we will try to show around the current line
       },
     },
-
-    { "ggandor/leap.nvim", keys = disable_key_bindings },
-    { "ggandor/flit.nvim", keys = disable_key_bindings },
 
     { import = "plugins" },
   },
