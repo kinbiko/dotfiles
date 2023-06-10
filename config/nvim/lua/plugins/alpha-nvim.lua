@@ -33,7 +33,7 @@ return {
         buttons = {
           type = "group",
           val = {
-            button("i", " Insert", ":ene <BAR> startinsert <CR>"),
+            button("n", " New", ":ene<CR>"),
             button("l", " Lazy", ":Lazy<CR>"),
             button("m", " Mason", ":ene<cr>:Mason<CR>"),
             button("q", " Quit", ":qa<CR>"),
