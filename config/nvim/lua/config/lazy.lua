@@ -38,7 +38,8 @@ require("lazy").setup({
     { "tpope/vim-repeat" }, -- Make vim-surround things repeatable with .
     { "tpope/vim-surround" }, -- ysiw syntax for surrounding
     { "haya14busa/vim-asterisk" }, -- Make * and # stay on the first element before iterating
-    { "kyazdani42/nvim-tree.lua" },
+    { "kyazdani42/nvim-tree.lua" }, -- Tree based navigator
+    { "nathom/tmux.nvim" },
     {
       "folke/twilight.nvim",
       opts = {

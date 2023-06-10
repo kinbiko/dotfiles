@@ -22,6 +22,11 @@ map(n, "0", "^") -- Make 0 take me to the first non-blank character of the line.
 map(n, "'", "`") -- Make jumping to a mark more precise than just the beginning of the line in normal mode
 map(o, "'", "`") -- Make jumping to a mark more precise than just the beginning of the line when awaiting an operator
 
+map(n, "<C-h>", [[<cmd>lua require('tmux').move_left()<cr>]])
+map(n, "<C-j>", [[<cmd>lua require('tmux').move_down()<cr>]])
+map(n, "<C-k>", [[<cmd>lua require('tmux').move_up()<cr>]])
+map(n, "<C-l>", [[<cmd>lua require('tmux').move_right()<cr>]])
+
 map(n, "s", "<cmd>w<cr>") -- Quick-save the current buffer
 
 map(n, "<right>", "gd", { silent = true }) -- Go to definition
