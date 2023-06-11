@@ -5,3 +5,6 @@ if [[ -n "${terminfo[kcbt]}" ]]; then
 fi
 
 bindkey '\C-v' edit-command-line
+
+# Undo the zle completion, e.g. history expansion
+bindkey '^u' undo
