@@ -1,11 +1,9 @@
-# Needed so that GPG knows how to open the TUI for entering the PGP password.
-# export GPG_TTY=$(tty) # TODO: Do I even need this anymore?
+# This file is run for *every* zsh shell (login and interactive agnostic)
+# E.g. commands executed from within vim or scripts in Alfred etc. will also
+# benefit from this file.
 
 export DOTFILES_DIR=$HOME/repos/dotfiles
-export EDITOR='nvim'
 export XDG_CONFIG_HOME="$HOME/.config"
-# Wait 10 ms for additional key sequences. Allows you to enter normal mode in zsh faster than the default 0.4s
-export KEYTIMEOUT=1
 
 alias add="clear; git add -p"
 alias caler="clear"
