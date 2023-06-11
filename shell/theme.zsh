@@ -1,3 +1,5 @@
+setopt PROMPT_SUBST # Make substitutions in prompt strings, allowing for coloring.
+
 # ls colors
 autoload -U colors && colors
 
@@ -5,6 +7,9 @@ autoload -U colors && colors
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 function colorize() {
+  echo "%{$fg[$2]%}$1%{$reset_color%}"
+}
+function colorize_bold() {
   echo "%{$fg_bold[$2]%}$1%{$reset_color%}"
 }
 
@@ -24,17 +29,21 @@ function git_info() {
   echo "$(colorize "⎇ ${branch}" $color)"
 }
 
-local current_dir="$(colorize "%3~" "cyan")"
+local current_dir="$(colorize_bold "%3~" "cyan")"
 local return_status_symbols="%(?..%? 💀)"
 local return_status_indicator=$(colorize "${return_status_symbols}" "red")
-local lambda_prompt="$(colorize "λ" "white")"
+# λ if in a subshell (probably tmux), ⛔ if not.
+local lambda_prompt="$(colorize_bold "%(2L.λ.⛔)" "white")"
 
 # Main prompt
-PROMPT='$(git_info) ${current_dir} ${return_status_indicator}
+PS1='${current_dir} $(git_info) ${return_status_indicator}
 ${lambda_prompt} '
 
+#local current_time='$(date "+%Y-%m-%dT%H:%M:%S")'
+#RPS1="$(colorize "${current_time}" "white")"
+
 # This shows up when a command runs longer than one line
-PROMPT2=$(colorize "︙" "black")
+PS2=$(colorize_bold "︙" "black")
 
 # Colorize completions using default `ls` colors.
 zstyle ':completion:*' list-colors ''
