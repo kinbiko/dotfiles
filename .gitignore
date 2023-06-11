@@ -7,6 +7,7 @@ config/*
 !config/alacritty/
 !config/bat/
 !config/btop/
+!config/dlv/
 !config/gh/
 !config/git/
 !config/nvim/
