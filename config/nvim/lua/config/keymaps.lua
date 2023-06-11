@@ -47,6 +47,10 @@ map(v, "<", "<gv") -- dedent lines and remember the selection
 map(v, "H", "<gv") -- dedent lines and remember the selection
 map(n, "Q", "@@") -- Execute the last played macro
 map(i, "jk", "<esc>") -- Easy access to normal mode from insert mode
+map(n, ",<leader>", function() -- remove noise from screen
+  vim.cmd("nohlsearch")
+  require("noice").cmd("dismiss")
+end)
 map(n, "<C-C>", "<cmd>cclose<cr>") -- Close the quickfix window
 map(n, "<leader>G", ':!kokodoko % <C-R>=line(".")<CR><CR>') -- Fetch link to current line in GitHub
 map(v, "<leader>G", [[:!kokodoko % <C-R>=line("'<")<CR>-<C-R>=line("'>")<CR><CR>u]]) -- Fetch link to selected lines in GitHub

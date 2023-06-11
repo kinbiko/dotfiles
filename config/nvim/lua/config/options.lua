@@ -19,6 +19,7 @@ o.swapfile = false -- Disable swap files
 o.ttimeoutlen = 0 -- Ensure that there's no delay between esc-ing and the next command executing
 o.autowrite = true -- Make No write since last change stfu
 o.hidden = true -- Allows you to hide a buffer without saving it
+o.cursorline = false -- Disable highlighting of current line
 
 -- How to represent non-printable characters. In general, don't want tabs, so
 -- have them show up as special characters.
