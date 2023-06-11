@@ -12,5 +12,6 @@ config/*
 !config/git/
 !config/nvim/
 !config/tmux/
+!config/yabai/
 
 config/gh/hosts.yml
