@@ -23,7 +23,7 @@ brew install google-cloud-sdk            # For interacting with GCP
 brew install gpg                         # For PGP signing
 brew install grpcurl                     # For making gRPC requests from the command line
 brew install --HEAD neovim               # Editor
-brew install node                        # Global installation required to install prettier
+brew install nodenv                      # Node version manager
 brew install pinentry-mac                # Lets you enter passwords with a TUI when signing git commits
 brew install pre-commit                  # Framework for setting up Git hooks
 brew install rg                          # Super fast grep-like application, used by FZF and telescope.nvim
@@ -51,5 +51,10 @@ go install github.com/kinbiko/jisho-alfred@latest          # Required by the Jis
 go install github.com/kinbiko/mokku/cmd/mokku@latest
 go install github.com/kinbiko/semver/cmd/upversion@latest
 
-# Install prettier from npm (used by vim)
-npm install -g prettier
+# Install the latest stable node version and use it as the system version of node.
+# Use the associated npm version to install prettier.
+echo "check what the latest stable node version is, and use it to install prettier globally"
+echo "https://nodejs.dev/en/about/releases/"
+echo 'nodenv install $latest_node_version'
+echo 'nodenv global $latest_node_version'
+echo 'npm install -g prettier'

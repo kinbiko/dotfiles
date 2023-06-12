@@ -48,3 +48,5 @@ alias pingu="ping google.com"
 alias q="exit"
 alias ta="tmux -u attach"
 alias top="btop"
+
+eval "$(nodenv init -)"
