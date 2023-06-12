@@ -1,0 +1,18 @@
+# Don't let ripgrep vomit really long lines to my terminal, and show a preview.
+--max-columns=150
+--max-columns-preview
+
+# Add custom types in order to easily filter (-tweb) or filter out (-Tweb)
+# NOTE: This only works with the name of the file itself, not the file path.
+# E.g. whatever/mocks/mything.go won't be matched.
+--type-add
+web:*.{html,css,js,jsx,tsx,ts,json,svelte}*
+--type-add
+test:*{Test,test,mock,spec}*
+
+# or
+--glob
+!git/*
+
+# Be smart about case-sensitivity. Only care if I include a capital letter
+--smart-case

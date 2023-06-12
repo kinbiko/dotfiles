@@ -14,5 +14,6 @@ config/*
 !config/tmux/
 !config/yabai/
 !config/bigquery/
+!config/ripgrep/
 
 config/gh/hosts.yml
