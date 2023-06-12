@@ -17,3 +17,4 @@ config/*
 !config/ripgrep/
 
 config/gh/hosts.yml
+config/nvim/lazy-lock.json
