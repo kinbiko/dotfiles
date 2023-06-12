@@ -1,0 +1,9 @@
+#--apilog=stderr
+--format=prettyjson
+
+[query]
+--use_legacy_sql=false
+--max_rows=100
+
+# Stop if attempting to bill for more than 1GB.
+--maximum_bytes_billed=1000000000

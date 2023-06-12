@@ -13,5 +13,6 @@ config/*
 !config/nvim/
 !config/tmux/
 !config/yabai/
+!config/bigquery/
 
 config/gh/hosts.yml

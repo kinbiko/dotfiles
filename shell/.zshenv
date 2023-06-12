@@ -5,6 +5,7 @@
 export EDITOR='nvim'
 export DOTFILES_DIR="$HOME/repos/dotfiles"
 export XDG_CONFIG_HOME="$HOME/.config"
+export BIGQUERYRC="$XDG_CONFIG_HOME/bigquery/bigqueryrc"
 
 alias dcd="docker compose down"
 alias dcu="docker compose up"

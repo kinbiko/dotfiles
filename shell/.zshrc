@@ -3,6 +3,9 @@
 typeset -U path PATH # Unique-ify the path
 path+=("$GOPATH/bin" "$HOME/scripts" "$DOTFILES_DIR/shell/scripts")
 
+fpath+="$DOTFILES_DIR/shell/functions"
+autoload bigquery
+
 # Wait 10 ms for additional key sequences.
 # Allows you to enter normal mode in zsh faster than the default 0.4s
 export KEYTIMEOUT=1

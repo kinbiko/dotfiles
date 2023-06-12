@@ -1,0 +1,21 @@
+# Create a directory to store input queries and their corresponding output.
+local _querydirname="$HOME/.cache/bigquery-history"
+[ -d $_querydirname ] || mkdir -p $_querydirname
+
+# Prep a record of each query and their response for debugging/caching purposes
+local _datetime="$(date -uI'seconds')"
+local _queryfilename="$_querydirname/$_datetime-query.sql"
+local _resultfilename="$_querydirname/$_datetime-result.json"
+
+# Prep the query, letting the user modify a "base" query with their editor of choice
+local _project_name="$(gcloud config get-value project)"
+echo 'SELECT * FROM `'"$_project_name"'.database.table` LIMIT 10;' >$_queryfilename
+command "$EDITOR" "$_queryfilename"
+
+# Make the bigquery query, and save the result. For convenience keep track of
+# the result in an environment variable called $LAST_BIGQUERY_RESULT.
+command bq "query" "$(<$_queryfilename)" >$_resultfilename
+export LAST_BIGQUERY_RESULT=$_resultfilename
+
+# Reminder of how to access the result
+print -P "%{$fg[green]%}'cat "'\\$LAST_BIGQUERY_RESULT'"' for result access without re-querying.%{$reset_color%}" 1>&2 
