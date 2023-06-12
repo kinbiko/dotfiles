@@ -50,7 +50,19 @@ require("lazy").setup({
         context = 3, -- amount of lines we will try to show around the current line
       },
     },
-
+    {
+      "jackMort/ChatGPT.nvim",
+      enabled = os.getenv("OPENAI_API_KEY") ~= nil,
+      event = "VeryLazy",
+      config = function()
+        require("chatgpt").setup()
+      end,
+      dependencies = {
+        "MunifTanjim/nui.nvim",
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope.nvim",
+      },
+    },
     -- Source the ../plugins directory for overriding LazyVim plugins.
     { import = "plugins" },
   },
