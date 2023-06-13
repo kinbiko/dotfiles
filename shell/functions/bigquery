@@ -22,5 +22,7 @@ command bq "query" "$(<$_queryfilename)" >$_resultfilename
 export LAST_BIGQUERY_RESULT=$_resultfilename
 export LAST_BIGQUERY_QUERY=$_queryfilename
 
-# Reminder of how to access the result
-print -P "%{$fg[green]%}'cat "'\\$LAST_BIGQUERY_RESULT'"' for result access without re-querying.%{$reset_color%}" 1>&2 
+# Prepare the next command for execution in a way that it
+# can be later retrieved from the history without causing a
+# new request.
+print -z 'cat $LAST_BIGQUERY_RESULT | jq -r '"'.'"
