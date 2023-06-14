@@ -1,11 +1,8 @@
 .Trash/
 .cache/
-.composer/
-.config/coc/extensions/coc-go-data
 .local/
 .local/share/nvim/shada/main.shada
 .npm/
-.oh-my-zsh/
 .zsh_history
 .zsh_sessions/
 .zcompdump*
@@ -20,7 +17,6 @@ Music/
 Pictures/
 Public/
 go/
-node_modules
 repos/
 .viminfo
 .DS_Store
