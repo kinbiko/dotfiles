@@ -1,9 +1,9 @@
 # This file is run for interactive shells only.
 
 typeset -U path PATH # Unique-ify the path
-path+=("$GOPATH/bin" "$HOME/scripts" "$XDG_CONFIG_HOME/shell/scripts")
+path+=("$GOPATH/bin" "$HOME/scripts" "$XDG_CONFIG_HOME/zsh/scripts")
 
-fpath+="$XDG_CONFIG_HOME/shell/functions"
+fpath+="$XDG_CONFIG_HOME/zsh/functions"
 autoload bigquery
 
 # Wait 10 ms for additional key sequences.
@@ -19,13 +19,13 @@ setopt AUTO_PARAM_SLASH # Tab completing directory appends a slash
 setopt INTERACTIVE_COMMENTS # Allow comments even in interactive shells.
 setopt NO_CLOBBER # Don't overwrite files with > redirects. Use >| to force
 
-source "$XDG_CONFIG_HOME/shell/vi-mode.zsh" # Doesn't work well if it's not first
+source "$XDG_CONFIG_HOME/zsh/vi-mode.zsh" # Doesn't work well if it's not first
 
-source "$XDG_CONFIG_HOME/shell/brew.zsh"
-source "$XDG_CONFIG_HOME/shell/fzf.zsh"
-source "$XDG_CONFIG_HOME/shell/history.zsh"
-source "$XDG_CONFIG_HOME/shell/keybindings.zsh"
-source "$XDG_CONFIG_HOME/shell/theme.zsh"
+source "$XDG_CONFIG_HOME/zsh/brew.zsh"
+source "$XDG_CONFIG_HOME/zsh/fzf.zsh"
+source "$XDG_CONFIG_HOME/zsh/history.zsh"
+source "$XDG_CONFIG_HOME/zsh/keybindings.zsh"
+source "$XDG_CONFIG_HOME/zsh/theme.zsh"
 
 alias add="clear; git add -p"
 alias caler="clear"
