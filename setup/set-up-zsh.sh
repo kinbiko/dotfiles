@@ -1,8 +1,10 @@
 #!/bin/zsh
 
-echo 'source $DOTFILES_DIR/shell/.zshrc' >~/.zshrc
+source "~/.config/shell/.zshenv"
+# .zshenv contains $XDG_CONFIG_HOME so link only after this environment
+# variable is available
+ln -s "$XDG_CONFIG_HOME/shell/.zshenv" ~/.zshenv
 
-# DOTFILES_DIR is defined in zshenv
-source "$HOME/repos/dotfiles/zshenv"
-ln -s "$DOTFILES_DIR/config/" ~/.config
-ln -s "$DOTFILES_DIR/shell/.zshenv" ~/.zshenv
+# Single quotes here is correct. Want to refer to the variable name in zsh, not
+# the value it has at the time of install.
+echo 'source $XDG_CONFIG_HOME/shell/.zshrc' >~/.zshrc
