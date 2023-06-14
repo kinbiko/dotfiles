@@ -1,9 +1,9 @@
 # This file is run for interactive shells only.
 
 typeset -U path PATH # Unique-ify the path
-path+=("$GOPATH/bin" "$HOME/scripts" "$DOTFILES_DIR/shell/scripts")
+path+=("$GOPATH/bin" "$HOME/scripts" "$XDG_CONFIG_HOME/shell/scripts")
 
-fpath+="$DOTFILES_DIR/shell/functions"
+fpath+="$XDG_CONFIG_HOME/shell/functions"
 autoload bigquery
 
 # Wait 10 ms for additional key sequences.
@@ -19,13 +19,13 @@ setopt AUTO_PARAM_SLASH # Tab completing directory appends a slash
 setopt INTERACTIVE_COMMENTS # Allow comments even in interactive shells.
 setopt NO_CLOBBER # Don't overwrite files with > redirects. Use >| to force
 
-source "$DOTFILES_DIR/shell/vi-mode.zsh" # Doesn't work well if it's not first
+source "$XDG_CONFIG_HOME/shell/vi-mode.zsh" # Doesn't work well if it's not first
 
-source "$DOTFILES_DIR/shell/brew.zsh"
-source "$DOTFILES_DIR/shell/fzf.zsh"
-source "$DOTFILES_DIR/shell/history.zsh"
-source "$DOTFILES_DIR/shell/keybindings.zsh"
-source "$DOTFILES_DIR/shell/theme.zsh"
+source "$XDG_CONFIG_HOME/shell/brew.zsh"
+source "$XDG_CONFIG_HOME/shell/fzf.zsh"
+source "$XDG_CONFIG_HOME/shell/history.zsh"
+source "$XDG_CONFIG_HOME/shell/keybindings.zsh"
+source "$XDG_CONFIG_HOME/shell/theme.zsh"
 
 alias add="clear; git add -p"
 alias caler="clear"
@@ -34,7 +34,7 @@ alias claer="clear"
 alias clar="clear"
 alias clare="clear"
 alias cler="clear"
-alias dot="cd $DOTFILES_DIR"
+alias dot="cd $XDG_CONFIG_HOME"
 alias gd="clear; git diff"
 alias gdc="clear; git diff --cached"
 alias gitroot='cd $(git rev-parse --show-toplevel)'
