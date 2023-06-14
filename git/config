@@ -28,6 +28,9 @@
 [core]
   pager = delta
 
+[user]
+  name = kinbiko
+
 [pull]
   rebase = true
 

@@ -27,8 +27,8 @@ git commit -m 'Initial commit'
 
 ### Start getting access
 
-Set up the password manager, and install Chrome.
-Set Chrome as the default browser and set up sync to get extensions, settings, and bookmarks set up.
+Set up the password manager, and install Arc.
+Set Arc as the default browser and set up sync to get extensions, settings, and bookmarks set up.
 Make sure the password manager browser plugin works.
 
 ### Fetch and use this repo
@@ -37,11 +37,8 @@ Set up SSH keys in GitHub following [the official instructions](https://docs.git
 
 Clone this repo:
 
-```
-cd
-mkdir repos
-cd repos
-git clone git@github.com:kinbiko/dotfiles.git
+```sh
+git clone git@github.com:kinbiko/dotfiles.git ~/.config
 ```
 
 Set up zsh: `setup/set-up-zsh.sh`
@@ -55,9 +52,7 @@ Install `brew` and install packages with `setup/install-brew-and-apps.sh`.
 
 You can now close Terminal and use Alacritty instead.
 
-Install [BetterSnapTool](https://folivora.ai/bettersnaptool) (not free -> no brew cask available).
-
-Install [iWallpaper](https://apps.apple.com/us/app/iwallpaper-live-wallpaper/id1552826194?mt=12).
+Install [iWallpaper](https://apps.apple.com/us/app/iwallpaper-live-wallpaper/id1552826194?mt=12) (not free).
 
 ### Post-install software configuration
 
@@ -135,7 +130,7 @@ Do the rest manually for now, until I figure out the command-line commands to ru
    1. Don't animate opening apps
    1. Don't show recent application in dock
    1. Automatically hide and show dock (to get back some screen real estate)
-   1. Remove most apps from the dock apart from (final list:) Finder, Chrome, Alacritty, Trash
+   1. Remove most apps from the dock apart from (final list:) Finder, Arc, Alacritty, Trash
 1. Set system-wide dark mode.
 1. Automatically hide the menu bar.
 1. Keep track of 'none' recent items.
