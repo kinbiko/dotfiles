@@ -1,27 +1,28 @@
 *
 !*/
 
-!alacritty/*
-!bat/*
-!btop/*
-!dlv/*
-!gh/*
-!git/*
-!nvim/*
-!tmux/*
-!yabai/*
-!bigquery/*
-!ripgrep/*
-!ergodox/*
-!fonts/*
-!jetbrains/*
-!obsidian/*
-!setup/*
-!shell/*
-!yomichan/*
+!alacritty/**/*
+!bat/**/*
+!btop/**/*
+!dlv/**/*
+!gh/**/*
+!git/**/*
+!nvim/**/*
+!tmux/**/*
+!yabai/**/*
+!bigquery/**/*
+!ripgrep/**/*
+!ergodox/**/*
+!fonts/**/*
+!jetbrains/**/*
+!obsidian/**/*
+!setup/**/*
+!zsh/**/*
+!yomichan/**/*
 
 gh/hosts.yml
 nvim/lazy-lock.json
 
 **/.DS_Store
 **/*.log
+**/*.spl
