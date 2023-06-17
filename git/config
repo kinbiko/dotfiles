@@ -27,6 +27,7 @@
 
 [core]
   pager = delta
+  quotepath = off # Show filenames in UTF-8
 
 [user]
   name = kinbiko

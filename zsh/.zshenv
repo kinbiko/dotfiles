@@ -7,6 +7,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export BIGQUERYRC="$XDG_CONFIG_HOME/bigquery/bigqueryrc"
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 export GOBIN="$(go env GOPATH)/bin"
+export LANG=en_US.UTF-8
 
 alias dcd="docker compose down"
 alias dcu="docker compose up"
