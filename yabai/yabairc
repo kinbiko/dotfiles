@@ -10,9 +10,7 @@ yabai -m config right_padding 22
 yabai -m config window_gap 22
 
 yabai -m config mouse_modifier ctrl
-# Put the mouse where the focuse window is
-# Useful for quicker resizing and moving of windows
-yabai -m config mouse_follows_focus on
+yabai -m config mouse_follows_focus off
 # Focus changes when I move the mouse
 yabai -m config focus_follows_mouse autoraise
 # Drop one window on another to get them to swap
