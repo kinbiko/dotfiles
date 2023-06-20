@@ -54,6 +54,7 @@ go install github.com/kinbiko/jisho-alfred@latest          # Required by the Jis
 # Optional
 go install github.com/kinbiko/mokku/cmd/mokku@latest
 go install github.com/kinbiko/semver/cmd/upversion@latest
+go install github.com/nikolaydubina/go-cover-treemap@latest
 
 "$(brew --prefix)/opt/ncurses/bin/infocmp" tmux-256color >|~/tmux-256color.info
 tic -xe tmux-256color ~/tmux-256color.info

@@ -1,7 +1,7 @@
 # This file is run for interactive shells only.
 
 typeset -U path PATH # Unique-ify the path
-path+=("$GOPATH/bin" "$HOME/scripts" "$XDG_CONFIG_HOME/zsh/scripts")
+path+=("$GOBIN" "$HOME/scripts" "$XDG_CONFIG_HOME/zsh/scripts")
 
 fpath+="$XDG_CONFIG_HOME/zsh/functions"
 autoload bigquery
