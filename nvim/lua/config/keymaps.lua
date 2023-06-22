@@ -33,8 +33,15 @@ map(n, "<right>", "gd", { silent = true }) -- Go to definition
 map(n, "<left>", "<c-o>", { silent = true }) -- Pop back up
 map(n, "n", "nzz") -- Make forward search results always appear in the middle of the screen
 map(n, "N", "Nzz") -- Make backward search results always appear in the middle of the screen
-map(n, "+", "<c-a>") -- Intuitive increment
-map(n, "-", "<c-x>") -- Intuitive decrement
+-- Intuitive increment and decrement
+map(n, "+", require("dial.map").inc_normal(), { noremap = true })
+map(n, "-", require("dial.map").dec_normal(), { noremap = true })
+map(n, "g+", require("dial.map").inc_gnormal(), { noremap = true })
+map(n, "g-", require("dial.map").dec_gnormal(), { noremap = true })
+map(v, "+", require("dial.map").inc_visual(), { noremap = true })
+map(v, "-", require("dial.map").dec_visual(), { noremap = true })
+map(v, "g+", require("dial.map").inc_gvisual(), { noremap = true })
+map(v, "g-", require("dial.map").dec_gvisual(), { noremap = true })
 
 -- NOTE: Resist the temptation to rewrite ":" to "<cmd>" as these mappings require a closing <cr>.
 -- Also trying to silence it prevents the command mode from being visible.

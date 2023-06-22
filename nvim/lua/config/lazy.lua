@@ -63,6 +63,7 @@ require("lazy").setup({
         "nvim-telescope/telescope.nvim",
       },
     },
+    { "monaqa/dial.nvim" }, -- Better increments e.g. for semver and dates
     -- Source the ../plugins directory for overriding LazyVim plugins.
     { import = "plugins" },
   },
