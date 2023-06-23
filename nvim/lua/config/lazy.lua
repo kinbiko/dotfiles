@@ -42,6 +42,19 @@ require("lazy").setup({
     { "tpope/vim-repeat" }, -- Make vim-surround things repeatable with .
     { "tpope/vim-surround" }, -- ysiw syntax for surrounding
     {
+      "anuvyklack/windows.nvim",
+      dependencies = {
+        "anuvyklack/middleclass",
+        "anuvyklack/animation.nvim",
+      },
+      config = function()
+        vim.o.winwidth = 10
+        vim.o.winminwidth = 10
+        vim.o.equalalways = false
+        require("windows").setup()
+      end,
+    },
+    {
       "folke/twilight.nvim",
       opts = {
         dimming = {
