@@ -59,8 +59,8 @@ map(n, ",<leader>", function() -- remove noise from screen
   require("noice").cmd("dismiss")
 end)
 map(n, "<C-C>", "<cmd>cclose<cr>") -- Close the quickfix window
-map(n, "<leader>G", ':!kokodoko % <C-R>=line(".")<CR><CR>') -- Fetch link to current line in GitHub
-map(v, "<leader>G", [[:!kokodoko % <C-R>=line("'<")<CR>-<C-R>=line("'>")<CR><CR>u]]) -- Fetch link to selected lines in GitHub
+map(n, "<leader>gk", ':!kokodoko % <C-R>=line(".")<CR><CR>') -- Fetch link to current line in GitHub
+map(v, "<leader>gk", [[:!kokodoko % <C-R>=line("'<")<CR>-<C-R>=line("'>")<CR><CR>u]]) -- Fetch link to selected lines in GitHub
 
 map(n, "S", "ysiw", { silent = true, remap = true }) -- Surround the current word with the following character
 map("", "*", "<Plug>(asterisk-z*)zz") -- Make * mark the current word and n will go forward
