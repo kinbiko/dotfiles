@@ -46,6 +46,7 @@ alias la='ls -lAh'
 alias lear="clear"
 alias pingu="ping google.com"
 alias q="exit"
+alias sd="cd"
 alias ta="tmux -u attach"
 alias top="btop"
 
