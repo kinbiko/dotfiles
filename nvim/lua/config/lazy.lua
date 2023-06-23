@@ -35,11 +35,12 @@ require("lazy").setup({
     { "nvim-neo-tree/neo-tree.nvim", enabled = false }, -- A decent tree browser, but I prefer nvim-tree
 
     -- Add other plugins that I want
-    { "tpope/vim-repeat" }, -- Make vim-surround things repeatable with .
-    { "tpope/vim-surround" }, -- ysiw syntax for surrounding
     { "haya14busa/vim-asterisk" }, -- Make * and # stay on the first element before iterating
     { "kyazdani42/nvim-tree.lua" }, -- Tree based navigator
-    { "nathom/tmux.nvim" },
+    { "monaqa/dial.nvim" }, -- Better increments e.g. for semver and dates
+    { "nathom/tmux.nvim" }, -- Move smoothly between vim and tmux winows
+    { "tpope/vim-repeat" }, -- Make vim-surround things repeatable with .
+    { "tpope/vim-surround" }, -- ysiw syntax for surrounding
     {
       "folke/twilight.nvim",
       opts = {
@@ -63,7 +64,7 @@ require("lazy").setup({
         "nvim-telescope/telescope.nvim",
       },
     },
-    { "monaqa/dial.nvim" }, -- Better increments e.g. for semver and dates
+
     -- Source the ../plugins directory for overriding LazyVim plugins.
     { import = "plugins" },
   },
