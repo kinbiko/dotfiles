@@ -11,7 +11,8 @@ vim.g.maplocalleader = "," -- This is ' ' by default as LazyVim has it defined.
 local o = vim.o
 
 o.clipboard = "" -- LazyVim sets this to 'unnamedplus' which pollutes the system clipboard for every yank/delete/etc.
-o.softtabstop = 2 -- columns per tab key press in insert mode. Also on backspace
+o.tabstop = 4 -- Number of columns per tab character
+o.softtabstop = 4 -- spaces per tab key press in insert mode. Also on backspace
 o.scrolloff = 8 -- Number of lines from vertical edge to start scroll
 o.sidescrolloff = 15 -- Number of lines from horizontal edge to start scroll
 o.sidescroll = 6 -- Number of columns to scroll at a time
@@ -21,9 +22,8 @@ o.autowrite = true -- Make No write since last change stfu
 o.hidden = true -- Allows you to hide a buffer without saving it
 o.cursorline = false -- Disable highlighting of current line
 
--- How to represent non-printable characters. In general, don't want tabs, so
--- have them show up as special characters.
-o.listchars = "tab:>-,trail:·,extends:>,precedes:<"
+-- Don't show "shadow" symbols for whitespace since I've got formatters for basically all the files I open.
+o.list = false
 
 -- Define the window border characters for splits etc.
 o.fillchars = o.fillchars .. "vert:│,fold: ,diff: "
