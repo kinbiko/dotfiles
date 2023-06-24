@@ -1,16 +1,41 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
-
 local i = "i"
 local n = "n"
 local o = "o"
 local v = "v"
+local x = "x"
 
 local map = function(mode, lhs, rhs, opts)
   opts = opts or { silent = true, remap = false }
   vim.keymap.set(mode, lhs, rhs, opts)
 end
+
+-- better up/down
+map({ n, x }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({ n, x }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+
+-- Move to window using the <ctrl> hjkl keys
+map(n, "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
+map(n, "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
+map(n, "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
+map(n, "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
+
+map(n, "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+
+-- When writing long things in text, it's nice to be able to undo more partially.
+map(i, ",", ",<c-g>u")
+map(i, ".", ".<c-g>u")
+map(i, ";", ";<c-g>u")
+
+-- stylua: ignore start
+
+map(n, "<leader>us", function() require("util").toggle("spell") end, { desc = "Toggle Spelling" })
+map(n, "<leader>uw", function() require("util").toggle("wrap") end, { desc = "Toggle Word Wrap" })
+map(n, "<leader>ud", require("util").toggle_diagnostics, { desc = "Toggle Diagnostics" })
+map(n, "<leader>gg", function() require("util").float_term({ "lazygit" }, { cwd = require("util").get_root(), esc_esc = false, ctrl_hjkl = false }) end, { desc = "Lazygit (root dir)" })
+-- TODO: Change to use the repository root
+map(n, "\\", function() require("util").float_term(nil, { cwd = require("util").get_root() }) end, { desc = "Terminal (root dir)" })
+
+-- stylua: ignore end
 
 -- Make arrow key navigation more useful
 -- Note to the reader: I've programmed a second layer on my ergodox keyboard to
@@ -33,15 +58,6 @@ map(n, "<right>", "gd", { silent = true }) -- Go to definition
 map(n, "<left>", "<c-o>", { silent = true }) -- Pop back up
 map(n, "n", "nzz") -- Make forward search results always appear in the middle of the screen
 map(n, "N", "Nzz") -- Make backward search results always appear in the middle of the screen
--- Intuitive increment and decrement
-map(n, "+", require("dial.map").inc_normal(), { noremap = true })
-map(n, "-", require("dial.map").dec_normal(), { noremap = true })
-map(n, "g+", require("dial.map").inc_gnormal(), { noremap = true })
-map(n, "g-", require("dial.map").dec_gnormal(), { noremap = true })
-map(v, "+", require("dial.map").inc_visual(), { noremap = true })
-map(v, "-", require("dial.map").dec_visual(), { noremap = true })
-map(v, "g+", require("dial.map").inc_gvisual(), { noremap = true })
-map(v, "g-", require("dial.map").dec_gvisual(), { noremap = true })
 
 -- NOTE: Resist the temptation to rewrite ":" to "<cmd>" as these mappings require a closing <cr>.
 -- Also trying to silence it prevents the command mode from being visible.
@@ -54,10 +70,6 @@ map(v, "<", "<gv") -- dedent lines and remember the selection
 map(v, "H", "<gv") -- dedent lines and remember the selection
 map(n, "Q", "@@") -- Execute the last played macro
 map(i, "jk", "<esc>") -- Easy access to normal mode from insert mode
-map(n, ",<leader>", function() -- remove noise from screen
-  vim.cmd("nohlsearch")
-  require("noice").cmd("dismiss")
-end)
 map(n, "<C-C>", "<cmd>cclose<cr>") -- Close the quickfix window
 map(n, "<leader>gk", ':!kokodoko % <C-R>=line(".")<CR><CR>') -- Fetch link to current line in GitHub
 map(v, "<leader>gk", [[:!kokodoko % <C-R>=line("'<")<CR>-<C-R>=line("'>")<CR><CR>u]]) -- Fetch link to selected lines in GitHub
@@ -65,25 +77,3 @@ map(v, "<leader>gk", [[:!kokodoko % <C-R>=line("'<")<CR>-<C-R>=line("'>")<CR><CR
 map(n, "S", "ysiw", { silent = true, remap = true }) -- Surround the current word with the following character
 map("", "*", "<Plug>(asterisk-z*)zz") -- Make * mark the current word and n will go forward
 map("", "#", "<Plug>(asterisk-z#)zz") -- Make # mark the current work and n will go backward
-map(n, "<leader>R", "<cmd>Twilight<cr>") -- Read the code with focus on one section at the time
-
--- TODO: Figure out how to smoothly change into a tmux window from vim
-
---[[ TODO: Change the telescope live_grep and lsp_references feature to ignore mock and test files.
-vim.keymap.set("n", "?S", function() -- Pop open a window for grepping for any text in the repo
-  require("telescope.builtin").live_grep({
-    glob_pattern = "!*{mock*,_test.go}"
-  })
-end)
-vim.keymap.set("n", "?R", function() -- Pop open a window for finding references to the word under the cursor
-  require("telescope.builtin").lsp_references({
-    glob_pattern = "!*{mock*,_test.go}",
-  })
-end)
---]]
-
--- Explicitly disallow bindings I don't use and don't want anything to happen if I accidentally use it
-local deny_list = { "&" }
-for _, k in ipairs(deny_list) do
-  map(n, k, "<nop>")
-end

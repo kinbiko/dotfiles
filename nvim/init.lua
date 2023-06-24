@@ -1,2 +1,6 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
-require("config.lazy")
+-- The order of these files matters
+require("options")
+require("setup-plugins")
+require("autocmds")
+require("keyboard-bindings-mappings") -- a longer name makes it easier to find with Telescope
+vim.cmd.colorscheme("tokyonight-night")

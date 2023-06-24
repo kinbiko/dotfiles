@@ -4,5 +4,7 @@ return {
     config = {
       transparent = true,
     },
+    lazy = true,
+    opts = { style = "night" },
   },
 }
