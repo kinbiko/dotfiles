@@ -27,8 +27,8 @@ require("lazy").setup({
 
     -- Disable some plugins that LazyVim adds by default
     { "mini.surround", enabled = false },
-    { "ggandor/leap.nvim", enabled = false }, -- TODO: Properly set up keybindings and then use.
-    { "ggandor/flit.nvim", enabled = false }, -- TODO: Also what's the difference between flit and leap?
+    { "ggandor/leap.nvim", enabled = false },
+    { "ggandor/flit.nvim", enabled = false },
     { "akinsho/bufferline.nvim", enabled = false },
     { "lukas-reineke/indent-blankline.nvim", enabled = false },
     { "goolord/alpha-nvim", enabled = false }, -- Splashscreen. More distracting than useful.
