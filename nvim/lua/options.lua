@@ -36,7 +36,7 @@ o.relativenumber = true -- Relative line numbers
 o.scrolloff = 8 -- Number of lines from vertical edge to start scroll
 o.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 o.shiftround = true -- Round indent
-o.shiftwidth = 2 -- Size of an indent
+o.shiftwidth = 4 -- Size of an indent
 o.shortmess:append({ W = true, I = true, c = true, C = true })
 o.showmode = false -- Dont show mode since we have a statusline
 o.sidescroll = 6 -- Number of columns to scroll at a time
