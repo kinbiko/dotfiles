@@ -6,8 +6,6 @@ export EDITOR='nvim'
 export XDG_CONFIG_HOME="$HOME/.config"
 export BIGQUERYRC="$XDG_CONFIG_HOME/bigquery/bigqueryrc"
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
-export GOPATH="$(go env GOPATH)"
-export GOBIN="$GOPATH/bin"
 export LANG=en_US.UTF-8
 
 alias dcd="docker compose down"

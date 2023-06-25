@@ -1,6 +1,11 @@
 # This file is run for interactive shells only.
 
 typeset -U path PATH # Unique-ify the path
+
+# Unable to load these in zshenv because it can't find the go binary yet
+export GOPATH="$(go env GOPATH)"
+export GOBIN="$GOPATH/bin"
+
 path+=("$GOBIN" "$HOME/scripts" "$XDG_CONFIG_HOME/zsh/scripts")
 
 fpath+="$XDG_CONFIG_HOME/zsh/functions"
