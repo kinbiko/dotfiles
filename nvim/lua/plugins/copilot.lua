@@ -1,6 +1,4 @@
 return {
-
-  -- copilot
   {
     "zbirenbaum/copilot.lua",
     cond = os.getenv("KINBIKO_ENV") ~= "work",
@@ -10,8 +8,9 @@ return {
       suggestion = { enabled = false },
       panel = { enabled = false },
       filetypes = {
-        markdown = true,
+        gitcommit = true,
         help = true,
+        markdown = true,
       },
     },
   },
