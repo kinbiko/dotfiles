@@ -1,5 +1,5 @@
 # Don't let ripgrep vomit really long lines to my terminal, and show a preview.
---max-columns=150
+--max-columns=250
 --max-columns-preview
 
 # Add custom types in order to easily filter (-tweb) or filter out (-Tweb)
