@@ -3,7 +3,7 @@ return {
   -- copilot
   {
     "zbirenbaum/copilot.lua",
-    enabled = os.getenv("KINBIKO_ENV") ~= "work",
+    cond = os.getenv("KINBIKO_ENV") ~= "work",
     cmd = "Copilot",
     build = ":Copilot auth",
     opts = {
