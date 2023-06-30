@@ -3,7 +3,7 @@ local Util = require("lazy.core.util")
 _opts = nil
 
 function enabled()
-  return _opts.autoformat
+  return _opts and _opts.autoformat
 end
 
 function toggle()
@@ -139,7 +139,7 @@ function setup(opts)
   vim.api.nvim_create_autocmd("BufWritePre", {
     group = vim.api.nvim_create_augroup("LazyVimFormat", {}),
     callback = function()
-      if _opts.autoformat then
+      if enabled() then
         format()
       end
     end,
