@@ -4,6 +4,7 @@ return {
     dependencies = {
       "marilari88/neotest-vitest",
       "nvim-neotest/neotest-jest",
+      "nvim-neotest/neotest-go",
     },
     opts = {
       -- Can be a list of adapters like what neotest expects,
