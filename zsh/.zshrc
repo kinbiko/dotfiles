@@ -47,6 +47,7 @@ alias glog='git log --graph --pretty=format:'\''%Cred%h%Creset %Cgreen(%cr)%Cres
 alias grep="rg"
 alias htop="btop"
 alias iedit='gh issue edit $(gh issue list | fzf | cut -f 1)' # Shorthand for editing an issue after first listing available issues
+alias jq="jq -Sr"
 alias la='ls -lAh'
 alias lear="clear"
 alias pingu="ping google.com"
