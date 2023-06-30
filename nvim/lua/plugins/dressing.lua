@@ -1,5 +1,5 @@
 return {
-  -- better vim.ui
+  -- better vim.ui, e.g. floating command window
   {
     "stevearc/dressing.nvim",
     lazy = true,
