@@ -33,6 +33,8 @@ map [[ :surround_wiki
 nunmap S
 vunmap S
 
+map s <nop>
+
 map S" :surround_double_quotes
 map S' :surround_single_quotes
 map Sb :surround_brackets
