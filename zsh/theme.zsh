@@ -32,8 +32,10 @@ function git_info() {
 local current_dir="$(colorize_bold "%3~" "cyan")"
 local return_status_symbols="%(?..%? 💀)"
 local return_status_indicator=$(colorize "${return_status_symbols}" "red")
-# λ if in a subshell (probably tmux), ⛔ if not.
-local lambda_prompt="$(colorize_bold "%(2L.λ.⛔)" "white")"
+local lambda_prompt="$(colorize_bold "»" "red")"
+if [[ -n "$TMUX" ]]; then
+  lambda_prompt="$(colorize_bold "λ" "white")"
+fi
 
 # Main prompt
 PS1='${current_dir} $(git_info) ${return_status_indicator}
