@@ -93,13 +93,22 @@ Below the heading are some frustrations with the current layout and ideas for th
 
 ## [Version 12](https://configure.zsa.io/ergodox-ez/layouts/A0r90/latest/0)
 
-- Scroll speed is way too fast, after some initial very slowness.
-- Can't hit `alt` with the left hand.
-- Can't hit any of the Anki answer keys (`1234`) with my left hand, which makes it awkward when I'm using a pen in my right hand. I should probably solve this with an Anki plugin though.
-- Make layer 1 (symbols)'s "caps lock" be `ctrl+alt`, so I can use this for yabai window management.
-- Taking a macOS screenshot is a contortion.
+- [x] Scroll speed is way too fast, after some initial very slowness.
+- [x] Can't hit any of the Anki answer keys (`1234`) with my left hand, which makes it awkward when I'm using a pen in my right hand. I should probably solve this with an Anki plugin though.
+- [x] Make layer 1 (symbols)'s "caps lock" be `ctrl+alt`, so I can use this for yabai window management.
+- [x] `[]{}()` could be `[{(]})` instead? (`close - open = 3` always for easy muscle memory)
+
+## [Version 13](https://configure.zsa.io/ergodox-ez/layouts/oyvow/latest/1)
+
+- [x] Make max mouse scroll speed faster.
+
+## [Version 14]()
+
+- [x] Fix broken ctrl key
+
+## [Version 15](https://configure.zsa.io/ergodox-ez/layouts/M4BLo/latest/0)
+
 - Consider moving some of the "related" symbol keys further apart, so I experience fewer off-by-1 errors in my left hand. E.g.
-  - `&` and `*`
-  - `[]{}()` could be `[{(]})` instead? (`close - open = 3` always for easy muscle memory)
-  - `\` and `|`
-  - `$` and `%` -- They're not really related, but I always hit the wrong one
+  - [ ] `&` and `*`
+  - [ ] `\` and `|`
+  - [ ] `$` and `%` -- They're not really related, but I always hit the wrong one
