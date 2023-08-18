@@ -22,6 +22,7 @@ brew install golangci-lint               # Linter for Go
 brew install google-cloud-sdk            # For interacting with GCP
 brew install gpg                         # For PGP signing
 brew install grpcurl                     # For making gRPC requests from the command line
+brew install httpie                      # For making HTTP requests from the command line
 brew install jq                          # Query JSON
 brew install ncurses                     # Pretty terminal stuff -- needed for tmux-256color
 brew install --HEAD neovim               # Editor
