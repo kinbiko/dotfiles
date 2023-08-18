@@ -81,7 +81,6 @@ return {
         reload_on_bufenter = false,
         respect_buf_cwd = false,
         on_attach = on_attach_nvim_tree,
-        remove_keymaps = false, -- boolean (disable totally or not) or list of key (lhs)
         view = {
           adaptive_size = false,
           centralize_selection = true,

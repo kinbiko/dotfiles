@@ -255,9 +255,6 @@ return {
       "williamboman/mason-lspconfig.nvim",
       {
         "hrsh7th/cmp-nvim-lsp",
-        cond = function()
-          return require("util").has("nvim-cmp")
-        end,
       },
       "jose-elias-alvarez/typescript.nvim",
       "b0o/SchemaStore.nvim",
