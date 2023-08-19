@@ -1,33 +1,27 @@
 # Navigation
-ralt - left  : yabai -m window --focus west
-ralt - down  : yabai -m window --focus south
-ralt - up    : yabai -m window --focus north
-ralt - right : yabai -m window --focus east
+lalt - h : yabai -m window --focus west
+lalt - j : yabai -m window --focus south
+lalt - k : yabai -m window --focus north
+lalt - l : yabai -m window --focus east
 
 # Moving windows
-shift + ralt - left  : yabai -m window --warp west
-shift + ralt - down  : yabai -m window --warp south
-shift + ralt - up    : yabai -m window --warp north
-shift + ralt - right : yabai -m window --warp east
+shift + lalt - h : yabai -m window --warp west
+shift + lalt - j : yabai -m window --warp south
+shift + lalt - k : yabai -m window --warp north
+shift + lalt - l : yabai -m window --warp east
 
 # Resize windows
-lctrl + alt - h : yabai -m window --resize left:-50:0; \
-                  yabai -m window --resize right:-50:0
-lctrl + alt - j : yabai -m window --resize bottom:0:50; \
-                  yabai -m window --resize top:0:50
-lctrl + alt - k : yabai -m window --resize top:0:-50; \
-                  yabai -m window --resize bottom:0:-50
-lctrl + alt - l : yabai -m window --resize right:50:0; \
-                  yabai -m window --resize left:50:0
+lctrl + lalt - h : yabai -m window --resize left:-50:0;  yabai -m window --resize right:-50:0
+lctrl + lalt - j : yabai -m window --resize bottom:0:50; yabai -m window --resize top:0:50
+lctrl + lalt - k : yabai -m window --resize top:0:-50;   yabai -m window --resize bottom:0:-50
+lctrl + lalt - l : yabai -m window --resize right:50:0;  yabai -m window --resize left:50:0
 
 # Rotate windows clockwise and anticlockwise
-alt - r         : yabai -m space --rotate 270
+lalt - r : yabai -m space --rotate 270
 
 # Float / Unfloat window
-shift + alt - space : \
-    yabai -m window --toggle float; \
-    yabai -m window --toggle border
+shift + lalt - space : yabai -m window --toggle float; yabai -m window --toggle border
 
 # Make window native fullscreen
-alt - f         : yabai -m window --toggle zoom-fullscreen
-shift + alt - f : yabai -m window --toggle native-fullscreen
+lalt - f         : yabai -m window --toggle zoom-fullscreen
+shift + lalt - f : yabai -m window --toggle native-fullscreen
