@@ -61,3 +61,4 @@ alias top="btop"
 
 eval "$(nodenv init -)"
 eval "$(zoxide init zsh)"
+eval "$(direnv hook zsh)"
