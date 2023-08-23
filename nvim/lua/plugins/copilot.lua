@@ -1,7 +1,6 @@
 return {
   {
     "zbirenbaum/copilot.lua",
-    cond = os.getenv("KINBIKO_ENV") ~= "work",
     cmd = "Copilot",
     build = ":Copilot auth",
     opts = {
