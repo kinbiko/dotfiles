@@ -23,6 +23,7 @@ clippaste() { pbpaste; }
 setopt AUTO_PARAM_SLASH # Tab completing directory appends a slash
 setopt INTERACTIVE_COMMENTS # Allow comments even in interactive shells.
 setopt NO_CLOBBER # Don't overwrite files with > redirects. Use >| to force
+setopt MAGIC_EQUAL_SUBST # Auto-complete paths in arguments
 
 source "$XDG_CONFIG_HOME/zsh/vi-mode.zsh" # Doesn't work well if it's not first
 
