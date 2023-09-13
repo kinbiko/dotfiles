@@ -19,3 +19,6 @@ Session.vim
 # but adding it here to ignore files under .git/ when
 # using ripgrep which respects git ignored files.
 .git/
+
+# Go coverage reports
+cover.cov
