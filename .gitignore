@@ -25,6 +25,7 @@
 gh/hosts.yml
 nvim/lazy-lock.json
 lazygit/state.yml
+dlv/.dbg_history
 
 **/.DS_Store
 **/*.log

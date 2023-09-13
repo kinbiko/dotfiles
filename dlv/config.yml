@@ -17,7 +17,7 @@
 
 # Uncomment to change the number of lines printed above and below cursor when
 # listing source code.
-# source-list-line-count: 5
+source-list-line-count: 15
 
 # Provided aliases will be added to the default aliases for a given command.
 aliases:
@@ -32,13 +32,13 @@ substitute-path:
   # - {from: path, to: path}
 
 # Maximum number of elements loaded from an array.
-# max-array-values: 64
+max-array-values: 10
 
 # Maximum loaded string length.
-# max-string-len: 64
+max-string-len: 120
 
 # Output evaluation.
-# max-variable-recurse: 1
+max-variable-recurse: 2
 
 # Uncomment the following line to make the whatis command also print the DWARF location expression of its argument.
 # show-location-expr: true
