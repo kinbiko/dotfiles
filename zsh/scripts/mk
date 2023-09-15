@@ -1,0 +1,9 @@
+# vim: set ft=sh:
+
+# Run make commands from the root directory and avoid complaining about not finding the makefile.
+
+cd $(git rev-parse --show-toplevel)
+make "$@"
+
+# Navigate back to the original directory, silently.
+cd - >/dev/null
