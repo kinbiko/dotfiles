@@ -31,6 +31,8 @@ brew install pinentry-mac                # Lets you enter passwords with a TUI w
 brew install pre-commit                  # Framework for setting up Git hooks
 brew install rg                          # Super fast grep-like application, used by FZF and telescope.nvim
 brew install sourcegraph/src-cli/src-cli # The 'src' Sourcegraph CLI
+brew install spotify-tui                 # Spotify TUI
+brew install spotifyd                    # Spotify daemon
 brew install terraform                   # Infra as code
 brew install tmux                        # Terminal multiplexer
 brew install tree                        # Show folders and files easily
