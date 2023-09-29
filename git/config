@@ -48,7 +48,7 @@
   line-numbers = true
 
 [merge]
-  conflictstyle = diff3
+  conflictstyle = merge
 
 [diff]
   colorMoved = default
