@@ -45,7 +45,6 @@ alias gd="clear; git diff"
 alias gdc="clear; git diff --cached"
 alias gitroot='cd $(git rev-parse --show-toplevel)'
 alias glog='git log --graph --pretty=format:'\''%Cred%h%Creset %Cgreen(%cr)%Creset%Cblue[%an]%Creset %s%Creset%C(yellow)%d%Creset'\'' --abbrev-commit --date=relative'
-alias grep="rg"
 alias htop="btop"
 alias iedit='gh issue edit $(gh issue list | fzf | cut -f 1)' # Shorthand for editing an issue after first listing available issues
 alias jq="jq -Sr"
