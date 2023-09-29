@@ -11,7 +11,7 @@
 !gh/**/*
 !git/**/*
 !jetbrains/**/*
-!lazygit/**/*
+!lazygit/config.yml
 !nvim/**/*
 !obsidian/**/*
 !ripgrep/**/*
@@ -24,7 +24,6 @@
 
 gh/hosts.yml
 nvim/lazy-lock.json
-lazygit/state.yml
 dlv/.dbg_history
 
 **/.DS_Store
