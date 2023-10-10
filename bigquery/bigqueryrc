@@ -5,5 +5,5 @@
 --use_legacy_sql=false
 --max_rows=1000
 
-# Stop if attempting to bill for more than 1GB.
---maximum_bytes_billed=1000000000
+# Stop if attempting to bill for more than 20GB.
+--maximum_bytes_billed=20000000000
