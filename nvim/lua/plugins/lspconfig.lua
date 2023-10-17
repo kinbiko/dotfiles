@@ -146,76 +146,14 @@ function setup(opts)
   })
 end
 
-local _keys = nil
-
-local diagnostic_goto = function(next, severity)
-  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
-  severity = severity and vim.diagnostic.severity[severity] or nil
-  return function()
-    go({ severity = severity })
-  end
-end
-
 ---@return (LazyKeys|{has?:string})[]
 local get = function()
-  local format = function()
-    format({ force = true })
-  end
-  if not _keys then
-  ---@class PluginLspKeys
-    -- stylua: ignore
-    _keys =  {
-      { "<leader>cd", vim.diagnostic.open_float, desc = "Line Diagnostics" },
-      { "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
-      { "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "Goto Definition", has = "definition" },
-      { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
-      { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
-      { "gI", "<cmd>Telescope lsp_implementations<cr>", desc = "Goto Implementation" },
-      { "gy", "<cmd>Telescope lsp_type_definitions<cr>", desc = "Goto T[y]pe Definition" },
-      { "K", vim.lsp.buf.hover, desc = "Hover" },
-      { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
-      { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
-      { "]d", diagnostic_goto(true), desc = "Next Diagnostic" },
-      { "[d", diagnostic_goto(false), desc = "Prev Diagnostic" },
-      { "]e", diagnostic_goto(true, "ERROR"), desc = "Next Error" },
-      { "[e", diagnostic_goto(false, "ERROR"), desc = "Prev Error" },
-      { "]w", diagnostic_goto(true, "WARN"), desc = "Next Warning" },
-      { "[w", diagnostic_goto(false, "WARN"), desc = "Prev Warning" },
-      { "<leader>cf", format, desc = "Format Document", has = "documentFormatting" },
-      { "<leader>cf", format, desc = "Format Range", mode = "v", has = "documentRangeFormatting" },
-      { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
-      {
-        "<leader>cA",
-        function()
-          vim.lsp.buf.code_action({
-            context = {
-              only = {
-                "source",
-              },
-              diagnostics = {},
-            },
-          })
-        end,
-        desc = "Source Action",
-        has = "codeAction",
-      }
-    }
-    if require("util").has("inc-rename.nvim") then
-      _keys[#_keys + 1] = {
-        "<leader>cr",
-        function()
-          local inc_rename = require("inc_rename")
-          return ":" .. inc_rename.config.cmd_name .. " " .. vim.fn.expand("<cword>")
-        end,
-        expr = true,
-        desc = "Rename",
-        has = "rename",
-      }
-    else
-      _keys[#_keys + 1] = { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" }
-    end
-  end
-  return _keys
+  return  {
+    { "K", vim.lsp.buf.hover, desc = "Hover" },
+    { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
+    { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
+    { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
+  }
 end
 
 local on_attach = function(client, buffer)
@@ -238,7 +176,9 @@ local on_attach = function(client, buffer)
       opts.has = nil
       opts.silent = opts.silent ~= false
       opts.buffer = buffer
-      vim.keymap.set(keys.mode or "n", keys[1], keys[2], opts)
+      if keys[2] then
+        vim.keymap.set(keys.mode or "n", keys[1], keys[2], opts)
+      end
     end
   end
 end
@@ -253,9 +193,7 @@ return {
       "mason.nvim",
       "jose-elias-alvarez/null-ls.nvim",
       "williamboman/mason-lspconfig.nvim",
-      {
-        "hrsh7th/cmp-nvim-lsp",
-      },
+      "hrsh7th/cmp-nvim-lsp",
       "jose-elias-alvarez/typescript.nvim",
       "b0o/SchemaStore.nvim",
       version = false, -- last release is way too old
@@ -431,11 +369,11 @@ return {
     },
     ---@param opts PluginLspOpts
     config = function(_, opts)
-      local Util = require("util")
+      local utils = require("util")
       -- setup autoformat
       setup(opts)
       -- setup formatting and keymaps
-      Util.on_attach(function(client, buffer)
+      utils.on_attach(function(client, buffer)
         on_attach(client, buffer)
       end)
 
@@ -446,7 +384,7 @@ return {
       end
 
       if opts.inlay_hints.enabled and vim.lsp.buf.inlay_hint then
-        Util.on_attach(function(client, buffer)
+        utils.on_attach(function(client, buffer)
           if client.server_capabilities.inlayHintProvider then
             vim.lsp.buf.inlay_hint(buffer, true)
           end
@@ -517,10 +455,10 @@ return {
         mlsp.setup({ ensure_installed = ensure_installed, handlers = { setup } })
       end
 
-      if Util.lsp_get_config("denols") and Util.lsp_get_config("tsserver") then
+      if utils.lsp_get_config("denols") and utils.lsp_get_config("tsserver") then
         local is_deno = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
-        Util.lsp_disable("tsserver", is_deno)
-        Util.lsp_disable("denols", function(root_dir)
+        utils.lsp_disable("tsserver", is_deno)
+        utils.lsp_disable("denols", function(root_dir)
           return not is_deno(root_dir)
         end)
       end
