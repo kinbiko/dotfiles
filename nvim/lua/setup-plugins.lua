@@ -1,4 +1,6 @@
+-- Define the location where to install lazy.nvim.
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+-- If there's nothing currently in this path, then clone lazy.nvim into this directory.
 if not vim.loop.fs_stat(lazypath) then
   -- bootstrap lazy.nvim
   vim.fn.system({
@@ -10,43 +12,9 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+-- Add the lazy.nvim directory to the runtimepath.
+-- XXX: When would vim.env.LAZY be set?
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
-
--- delay notifications till vim.notify was replaced or after 500ms
-local notifs = {}
-local function temp(...)
-  table.insert(notifs, vim.F.pack_len(...))
-end
-
-local orig = vim.notify
-vim.notify = temp
-
-local timer = vim.loop.new_timer()
-local check = vim.loop.new_check()
-
----@diagnostic disable: need-check-nil
-local replay = function()
-  timer:stop()
-  check:stop()
-  if vim.notify == temp then
-    vim.notify = orig -- put back the original notify if needed
-  end
-  vim.schedule(function()
-    ---@diagnostic disable-next-line: no-unknown
-    for _, notif in ipairs(notifs) do
-      vim.notify(vim.F.unpack_len(notif))
-    end
-  end)
-end
-
--- wait till vim.notify has been replaced
-check:start(function()
-  if vim.notify ~= temp then
-    replay()
-  end
-end)
--- or if it took more than 500ms, then something went wrong
-timer:start(500, 0, replay)
 
 require("lazy").setup({
   spec = {

@@ -21,7 +21,6 @@ return {
         ["<leader>x"] = { name = "+diagnostics/quickfix" },
         ["<leader>d"] = { name = "+debug" },
         ["<leader>da"] = { name = "+adapters" },
-        ["<leader>sn"] = { name = "+noice" },
         ["<leader>t"] = { name = "+test" },
       },
     },
