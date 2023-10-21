@@ -21,6 +21,9 @@ require("lazy").setup({
     { "folke/lazy.nvim", version = "*" }, -- manage itself
     { import = "plugins" },
   },
+  change_detection = {
+    notify = false,
+  },
   performance = {
     rtp = {
       disabled_plugins = {
