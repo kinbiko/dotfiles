@@ -6,6 +6,7 @@ return {
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
+      "saadparwaiz1/cmp_luasnip",
       "zbirenbaum/copilot-cmp",
       { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
     },
@@ -15,6 +16,11 @@ return {
       return {
         completion = {
           completeopt = "menu,menuone,noinsert",
+        },
+        snippet = {
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end,
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -32,6 +38,7 @@ return {
         sources = cmp.config.sources({
           { name = "copilot", group_index = 2 },
           { name = "nvim_lsp" },
+          { name = "luasnip" },
         }),
         formatting = {
           format = function(entry, item)
