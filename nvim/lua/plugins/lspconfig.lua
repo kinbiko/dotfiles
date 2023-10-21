@@ -54,17 +54,6 @@ function notify(formatters)
 
   for _, client in ipairs(formatters.active) do
     local line = "- **" .. client.name .. "**"
-    if client.name == "null-ls" then
-      line = line
-        .. " ("
-        .. table.concat(
-          vim.tbl_map(function(f)
-            return "`" .. f.name .. "`"
-          end, formatters.null_ls),
-          ", "
-        )
-        .. ")"
-    end
     table.insert(lines, line)
   end
 
@@ -88,12 +77,8 @@ function notify(formatters)
 end
 
 -- Gets all lsp clients that support formatting.
--- When a null-ls formatter is available for the current filetype,
--- only null-ls formatters are returned.
 function get_formatters(bufnr)
   local ft = vim.bo[bufnr].filetype
-  -- check if we have any null-ls formatters for the current filetype
-  local null_ls = package.loaded["null-ls"] and require("null-ls.sources").get_available(ft, "NULL_LS_FORMATTING") or {}
 
   ---@class LazyVimFormatters
   local ret = {
@@ -101,18 +86,13 @@ function get_formatters(bufnr)
     active = {},
     ---@type lsp.Client[]
     available = {},
-    null_ls = null_ls,
   }
 
   ---@type lsp.Client[]
   local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
   for _, client in ipairs(clients) do
     if supports_format(client) then
-      if (#null_ls > 0 and client.name == "null-ls") or #null_ls == 0 then
-        table.insert(ret.active, client)
-      else
-        table.insert(ret.available, client)
-      end
+      table.insert(ret.available, client)
     end
   end
 
@@ -148,7 +128,7 @@ end
 
 ---@return (LazyKeys|{has?:string})[]
 local get = function()
-  return  {
+  return {
     { "K", vim.lsp.buf.hover, desc = "Hover" },
     { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
     { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
@@ -191,7 +171,6 @@ return {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
       { "folke/neodev.nvim", opts = {} },
       "mason.nvim",
-      "jose-elias-alvarez/null-ls.nvim",
       "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
       "jose-elias-alvarez/typescript.nvim",
@@ -318,9 +297,11 @@ return {
           require("util").on_attach(function(client, buffer)
             if client.name == "tsserver" then
               -- stylua: ignore
-              vim.keymap.set("n", "<leader>co", "<cmd>TypescriptOrganizeImports<CR>", { buffer = buffer, desc = "Organize Imports" })
+              vim.keymap.set("n", "<leader>co", "<cmd>TypescriptOrganizeImports<CR>",
+                { buffer = buffer, desc = "Organize Imports" })
               -- stylua: ignore
-              vim.keymap.set("n", "<leader>cR", "<cmd>TypescriptRenameFile<CR>", { desc = "Rename File", buffer = buffer })
+              vim.keymap.set("n", "<leader>cR", "<cmd>TypescriptRenameFile<CR>",
+                { desc = "Rename File", buffer = buffer })
             end
           end)
           require("typescript").setup({ server = opts })
