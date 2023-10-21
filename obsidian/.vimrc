@@ -14,7 +14,7 @@ nmap ; :
 
 nmap Q @@
 
-imap jk <C-c>
+imap jk <Esc>
 
 vmap p "_dP
 
