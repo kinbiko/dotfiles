@@ -6,8 +6,6 @@ return {
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
       "zbirenbaum/copilot-cmp",
       { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
     },
@@ -34,8 +32,6 @@ return {
         sources = cmp.config.sources({
           { name = "copilot", group_index = 2 },
           { name = "nvim_lsp" },
-          { name = "buffer" },
-          { name = "path" },
         }),
         formatting = {
           format = function(entry, item)
