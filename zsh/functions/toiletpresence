@@ -1,0 +1,9 @@
+# I don't like this particular tool (telepresence) very much.
+# Hence the name of the function.
+
+# I can't believe this is necessary :(
+sudo dscacheutil -flushcache
+sudo killall -HUP mDNSResponder
+
+sudo telepresence quit
+sudo telepresence connect --mapped-namespaces $GCP_PROJECT_ID
