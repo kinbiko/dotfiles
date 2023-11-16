@@ -4,6 +4,9 @@
 
 cd $(git rev-parse --show-toplevel)
 make "$@"
+ret_code=$?
 
 # Navigate back to the original directory, silently.
 cd - >/dev/null
+
+exit $ret_code
