@@ -14,7 +14,7 @@ return {
         formatters_by_ft = {
           bash = { "beautysh", "shfmt" },
           cue = { "cueimports" },
-          go = { { "gci", "goimports", "gofmt", "gofumpt" }, "gomodifytags" },
+          go = { { "goimports", "gci", "gofmt", "gofumpt" } },
           javascript = { { "prettierd", "prettier" } },
           json = { { "prettierd", "prettier" } },
           lua = { "stylua" },
