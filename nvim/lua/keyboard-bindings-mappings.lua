@@ -41,8 +41,10 @@ map(n, "\\", function() require("util").float_term(nil, { cwd = require("util").
 -- Note to the reader: I've programmed a second layer on my ergodox keyboard to
 -- map hjkl to the arrow keys. So even when I do use the arrow keys my fingers
 -- don't leave the home row.
-map("", "<up>", ":keepjumps normal {zz<cr>") -- Previous paragraph
-map("", "<down>", ":keepjumps normal }zz<cr>") -- Next paragraph
+map(n, "<up>", ":keepjumps normal {zz") -- Previous paragraph
+map(n, "<down>", ":keepjumps normal }zz") -- Next paragraph
+map(v, "<up>", "{zz") -- Previous paragraph
+map(v, "<down>", "}zz") -- Next paragraph
 map(n, "0", "^") -- Make 0 take me to the first non-blank character of the line.
 map(n, "'", "`") -- Make jumping to a mark more precise than just the beginning of the line in normal mode
 map(o, "'", "`") -- Make jumping to a mark more precise than just the beginning of the line when awaiting an operator
