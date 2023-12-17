@@ -21,10 +21,52 @@ matches:
   - trigger: "l;sum"
     replace: "\\sum_{i=1}^{n}"
 
+  # Other symbols
+  - trigger: "<--->"
+    replace: "⇄"
+    word: true
+  - trigger: "<-->"
+    replace: "⇔"
+    word: true
+  - trigger: "<--"
+    replace: "⇽"
+    word: true
+  - trigger: "-->"
+    replace: "⇾"
+    word: true
+
   # Typos
   - trigger: "saerch"
     replace: "search"
     propagate_case: true
+  - trigger: "pythong"
+    replace: "python"
+    propagate_case: true
+  - trigger: "assocaited"
+    replace: "associated"
+    propagate_case: true
+    word: true
+  - trigger: "shiping"
+    replace: "shipping"
+    propagate_case: true
+    word: true
+
+  # Brands
+  - trigger: "1password"
+    replace: "1Password"
+    word: true
+  - trigger: "github"
+    replace: "GitHub"
+    word: true
+  - trigger: "linkedin"
+    replace: "LinkedIn"
+    word: true
+  - trigger: "latex"
+    replace: "LaTeX"
+    word: true
+  - trigger: "youtube"
+    replace: "YouTube"
+    word: true
 
   # Dates
   - trigger: "today\\\\"
@@ -54,4 +96,3 @@ matches:
 
   - trigger: "middle\\\\"
     image_path: "$CONFIG/media/middle.gif"
-
