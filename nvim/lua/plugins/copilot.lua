@@ -2,6 +2,7 @@ return {
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
+    enabled = false,
     build = ":Copilot auth",
     opts = {
       suggestion = { enabled = false },
@@ -17,6 +18,7 @@ return {
     "zbirenbaum/copilot-cmp",
     dependencies = "zbirenbaum/copilot.lua",
     opts = {},
+    enabled = false,
     config = function(_, opts)
       local copilot_cmp = require("copilot_cmp")
       copilot_cmp.setup(opts)
