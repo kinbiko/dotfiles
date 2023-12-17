@@ -1,37 +1,57 @@
-# espanso match file
-
 # For a complete introduction, visit the official docs at: https://espanso.org/docs/
-
-# You can use this file to define the base matches (aka snippets)
-# that will be available in every application when using espanso.
-
-# Matches are substitution rules: when you type the "trigger" string
-# it gets replaced by the "replace" string.
 matches:
-  # Simple text replacement
-  - trigger: ":espanso"
-    replace: "Hi there!"
-
-  # NOTE: espanso uses YAML to define matches, so pay attention to the indentation!
-
-  # But matches can also be dynamic:
-
-  # Print the current date
-  - trigger: ":date"
-    replace: "{{mydate}}"
+  - trigger: "a\\\\"
+    label: "01. Markdown Link"
+    replace: "[$|$]({{clipboard}})"
     vars:
-      - name: mydate
+      - name: "clipboard"
+        type: "clipboard"
+  - trigger: "a\\\\"
+    label: "02. HTML Link"
+    replace: '<a href="{{clipboard}}">$|$</a>'
+    vars:
+      - name: "clipboard"
+        type: "clipboard"
+
+  # LaTeX bindings
+  - trigger: "l;l"
+    replace: "$$\n$|$\n$$"
+  - trigger: "l;frac"
+    replace: "\\frac{1}{n}"
+  - trigger: "l;sum"
+    replace: "\\sum_{i=1}^{n}"
+
+  # Typos
+  - trigger: "saerch"
+    replace: "search"
+    propagate_case: true
+
+  # Dates
+  - trigger: "today\\\\"
+    replace: "{{current_date}}"
+    vars:
+      - name: current_date
         type: date
         params:
-          format: "%m/%d/%Y"
-
-  # Print the output of a shell command
-  - trigger: ":shell"
-    replace: "{{output}}"
+          format: "%Y-%m-%d"
+  - trigger: "tomorrow\\\\"
+    replace: "{{tomorrow}}"
     vars:
-      - name: output
+      - name: tomorrow
+        type: date
+        params:
+          format: "%Y-%m-%d"
+          offset: 86400
+
+  # Memes
+  - trigger: "cowsay\\\\"
+    replace: "{{cowsay}}"
+    vars:
+      - name: cowsay
         type: shell
         params:
-          cmd: "echo 'Hello from your shell'"
+          cmd: "cowsay 'Moo!'"
 
-  # And much more! For more information, visit the docs: https://espanso.org/docs/
+  - trigger: "middle\\\\"
+    image_path: "$CONFIG/media/middle.gif"
+
