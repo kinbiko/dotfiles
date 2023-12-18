@@ -39,3 +39,10 @@
 
 # For a list of all the available options, visit the official docs at: https://espanso.org/docs/
 
+# By default this is alt+space, which collides with my keyboard input toggle
+search_shortcut: off
+
+# ensure espanso is seen but not heard
+search_trigger: off
+show_icon: false
+show_notifications: false
