@@ -1,14 +1,8 @@
 # For a complete introduction, visit the official docs at: https://espanso.org/docs/
 matches:
   - trigger: "a\\\\"
-    label: "01. Markdown Link"
+    label: "Markdown Link"
     replace: "[$|$]({{clipboard}})"
-    vars:
-      - name: "clipboard"
-        type: "clipboard"
-  - trigger: "a\\\\"
-    label: "02. HTML Link"
-    replace: '<a href="{{clipboard}}">$|$</a>'
     vars:
       - name: "clipboard"
         type: "clipboard"
