@@ -7,6 +7,10 @@
 brew tap homebrew/cask-fonts
 brew install font-sauce-code-pro-nerd-font
 
+# Install system-wide snippet engine
+brew tap espanso/espanso
+brew install espanso
+
 # Command line tools
 brew install bat                         # cat but pretty
 brew install btop                        # top but prettier
