@@ -15,6 +15,10 @@ matches:
   - trigger: "l;sum"
     replace: "\\sum_{i=1}^{n}"
 
+  # Furigana (for GitHub / Obsidian)
+  - trigger: "fg\\\\"
+    replace: "<ruby>$|$<rt></rt></ruby>"
+
   # Other symbols
   - trigger: "<--->"
     replace: "⇄"
@@ -28,6 +32,12 @@ matches:
   - trigger: "-->"
     replace: "⇾"
     word: true
+  - trigger: "green\\\\"
+    replace: "🟢"
+  - trigger: "yellow\\\\"
+    replace: "🟡"
+  - trigger: "red\\\\"
+    replace: "🔴"
 
   # Typos
   - trigger: "saerch"
