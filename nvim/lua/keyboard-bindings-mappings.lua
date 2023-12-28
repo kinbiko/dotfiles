@@ -26,17 +26,6 @@ map(i, ",", ",<c-g>u")
 map(i, ".", ".<c-g>u")
 map(i, ";", ";<c-g>u")
 
--- stylua: ignore start
-
-map(n, "<leader>us", function() require("util").toggle("spell") end, { desc = "Toggle Spelling" })
-map(n, "<leader>uw", function() require("util").toggle("wrap") end, { desc = "Toggle Word Wrap" })
-map(n, "<leader>ud", require("util").toggle_diagnostics, { desc = "Toggle Diagnostics" })
-map(n, "<leader>gg", function() require("util").float_term({ "lazygit" }, { cwd = require("util").get_root(), esc_esc = false, ctrl_hjkl = false }) end, { desc = "Lazygit (root dir)" })
--- TODO: Change to use the repository root
-map(n, "\\", function() require("util").float_term(nil, { cwd = require("util").get_root() }) end, { desc = "Terminal (root dir)" })
-
--- stylua: ignore end
-
 -- Make arrow key navigation more useful
 -- Note to the reader: I've programmed a second layer on my ergodox keyboard to
 -- map hjkl to the arrow keys. So even when I do use the arrow keys my fingers

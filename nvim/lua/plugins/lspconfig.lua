@@ -6,6 +6,23 @@ function enabled()
   return _opts and _opts.autoformat
 end
 
+local function lsp_get_config(server)
+  local configs = require("lspconfig.configs")
+  return rawget(configs, server)
+end
+
+---@param server string
+---@param cond fun( root_dir, config): boolean
+local function lsp_disable(server, cond)
+  local util = require("lspconfig.util")
+  local def = lsp_get_config(server)
+  def.document_config.on_new_config = util.add_hook_before(def.document_config.on_new_config, function(config, root_dir)
+    if cond(root_dir, config) then
+      config.enabled = false
+    end
+  end)
+end
+
 function toggle()
   if vim.b.autoformat == false then
     vim.b.autoformat = nil
@@ -436,10 +453,10 @@ return {
         mlsp.setup({ ensure_installed = ensure_installed, handlers = { setup } })
       end
 
-      if utils.lsp_get_config("denols") and utils.lsp_get_config("tsserver") then
+      if lsp_get_config("denols") and lsp_get_config("tsserver") then
         local is_deno = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
-        utils.lsp_disable("tsserver", is_deno)
-        utils.lsp_disable("denols", function(root_dir)
+        lsp_disable("tsserver", is_deno)
+        lsp_disable("denols", function(root_dir)
           return not is_deno(root_dir)
         end)
       end
