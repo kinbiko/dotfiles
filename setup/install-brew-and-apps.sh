@@ -48,11 +48,12 @@ brew install zoxide                      # Fast directory switching
 brew install coreutils findutils gnu-tar gnu-sed gawk gnutls gnu-indent gnu-getopt grep
 
 # UI Apps
-brew install alacritty # good terminal emulator
-brew install alfred    # Productivity heaven
-brew install anki      # Flashcards
-brew install deepl     # Translation app, much better than google translate
-brew install obsidian  # Second brain
+brew install alacritty  # good terminal emulator
+brew install alfred     # Productivity heaven
+brew install anki       # Flashcards
+brew install deepl      # Translation app, much better than google translate
+brew install obsidian   # Second brain
+brew install qlmarkdown # Let finder's Preview understand Markdown files
 
 brew install koekeishiya/formulae/yabai # Tiling window manager for macOS
 
