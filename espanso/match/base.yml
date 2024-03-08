@@ -7,25 +7,11 @@ matches:
       - name: "clipboard"
         type: "clipboard"
 
-  # LaTeX bindings
-  - trigger: "l;l"
-    replace: "$$\n$|$\n$$"
-  - trigger: "l;frac"
-    replace: "\\frac{1}{n}"
-  - trigger: "l;sum"
-    replace: "\\sum_{i=1}^{n}"
-
   # Furigana (for GitHub / Obsidian)
   - trigger: "fg\\\\"
     replace: "<ruby>$|$<rt></rt></ruby>"
 
   # Other symbols
-  - trigger: "<--->"
-    replace: "⇄"
-    word: true
-  - trigger: "<-->"
-    replace: "⇔"
-    word: true
   - trigger: "<--"
     replace: "⇽"
     word: true
@@ -54,22 +40,14 @@ matches:
     replace: "shipping"
     propagate_case: true
     word: true
+  - trigger: "langauge"
+    replace: "language"
+    propagate_case: true
+    word: true
 
-  # Brands
-  - trigger: "1password"
-    replace: "1Password"
-    word: true
-  - trigger: "github"
-    replace: "GitHub"
-    word: true
-  - trigger: "linkedin"
-    replace: "LinkedIn"
-    word: true
+  # Capitalisation of brands (that aren't also parts of a URL)
   - trigger: "latex"
     replace: "LaTeX"
-    word: true
-  - trigger: "youtube"
-    replace: "YouTube"
     word: true
 
   # Dates
