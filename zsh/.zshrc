@@ -9,7 +9,14 @@ export GOBIN="$GOPATH/bin"
 path+=("$GOBIN" "$HOME/scripts" "$XDG_CONFIG_HOME/zsh/scripts")
 
 fpath+="$XDG_CONFIG_HOME/zsh/functions"
-autoload bigquery kube toiletpresence
+autoload \
+  bigquery \
+  kube \
+  pod-logs \
+  pod-port-forward-grpc \
+  pod-port-forward-http \
+  pod-sync \
+  toiletpresence \
 
 # Wait 10 ms for additional key sequences.
 # Allows you to enter normal mode in zsh faster than the default 0.4s

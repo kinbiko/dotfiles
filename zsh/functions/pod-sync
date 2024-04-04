@@ -1,0 +1,8 @@
+# vim: set ft=sh:
+PR_NUM=$(gh pr view --json number | jq '.number')
+PRRC_POD=$(kubectl -n $GCP_PROJECT_ID get pods | grep "pr$PR_NUM" | cut -d ' ' -f1)
+
+echo 'shell vars synced:'
+
+echo '  $PR_NUM = '"$PR_NUM"
+echo '$PRRC_POD = '"$PRRC_POD"

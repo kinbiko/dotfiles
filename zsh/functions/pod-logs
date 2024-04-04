@@ -1,0 +1,10 @@
+# vim: set ft=sh:
+
+if [[ -z "${PR_NUM+x}" ]]; then
+  PR_NUM=$(gh pr view --json number | jq '.number')
+fi
+if [[ -z "${PRRC_POD+x}" ]]; then
+  PRRC_POD=$(kubectl -n $GCP_PROJECT_ID get pods | grep "pr$PR_NUM" | cut -d ' ' -f1)
+fi
+
+kubectl -n $GCP_PROJECT_ID logs $PRRC_POD --follow | jq

@@ -1,0 +1,14 @@
+# vim: set ft=sh:
+
+if [[ -z "${PR_NUM+x}" ]]; then
+  PR_NUM=$(gh pr view --json number | jq '.number')
+fi
+if [[ -z "${PRRC_POD+x}" ]]; then
+  PRRC_POD=$(kubectl -n $GCP_PROJECT_ID get pods | grep "pr$PR_NUM" | cut -d ' ' -f1)
+fi
+if [[ -z "${GRPC_PORT+x}" ]]; then
+  echo "Please set GRPC_PORT in the environment"
+  return
+fi
+
+kubectl -n $GCP_PROJECT_ID port-forward $PRRC_POD $GRPC_PORT':'$GRPC_PORT
