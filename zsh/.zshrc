@@ -16,6 +16,7 @@ autoload \
   pod-port-forward-grpc \
   pod-port-forward-http \
   pod-sync \
+  pr-comments \
   toiletpresence \
 
 # Wait 10 ms for additional key sequences.

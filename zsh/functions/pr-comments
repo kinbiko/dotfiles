@@ -1,0 +1,13 @@
+# vim: set ft=sh:
+# depends on jq and github.com/kinbiko/gh-pr-comments being installed on the PATH
+
+if [[ -z "${PR_NUM+x}" ]]; then
+  PR_NUM=$(gh pr view --json number | jq '.number')
+fi
+
+OWNER_AND_REPO=$(git remote -v | cut -d':' -f2 | cut -d'.' -f1 | uniq)
+
+gh api \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  /repos/$OWNER_AND_REPO/pulls/$PR_NUM/comments | jq | gh-pr-comments
