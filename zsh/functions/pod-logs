@@ -7,4 +7,4 @@ if [[ -z "${PRRC_POD+x}" ]]; then
   PRRC_POD=$(kubectl -n $GCP_PROJECT_ID get pods | grep "pr$PR_NUM" | cut -d ' ' -f1)
 fi
 
-kubectl -n $GCP_PROJECT_ID logs $PRRC_POD --follow | jq
+kubectl -n $GCP_PROJECT_ID logs $PRRC_POD --follow | jq '.ts |= (. + 32400 | todateiso8601)'
