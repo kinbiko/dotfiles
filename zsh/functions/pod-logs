@@ -1,10 +1,11 @@
 # vim: set ft=sh:
 
 if [[ -z "${PR_NUM+x}" ]]; then
-  PR_NUM=$(gh pr view --json number | jq '.number')
+  PR_NUM=$(gh pr view --json number | jq -R '.number')
 fi
 if [[ -z "${PRRC_POD+x}" ]]; then
   PRRC_POD=$(kubectl -n $GCP_PROJECT_ID get pods | grep "pr$PR_NUM" | cut -d ' ' -f1)
 fi
 
-kubectl -n $GCP_PROJECT_ID logs $PRRC_POD --follow | jq '.ts |= (. + 32400 | todateiso8601)'
+
+kubectl -n $GCP_PROJECT_ID logs $PRRC_POD --follow | jq -R '. as $line | try (.ts |= (. + 32400 | todateiso8601)) catch $line'

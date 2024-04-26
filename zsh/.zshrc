@@ -11,6 +11,7 @@ path+=("$GOBIN" "$HOME/scripts" "$XDG_CONFIG_HOME/zsh/scripts")
 fpath+="$XDG_CONFIG_HOME/zsh/functions"
 autoload \
   bigquery \
+  kk \
   kube \
   pod-logs \
   pod-port-forward-grpc \

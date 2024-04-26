@@ -1,9 +1,0 @@
-# vim: set ft=sh:
-# The following kubernetes command was stolen from @eqyiel.
-# Onto @eqyiel the glory
-if ! type __start_kubectl >/dev/null 2>&1; then
-	# shellcheck disable=SC1090 # there is no source, it's just kubectl output
-	source <(command kubectl completion zsh)
-	compdef k=kubectl
-fi
-command kubectl "$@"

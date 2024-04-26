@@ -1,0 +1,45 @@
+# vim: set ft=sh:
+# The following kubernetes command was stolen from @eqyiel, and further modified.
+# Onto @eqyiel the glory
+_kk__ls() {
+  kubectl -n $GCP_PROJECT_ID get pods | tail -n +2
+}
+
+_kk__pod() {
+  _kk__ls | fzf | cut -f1 -d' '
+}
+
+_kk__cpod() {
+  _kk__pod | tr -d '\n' | pbcopy
+}
+
+_kk__describe() {
+  tmp_file=$(mktemp)
+  kubectl -n $GCP_PROJECT_ID describe pod $(_kk__pod) >| $tmp_file
+  nvim $tmp_file
+}
+
+_kk__logs() {
+  kubectl -n $GCP_PROJECT_ID logs $(_kk__pod) --follow
+}
+
+_kk__logsj() {
+ _kk__logs | jq -R '.ts |= (. + 32400 | todateiso8601)'
+}
+
+kk() {
+  if [ $# -eq 0 ]; then
+    echo "Usage:"
+    echo "    kk <cmd>"
+    return 1
+  fi
+  local cmdname=$1; shift
+  if type "_kk__$cmdname" >/dev/null 2>&1; then
+    "_kk__$cmdname" "$@"
+  else
+    echo "Unknown command $cmdname"
+    return 1
+  fi
+}
+
+kk $@
