@@ -45,6 +45,11 @@ matches:
     propagate_case: true
     word: true
 
+  # Better communication
+  - trigger: "inflammable"
+    replace: "flammable"
+    word: true
+
   # Capitalisation of brands (that aren't also parts of a URL)
   - trigger: "latex"
     replace: "LaTeX"
@@ -66,6 +71,59 @@ matches:
         params:
           format: "%Y-%m-%d"
           offset: 86400
+
+  # These are just better words
+  - trigger: "dentures"
+    replace: "substiteeth"
+    word: true
+  - trigger: "forecast"
+    replace: "prophecy"
+    word: true
+  - trigger: "jetski"
+    replace: "boatercycle"
+    word: true
+  - trigger: "hemorrhoids"
+    replace: "assteroids"
+    word: true
+  - trigger: "astronomer"
+    replace: "skyintist"
+    word: true
+  - trigger: "step-dad"
+    replace: "faux pa"
+    word: true
+  - trigger: "toothbrush"
+    replace: "teethbrush"
+    word: true
+  - trigger: "butt dial"
+    replace: "booty call"
+    word: true
+  - trigger: "dad bod"
+    replace: "father figure"
+    word: true
+  - trigger: "narwhal"
+    replace: "tunacorn"
+    word: true
+  - trigger: "mailman"
+    replace: "mailmale"
+    word: true
+  - trigger: "american football"
+    replace: "hand egg"
+    word: true
+  - trigger: "veterinarian"
+    replace: "dogtor"
+    word: true
+  - trigger: "murder of crows"
+    replace: "cawcawphony"
+    word: true
+  - trigger: "fire truck"
+    replace: "water truck"
+    word: true
+  - trigger: "machine gun"
+    replace: "rooty tooty fast 'n shooty"
+    word: true
+  - trigger: "airport"
+    replace: "plane station"
+    word: true
 
   # Memes
   - trigger: "cowsay\\\\"
