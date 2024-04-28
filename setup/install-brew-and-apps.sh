@@ -34,6 +34,7 @@ brew install nodenv                      # Node version manager
 brew install pinentry-mac                # Lets you enter passwords with a TUI when signing git commits
 brew install pre-commit                  # Framework for setting up Git hooks
 brew install rg                          # Super fast grep-like application, used by FZF and telescope.nvim
+brew install skim                        # PDF viewer with auto-refresh functionality for writing LaTeX
 brew install sourcegraph/src-cli/src-cli # The 'src' Sourcegraph CLI
 brew install spotify-tui                 # Spotify TUI
 brew install spotifyd                    # Spotify daemon

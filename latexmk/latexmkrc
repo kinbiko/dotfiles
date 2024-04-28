@@ -1,0 +1,4 @@
+$pdflatex = 'pdflatex -synctex=1 -interaction=nonstopmode';
+$pdf_previewer = 'open -a Skim';
+$recorder = 1;
+$continuously_watch = 1;

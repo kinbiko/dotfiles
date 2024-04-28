@@ -13,6 +13,7 @@
 !git/**/*
 !jetbrains/**/*
 !lazygit/config.yml
+!latexmk/**/*
 !nvim/**/*
 !obsidian/**/*
 !ripgrep/**/*
