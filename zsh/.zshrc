@@ -6,6 +6,9 @@ typeset -U path PATH # Unique-ify the path
 export GOPATH="$(go env GOPATH)"
 export GOBIN="$GOPATH/bin"
 
+export QUICK_TMUX_REPOS="$HOME/repos $HOME/.config"
+export QUICK_TMUX_MONOREPOS=""
+
 path+=("$GOBIN" "$HOME/scripts" "$XDG_CONFIG_HOME/zsh/scripts")
 
 fpath+="$XDG_CONFIG_HOME/zsh/functions"

@@ -1,0 +1,37 @@
+# vim: set ft=sh:
+
+# Allow opening a session by name for a non-fzf shorthand for a session opened
+# regularly.
+if [[ $# -eq 1 ]]; then
+  selected=$1
+else
+  selected=$(find $QUICK_TMUX_REPOS -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
+
+# If selected directory is empty, exit the script
+if [[ -z $selected ]]; then
+  exit 0
+fi
+
+# Extract the base name of the selected directory and replace any dots with
+# underscores so that it's a valid session name in TMUX
+selected_name=$(basename "$selected" | tr . _)
+
+# Check if tmux is already running
+tmux_running=$(pgrep tmux)
+
+# If not inside a tmux session and tmux is not running, create a new session
+# with selected directory
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+  tmux new-session -s $selected_name -c $selected
+  exit 0
+fi
+
+# If a tmux session with the selected name doesn't exist, create a new detached
+# session with selected directory
+if ! tmux has-session -t=$selected_name 2>/dev/null; then
+  tmux new-session -ds $selected_name -c $selected
+fi
+
+# Switch to the tmux session with the selected name
+tmux switch-client -t $selected_name
