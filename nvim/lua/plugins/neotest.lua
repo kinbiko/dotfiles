@@ -2,9 +2,13 @@ return {
   {
     "nvim-neotest/neotest",
     dependencies = {
+      "antoinemadec/FixCursorHold.nvim",
       "marilari88/neotest-vitest",
-      "nvim-neotest/neotest-jest",
+      "nvim-lua/plenary.nvim",
       "nvim-neotest/neotest-go",
+      "nvim-neotest/neotest-jest",
+      "nvim-neotest/nvim-nio",
+      "nvim-treesitter/nvim-treesitter",
     },
     opts = {
       -- Can be a list of adapters like what neotest expects,
