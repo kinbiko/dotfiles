@@ -6,6 +6,7 @@
 !bigquery/**/*
 !btop/**/*
 !dlv/**/*
+!docker/**/*
 !ergodox/**/*
 !espanso/**/*
 !fonts/**/*
@@ -32,3 +33,5 @@ dlv/.dbg_history
 **/*.log
 **/*.spl
 **/*.add
+
+!Dockerfile
