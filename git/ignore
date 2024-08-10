@@ -2,8 +2,8 @@
 tags
 
 # Don't commit secrets, and avoid showing up in fzf/NERDTree etc.
-.env
-.envrc
+.env.*
+.envrc.*
 
 # Work around OSX' bad design decision.
 .DS_Store
@@ -11,7 +11,12 @@ tags
 # Don't ever want to commit editor config
 .idea/
 
+# I sometimes take notes in files like these
+memo.md
+notes.md
 TODO.md
+out.json
+a.json
 
 # If I choose to save a session with :mksession
 Session.vim
