@@ -4,7 +4,7 @@ return {
     ft = { "go", "gomod" },
     lazy = true,
     keys = {
-      { "<leader>ga", "<cmd>GoAlt<cr>", desc = "Open Alternative File" },
+      { "<leader>gaf", "<cmd>GoAlt<cr>", desc = "Open Alternative File" },
       { "<leader>gat", "<cmd>GoAddTag<cr>", desc = "Add Struct Tags" },
       { "<leader>gfs", "<cmd>GoFillStruct<cr>", desc = "Fill Struct" },
       { "<leader>gr", "<cmd>GoRename<cr>", desc = "Rename identifier under the cursor" },

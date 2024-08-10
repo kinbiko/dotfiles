@@ -25,6 +25,8 @@ map(n, "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map(i, ",", ",<c-g>u")
 map(i, ".", ".<c-g>u")
 map(i, ";", ";<c-g>u")
+map(i, "?", "?<c-g>u")
+map(i, ":", ":<c-g>u")
 
 -- Make arrow key navigation more useful
 -- Note to the reader: I've programmed a second layer on my ergodox keyboard to
@@ -45,9 +47,9 @@ map(n, "<C-l>", [[<cmd>lua require('tmux').move_right()<cr>]])
 
 map(n, "s", "<cmd>w<cr>") -- Quick-save the current buffer
 
-map(n, "gd", "<cmd>Telescope lsp_definitions<cr>") -- Go-to definition
-map(n, "gr", "<cmd>Telescope lsp_references<cr>") -- references
-map(n, "gI", "<cmd>Telescope lsp_implementations<cr>") -- Go-to implementation
+map(n, "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Go to definition" })
+map(n, "gr", "<cmd>Telescope lsp_references<cr>", { desc = "Find references" })
+map(n, "gI", "<cmd>Telescope lsp_implementations<cr>", { desc = "Find implementations" }) -- Go-to implementation
 map(n, "<right>", "gd", { silent = true }) -- Go to definition
 map(n, "<left>", "<c-o>", { silent = true }) -- Pop back up
 map(n, "n", "nzz") -- Make forward search results always appear in the middle of the screen

@@ -56,6 +56,13 @@ brew install deepl      # Translation app, much better than google translate
 brew install obsidian   # Second brain
 brew install qlmarkdown # Let finder's Preview understand Markdown files
 
+# System-level formatters etc.
+brew install black                                     # Python formatter
+brew install bufbuild/buf/buf                          # Protobuf formatter
+brew install stylua                                    # Lua formatter
+go install github.com/asdine/cueimports/cmd/cueimports # Cue importer
+go install mvdan.cc/sh/v3/cmd/shfmt@latest             # Shell formatter
+
 brew install koekeishiya/formulae/yabai # Tiling window manager for macOS
 
 go install github.com/kinbiko/kokodoko/cmd/kokodoko@latest # Required by neovim bindings
