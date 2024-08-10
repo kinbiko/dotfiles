@@ -4,30 +4,30 @@ return {
     event = "VeryLazy",
     opts = {
       plugins = { spelling = true },
-      defaults = {
-        mode = { "n", "v" },
-        ["g"] = { name = "+goto" },
-        ["<leader><tab>"] = { name = "+tabs" },
-        ["<leader>b"] = { name = "+buffer" },
-        ["<leader>c"] = { name = "+code" },
-        ["<leader>f"] = { name = "+file/find" },
-        ["<leader>g"] = { name = "+git" },
-        ["<leader>G"] = { name = "+Go" },
-        ["<leader>gh"] = { name = "+hunks" },
-        ["<leader>q"] = { name = "+quit/session" },
-        ["<leader>s"] = { name = "+search" },
-        ["<leader>u"] = { name = "+ui" },
-        ["<leader>w"] = { name = "+windows" },
-        ["<leader>x"] = { name = "+diagnostics/quickfix" },
-        ["<leader>d"] = { name = "+debug" },
-        ["<leader>da"] = { name = "+adapters" },
-        ["<leader>t"] = { name = "+test" },
-      },
     },
     config = function(_, opts)
       local wk = require("which-key")
       wk.setup(opts)
-      wk.register(opts.defaults)
+
+      wk.add({
+        mode = { "n", "v" },
+        { "<leader>G", group = "Go" },
+        { "<leader>da", group = "adapters" },
+        { "<leader>b", group = "buffer" },
+        { "<leader>c", group = "code" },
+        { "<leader>d", group = "debug" },
+        { "<leader>x", group = "diagnostics/quickfix" },
+        { "<leader>f", group = "file/find" },
+        { "<leader>g", group = "git" },
+        { "g", group = "goto" },
+        { "<leader>gh", group = "hunks" },
+        { "<leader>q", group = "quit/session" },
+        { "<leader>s", group = "search" },
+        { "<leader><tab>", group = "tabs" },
+        { "<leader>t", group = "test" },
+        { "<leader>u", group = "ui" },
+        { "<leader>w", group = "windows" },
+      })
     end,
   },
 }
