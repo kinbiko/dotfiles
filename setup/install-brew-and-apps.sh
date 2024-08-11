@@ -62,6 +62,7 @@ brew install bufbuild/buf/buf                          # Protobuf formatter
 brew install stylua                                    # Lua formatter
 go install github.com/asdine/cueimports/cmd/cueimports # Cue importer
 go install mvdan.cc/sh/v3/cmd/shfmt@latest             # Shell formatter
+go install github.com/daixiang0/gci@latest             # Go deterministic importer
 
 brew install koekeishiya/formulae/yabai # Tiling window manager for macOS
 

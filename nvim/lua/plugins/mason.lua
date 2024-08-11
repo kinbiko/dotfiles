@@ -5,8 +5,13 @@ return {
     keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
     opts = {
       ensure_installed = {
+        "black",
+        "buf",
         "delve",
+        "gci",
+        "gofumpt",
         "js-debug-adapter",
+        "prettier",
         "prettierd",
         "shfmt",
         "stylua",
