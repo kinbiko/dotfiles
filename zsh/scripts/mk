@@ -8,14 +8,15 @@ dir=$(pwd)
 while [[ "$dir" != "$gitroot" ]]; do
   if [[ -e "$dir/Makefile" ]]; then
     cd "$dir" || exit 1
+    break
   fi
   dir=$(dirname "$dir")
 done
 
-make -C $dir "$@"
+make -C "$dir" "$@"
 ret_code=$?
 
 # Navigate back to the original directory, silently.
-cd - >/dev/null 2>&1
+cd - || exit >/dev/null 2>&1
 
 exit $ret_code
