@@ -74,3 +74,6 @@ map(v, "<leader>gk", [[:!kokodoko % <C-R>=line("'<")<CR>-<C-R>=line("'>")<CR><CR
 map(n, "S", "ysiw", { silent = true, remap = true }) -- Surround the current word with the following character
 map("", "*", "<Plug>(asterisk-z*)zz") -- Make * mark the current word and n will go forward
 map("", "#", "<Plug>(asterisk-z#)zz") -- Make # mark the current work and n will go backward
+
+map("n", "+", "<c-a>", { desc = "Increment" })
+map("n", "-", "<c-x>", { desc = "Decrement" })
