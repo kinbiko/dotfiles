@@ -16,43 +16,21 @@ return {
           diff = true,
         },
         openai_params = {
-          max_tokens = 4095, -- default is 300
+          max_tokens = 4096, -- default is 300
         },
       })
-      require("which-key").add({
-        mode = { "v", "n" },
-        {
-          "<leader>ce",
-          function()
-            chatgpt.edit_with_instructions()
-          end,
-          desc = "Tell ChatGPT to edit the code",
-        },
-        {
-          "<leader>co",
-          function()
-            chatgpt.openChat()
-          end,
-          desc = "Normal ChatGPT",
-        },
-        {
-          "<leader>cc",
-          function()
-            chatgpt.complete_code()
-          end,
-          desc = "Complete code",
-        },
-        {
-          "<leader>ct",
-          "<cmd>ChatGPTRun translate<CR>",
-          desc = "Translate to English",
-        },
-        {
-          "<leader>cj",
-          "<cmd>ChatGPTRun translate japanese<CR>",
-          desc = "Translate to Japanese",
-        },
-      })
+
+      local map = function(lhs, rhs)
+        vim.keymap.set("n", lhs, rhs, { silent = true, remap = false })
+        vim.keymap.set("v", lhs, rhs, { silent = true, remap = false })
+      end
+
+      map("<leader>ce", chatgpt.edit_with_instructions)
+      map("<leader>co", chatgpt.openChat)
+      map("<leader>cc", chatgpt.complete_code)
+      map("<leader>ct", "<cmd>ChatGPTRun translate<CR>")
+      map("<leader>cj", "<cmd>ChatGPTRun translate japanese<CR>")
+      vim.keymap.set("i", "<C-l>", chatgpt.complete_code, { silent = true, remap = false })
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",
