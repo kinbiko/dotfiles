@@ -55,6 +55,7 @@ alias cler="clear"
 alias dot="cd $XDG_CONFIG_HOME"
 alias gd="clear; git diff"
 alias gdc="clear; git diff --cached"
+alias gdno="git diff --name-only"
 alias gitroot='cd $(git rev-parse --show-toplevel)'
 alias glog='git log --graph --pretty=format:'\''%Cred%h%Creset %Cgreen(%cr)%Creset%Cblue[%an]%Creset %s%Creset%C(yellow)%d%Creset'\'' --abbrev-commit --date=relative'
 alias htop="btop"
