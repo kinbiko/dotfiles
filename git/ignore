@@ -4,6 +4,8 @@ tags
 # Don't commit secrets, and avoid showing up in fzf/NERDTree etc.
 .env.*
 .envrc.*
+!.env.sample
+!.envrc.sample
 
 # Work around OSX' bad design decision.
 .DS_Store
@@ -16,6 +18,7 @@ memo.md
 notes.md
 TODO.md
 out.json
+out.txt
 a.json
 
 # If I choose to save a session with :mksession
