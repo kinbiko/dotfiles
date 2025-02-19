@@ -26,11 +26,12 @@
   path = ~/.local.gitconfig
 
 [core]
-  pager = delta
+  #pager = delta
   quotepath = off # Show filenames in UTF-8
 
 [user]
-  name = kinbiko
+	name = kinbiko
+	email = roger.guldbrandsen@gmail.com
 
 [pull]
   rebase = true

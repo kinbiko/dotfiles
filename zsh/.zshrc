@@ -71,6 +71,5 @@ alias sdi="zi"
 alias ta="tmux new-session -A -s kinbiko" # New session or attach if it already exists
 alias top="btop"
 
-eval "$(nodenv init -)"
 eval "$(zoxide init zsh)"
 eval "$(direnv hook zsh)"

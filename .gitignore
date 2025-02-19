@@ -23,6 +23,14 @@
 !yabai/**/*
 !yomichan/**/*
 !zsh/**/*
+!waybar/**/* !wofi/**/*
+!thunar/**/*
+!swaylock/**/*
+!pulse/**/*
+!mako/**/*
+!kitty/**/*
+!hypr/**/*
+!dconf/**/*
 
 gh/hosts.yml
 nvim/lazy-lock.json
