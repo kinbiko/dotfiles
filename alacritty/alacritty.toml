@@ -34,7 +34,7 @@ foreground = "0xa9b1d6"
 size = 11.0
 
 [font.bold]
-family = "SauceCodePro Nerd Font"
+family = "jetbrains mono nerd font"
 style = "Bold"
 
 [font.glyph_offset]
@@ -42,11 +42,11 @@ x = 0
 y = 0
 
 [font.italic]
-family = "SauceCodePro Nerd Font"
+family = "jetbrains mono nerd font"
 style = "Italic"
 
 [font.normal]
-family = "SauceCodePro Nerd Font"
+family = "jetbrains mono nerd font"
 style = "Regular"
 
 [font.offset]

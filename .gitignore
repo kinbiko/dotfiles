@@ -30,7 +30,7 @@
 !mako/**/*
 !kitty/**/*
 !hypr/**/*
-!dconf/**/*
+!waybar/**/*
 
 gh/hosts.yml
 nvim/lazy-lock.json
