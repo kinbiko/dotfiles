@@ -52,30 +52,6 @@ window.eDP-1 #network {
     module_in 0.25s linear 0.75s forwards,
     module_expand 0.25s linear 0.85s forwards;
 }
-/* <<--< PHASE 4 >-->> */
-
-window.eDP-1 #battery {
-  padding: 0;
-  opacity: 0;
-  animation:
-    module_in 0.25s linear 1s forwards,
-    module_expand 0.25s linear 1.1s forwards;
-}
-
-window.eDP-1 #battery.plugged {
-  animation:
-    module_in 0.25s linear 1s forwards,
-    module_expand 0.25s linear 1.1s forwards,
-    gradient 5s linear infinite reverse;
-}
-
-window.eDP-1 #battery.charging {
-  animation:
-    module_in 0.25s linear 1s forwards,
-    module_expand 0.25s linear 1.1s forwards,
-    gradient 5s linear infinite;
-}
-
 /* <<--< PHASE 5 >-->> */
 
 window.eDP-1 #pulseaudio {
@@ -122,40 +98,10 @@ window.eDP-1 #privacy {
 
 /* <<--< OTHERS >-->> */
 
-/* #battery.charging, */
 /* #battery.plugged, */
 /* #custom-playerctl.Playing { */
 /*   animation: gradient 5s linear infinite; */
 /* } */
-
-#battery.charging {
-  background: linear-gradient(
-      180deg,
-      #90ceaa,
-      @background-alpha,
-      @background-alpha,
-      #90ceaa,
-      #90ceaa,
-      @background-alpha,
-      @background-alpha
-    )
-    0 0 / 750% 750%;
-}
-
-#battery.plugged {
-  background: linear-gradient(
-      180deg,
-      #add7ff,
-      @background-alpha,
-      @background-alpha,
-      #add7ff,
-      #add7ff,
-      @background-alpha,
-      @background-alpha
-    )
-    0 0 / 750% 750%;
-  animation: gradient 5s linear infinite reverse;
-}
 
 #custom-playerctl.Playing {
   background: linear-gradient(to left, #90ceaa, #add7ff, #90ceaa, #add7ff) 0 0 /
