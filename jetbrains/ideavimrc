@@ -39,10 +39,6 @@ nnoremap <leader>k O<ESC>j
 " Put `final` at the beginning of the current line
 nnoremap <leader>f Ifinal <esc>
 
-" Swap # and *
-nnoremap * #
-nnoremap # *
-
 " Increment/Decrement the next number on this line
 nnoremap + <C-a>
 nnoremap - <C-x>
