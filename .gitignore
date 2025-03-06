@@ -26,6 +26,7 @@
 gh/hosts.yml
 nvim/lazy-lock.json
 dlv/.dbg_history
+espanso/match/local.yml
 
 **/.DS_Store
 **/*.log
