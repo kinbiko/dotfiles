@@ -8,7 +8,6 @@ return {
       "L3MON4D3/LuaSnip",
       "hrsh7th/cmp-nvim-lsp",
       "saadparwaiz1/cmp_luasnip",
-      { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
     },
     opts = function()
       vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
@@ -39,15 +38,6 @@ return {
           { name = "nvim_lsp" },
           { name = "luasnip" },
         }),
-        formatting = {
-          format = function(entry, item)
-            local icons = require("icons").kinds
-            if icons[item.kind] then
-              item.kind = icons[item.kind] .. item.kind
-            end
-            return require("tailwindcss-colorizer-cmp").formatter(entry, item)
-          end,
-        },
         experimental = {
           ghost_text = {
             hl_group = "CmpGhostText",

@@ -246,10 +246,7 @@ return {
             },
           },
         },
-        tailwindcss = {
-          filetypes_exclude = { "markdown" },
-        },
-        tsserver = {
+        ts_ls = {
           settings = {
             typescript = {
               format = {
@@ -303,16 +300,9 @@ return {
       -- return true if you don't want this server to be setup with lspconfig
       ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
       setup = {
-        tailwindcss = function(_, opts)
-          local tw = require("lspconfig.server_configurations.tailwindcss")
-          --- @param ft string
-          opts.filetypes = vim.tbl_filter(function(ft)
-            return not vim.tbl_contains(opts.filetypes_exclude or {}, ft)
-          end, tw.default_config.filetypes)
-        end,
-        tsserver = function(_, opts)
+        ts_ls = function(_, opts)
           require("util").on_attach(function(client, buffer)
-            if client.name == "tsserver" then
+            if client.name == "ts_ls" then
               -- stylua: ignore
               vim.keymap.set("n", "<leader>co", "<cmd>TypescriptOrganizeImports<CR>",
                 { buffer = buffer, desc = "Organize Imports" })
@@ -453,9 +443,9 @@ return {
         mlsp.setup({ ensure_installed = ensure_installed, handlers = { setup } })
       end
 
-      if lsp_get_config("denols") and lsp_get_config("tsserver") then
+      if lsp_get_config("denols") and lsp_get_config("ts_ls") then
         local is_deno = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
-        lsp_disable("tsserver", is_deno)
+        lsp_disable("ts_ls", is_deno)
         lsp_disable("denols", function(root_dir)
           return not is_deno(root_dir)
         end)
