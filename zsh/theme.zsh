@@ -18,7 +18,7 @@ function git_info() {
     return 0
   fi
 
-  local is_dirty=$(GIT_OPTIONAL_LOCKS=0 command git status --porcelain 2> /dev/null | tail -n 1)
+  local is_dirty=$(GIT_OPTIONAL_LOCKS=0 command git diff --quiet && git diff --cached --quiet)
   if [[ -n $is_dirty ]]; then
     local color="yellow"
   else
