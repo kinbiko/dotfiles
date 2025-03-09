@@ -17,6 +17,6 @@ make -C "$dir" "$@"
 ret_code=$?
 
 # Navigate back to the original directory, silently.
-cd - || exit >/dev/null 2>&1
+cd - >/dev/null 2>&1 || exit
 
 exit $ret_code
