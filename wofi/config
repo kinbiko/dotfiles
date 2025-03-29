@@ -1,0 +1,14 @@
+allow_markup=true
+allow_images=true
+insensitive=true
+content_halign=fill
+drun-display_generic=true
+filter_rate=100
+halign=fill
+height=400
+mode=drun
+no_actions=true
+orientation=vertical
+term=ghostty
+prompt=Search
+width=900

@@ -1,0 +1,84 @@
+@define-color	mauve  #cba6f7;
+@define-color	red  #f38ba8;
+@define-color	lavender  #b4befe;
+@define-color	text  #cdd6f4;
+@define-color	base  #1e1e2e;
+
+* {
+  font-family: 'Inconsolata Nerd Font', monospace;
+  font-size: 14px;
+}
+
+window {
+  margin: 0px;
+  padding: 10px;
+  border: 0.16em solid @lavender;
+  border-radius: 0.1em;
+  background-color: @base;
+}
+
+#inner-box {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: @base;
+}
+
+#outer-box {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: @base;
+}
+
+#scroll {
+  margin: 0px;
+  padding: 10px;
+  border: none;
+  background-color: @base;
+}
+
+#input {
+  margin: 5px 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 0.1em;
+  color: @text;
+  background-color: @base;
+}
+
+#input image {
+    border: none;
+    color: @red;
+}
+
+#input * {
+  outline: 4px solid @red!important;
+}
+
+#text {
+  margin: 5px;
+  border: none;
+  color: @text;
+}
+
+#entry {
+  background-color: @base;
+}
+
+#entry arrow {
+  border: none;
+  color: @lavender;
+}
+
+#entry:selected {
+  border: 0.11em solid @lavender;
+}
+
+#entry:selected #text {
+  color: @mauve;
+}
+
+#entry:drop(active) {
+  background-color: @lavender!important;
+}
