@@ -246,9 +246,6 @@ return {
             },
           },
         },
-        tailwindcss = {
-          filetypes_exclude = { "markdown" },
-        },
         eslint = {
           settings = {
             -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
@@ -282,14 +279,6 @@ return {
       -- return true if you don't want this server to be setup with lspconfig
       ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
       setup = {
-        tailwindcss = function(_, opts)
-          local tw = require("lspconfig.server_configurations.tailwindcss")
-          --- @param ft string
-          opts.filetypes = vim.tbl_filter(function(ft)
-            return not vim.tbl_contains(opts.filetypes_exclude or {}, ft)
-          end, tw.default_config.filetypes)
-        end,
-
         eslint = function()
           vim.api.nvim_create_autocmd("BufWritePre", {
             callback = function(event)
