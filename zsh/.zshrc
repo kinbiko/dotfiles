@@ -9,7 +9,7 @@ export GOBIN="$GOPATH/bin"
 export QUICK_TMUX_REPOS="$HOME/repos $HOME/.config"
 export QUICK_TMUX_MONOREPOS=""
 
-path+=("$GOBIN" "$HOME/scripts" "$XDG_CONFIG_HOME/zsh/scripts")
+path+=("$GOBIN" "$HOME/scripts" "$XDG_CONFIG_HOME/zsh/scripts" "$HOME/.cargo/bin")
 
 fpath+="$XDG_CONFIG_HOME/zsh/functions"
 autoload \

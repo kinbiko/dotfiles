@@ -8,8 +8,6 @@ export BIGQUERYRC="$XDG_CONFIG_HOME/bigquery/bigqueryrc"
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 export LANG=en_US.UTF-8
 
-source "$HOME/.cargo/env"
-
 alias dcd="docker compose down"
 alias dcu="docker compose up"
 alias effyou="git push -f"
