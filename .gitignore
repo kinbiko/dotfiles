@@ -10,27 +10,27 @@
 !espanso/**/*
 !fonts/**/*
 !gh/**/*
+!ghostty/**/*
 !git/**/*
+!hypr/**/*
 !jetbrains/**/*
-!lazygit/config.yml
+!kitty/**/*
 !latexmk/**/*
+!lazygit/config.yml
+!mako/**/*
 !nvim/**/*
-!obsidian/**/*
 !ripgrep/**/*
 !setup/**/*
 !skhd/**/*
+!swaylock/**/*
+!thunar/**/*
 !tmux/**/*
+!waybar/**/*
+!wofi/**/*
 !yabai/**/*
+!yazi/**/*
 !yomichan/**/*
 !zsh/**/*
-!waybar/**/* !wofi/**/*
-!thunar/**/*
-!swaylock/**/*
-!pulse/**/*
-!mako/**/*
-!kitty/**/*
-!hypr/**/*
-!waybar/**/*
 
 gh/hosts.yml
 nvim/lazy-lock.json
