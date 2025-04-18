@@ -1,2 +1,0 @@
-default_branch=$(git remote show origin | grep 'HEAD branch:' | cut -d':' -f2)
-git diff --name-only $default_branch | grep '.go' | grep -v '_test.go\|mock' | xargs git diff $default_branch --
