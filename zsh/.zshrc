@@ -45,6 +45,16 @@ source "$XDG_CONFIG_HOME/zsh/history.zsh"
 source "$XDG_CONFIG_HOME/zsh/keybindings.zsh"
 source "$XDG_CONFIG_HOME/zsh/theme.zsh"
 
+# TODO: Move to scripts/ or functions/.
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 alias add="clear; git add -p"
 alias caler="clear"
 alias cat="bat"
