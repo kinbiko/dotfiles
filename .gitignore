@@ -24,6 +24,7 @@
 !swaylock/**/*
 !thunar/**/*
 !tmux/**/*
+!wallpapers/**/*
 !waybar/**/*
 !wofi/**/*
 !yabai/**/*
