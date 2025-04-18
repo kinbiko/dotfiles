@@ -1,7 +1,6 @@
 *
 !*/
 
-!alacritty/**/*
 !bat/**/*
 !bigquery/**/*
 !dlv/**/*
@@ -9,10 +8,11 @@
 !espanso/**/*
 !fonts/**/*
 !gh/**/*
+!ghostty/**/*
 !git/**/*
 !jetbrains/**/*
-!lazygit/config.yml
 !latexmk/**/*
+!lazygit/config.yml
 !nvim/**/*
 !obsidian/**/*
 !ripgrep/**/*
@@ -22,7 +22,6 @@
 !yabai/**/*
 !yomichan/**/*
 !zsh/**/*
-!ghostty/**/*
 
 gh/hosts.yml
 nvim/lazy-lock.json
