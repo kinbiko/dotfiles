@@ -1,13 +1,13 @@
-# Dotfiles (macOS)
+# Dotfiles (arch)
 
-Works best for macOS (silicon).
+Works best for Arch-linux (amd64) with hyprland.
 
 ## Setup steps from a fresh install
 
 ### Create a Git repo of home directory
 
-Open Terminal (for now) and run `git init` in the home directory, so you can go back in time if you mess up.
-You'll be prompted to install Xcode command line tools. Accept. Wait.
+Install `git` if it's not there already.
+Open a terminal and run `git init` in the home directory, so you can go back in time if you mess up.
 
 Once that's done set up the git repo in home with (replace with appropriate email):
 
@@ -27,8 +27,7 @@ git commit -m 'Initial commit'
 
 ### Start getting access
 
-Set up the password manager, and install Arc.
-Set Arc as the default browser and set up sync to get extensions, settings, and bookmarks set up.
+Set up the password manager, and install a browser.
 Make sure the password manager browser plugin works.
 
 ### Fetch and use this repo
@@ -38,7 +37,7 @@ Set up SSH keys in GitHub following [the official instructions](https://docs.git
 Clone this repo:
 
 ```sh
-git clone git@github.com:kinbiko/dotfiles.git ~/.config
+git clone git@github.com:kinbiko/dotfiles.git -b arch ~/.config
 ```
 
 Set up zsh: `setup/set-up-zsh.sh`
@@ -48,21 +47,11 @@ That said, most software is not yet installed.
 
 ### Install software
 
-Install `brew` and install packages with `setup/install-brew-and-apps.sh`.
+Install packages with `setup/install-apps.sh`.
 
-You can now close Terminal and use Alacritty instead.
-
-Install [iWallpaper](https://apps.apple.com/us/app/iwallpaper-live-wallpaper/id1552826194?mt=12) (not free).
+You can now use a better terminal instead.
 
 ### Post-install software configuration
-
-#### Alfred
-
-- Disable spotlight cmd + space shortcut in keyboard -> shortuts -> spotlight
-- Set Alfred shortcut to `cmd + space`
-- Add the [Nord theme to Alfred](https://www.alfredapp.com/extras/theme/5Y8E7URIWQ/).
-- Set up [the Jisho.org workflow](https://github.com/kinbiko/jisho-alfred).
-- Set up clipboard history. Map to `cmd + p` (who prints these days anyway?)
 
 #### Sign git commits with GPG
 
@@ -70,80 +59,7 @@ Follow [the GitHub instructions](https://docs.github.com/en/authentication/manag
 
 **Always check that these steps still follow best security practices**.
 
-The following will prompt you to follow an interactive setup:
+#### Japanese language learning software
 
-```
-gpg --full-gen-key
-```
-
-Defaults are fine, but set your email to be the same as your GitHub email.
-
-Run `gpg --list-secret-keys` to see your generated key ID.
-Generate the public key using this ID:
-
-```
-$ gpg --armor --export $KEY_ID | pbcopy
-```
-
-Add this GPG key to GitHub via the UI.
-
-Configure git to always sign commits:
-
-```
-git config --global gpg.program $(which gpg)
-git config --global user.signingkey $KEY_ID
-git config --global commit.gpgsign true
-```
-
-Then set the pinentry program to be pinentry-mac and restart the gpg-agent:
-
-```
-echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
-killall gpg-agent
-```
-
-### FZF
-
-Install shell bindings like ctrl+r and ctrl+t.
-
-```
-/opt/homebrew/opt/fzf/install # Install key bindings
-```
-
-#### Other
-
-Basically, I can't be arsed to write up detailed instructions for these tools.
-
-- Set up Japanese language learning software: Yomichan and Anki
-- Set up any auth required for ops and infra (`google-cloud-sdk`, `terraform`, `k8s`, `gh`, etc.)
-
-## System preferences
-
-Run `setup/mac-system-config.sh`
-
-Do the rest manually for now, until I figure out the command-line commands to run for all of these.
-
-1. Set up the Mac dock:
-   1. Move it to the left-hand side
-   1. Make icons much smaller
-   1. Pretty decent zoom
-   1. Don't animate opening apps
-   1. Don't show recent application in dock
-   1. Automatically hide and show dock (to get back some screen real estate)
-   1. Remove most apps from the dock apart from (final list:) Finder, Arc, Alacritty, Trash
-1. Set system-wide dark mode.
-1. Automatically hide the menu bar.
-1. Keep track of 'none' recent items.
-1. Revert scroll direction
-1. Trackpad:
-   1. Lookup and data detectors -> tap with three fingers
-   1. Disable tap to click
-1. Accessibility (this is where the good bits are):
-   1. System voice to fast, and start speaking with `CMD + ESC`
-   1. Zoom with ctrl + scroll
-   1. Pointer control -> trackpad- > 3-finger drag
-1. Change language with alt + space, and have only two input sources:
-   1. American English
-   1. Hiragana
-1. Keyboard:
-   1. Turn caps lock into ctrl
+- Set up Yomichan
+- Set up Anki
