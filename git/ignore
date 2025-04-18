@@ -1,7 +1,7 @@
 # Ctags generated
 tags
 
-# Don't commit secrets, and avoid showing up in fzf/NERDTree etc.
+# Don't commit secrets
 .env.*
 .envrc.*
 !.env.sample
@@ -17,9 +17,11 @@ tags
 memo.md
 notes.md
 TODO.md
-out.json
 out.txt
+out.json
 a.json
+out.jsonl
+a.jsonl
 
 # If I choose to save a session with :mksession
 Session.vim
