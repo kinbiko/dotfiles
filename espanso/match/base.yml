@@ -136,3 +136,5 @@ matches:
 
   - trigger: "middle\\\\"
     image_path: "$CONFIG/media/middle.gif"
+  - trigger: "hfy\\\\"
+    image_path: "$CONFIG/media/hfy.jpeg"
