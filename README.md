@@ -27,9 +27,7 @@ git commit -m 'Initial commit'
 
 ### Start getting access
 
-Set up the password manager, and install Arc.
-Set Arc as the default browser and set up sync to get extensions, settings, and bookmarks set up.
-Make sure the password manager browser plugin works.
+Set up the password manager, and install a better browser.
 
 ### Fetch and use this repo
 
@@ -50,9 +48,7 @@ That said, most software is not yet installed.
 
 Install `brew` and install packages with `setup/install-brew-and-apps.sh`.
 
-You can now close Terminal and use Alacritty instead.
-
-Install [iWallpaper](https://apps.apple.com/us/app/iwallpaper-live-wallpaper/id1552826194?mt=12) (not free).
+You can now close Terminal and use a better one.
 
 ### Post-install software configuration
 
@@ -60,62 +56,14 @@ Install [iWallpaper](https://apps.apple.com/us/app/iwallpaper-live-wallpaper/id1
 
 - Disable spotlight cmd + space shortcut in keyboard -> shortuts -> spotlight
 - Set Alfred shortcut to `cmd + space`
-- Add the [Nord theme to Alfred](https://www.alfredapp.com/extras/theme/5Y8E7URIWQ/).
+- Add a theme to Alfred.
 - Set up [the Jisho.org workflow](https://github.com/kinbiko/jisho-alfred).
 - Set up clipboard history. Map to `cmd + p` (who prints these days anyway?)
 
-#### Sign git commits with GPG
+#### Japanese language learning
 
-Follow [the GitHub instructions](https://docs.github.com/en/authentication/managing-commit-signature-verification) if you get lost.
-
-**Always check that these steps still follow best security practices**.
-
-The following will prompt you to follow an interactive setup:
-
-```
-gpg --full-gen-key
-```
-
-Defaults are fine, but set your email to be the same as your GitHub email.
-
-Run `gpg --list-secret-keys` to see your generated key ID.
-Generate the public key using this ID:
-
-```
-$ gpg --armor --export $KEY_ID | pbcopy
-```
-
-Add this GPG key to GitHub via the UI.
-
-Configure git to always sign commits:
-
-```
-git config --global gpg.program $(which gpg)
-git config --global user.signingkey $KEY_ID
-git config --global commit.gpgsign true
-```
-
-Then set the pinentry program to be pinentry-mac and restart the gpg-agent:
-
-```
-echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
-killall gpg-agent
-```
-
-### FZF
-
-Install shell bindings like ctrl+r and ctrl+t.
-
-```
-/opt/homebrew/opt/fzf/install # Install key bindings
-```
-
-#### Other
-
-Basically, I can't be arsed to write up detailed instructions for these tools.
-
-- Set up Japanese language learning software: Yomichan and Anki
-- Set up any auth required for ops and infra (`google-cloud-sdk`, `terraform`, `k8s`, `gh`, etc.)
+- Set up Yomitan
+- Set up Anki
 
 ## System preferences
 
@@ -130,8 +78,8 @@ Do the rest manually for now, until I figure out the command-line commands to ru
    1. Don't animate opening apps
    1. Don't show recent application in dock
    1. Automatically hide and show dock (to get back some screen real estate)
-   1. Remove most apps from the dock apart from (final list:) Finder, Arc, Alacritty, Trash
-1. Set system-wide dark mode.
+   1. Remove most apps from the dock.
+1. Set system-wide theme.
 1. Automatically hide the menu bar.
 1. Keep track of 'none' recent items.
 1. Revert scroll direction
