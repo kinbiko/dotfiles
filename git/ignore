@@ -12,6 +12,7 @@ tags
 
 # Don't ever want to commit editor config
 .idea/
+.vscode/
 
 # I sometimes take notes in files like these
 memo.md
