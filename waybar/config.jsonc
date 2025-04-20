@@ -14,7 +14,6 @@
     "battery",
   ],
   "modules-right": [
-    "custom/updates",
     "bluetooth",
     "network",
     "clock",
@@ -112,12 +111,5 @@
     "tooltip-format-wifi": "<span><b><u>{essid}</u></b></span>\t\t\t{ipaddr}\n\t {bandwidthDownBits} |  {bandwidthUpBits}",
     "tooltip-format-ethernet": "<span><b><u>{ifname}</u></b></span>\t\t\t{ipaddr}\n\t {bandwidthDownBits} |  {bandwidthUpBits}",
     "on-click": "nm-connection-editor",
-  },
-  "custom/updates": {
-    "format": "{}",
-    "exec": "~/.config/HyprV/waybar/scripts/update-sys",
-    "on-click": "~/.config/HyprV/waybar/scripts/update-sys update",
-    "interval": 300,
-    "tooltip": true
-  },
+  }
 }
