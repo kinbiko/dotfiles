@@ -84,10 +84,7 @@ return {
         mappings = {
           i = {
             ["<c-t>"] = function(...)
-              return require("trouble.providers.telescope").open_with_trouble(...)
-            end,
-            ["<a-t>"] = function(...)
-              return require("trouble.providers.telescope").open_selected_with_trouble(...)
+              return require("trouble.sources.telescope").open(...)
             end,
             ["<a-i>"] = function()
               local action_state = require("telescope.actions.state")

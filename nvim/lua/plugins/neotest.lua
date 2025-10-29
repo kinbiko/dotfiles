@@ -32,7 +32,7 @@ return {
       output = { open_on_run = true },
       quickfix = {
         open = function()
-          vim.cmd("Trouble quickfix")
+          vim.cmd("Trouble qflist open")
         end,
       },
     },
