@@ -1,7 +1,7 @@
 -- Define the location where to install lazy.nvim.
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 -- If there's nothing currently in this path, then clone lazy.nvim into this directory.
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   -- bootstrap lazy.nvim
   vim.fn.system({
     "git",
