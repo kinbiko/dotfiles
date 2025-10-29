@@ -58,7 +58,7 @@ end
 
 return {
   {
-    "kyazdani42/nvim-tree.lua",
+    "nvim-tree/nvim-tree.lua",
     dependencies = "nvim-tree/nvim-web-devicons",
     keys = {
       { "<localleader><localleader>", "<cmd>NvimTreeToggle<cr>" },
