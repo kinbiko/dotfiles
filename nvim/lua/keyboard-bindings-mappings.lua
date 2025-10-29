@@ -14,10 +14,13 @@ map({ n, x }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ n, x }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- Move to window using the <ctrl> hjkl keys
-map(n, "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
-map(n, "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
-map(n, "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
-map(n, "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
+-- These will be overridden below if we're in tmux
+if not vim.env.TMUX then
+  map(n, "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
+  map(n, "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
+  map(n, "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
+  map(n, "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
+end
 
 map(n, "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 
@@ -40,10 +43,13 @@ map(n, "0", "^") -- Make 0 take me to the first non-blank character of the line.
 map(n, "'", "`") -- Make jumping to a mark more precise than just the beginning of the line in normal mode
 map(o, "'", "`") -- Make jumping to a mark more precise than just the beginning of the line when awaiting an operator
 
-map(n, "<C-h>", [[<cmd>lua require('tmux').move_left()<cr>]])
-map(n, "<C-j>", [[<cmd>lua require('tmux').move_down()<cr>]])
-map(n, "<C-k>", [[<cmd>lua require('tmux').move_up()<cr>]])
-map(n, "<C-l>", [[<cmd>lua require('tmux').move_right()<cr>]])
+-- Seamless navigation between tmux panes and vim windows
+if vim.env.TMUX then
+  map(n, "<C-h>", [[<cmd>lua require('tmux').move_left()<cr>]], { desc = "Go to left window/pane" })
+  map(n, "<C-j>", [[<cmd>lua require('tmux').move_down()<cr>]], { desc = "Go to lower window/pane" })
+  map(n, "<C-k>", [[<cmd>lua require('tmux').move_up()<cr>]], { desc = "Go to upper window/pane" })
+  map(n, "<C-l>", [[<cmd>lua require('tmux').move_right()<cr>]], { desc = "Go to right window/pane" })
+end
 
 map(n, "s", "<cmd>w<cr>") -- Quick-save the current buffer
 
