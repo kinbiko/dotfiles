@@ -7,7 +7,7 @@ return {
         format_on_save = {
           -- These options will be passed to conform.format()
           timeout_ms = 500,
-          lsp_fallback = true,
+          lsp_fallback = true, -- Use LSP for formatting when no formatter is configured
         },
         -- Conform will run multiple formatters sequentially
         -- Use a sub-list to run only the first available formatter

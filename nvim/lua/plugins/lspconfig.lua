@@ -85,8 +85,8 @@ function notify(formatters)
   vim.notify(table.concat(lines, "\n"), vim.log.levels.INFO, {
     title = "Formatting",
     on_open = function(win)
-      vim.api.nvim_win_set_option(win, "conceallevel", 3)
-      vim.api.nvim_win_set_option(win, "spell", false)
+      vim.api.nvim_set_option_value("conceallevel", 3, { win = win })
+      vim.api.nvim_set_option_value("spell", false, { win = win })
       local buf = vim.api.nvim_win_get_buf(win)
       vim.treesitter.start(buf, "markdown")
     end,
@@ -228,7 +228,8 @@ return {
       -- add any global capabilities here
       capabilities = {},
       -- Automatically format on save
-      autoformat = true,
+      -- NOTE: Disabled because we use conform.nvim for formatting
+      autoformat = false,
       -- Enable this to show formatters used in a notification
       -- Useful for debugging formatter issues
       format_notify = false,
@@ -291,11 +292,7 @@ return {
         eslint = function()
           vim.api.nvim_create_autocmd("BufWritePre", {
             callback = function(event)
-              if not enabled() then
-                -- exit early if autoformat is not enabled
-                return
-              end
-
+              -- Run ESLint fixes on save (independent of formatter)
               local client = vim.lsp.get_active_clients({ bufnr = event.buf, name = "eslint" })[1]
               if client then
                 local diag = vim.diagnostic.get(event.buf, { namespace = vim.lsp.diagnostic.get_namespace(client.id) })
@@ -331,8 +328,8 @@ return {
     ---@param opts PluginLspOpts
     config = function(_, opts)
       local utils = require("util")
-      -- setup autoformat
-      setup(opts)
+      -- NOTE: LSP autoformat is disabled, we use conform.nvim instead
+      -- setup(opts)
       -- setup formatting and keymaps
       utils.on_attach(function(client, buffer)
         on_attach(client, buffer)
