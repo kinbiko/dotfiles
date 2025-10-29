@@ -1,148 +1,3 @@
-local Util = require("lazy.core.util")
-
-_opts = nil
-
-function enabled()
-  return _opts and _opts.autoformat
-end
-
-local function lsp_get_config(server)
-  local configs = require("lspconfig.configs")
-  return rawget(configs, server)
-end
-
----@param server string
----@param cond fun( root_dir, config): boolean
-local function lsp_disable(server, cond)
-  local util = require("lspconfig.util")
-  local def = lsp_get_config(server)
-  def.document_config.on_new_config = util.add_hook_before(def.document_config.on_new_config, function(config, root_dir)
-    if cond(root_dir, config) then
-      config.enabled = false
-    end
-  end)
-end
-
-function toggle()
-  if vim.b.autoformat == false then
-    vim.b.autoformat = nil
-    _opts.autoformat = true
-  else
-    _opts.autoformat = not _opts.autoformat
-  end
-  if _opts.autoformat then
-    Util.info("Enabled format on save", { title = "Format" })
-  else
-    Util.warn("Disabled format on save", { title = "Format" })
-  end
-end
-
----@param opts? {force?:boolean}
-function format(opts)
-  local buf = vim.api.nvim_get_current_buf()
-  if vim.b.autoformat == false and not (opts and opts.force) then
-    return
-  end
-
-  local formatters = get_formatters(buf)
-  local client_ids = vim.tbl_map(function(client)
-    return client.id
-  end, formatters.active)
-
-  if #client_ids == 0 then
-    return
-  end
-
-  if _opts.format_notify then
-    notify(formatters)
-  end
-
-  vim.lsp.buf.format(vim.tbl_deep_extend("force", {
-    bufnr = buf,
-    filter = function(client)
-      return vim.tbl_contains(client_ids, client.id)
-    end,
-  }, require("util").opts("nvim-lspconfig").format or {}))
-end
-
----@param formatters LazyVimFormatters
-function notify(formatters)
-  local lines = { "# Active:" }
-
-  for _, client in ipairs(formatters.active) do
-    local line = "- **" .. client.name .. "**"
-    table.insert(lines, line)
-  end
-
-  if #formatters.available > 0 then
-    table.insert(lines, "")
-    table.insert(lines, "# Disabled:")
-    for _, client in ipairs(formatters.available) do
-      table.insert(lines, "- **" .. client.name .. "**")
-    end
-  end
-
-  vim.notify(table.concat(lines, "\n"), vim.log.levels.INFO, {
-    title = "Formatting",
-    on_open = function(win)
-      vim.api.nvim_set_option_value("conceallevel", 3, { win = win })
-      vim.api.nvim_set_option_value("spell", false, { win = win })
-      local buf = vim.api.nvim_win_get_buf(win)
-      vim.treesitter.start(buf, "markdown")
-    end,
-  })
-end
-
--- Gets all lsp clients that support formatting.
-function get_formatters(bufnr)
-  local ft = vim.bo[bufnr].filetype
-
-  ---@class LazyVimFormatters
-  local ret = {
-    ---@type lsp.Client[]
-    active = {},
-    ---@type lsp.Client[]
-    available = {},
-  }
-
-  ---@type lsp.Client[]
-  local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
-  for _, client in ipairs(clients) do
-    if supports_format(client) then
-      table.insert(ret.available, client)
-    end
-  end
-
-  return ret
-end
-
--- Gets all lsp clients that support formatting
--- and have not disabled it in their client config
----@param client lsp.Client
-function supports_format(client)
-  if
-    client.config
-    and client.config.capabilities
-    and client.config.capabilities.documentFormattingProvider == false
-  then
-    return false
-  end
-  return client.supports_method("textDocument/formatting") or client.supports_method("textDocument/rangeFormatting")
-end
-
----@param opts PluginLspOpts
-function setup(opts)
-  _opts = opts
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    group = vim.api.nvim_create_augroup("LazyVimFormat", {}),
-    callback = function()
-      if enabled() then
-        format()
-      end
-    end,
-  })
-end
-
 ---@return (LazyKeys|{has?:string})[]
 local get = function()
   return {
@@ -240,7 +95,6 @@ return {
         timeout_ms = nil,
       },
       -- LSP Server Settings
-      ---@type lspconfig.options
       servers = {
         lua_ls = {
           -- mason = false, -- set to false if you don't want this server to be installed with mason
@@ -286,13 +140,13 @@ return {
       },
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig
-      ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
+      ---@type table<string, fun(server:string, opts):boolean?>
       setup = {
         eslint = function()
           vim.api.nvim_create_autocmd("BufWritePre", {
             callback = function(event)
               -- Run ESLint fixes on save (independent of formatter)
-              local client = vim.lsp.get_active_clients({ bufnr = event.buf, name = "eslint" })[1]
+              local client = vim.lsp.get_clients({ bufnr = event.buf, name = "eslint" })[1]
               if client then
                 local diag = vim.diagnostic.get(event.buf, { namespace = vim.lsp.diagnostic.get_namespace(client.id) })
                 if #diag > 0 then
