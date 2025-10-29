@@ -12,8 +12,9 @@ return {
         untracked = { text = "?" },
       },
       on_attach = function(buffer)
-        vim.keymap.set("n", "<leader>gu", package.loaded.gitsigns.reset_hunk, { buffer = buffer, desc = "Undo hunk" })
-        vim.keymap.set("n", "<leader>gb", package.loaded.gitsigns.blame_line, { buffer = buffer, desc = "Git Blame" })
+        local gs = require("gitsigns")
+        vim.keymap.set("n", "<leader>gu", gs.reset_hunk, { buffer = buffer, desc = "Undo hunk" })
+        vim.keymap.set("n", "<leader>gb", gs.blame_line, { buffer = buffer, desc = "Git Blame" })
       end,
     },
   },
