@@ -66,7 +66,7 @@ map(n, "<localleader><leader>", "<cmd>noh<cr>") -- Clear search results
 -- Also trying to silence it prevents the command mode from being visible.
 map(n, ";", ":", { remap = true }) -- Conveniently enter command mode
 
-map(v, "Y", '"*y') -- Copy to the system clipboard
+map(v, "Y", '"+y') -- Copy to the system clipboard
 map(v, ">", ">gv") -- indent lines and remember the selection
 map(v, "L", ">gv") -- indent lines and remember the selection
 map(v, "<", "<gv") -- dedent lines and remember the selection
@@ -83,3 +83,5 @@ map("", "#", "<Plug>(asterisk-z#)zz") -- Make # mark the current work and n will
 
 map("n", "+", "<c-a>", { desc = "Increment" })
 map("n", "-", "<c-x>", { desc = "Decrement" })
+
+map(n, "<leader>m", "<cmd>lua require('makefile_runner').pick_and_run()<cr>", { desc = "Run Make target" })
