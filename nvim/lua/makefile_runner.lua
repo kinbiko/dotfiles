@@ -147,7 +147,7 @@ local function show_failure(target, output)
   vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = bufnr, silent = true })
 
   -- Set buffer as non-modifiable
-  vim.api.nvim_buf_set_option(bufnr, "modifiable", false)
+  vim.api.nvim_set_option_value("modifiable", false, { buf = bufnr })
 end
 
 -- Run make target asynchronously
