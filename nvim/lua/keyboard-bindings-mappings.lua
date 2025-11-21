@@ -85,3 +85,6 @@ map("n", "+", "<c-a>", { desc = "Increment" })
 map("n", "-", "<c-x>", { desc = "Decrement" })
 
 map(n, "<leader>m", "<cmd>lua require('makefile_runner').pick_and_run()<cr>", { desc = "Run Make target" })
+
+-- Japanese dictionary lookup
+map(v, "K", "<Esc>:lua require('japanese-dict').lookup_selection()<CR>", { desc = "Look up Japanese word", silent = true })
