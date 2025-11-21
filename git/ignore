@@ -32,3 +32,7 @@ Session.vim
 
 # Go coverage reports
 cover.cov
+
+**/.claude/settings.local.json
+
+gcpkey.json
