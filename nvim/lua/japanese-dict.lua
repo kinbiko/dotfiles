@@ -72,6 +72,98 @@ local function lookup_word(word)
   return dict_index[word]
 end
 
+-- Query Jisho.org API as fallback
+local function lookup_online(word)
+  -- URL encode the word
+  local encoded_word = word:gsub("([^%w%.%- ])", function(c)
+    return string.format("%%%02X", string.byte(c))
+  end):gsub(" ", "+")
+
+  local url = string.format("https://jisho.org/api/v1/search/words?keyword=%s", encoded_word)
+
+  -- Use curl to fetch results
+  local handle = io.popen(string.format("curl -s '%s' 2>/dev/null", url))
+  if not handle then
+    return nil
+  end
+
+  local result = handle:read("*all")
+  handle:close()
+
+  if not result or result == "" then
+    return nil
+  end
+
+  -- Parse JSON response
+  local ok, parsed = pcall(vim.json.decode, result)
+  if not ok or not parsed or not parsed.data then
+    return nil
+  end
+
+  -- Convert Jisho format to our internal format
+  local entries = {}
+  for _, item in ipairs(parsed.data) do
+    local entry = {
+      kanji = {},
+      kana = {},
+      sense = {}
+    }
+
+    -- Extract kanji forms
+    if item.japanese then
+      for _, jp in ipairs(item.japanese) do
+        if jp.word then
+          table.insert(entry.kanji, { text = jp.word })
+        end
+        if jp.reading then
+          table.insert(entry.kana, { text = jp.reading })
+        end
+      end
+    end
+
+    -- Extract definitions
+    if item.senses then
+      for _, sense in ipairs(item.senses) do
+        local new_sense = {
+          partOfSpeech = sense.parts_of_speech or {},
+          gloss = {}
+        }
+
+        if sense.english_definitions then
+          for _, def in ipairs(sense.english_definitions) do
+            table.insert(new_sense.gloss, { text = def, lang = "eng" })
+          end
+        end
+
+        table.insert(entry.sense, new_sense)
+      end
+    end
+
+    table.insert(entries, entry)
+  end
+
+  return #entries > 0 and entries or nil
+end
+
+-- Look up word with online fallback
+local function lookup_word_with_fallback(word)
+  -- Try local dictionary first
+  local entries = lookup_word(word)
+
+  -- If not found locally, try online
+  if not entries or #entries == 0 then
+    entries = lookup_online(word)
+    if entries then
+      -- Add marker that these are online results
+      for _, entry in ipairs(entries) do
+        entry._online = true
+      end
+    end
+  end
+
+  return entries
+end
+
 -- Format a dictionary entry for display
 local function format_entry(entry)
   local lines = {}
@@ -176,8 +268,11 @@ function M.show_definition(word, show_all)
   -- Trim whitespace
   word = vim.trim(word)
 
-  local entries = lookup_word(word)
+  local entries = lookup_word_with_fallback(word)
   local lines, has_more = format_results(entries, word, show_all)
+
+  -- Check if results are from online
+  local is_online = entries and #entries > 0 and entries[1]._online
 
   -- Create floating window
   local bufnr = vim.api.nvim_create_buf(false, true)
@@ -191,6 +286,11 @@ function M.show_definition(word, show_all)
   local width = 60
   local height = math.min(#lines, 20)
 
+  -- Get cursor position
+  local cursor_pos = vim.api.nvim_win_get_cursor(0)
+  local cursor_row = cursor_pos[1] - 1 -- Convert to 0-indexed
+  local cursor_col = cursor_pos[2]
+
   -- Get editor dimensions
   local ui = vim.api.nvim_list_uis()[1]
   if not ui then
@@ -200,11 +300,34 @@ function M.show_definition(word, show_all)
   local win_width = ui.width
   local win_height = ui.height
 
-  -- Calculate position (center of screen)
-  local row = math.floor((win_height - height) / 2)
-  local col = math.floor((win_width - width) / 2)
+  -- Calculate position near cursor, with preference to show below and to the right
+  -- Add offset to avoid covering the selected text
+  local row_offset = 1
+  local col_offset = 2
+
+  local row = cursor_row + row_offset
+  local col = cursor_col + col_offset
+
+  -- Adjust if popup would go off screen
+  if row + height > win_height then
+    -- Show above cursor instead
+    row = cursor_row - height - 1
+    if row < 0 then
+      -- If it doesn't fit above either, center vertically
+      row = math.floor((win_height - height) / 2)
+    end
+  end
+
+  if col + width > win_width then
+    -- Shift left to fit on screen
+    col = win_width - width - 1
+    if col < 0 then
+      col = 0
+    end
+  end
 
   -- Window options
+  local title = is_online and " Japanese Dictionary (Online) " or " Japanese Dictionary "
   local opts = {
     relative = "editor",
     width = width,
@@ -213,7 +336,7 @@ function M.show_definition(word, show_all)
     col = col,
     style = "minimal",
     border = "rounded",
-    title = " Japanese Dictionary ",
+    title = title,
     title_pos = "center",
   }
 
