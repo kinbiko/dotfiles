@@ -53,8 +53,9 @@ end
 -- Parse .PHONY targets from Makefile
 -- Returns: list of { target = "test", description = "Run unit tests" }
 local function parse_phony_targets(makefile_path)
-  local file = io.open(makefile_path, "r")
+  local file, err = io.open(makefile_path, "r")
   if not file then
+    vim.notify("Failed to open Makefile: " .. (err or "unknown error"), vim.log.levels.ERROR)
     return {}
   end
 
