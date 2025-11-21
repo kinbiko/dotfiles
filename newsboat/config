@@ -1,0 +1,14 @@
+include theme
+
+# bind keys - vim style
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+
+color listnormal        default default
+color listnormal_unread default default
+color listfocus         black blue
+color listfocus_unread  black blue
+color info              black blue
+color article           default default
