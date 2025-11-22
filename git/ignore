@@ -36,3 +36,4 @@ cover.cov
 **/.claude/settings.local.json
 
 gcpkey.json
+CLAUDE.md

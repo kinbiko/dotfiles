@@ -41,3 +41,5 @@ dlv/.dbg_history
 **/*.log
 **/*.spl
 **/*.add
+
+CLAUDE.md

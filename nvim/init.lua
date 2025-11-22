@@ -7,3 +7,6 @@ vim.cmd.colorscheme("tokyonight-night")
 
 -- Setup japanese dictionary (registers :JaDict command and preloads dictionary)
 require("japanese-dict").setup()
+
+-- Setup markdown formatter (registers :MarkdownFormat command and keybindings)
+require("markdown-formatter").setup()
