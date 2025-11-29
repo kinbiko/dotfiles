@@ -4,13 +4,57 @@ on-button-left=invoke-default-action
 on-button-right=dismiss-all
 on-button-middle=dismiss
 
-background-color=#00000066
-border-color=#53E2AEFF
+# Tokyonight colors with solarpunk green accent
+background-color=#1a1b26ee
+text-color=#c0caf5
+border-color=#649650
+border-size=2
 border-radius=8
 
-group-by=category
+font=sans-serif 12
+width=380
+max-height=150
+margin=10,10,0
+padding=12
+icons=1
+icon-path=/usr/share/icons/hicolor
+max-icon-size=32
+default-timeout=5000
 
-margin=66,16,0
+group-by=category
+max-visible=4
+
+# Progress bar styling
+progress-color=source #649650
+
+# Urgency levels
+[urgency=low]
+border-color=#565f89
+background-color=#1a1b26cc
+
+[urgency=normal]
+border-color=#649650
+
+[urgency=critical]
+border-color=#f7768e
+background-color=#1a1b26ff
+ignore-timeout=1
+
+# App-specific rules
+[app-name=discord]
+border-color=#5865F2
+
+[app-name=Signal]
+border-color=#3a76f0
+
+[app-name=1Password]
+border-color=#0572ec
+
+[app-name=firefox]
+border-color=#ff7139
+
+[app-name=transmission]
+border-color=#b50d0d
 
 [mode=do-not-disturb]
 invisible=1
