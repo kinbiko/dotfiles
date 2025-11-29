@@ -41,5 +41,6 @@ dlv/.dbg_history
 **/*.log
 **/*.spl
 **/*.add
+wallpapers/lockscreen
 
 CLAUDE.md
