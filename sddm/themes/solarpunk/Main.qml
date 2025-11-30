@@ -15,7 +15,7 @@ Rectangle {
     // Background
     Image {
         anchors.fill: parent
-        source: "/home/kinbiko/.config/wallpapers/lockscreen"
+        source: "/usr/share/sddm/themes/solarpunk/solarpunk-03.png"
         fillMode: Image.PreserveAspectCrop
 
         Rectangle {
