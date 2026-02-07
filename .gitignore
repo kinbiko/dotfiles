@@ -34,6 +34,7 @@
 !yomichan/**/*
 !yomihan/**/*
 !zsh/**/*
+!vit/**/*
 
 gh/hosts.yml
 nvim/lazy-lock.json
