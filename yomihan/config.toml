@@ -1,0 +1,39 @@
+[general]
+trigger_modifier = "ctrl"
+trigger_key = "y"
+
+[dictionaries]
+directory = "/home/kinbiko/.local/share/yomihan/dictionaries"
+disabled = []
+
+[dictionaries.priorities]
+
+[anki]
+endpoint = "http://localhost:8765"
+deck = "___::yomihan"
+model = "Basic"
+tags = ["yomihan"]
+
+[anki.fields]
+Front = "term"
+Back = "definitions_html"
+
+[audio]
+enabled = true
+source = "japanesepod101"
+
+[appearance]
+theme = "system"
+font_size = 18
+max_width = 470
+
+[appearance.entry_visibility]
+term = "visible"
+readings = "visible_if_expanded"
+audio = "visible_if_expanded"
+frequency = "visible_if_expanded"
+tags = "visible_if_expanded"
+pitch_accent = "visible"
+meanings = "visible"
+examples = "visible"
+kanji_readings = "visible"

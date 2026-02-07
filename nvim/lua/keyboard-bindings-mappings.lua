@@ -54,7 +54,11 @@ end
 map(n, "s", "<cmd>w<cr>") -- Quick-save the current buffer
 
 map(n, "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Go to definition" })
-map(n, "gr", "<cmd>Telescope lsp_references<cr>", { desc = "Find references" })
+map(n, "gr", function()
+  require("telescope.builtin").lsp_references({
+    file_ignore_patterns = { "/rustlib/src/", "/.cargo/registry/" },
+  })
+end, { desc = "Find references" })
 map(n, "gI", "<cmd>Telescope lsp_implementations<cr>", { desc = "Find implementations" }) -- Go-to implementation
 map(n, "<right>", "gd", { silent = true }) -- Go to definition
 map(n, "<left>", "<c-o>", { silent = true }) -- Pop back up

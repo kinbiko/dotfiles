@@ -17,8 +17,10 @@
 !latexmk/**/*
 !lazygit/config.yml
 !mako/**/*
+!newsboat/**/*
 !nvim/**/*
 !ripgrep/**/*
+!sddm/**/*
 !setup/**/*
 !skhd/**/*
 !swaylock/**/*
@@ -30,9 +32,8 @@
 !yabai/**/*
 !yazi/**/*
 !yomichan/**/*
+!yomihan/**/*
 !zsh/**/*
-!newsboat/**/*
-!sddm/**/*
 
 gh/hosts.yml
 nvim/lazy-lock.json
