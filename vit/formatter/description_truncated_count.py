@@ -1,7 +1,7 @@
 from vit.formatter.description_count import DescriptionCount
 from vit.util import unicode_len
 
-TRUNCATE_LEN = 50
+TRUNCATE_LEN = 70
 
 class DescriptionTruncatedCount(DescriptionCount):
     def format(self, description, task):
