@@ -1,15 +1,28 @@
 #!/bin/sh
-# Switch to the session under the mouse cursor based on X position.
-# Each session is rendered as " name " (space-padded) in the status bar.
-# #{S:} iterates in creation order, so we must match that here.
+# Click handler for the 2-line status bar.
+# Line 0: switch session, Line 1: switch window.
 mouse_x=$1
-pos=0
-tmux list-sessions -F '#{session_created} #{session_name}' | sort -n | awk '{print $2}' | while read -r name; do
-  # Each tab is " name " = len(name) + 2
-  width=$((${#name} + 2))
-  if [ "$mouse_x" -ge "$pos" ] && [ "$mouse_x" -lt "$((pos + width))" ]; then
-    tmux switch-client -t "$name"
-    exit 0
-  fi
-  pos=$((pos + width))
-done
+mouse_y=${2:-0}
+
+if [ "$mouse_y" = "0" ]; then
+  pos=0
+  tmux list-sessions -F '#{session_name}' | sort | while read -r name; do
+    width=$((${#name} + 2))
+    if [ "$mouse_x" -ge "$pos" ] && [ "$mouse_x" -lt "$((pos + width))" ]; then
+      tmux switch-client -t "$name"
+      exit 0
+    fi
+    pos=$((pos + width))
+  done
+elif [ "$mouse_y" = "1" ]; then
+  pos=0
+  tmux list-windows -F '#{window_index}:#{window_name}' | while read -r entry; do
+    width=$((${#entry} + 2))
+    if [ "$mouse_x" -ge "$pos" ] && [ "$mouse_x" -lt "$((pos + width))" ]; then
+      index="${entry%%:*}"
+      tmux select-window -t ":$index"
+      exit 0
+    fi
+    pos=$((pos + width))
+  done
+fi
