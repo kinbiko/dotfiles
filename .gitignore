@@ -17,6 +17,7 @@
 !latexmk/**/*
 !lazygit/config.yml
 !mako/**/*
+!mpv/**/*
 !newsboat/**/*
 !nvim/**/*
 !ripgrep/**/*

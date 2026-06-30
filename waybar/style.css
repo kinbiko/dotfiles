@@ -356,3 +356,37 @@ tooltip {
 window#waybar {
   background: @background-transparent;
 }
+
+/* <<--< Podcast media controls (bottom bar) >-->> */
+#custom-pod-prev,
+#custom-pod-back,
+#custom-pod-fwd,
+#custom-pod-next,
+#custom-pod-slower,
+#custom-pod-faster,
+#custom-podcast {
+  padding: 0 6px;
+  color: @text;
+}
+
+#custom-pod-prev:hover,
+#custom-pod-back:hover,
+#custom-pod-fwd:hover,
+#custom-pod-next:hover,
+#custom-pod-slower:hover,
+#custom-pod-faster:hover,
+#custom-podcast:hover {
+  color: @cyan;
+}
+
+#custom-podcast {
+  min-width: 240px;
+}
+
+#custom-podcast.playing {
+  color: @cyan;
+}
+
+#custom-podcast.paused {
+  color: @text;
+}

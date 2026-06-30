@@ -1,0 +1,48 @@
+#!/bin/sh
+# Control the windowless podcast mpv started by podcast.sh, via its IPC socket.
+# Used by the Waybar media buttons (and optional Hyprland keybinds).
+SOCK="${XDG_RUNTIME_DIR:-/tmp}/mpv-podcast.sock"
+
+ipc() { printf '%s\n' "$1" | socat - "$SOCK" 2>/dev/null; }
+get() { ipc "{\"command\":[\"get_property\",\"$1\"]}" | jq -r '.data // empty'; }
+
+case "$1" in
+  toggle) ipc '{"command":["cycle","pause"]}' ;;
+  next)   ipc '{"command":["playlist-next","force"]}' ;;
+  prev)   ipc '{"command":["playlist-prev","force"]}' ;;
+  back)   ipc '{"command":["seek",-15]}' ;;
+  fwd)    ipc '{"command":["seek",15]}' ;;
+  faster) ipc '{"command":["add","speed",0.1]}' ;;
+  slower) ipc '{"command":["add","speed",-0.1]}' ;;
+  status)
+    # Waybar exec (return-type json). Empty text => module hides when idle.
+    [ -S "$SOCK" ] || { echo '{"text":""}'; exit 0; }
+    speed=$(get speed)
+    [ -z "$speed" ] && { echo '{"text":""}'; exit 0; }
+    paused=$(get pause); title=$(get media-title)
+    pos=$(get time-pos); dur=$(get duration); pct=$(get percent-pos)
+
+    fmt() { # float seconds -> H:MM:SS or M:SS
+      s=${1%.*}; [ -z "$s" ] && s=0
+      h=$((s / 3600)); m=$(((s % 3600) / 60)); sec=$((s % 60))
+      [ "$h" -gt 0 ] && printf '%d:%02d:%02d' "$h" "$m" "$sec" || printf '%d:%02d' "$m" "$sec"
+    }
+
+    N=12; p=${pct%.*}; [ -z "$p" ] && p=0
+    filled=$((p * N / 100)); [ "$filled" -gt "$N" ] && filled=$N; [ "$filled" -lt 0 ] && filled=0
+    FB=$(printf '\342\226\210'); FE=$(printf '\342\226\221') # full / light block
+    bar=""; i=0
+    while [ "$i" -lt "$N" ]; do
+      [ "$i" -lt "$filled" ] && bar="$bar$FB" || bar="$bar$FE"
+      i=$((i + 1))
+    done
+
+    icon=$([ "$paused" = "true" ] && printf '\357\201\214' || printf '\357\201\213') # pause / play
+    text="$icon $(fmt "$pos")/$(fmt "$dur")  $bar  $(printf '%.2f' "$speed")x"
+    printf '{"text":%s,"tooltip":%s,"class":"%s"}\n' \
+      "$(printf '%s' "$text"  | jq -Rs .)" \
+      "$(printf '%s' "$title" | jq -Rs .)" \
+      "$([ "$paused" = "true" ] && echo paused || echo playing)"
+    ;;
+  *) echo "usage: mpvctl {toggle|next|prev|back|fwd|faster|slower|status}" >&2; exit 1 ;;
+esac

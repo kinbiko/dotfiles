@@ -1,7 +1,8 @@
+[
 {
   "id": 1,
   "margin-bottom": 4,
-  "mode": "overlay",
+  "mode": "default",
   "layer": "top",
   "position": "bottom",
   "modules-left": [
@@ -118,3 +119,37 @@
     "on-click": "nm-connection-editor",
   }
 }
+,
+{
+  "id": 2,
+  "margin-top": 4,
+  "margin-left": 4,
+  "margin-right": 4,
+  "mode": "default",
+  "layer": "top",
+  "position": "top",
+  "modules-left": [],
+  "modules-center": [
+    "custom/pod-prev",
+    "custom/pod-back",
+    "custom/podcast",
+    "custom/pod-fwd",
+    "custom/pod-next",
+    "custom/pod-slower",
+    "custom/pod-faster"
+  ],
+  "modules-right": [],
+  "custom/pod-prev":   { "format": "󰒮", "on-click": "/home/kinbiko/.config/mpv/mpvctl prev",   "tooltip": false },
+  "custom/pod-back":   { "format": "", "on-click": "/home/kinbiko/.config/mpv/mpvctl back",   "tooltip": false },
+  "custom/podcast": {
+    "exec": "/home/kinbiko/.config/mpv/mpvctl status",
+    "return-type": "json",
+    "interval": 2,
+    "on-click": "/home/kinbiko/.config/mpv/mpvctl toggle"
+  },
+  "custom/pod-fwd":    { "format": "", "on-click": "/home/kinbiko/.config/mpv/mpvctl fwd",    "tooltip": false },
+  "custom/pod-next":   { "format": "󰒭", "on-click": "/home/kinbiko/.config/mpv/mpvctl next",   "tooltip": false },
+  "custom/pod-slower": { "format": "󰾆", "on-click": "/home/kinbiko/.config/mpv/mpvctl slower", "tooltip": false },
+  "custom/pod-faster": { "format": "󰓅", "on-click": "/home/kinbiko/.config/mpv/mpvctl faster", "tooltip": false },
+}
+]
