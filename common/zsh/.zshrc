@@ -13,9 +13,15 @@ path+=("$GOBIN" "$HOME/scripts" "$XDG_CONFIG_HOME/zsh/scripts")
 
 fpath+="$XDG_CONFIG_HOME/zsh/functions"
 autoload -Uz \
+  _ensure_gcp_project_id \
   default-branch \
+  dev \
   git-purge \
+  journal \
   kube \
+  prod \
+  wt \
+  wt-clean \
 
 # Wait 10 ms for additional key sequences.
 # Allows you to enter normal mode in zsh faster than the default 0.4s

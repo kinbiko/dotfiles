@@ -31,4 +31,7 @@ linux/hypr/wox-binds.lua
 **/__pycache__/
 
 CLAUDE.md
+# ...except nvim's, which documents the config itself rather than being
+# per-machine agent scratch.
+!common/nvim/CLAUDE.md
 nvm/

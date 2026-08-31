@@ -1,0 +1,2 @@
+local dir="$EXOCORTEX_DIR/me/journal/$(date +'%Y-%m-%d %A')"
+mkdir -p "$dir" && cd "$dir"

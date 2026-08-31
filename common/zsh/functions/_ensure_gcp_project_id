@@ -1,0 +1,33 @@
+# vim: set ft=sh:
+# Bootstraps .envrc for the current repo if GCP_PROJECT_ID isn't set, then
+# loads it into this shell. Called by `dev`/`prod` before they run kubectl.
+
+[[ -n "$GCP_PROJECT_ID" ]] && return 0
+
+local root
+root=$(git rev-parse --show-toplevel 2>/dev/null) || root="$PWD"
+
+if [[ -f "$root/.envrc" ]]; then
+  echo "GCP_PROJECT_ID is not set even though $root/.envrc exists. Run 'direnv allow' there and retry." >&2
+  return 1
+fi
+
+if [[ -f "$root/.envrc.sample" ]]; then
+  cp "$root/.envrc.sample" "$root/.envrc"
+  echo "Created $root/.envrc from .envrc.sample. Edit in any placeholder values, then rerun." >&2
+elif [[ -f "$root/.env" ]]; then
+  echo "dotenv" >"$root/.envrc"
+  echo "Created $root/.envrc to load $root/.env via direnv." >&2
+else
+  local guess="${root:t}-dev"
+  echo "export GCP_PROJECT_ID=$guess" >"$root/.envrc"
+  echo "Created $root/.envrc with GCP_PROJECT_ID=$guess (guessed from directory name). Check it's right." >&2
+fi
+
+direnv allow "$root"
+eval "$(direnv export zsh)"
+
+if [[ -z "$GCP_PROJECT_ID" || "$GCP_PROJECT_ID" == *'place here'* ]]; then
+  echo "$root/.envrc still needs manual edits before GCP_PROJECT_ID is usable." >&2
+  return 1
+fi

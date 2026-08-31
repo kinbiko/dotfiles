@@ -1,0 +1,9 @@
+# vim: set ft=sh:
+# kubectl against the dev cluster, namespaced to this repo's dev project.
+
+_ensure_gcp_project_id || return 1
+
+local base="${GCP_PROJECT_ID%-dev}"
+base="${base%-prod}"
+
+kubectl --context "$K8S_CLUSTER_DEV" -n "${base}-dev" "$@"

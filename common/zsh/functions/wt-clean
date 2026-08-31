@@ -1,0 +1,47 @@
+# vim: set ft=sh:
+# Removes worktrees (and their branches) whose PR was merged or closed.
+# Dry-run by default; pass -f/--force/--yes to actually remove.
+_wt_clean__entries() {
+  git worktree list --porcelain | awk '
+    /^worktree / { path=$2 }
+    /^branch /   { print path, $2 }
+  '
+}
+
+wt-clean() {
+  local do_run=false
+  case "$1" in
+    -f|--force|--yes) do_run=true ;;
+  esac
+
+  local main_wt found=false path ref branch state
+  main_wt="$(git rev-parse --show-toplevel)" || return 1
+
+  while read -r path ref; do
+    [ "$path" = "$main_wt" ] && continue
+    branch="${ref#refs/heads/}"
+    state="$(gh pr view "$branch" --json state -q .state 2>/dev/null)"
+    case "$state" in
+      MERGED|CLOSED)
+        found=true
+        if $do_run; then
+          echo "Removing $state PR worktree: $branch ($path)"
+          if git worktree remove "$path"; then
+            git branch -D "$branch"
+          else
+            echo "  skipped branch delete: worktree removal failed (uncommitted changes?)"
+          fi
+        else
+          echo "[dry-run] $state: $branch ($path)"
+        fi
+        ;;
+    esac
+  done < <(_wt_clean__entries)
+
+  if ! $do_run && $found; then
+    echo
+    echo "Run 'wt-clean -f' to remove these worktrees and branches."
+  fi
+}
+
+wt-clean $@

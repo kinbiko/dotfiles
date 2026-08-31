@@ -1,0 +1,19 @@
+# vim: set ft=sh:
+wt() {
+  if [ $# -ne 1 ]; then
+    echo "Usage: wt <branch-suffix>"
+    echo "Creates a worktree at ~/.worktrees/<repo>/<branch-suffix> on branch kinbiko/<branch-suffix>"
+    return 1
+  fi
+
+  local name="$1"
+  local repo
+  repo="$(basename "$(git rev-parse --show-toplevel)")" || return 1
+  local dir="$HOME/.worktrees/$repo/$name"
+  local branch="kinbiko/$name"
+
+  mkdir -p "$(dirname "$dir")"
+  git worktree add "$dir" -b "$branch"
+}
+
+wt $@
