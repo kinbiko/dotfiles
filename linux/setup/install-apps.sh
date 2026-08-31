@@ -13,12 +13,13 @@ sudo pacman -S --needed --noconfirm \
   direnv \
   fd \
   fzf \
-  gh \
+  github-cli \
   ghostty \
   git-delta \
   go \
   golangci-lint \
   hyprland \
+  hyprlock \
   jq \
   kanshi \
   mako \
@@ -36,9 +37,15 @@ sudo pacman -S --needed --noconfirm \
   yazi \
   zoxide
 
-# Not in the official repos.
+# Not in the official repos. Needs yay on PATH; bootstrap it by hand first:
+#   git clone https://aur.archlinux.org/yay.git && (cd yay && makepkg -si)
+if ! command -v yay >/dev/null 2>&1; then
+  echo "yay not found; skipping AUR packages" >&2
+  exit 0
+fi
+
 yay -S --needed --noconfirm \
-  espanso \
+  awww \
+  espanso-wayland \
   fpp \
-  swww \
   urlview
