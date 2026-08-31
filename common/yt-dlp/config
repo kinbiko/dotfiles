@@ -1,0 +1,2 @@
+# Force IPv4 - IPv6 connections to Google/YouTube time out (20s x 4 retries = 80s wasted)
+--force-ipv4

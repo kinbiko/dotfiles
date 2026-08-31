@@ -13,16 +13,9 @@ path+=("$GOBIN" "$HOME/scripts" "$XDG_CONFIG_HOME/zsh/scripts")
 
 fpath+="$XDG_CONFIG_HOME/zsh/functions"
 autoload -Uz \
-  bigquery \
   default-branch \
   git-purge \
   kube \
-  pod-logs \
-  pod-port-forward-grpc \
-  pod-port-forward-http \
-  pod-sync \
-  pr-comments \
-  toiletpresence \
 
 # Wait 10 ms for additional key sequences.
 # Allows you to enter normal mode in zsh faster than the default 0.4s

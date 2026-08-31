@@ -1,0 +1,12 @@
+[Unit]
+Description=espanso
+
+[Service]
+# Resolved via PATH rather than hardcoded: the AUR package installs to
+# /usr/bin, a hand-built one to /usr/local/bin.
+ExecStart=/usr/bin/env espanso launcher
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target

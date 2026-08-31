@@ -1,0 +1,8 @@
+{
+    "layer": {
+        "silent": true,
+        "no_cache": false,
+        "no_opencv": false,
+        "output": "wayland"
+    }
+}

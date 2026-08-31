@@ -48,18 +48,18 @@ cask espanso
 formula bat           # cat but pretty
 formula btop          # top but prettier
 formula fd            # Opinionated alternative to 'find'.
-formula fpp           # Open URLs visible in the terminal with the keyboard
 formula fzf           # Fuzzy finder. Vim plugin doesn't install to path, nor sets up shell keybindings
 formula gh            # GitHub CLI
 formula git-delta     # Even better git diffs
 formula go            # Go programming language
 formula gpg           # For PGP signing
 formula jq            # Query JSON
-formula ncurses       # Required by fpp, and for the tmux-256color terminfo below
+formula ncurses       # For the tmux-256color terminfo generated below
 formula ripgrep       # Super fast grep-like application, used by FZF and telescope.nvim
 formula tmux          # Terminal multiplexer
 formula tree          # Show folders and files easily
-formula urlview       # Required for fpp
+formula urlview       # Opens URLs from a tmux pane (prefix + u)
+formula yt-dlp        # Download video/audio from the web
 formula zoxide        # Fast directory switching
 
 # Editor. Tracks HEAD, which is what made the unguarded `brew install` fail on
@@ -80,6 +80,7 @@ cask alfred     # Productivity heaven
 cask anki       # Flashcards
 cask obsidian   # Second brain
 cask qlmarkdown # Let finder's Preview understand Markdown files
+cask zen        # Browser; urlview opens links in it
 
 go install github.com/kinbiko/jisho-alfred@latest # Required by the Jisho.org Alfred workflow
 
