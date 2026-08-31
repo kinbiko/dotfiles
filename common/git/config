@@ -1,0 +1,62 @@
+# vim: set syntax=toml:
+[core]
+  pager = delta
+  quotepath = off # Show filenames in UTF-8
+
+[user]
+	name = kinbiko
+	# No email here on purpose. Each machine sets its own in
+	# ~/.local.gitconfig, so a missing one fails loudly rather than
+	# misattributing commits to the wrong address.
+
+[pull]
+  rebase = true
+
+[init]
+  defaultBranch = main
+
+[interactive]
+  diffFilter = delta --color-only --hyperlinks
+
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+  line-numbers = true
+  minus-style = bold red
+  plus-style = bold green
+  hyperlinks = true # TODO: Currently not working inside TMUX
+  file-style = omit
+  hunk-header-decoration-style = omit
+  hunk-header-style = file line-number
+  hunk-header-file-style = magenta
+  minus-emph-style = bold red 52
+  minus-empty-line-marker-style = normal "#9f0001"
+  minus-non-emph-style = dim red
+  plus-emph-style = bold green 22
+  plus-empty-line-marker-style = normal "#002800"
+  plus-non-emph-style = dim green
+  map-styles = bold purple => dim purple, bold cyan => dim green
+  whitespace-error-style = reverse red
+  zero-style = dim syntax
+
+[merge]
+  conflictstyle = merge
+
+[diff]
+  colorMoved = plain
+[rerere]
+	enabled = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+
+[submodule]
+  recurse = true
+
+# Must stay at the bottom of this file. Git applies config in order and the
+# last value wins, so the machine-local file can only override the settings
+# above if it is included after them.
+[include]
+  path = ~/.local.gitconfig

@@ -1,0 +1,17 @@
+# Ghostty. Kept visually in sync with alacritty and nvim (tokyonight).
+# `ghostty +show-config --default --docs` lists every option.
+
+theme = tokyonight
+
+font-family = SauceCodePro Nerd Font
+font-size = 11
+
+background-opacity = 0.98
+window-padding-x = 2
+window-padding-y = 2
+window-decoration = false
+
+scrollback-limit = 10000000
+
+# Middle-click pastes the primary selection, as in alacritty.
+copy-on-select = clipboard

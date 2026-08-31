@@ -1,5 +1,0 @@
-$pdflatex = 'lualatex -file-line-error %O %S';
-$pdf_mode = 1;
-$pdf_previewer = 'open -a zathura';
-$recorder = 1;
-$continuously_watch = 1;

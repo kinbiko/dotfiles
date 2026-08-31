@@ -1,52 +1,32 @@
+# This repo *is* ~/.config, which is full of state written by other programs.
+# So: ignore everything, then allow only the three content dirs. `!*/` lets
+# git descend into subdirectories; files still need an explicit rule.
 *
 !*/
 
-!alacritty/**/*
-!bat/**/*
-!bigquery/**/*
-!dlv/**/*
-!ergodox/**/*
-!espanso/**/*
-!fonts/**/*
-!gh/**/*
-!ghostty/**/*
-!git/**/*
-!hypr/**/*
-!jetbrains/**/*
-!kanshi/**/*
-!kitty/**/*
-!latexmk/**/*
-!lazygit/config.yml
-!mako/**/*
-!mpv/**/*
-!newsboat/**/*
-!nvim/**/*
-!ripgrep/**/*
-!sddm/**/*
-!setup/**/*
-!skhd/**/*
-!swaylock/**/*
-!thunar/**/*
-!tmux/**/*
-!wallpapers/**/*
-!waybar/**/*
-!wofi/**/*
-!yabai/**/*
-!yazi/**/*
-!yomichan/**/*
-!yomihan/**/*
-!zsh/**/*
-!vit/**/*
+!common/**
+!linux/**
+!macos/**
 
-gh/hosts.yml
-espanso/match/hidden.yml
-nvim/lazy-lock.json
-dlv/.dbg_history
+# Leading slash matters: a bare `!README.md` would un-ignore every README.md
+# in every untracked app-data directory under ~/.config.
+!/.gitignore
+!/setup.sh
+!/README.md
+!/LICENSE
+
+# Secrets and machine-local state living inside the allowed dirs.
+common/gh/hosts.yml
+common/espanso/match/local.yml
+common/nvim/lazy-lock.json
+common/dlv/.dbg_history
+common/wallpapers/lockscreen
 
 **/.DS_Store
 **/*.log
 **/*.spl
 **/*.add
-wallpapers/lockscreen
+**/__pycache__/
 
 CLAUDE.md
+nvm/

@@ -1,0 +1,47 @@
+# Ctags generated
+tags
+
+# Don't commit secrets, and avoid showing up in fzf/NERDTree etc.
+.env.*
+.envrc.*
+!.env.sample
+!.envrc.sample
+
+# Work around OSX' bad design decision.
+.DS_Store
+
+# Don't ever want to commit editor config
+.idea/
+.vscode/
+
+# I sometimes take notes in files like these
+memo.md
+notes.md
+TODO.md
+out.json
+out.txt
+a.json
+out.jsonl
+a.jsonl
+
+# If I choose to save a session with :mksession
+Session.vim
+
+# This is obviously not necessary for normal git use,
+# but adding it here to ignore files under .git/ when
+# using ripgrep which respects git ignored files.
+.git/
+
+# Go coverage reports
+cover.cov
+
+**/.claude/settings.local.json
+**/.claude/worktrees
+
+gcpkey.json
+.memo/
+
+CLAUDE.md
+DESIGN*.md
+PLAN*.md
+
