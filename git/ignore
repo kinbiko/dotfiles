@@ -34,6 +34,8 @@ Session.vim
 cover.cov
 
 **/.claude/settings.local.json
+**/.claude/worktrees
 
 gcpkey.json
-CLAUDE.md
+.memo/
+
