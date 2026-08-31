@@ -90,7 +90,7 @@ and tmux can follow without bespoke logic on each side.
 ### Arch
 
 - Enable the display manager: `sudo systemctl enable sddm`.
-- The Wayland stack (hyprland, waybar, wofi, mako, kanshi, swww) is installed
+- The Wayland stack (hyprland, waybar, wox, mako, kanshi, swww) is installed
   by `linux/setup/install-apps.sh`; AUR packages need `yay` on PATH first.
 
 ### macOS
@@ -107,13 +107,14 @@ Additional tools not yet in the setup script (install via `brew`):
 
 Install Better Snap Tool from the App Store.
 
-#### Alfred
+#### Wox
 
 - Disable the spotlight cmd + space shortcut in keyboard -> shortcuts ->
   spotlight
-- Set the Alfred shortcut to `cmd + space`.
-- Add a theme to Alfred.
-- Set up [the Jisho.org workflow](https://github.com/kinbiko/jisho-alfred).
+- Set the Wox query hotkey to `cmd + space`.
+- Grant Accessibility and (if you use the screenshot plugin) Screen Recording
+  permissions when prompted.
+- Add a theme.
 - Set up clipboard history. Map to `cmd + p` (who prints these days anyway?)
 
 #### System preferences

@@ -40,7 +40,6 @@ sudo pacman -S --needed --noconfirm \
   ueberzugpp \
   waybar \
   wl-clipboard \
-  wofi \
   yazi \
   yt-dlp \
   zoxide
@@ -52,6 +51,7 @@ if command -v yay >/dev/null 2>&1; then
     awww \
     espanso-wayland \
     urlview \
+    wox-bin \
     zen-browser-bin
 else
   echo "yay not found; skipping AUR packages" >&2

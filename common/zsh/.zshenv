@@ -1,5 +1,5 @@
 # This file is run for *every* zsh shell (login and interactive agnostic)
-# E.g. commands executed from within vim or scripts in Alfred etc. will also
+# E.g. commands executed from within vim or Wox script plugins etc. will also
 # benefit from this file.
 
 export EDITOR='nvim'

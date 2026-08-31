@@ -21,6 +21,8 @@ common/espanso/match/local.yml
 common/nvim/lazy-lock.json
 common/dlv/.dbg_history
 common/wallpapers/lockscreen
+# Written by Wox at runtime; the binds that matter are in hyprland.conf.
+linux/hypr/wox-binds.lua
 
 **/.DS_Store
 **/*.log
