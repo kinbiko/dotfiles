@@ -13,6 +13,7 @@
 !git/**/*
 !hypr/**/*
 !jetbrains/**/*
+!kanshi/**/*
 !kitty/**/*
 !latexmk/**/*
 !lazygit/config.yml

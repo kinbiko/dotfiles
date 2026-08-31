@@ -1,0 +1,8 @@
+profile docked {
+	output "LG Electronics LG HDR WQHD 0x0004EED9" mode 3440x1440@59.973Hz position 3840,0
+	output "Acer Technologies ET322QK C 0x0201C524" mode 3840x2160@59.997Hz position 0,0
+}
+
+profile solo {
+	output "LG Electronics LG HDR WQHD 0x0004EED9" mode 3440x1440@59.973Hz position 0,0
+}
