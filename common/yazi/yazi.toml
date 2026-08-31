@@ -1,10 +1,3 @@
-[plugin]
-prepend_previewers = [
-    { mime = "image/*", run = "code" },
-    { mime = "video/*", run = "code" },
-    { mime = "application/pdf", run = "code" },
-]
-
 [opener]
 play = [
     { run = 'mpv "$@"', orphan = true, for = "unix" },
