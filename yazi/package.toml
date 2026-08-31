@@ -3,5 +3,5 @@ deps = []
 
 [[flavor.deps]]
 use = "ficcdaf/ashen:ashen"
-rev = "a17536c"
-hash = "e1ae4dbbbc24985970205810d8cf378e"
+rev = "2da901f"
+hash = "ba991622420e9e408b77f73c5815d066"

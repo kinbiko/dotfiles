@@ -1,13 +1,13 @@
 ## 👀 Preview
 
-<img src="preview.png" width="600" />
+![img](preview.png)
 
 ## 🎨 Installation
 
 You can install Ashen with Yazi's package manager:
 
 ```bash
-ya pack -a ficcdaf/ashen:ashen
+ya pkg add ficd0/ashen:ashen
 ```
 
 Alternatively, download the `ashen.yazi` folder and place it inside
