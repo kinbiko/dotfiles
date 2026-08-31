@@ -39,6 +39,7 @@
 !vit/**/*
 
 gh/hosts.yml
+espanso/match/hidden.yml
 nvim/lazy-lock.json
 dlv/.dbg_history
 
