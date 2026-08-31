@@ -6,7 +6,7 @@ typeset -U path PATH # Unique-ify the path
 export GOPATH="$(go env GOPATH)"
 export GOBIN="$GOPATH/bin"
 
-export QUICK_TMUX_REPOS="$HOME/repos"
+export QUICK_TMUX_REPOS="$HOME/repos/kinbiko"
 export QUICK_TMUX_MONOREPOS=""
 
 path+=("$GOBIN" "$HOME/scripts" "$XDG_CONFIG_HOME/zsh/scripts" "$HOME/.cargo/bin")
@@ -14,6 +14,7 @@ path+=("$GOBIN" "$HOME/scripts" "$XDG_CONFIG_HOME/zsh/scripts" "$HOME/.cargo/bin
 fpath+="$XDG_CONFIG_HOME/zsh/functions"
 autoload \
   bigquery \
+  git-purge \
   kk \
   kube \
   pod-logs \

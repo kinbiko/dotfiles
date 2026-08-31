@@ -1,0 +1,28 @@
+# Remove all worktrees (except main) and delete local branches other than the default branch.
+# Usage: git-purge
+
+local default_branch
+default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
+if [[ -z "$default_branch" ]]; then
+  # Fallback: check for main or master
+  if git show-ref --verify --quiet refs/heads/main; then
+    default_branch="main"
+  elif git show-ref --verify --quiet refs/heads/master; then
+    default_branch="master"
+  else
+    echo "Could not determine default branch" >&2
+    return 1
+  fi
+fi
+
+# Remove non-bare worktrees (skip the main worktree listed first)
+git worktree list --porcelain | awk '/^worktree /{print $2}' | tail -n +2 | while read -r wt; do
+  echo "Removing worktree: $wt"
+  git worktree remove --force "$wt"
+done
+
+# Switch to default branch before deleting others
+git checkout "$default_branch" 2>/dev/null
+
+# Delete all local branches except default
+git branch | grep -v "^[* ] ${default_branch}$" | xargs -r git branch -D
