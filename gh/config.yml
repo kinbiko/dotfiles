@@ -8,6 +8,8 @@ prompt: enabled
 pager: bat
 # Aliases allow you to create nicknames for gh commands
 aliases:
+    unblocked: '!for n in $(gh issue list --state open --limit 500 --json number -q "sort_by(.number) | .[].number"); do c=$(gh api "repos/{owner}/{repo}/issues/$n/dependencies/blocked_by" -q ".[].state" | grep -c open || true); if [ "$c" = "0" ]; then echo "$n"; break; fi; done'
+    block-by: '!gh api "repos/{owner}/{repo}/issues/$1/dependencies/blocked_by" -F issue_id=$(gh api "repos/{owner}/{repo}/issues/$2" --jq .id)'
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.
