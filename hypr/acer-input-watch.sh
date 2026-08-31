@@ -26,23 +26,48 @@
 #
 # That makes the away state self-healing: a latch fired by an unrelated OSD
 # tweak costs at most one brief blackout before the probe puts us back.
+#
+# Nothing about the hardware layout is hardcoded beyond SHARED_MODEL. The panel
+# is located by EDID rather than by connector, the fallback monitor is whatever
+# else is currently connected, and the restored layout is re-read from
+# hyprland.conf. Replacing either monitor degrades to a clean stand-down instead
+# of leaving workspaces bound to a display that no longer exists.
 
 set -uo pipefail
 
-CONNECTOR="HDMI-A-1"
-MONITOR_SPEC="HDMI-A-1, 3840x2160@60, 0x0, 1"
+# EDID identity of the shared panel, as printed by `ddcutil --brief detect`.
+SHARED_MODEL="ACR:ET322QK C:"
+HYPR_CONF="$HOME/.config/hypr/hyprland.conf"
 POLL_SECONDS=5
 DEAD_READS_TO_CONFIRM=3   # consecutive DDC failures before believing standby
-PROBE_SETTLE_SECONDS=6    # time for the panel to drop to standby when starved
+PROBE_TIMEOUT_SECONDS=30  # how long to wait for a starved panel to fall asleep
 
 log() { printf '%s acer-input-watch: %s\n' "$(date -Is)" "$*"; }
 
-# Bus numbers shuffle across reboots and GPU re-probes, so resolve by DRM
-# connector rather than hardcoding.
-find_bus() {
-  ddcutil --brief detect 2>/dev/null | awk -v c="$CONNECTOR" '
-    /I2C bus:/       { bus = $3 }
-    /DRM connector:/ { if ($3 ~ c "$") { sub(/.*i2c-/, "", bus); print bus; exit } }'
+# Locate the shared panel by EDID. Bus numbers shuffle across reboots and GPU
+# re-probes, and connector names get reused if monitors are swapped around, so
+# neither is safe to assume. Prints "<bus> <connector>", or nothing if the panel
+# is not attached.
+find_shared() {
+  ddcutil --brief detect 2>/dev/null | awk -v model="$SHARED_MODEL" '
+    /I2C bus:/       { bus = $3; sub(/.*i2c-/, "", bus) }
+    /DRM connector:/ { conn = $3; sub(/^card[0-9]+-/, "", conn) }
+    /Monitor:/       { $1 = ""; sub(/^ +/, "");
+                       if ($0 == model) { print bus, conn; exit } }'
+}
+
+# Any other connected output we can park workspaces on. Empty if the shared
+# panel is all we have, in which case releasing it would leave no display at all.
+fallback_monitor() {
+  hyprctl -j monitors 2>/dev/null \
+    | python3 -c "import json,sys
+ms=[m['name'] for m in json.load(sys.stdin) if m['name']!='$CONNECTOR' and not m['disabled']]
+print(ms[0] if ms else '')" 2>/dev/null
+}
+
+# Workspace numbers come from the config so this stays in step if they change.
+workspace_ids() {
+  grep -oP '^\s*workspace\s*=\s*\K[0-9]+' "$HYPR_CONF" 2>/dev/null | sort -un
 }
 
 ddc_alive() { ddcutil --bus "$BUS" getvcp 10 >/dev/null 2>&1; }
@@ -58,76 +83,96 @@ latch_fired() {
 }
 
 connector_present() {
-  hyprctl -j monitors all | grep -q "\"name\": \"$CONNECTOR\""
+  hyprctl -j monitors all 2>/dev/null | grep -q "\"name\": \"$CONNECTOR\""
 }
 
 disable_output() { hyprctl keyword monitor "$CONNECTOR, disable" >/dev/null; }
 
+# Restoring means re-reading hyprland.conf rather than replaying a copy of the
+# layout kept here, so the monitor mode, position and workspace bindings have
+# exactly one definition. Only idempotent `exec =` lines are re-run.
+apply_docked() { hyprctl reload >/dev/null; }
+
 # default: is set explicitly on every workspace because `hyprctl keyword
 # workspace` merges into the existing rule rather than replacing it, so a stale
 # default:true would otherwise survive the switch.
-apply_docked() {
-  local batch="keyword monitor $MONITOR_SPEC"
-  for ws in 1 2 6 7 8 9 10; do
-    batch+=" ; keyword workspace $ws, monitor:$CONNECTOR, default:$([[ $ws == 1 ]] && echo true || echo false)"
-  done
-  for ws in 3 4 5; do
-    batch+=" ; keyword workspace $ws, monitor:DP-1, default:$([[ $ws == 3 ]] && echo true || echo false)"
-  done
-  hyprctl --batch "$batch" >/dev/null
-}
-
 apply_solo() {
-  local batch="keyword monitor $CONNECTOR, disable"
-  for ws in $(seq 1 10); do
-    batch+=" ; keyword workspace $ws, monitor:DP-1, default:$([[ $ws == 1 ]] && echo true || echo false)"
+  local target=$1 first=1 batch="keyword monitor $CONNECTOR, disable"
+  for ws in $(workspace_ids); do
+    batch+=" ; keyword workspace $ws, monitor:$target, default:$([[ $first == 1 ]] && echo true || echo false)"
+    first=0
   done
   hyprctl --batch "$batch" >/dev/null
 }
 
-# Starve the port and see whether the panel sleeps. Leaves the output disabled;
-# the caller decides what to do with the answer. 0 = panel is ours.
+# Starve the port and wait to see whether the panel falls asleep. Measured
+# standby latency on this panel is ~17s, so we poll for the silence rather than
+# sleeping a fixed period: the "it is ours" verdict lands as soon as the panel
+# drops off the bus, and only the "showing the other computer" verdict pays the
+# full timeout -- which costs nothing, since the output is meant to be off then
+# anyway. Leaves the output disabled; the caller decides what to do with the
+# answer. 0 = panel is ours.
 probe_is_ours() {
   disable_output
-  sleep "$PROBE_SETTLE_SECONDS"
-  local i
-  for ((i = 0; i < DEAD_READS_TO_CONFIRM; i++)); do
-    if ddc_alive; then return 1; fi
+  local deadline=$(( $(date +%s) + PROBE_TIMEOUT_SECONDS )) misses=0
+  while (( $(date +%s) < deadline )); do
+    if ddc_alive; then
+      misses=0
+    else
+      ((misses++))
+      ((misses >= DEAD_READS_TO_CONFIRM)) && return 0
+    fi
     sleep 1
   done
-  return 0
+  return 1
 }
 
-BUS=$(find_bus)
-[[ -n ${BUS:-} ]] || { log "Acer not on any i2c bus at startup; will retry"; BUS=-1; }
-
+BUS=-1
+CONNECTOR=""
 state=unknown
 dead_reads=0
 
 while true; do
-  if ! connector_present; then
-    # Genuinely unplugged or powered off. Leave Hyprland's native hotplug
-    # handling alone and re-resolve the bus, which has gone away too.
-    [[ $state == absent ]] || { log "$CONNECTOR gone from Hyprland; standing down"; state=absent; }
-    BUS=$(find_bus); BUS=${BUS:--1}
+  read -r bus conn <<<"$(find_shared)"
+
+  if [[ -z ${conn:-} ]]; then
+    # Panel not attached, or replaced by different hardware. Leave Hyprland's
+    # native hotplug handling to it.
+    [[ $state == absent ]] || { log "shared panel not attached; standing down"; state=absent; }
+    BUS=-1; CONNECTOR=""
     sleep "$POLL_SECONDS"; continue
   fi
 
-  [[ $BUS == -1 ]] && { BUS=$(find_bus); BUS=${BUS:--1}; }
-  [[ $BUS == -1 ]] && { sleep "$POLL_SECONDS"; continue; }
+  BUS=$bus; CONNECTOR=$conn
+
+  if ! connector_present; then
+    [[ $state == absent ]] || { log "$CONNECTOR gone from Hyprland; standing down"; state=absent; }
+    sleep "$POLL_SECONDS"; continue
+  fi
+
+  # Never release the shared panel while it is the only thing we can draw on.
+  fallback=$(fallback_monitor)
+  if [[ -z $fallback && $state != docked ]]; then
+    [[ $state == sole ]] || { log "shared panel is the only display; leaving it enabled"; state=sole; apply_docked; }
+    sleep "$POLL_SECONDS"; continue
+  fi
 
   case $state in
     docked)
       # Panel is ours and driven. Only the change latch can tell us the user
       # touched the monitor; confirm what actually happened with a probe.
       if latch_fired; then
-        log "monitor controls changed; probing"
-        if probe_is_ours; then
-          log "still ours; restoring"
-          apply_docked
+        if [[ -z $fallback ]]; then
+          log "controls changed but no other display; not probing"
         else
-          log "switched to the other computer; releasing"
-          apply_solo; state=solo
+          log "monitor controls changed; probing"
+          if probe_is_ours; then
+            log "still ours; restoring"
+            apply_docked
+          else
+            log "switched to the other computer; releasing to $fallback"
+            apply_solo "$fallback"; state=solo
+          fi
         fi
       fi
       ;;
@@ -151,9 +196,9 @@ while true; do
       ;;
 
     *)
-      log "determining initial state"
+      log "determining initial state (panel on $CONNECTOR, bus $BUS)"
       if probe_is_ours; then log "initial state: ours"; apply_docked; state=docked
-      else log "initial state: other computer"; apply_solo; state=solo; fi
+      else log "initial state: other computer"; apply_solo "$fallback"; state=solo; fi
       latch_fired >/dev/null
       ;;
   esac
