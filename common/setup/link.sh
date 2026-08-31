@@ -6,37 +6,51 @@ set -eu
 REPO=${REPO:-$(cd "$(dirname "$0")/../.." && pwd)}
 OS=${OS:?OS must be set to linux or macos}
 
+. "$REPO/common/setup/lib.sh"
+
 # ~/.config/os -> linux | macos. Shared configs reference this one stable path
 # instead of doing OS detection; tmux in particular cannot read shell vars.
 ln -sfn "$OS" "$REPO/os"
 echo "  os -> $OS"
+
+# Mirror an existing repo directory into an existing real destination
+# directory, one symlink per entry. Used when the destination cannot be
+# replaced wholesale because a tool keeps its own state there (obsidian keeps
+# plugin data, espanso creates match/packages).
+link_into_dir() {
+  srcdir=$1
+  destdir=$2
+  for f in "$srcdir"/* "$srcdir"/.[!.]*; do
+    [ -e "$f" ] || continue
+    target=$destdir/$(basename "$f")
+
+    if [ -d "$f" ] && [ -d "$target" ] && [ ! -L "$target" ]; then
+      # Recurse in a subshell: sh has no local variables, so a direct
+      # recursive call would clobber this frame's loop state. Only filesystem
+      # side effects need to escape, so a subshell loses nothing.
+      ( link_into_dir "$f" "$target" )
+    else
+      backup_move "$target"
+      ln -sfn "$f" "$target"
+      echo "  ${target#"$REPO/"} -> ${f#"$REPO/"}"
+    fi
+  done
+}
 
 link_dir() {
   src=$1              # e.g. common/nvim
   name=$(basename "$src")
   dest="$REPO/$name"
 
-  if [ -L "$dest" ]; then
+  if [ -L "$dest" ] || [ ! -e "$dest" ]; then
+    # Repo-relative target so ~/.config keeps working if the repo moves.
     ln -sfn "$src" "$dest"
     echo "  $name -> $src"
   elif [ -d "$dest" ]; then
-    # Some tools (obsidian) keep their own state in ~/.config/<name>, so the
-    # directory cannot be replaced. Link the individual config files into it
-    # instead, and leave anything already there alone.
-    for f in "$REPO/$src"/* "$REPO/$src"/.[!.]*; do
-      [ -e "$f" ] || continue
-      base=$(basename "$f")
-      if [ -e "$dest/$base" ] && [ ! -L "$dest/$base" ]; then
-        echo "  SKIP $name/$base: exists and is not a symlink" >&2
-      else
-        ln -sfn "$f" "$dest/$base"
-        echo "  $name/$base -> $src/$base"
-      fi
-    done
-  elif [ -e "$dest" ]; then
-    echo "  SKIP $name: $dest already exists and is not a symlink" >&2
+    link_into_dir "$REPO/$src" "$dest"
   else
-    ln -s "$src" "$dest"
+    backup_move "$dest"
+    ln -sfn "$src" "$dest"
     echo "  $name -> $src"
   fi
 }
