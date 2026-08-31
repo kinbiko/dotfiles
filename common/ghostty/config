@@ -1,7 +1,7 @@
 # Ghostty. Kept visually in sync with alacritty and nvim (tokyonight).
 # `ghostty +show-config --default --docs` lists every option.
 
-theme = tokyonight
+theme = TokyoNight Night
 
 font-family = SauceCodePro Nerd Font
 font-size = 11
