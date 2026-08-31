@@ -12,6 +12,7 @@
     "cpu",
     "memory",
     "disk",
+    "disk#home",
     "battery",
   ],
   "modules-right": [
@@ -54,7 +55,14 @@
     "format": "󰋊  {percentage_used}%",
     "path": "/",
     "tooltip": true,
-    "tooltip-format": "HDD - {used} / {total} used ({percentage_used}%)",
+    "tooltip-format": "SSD (/) - {used} / {total} used ({percentage_used}%)",
+  },
+  "disk#home": {
+    "interval": 30,
+    "format": "󰉉  {percentage_used}%",
+    "path": "/home",
+    "tooltip": true,
+    "tooltip-format": "HDD (/home) - {used} / {total} used ({percentage_used}%)",
   },
   "memory": {
     "interval": 5,
