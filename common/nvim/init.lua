@@ -739,6 +739,15 @@ require("lazy").setup({
 		opts = {},
 	},
 	{
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup()
+			vim.keymap.set("n", "S", "ysiw", { remap = true, desc = "Surround current word" })
+		end,
+	},
+	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		dependencies = { "MunifTanjim/nui.nvim" },
