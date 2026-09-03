@@ -40,7 +40,9 @@ SHARED_MODEL="ACR:ET322QK C:"
 HYPR_CONF="$HOME/.config/hypr/hyprland.conf"
 POLL_SECONDS=5
 DEAD_READS_TO_CONFIRM=3   # consecutive DDC failures before believing standby
-PROBE_TIMEOUT_SECONDS=30  # how long to wait for a starved panel to fall asleep
+PROBE_SETTLE_SECONDS=5    # let an input-switch transient pass before probing
+PROBE_SILENCE_SECONDS=10  # unbroken silence that actually means standby
+PROBE_TIMEOUT_SECONDS=45  # how long to wait for a starved panel to fall asleep
 
 log() { printf '%s acer-input-watch: %s\n' "$(date -Is)" "$*"; }
 
@@ -110,17 +112,28 @@ apply_solo() {
 # sleeping a fixed period: the "it is ours" verdict lands as soon as the panel
 # drops off the bus, and only the "showing the other computer" verdict pays the
 # full timeout -- which costs nothing, since the output is meant to be off then
-# anyway. Leaves the output disabled; the caller decides what to do with the
-# answer. 0 = panel is ours.
+# anyway.
+#
+# The silence must be *sustained* to count. A probe runs the moment the change
+# latch trips, which is exactly when the panel's controller is re-initialising
+# after an input switch, and it drops off the bus for a few seconds while it
+# does. That transient is indistinguishable from standby in any single read --
+# but standby silence is permanent, so requiring an unbroken run of it tells
+# the two apart. Settling first keeps the worst of the transient out of the
+# measurement entirely.
+#
+# Leaves the output disabled; the caller decides what to do with the answer.
+# 0 = panel is ours.
 probe_is_ours() {
+  sleep "$PROBE_SETTLE_SECONDS"
   disable_output
-  local deadline=$(( $(date +%s) + PROBE_TIMEOUT_SECONDS )) misses=0
-  while (( $(date +%s) < deadline )); do
+  local deadline=$(( $(date +%s) + PROBE_TIMEOUT_SECONDS )) silent_since=0 now
+  while now=$(date +%s); ((now < deadline)); do
     if ddc_alive; then
-      misses=0
+      silent_since=0
     else
-      ((misses++))
-      ((misses >= DEAD_READS_TO_CONFIRM)) && return 0
+      ((silent_since == 0)) && silent_since=$now
+      ((now - silent_since >= PROBE_SILENCE_SECONDS)) && return 0
     fi
     sleep 1
   done
@@ -161,17 +174,24 @@ while true; do
     docked)
       # Panel is ours and driven. Only the change latch can tell us the user
       # touched the monitor; confirm what actually happened with a probe.
+      #
+      # Release first, ask questions after. "Away" is only provable by the
+      # panel *failing* to fall asleep, so it costs the whole probe timeout --
+      # but probing means starving the port, so the screen is dark for that
+      # window regardless of what we conclude. Acting pessimistically makes the
+      # common case (you did just switch away) instant, and costs the false
+      # alarm nothing it was not already paying.
       if latch_fired; then
         if [[ -z $fallback ]]; then
           log "controls changed but no other display; not probing"
         else
-          log "monitor controls changed; probing"
+          log "monitor controls changed; releasing to $fallback while we check"
+          apply_solo "$fallback"; state=solo
           if probe_is_ours; then
-            log "still ours; restoring"
-            apply_docked
+            log "false alarm; still ours, restoring"
+            apply_docked; state=docked
           else
-            log "switched to the other computer; releasing to $fallback"
-            apply_solo "$fallback"; state=solo
+            log "confirmed: switched to the other computer"
           fi
         fi
       fi
