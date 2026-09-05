@@ -996,7 +996,7 @@ require("lazy").setup({
 		opts = {
 			formatters_by_ft = {
 				lua = { "stylua" },
-				go = { "goimports", "gofmt" },
+				go = { "goimports" }, -- superset of gofmt: same formatting, plus import fixups
 				python = { "ruff_format" },
 				rust = { "rustfmt" },
 				javascript = { "prettierd" },
