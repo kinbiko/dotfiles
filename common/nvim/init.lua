@@ -784,6 +784,62 @@ require("lazy").setup({
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {},
+		keys = {
+			{
+				"<leader>gp",
+				function()
+					local gs = require("gitsigns")
+					gs.preview_hunk()
+
+					-- Let `u` undo the hunk while its preview popup is showing, on top of
+					-- the normal `<leader>gu` binding below. Gitsigns tags the popup window
+					-- with a `gitsigns_preview` win-var; find it to know when to clean up.
+					local bufnr = vim.api.nvim_get_current_buf()
+					local winid
+					for _, w in ipairs(vim.api.nvim_list_wins()) do
+						if vim.w[w].gitsigns_preview == "hunk" then
+							winid = w
+							break
+						end
+					end
+					if not winid then
+						return
+					end
+
+					local function cleanup()
+						pcall(vim.keymap.del, "n", "u", { buffer = bufnr })
+					end
+
+					vim.keymap.set("n", "u", function()
+						gs.reset_hunk()
+						if vim.api.nvim_win_is_valid(winid) then
+							vim.api.nvim_win_close(winid, true)
+						end
+						cleanup()
+					end, { buffer = bufnr, desc = "Undo hunk under cursor" })
+
+					-- Gitsigns closes the popup itself (on cursor move / insert) from
+					-- inside its own CursorMoved autocmd. A WinClosed autocmd fired as a
+					-- side effect of that doesn't run, since nested autocmd execution is
+					-- off by default and gitsigns' internal handler isn't marked nested.
+					-- Mirror its real close triggers directly instead of relying on
+					-- WinClosed.
+					vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "InsertEnter", "BufLeave" }, {
+						buffer = bufnr,
+						once = true,
+						callback = cleanup,
+					})
+				end,
+				desc = "Preview hunk diff under cursor",
+			},
+			{
+				"<leader>gu",
+				function()
+					require("gitsigns").reset_hunk()
+				end,
+				desc = "Undo hunk under cursor",
+			},
+		},
 	},
 	{
 		"kylechui/nvim-surround",
