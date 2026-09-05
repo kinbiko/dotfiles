@@ -949,6 +949,14 @@ require("lazy").setup({
 				"golangci-lint",
 			},
 		},
+		config = function(_, opts)
+			local installer = require("mason-tool-installer")
+			installer.setup(opts)
+			-- The plugin's own auto-install hangs off a VimEnter autocmd created
+			-- in its plugin/ file, which is already too late by VeryLazy, so
+			-- ensure_installed silently never runs. Kick it off by hand.
+			installer.check_install(false)
+		end,
 	},
 	{
 		"folke/lazydev.nvim",
