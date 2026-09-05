@@ -6,7 +6,7 @@ typeset -U path PATH # Unique-ify the path
 export GOPATH="$(go env GOPATH)"
 export GOBIN="$GOPATH/bin"
 
-export QUICK_TMUX_REPOS="$HOME/repos/kinbiko"
+export QUICK_TMUX_REPOS="$HOME/repos"
 export QUICK_TMUX_MONOREPOS=""
 
 path+=("$GOBIN" "$HOME/scripts" "$XDG_CONFIG_HOME/zsh/scripts")
@@ -22,6 +22,7 @@ autoload -Uz \
   prod \
   wt \
   wt-clean \
+  y
 
 # Wait 10 ms for additional key sequences.
 # Allows you to enter normal mode in zsh faster than the default 0.4s

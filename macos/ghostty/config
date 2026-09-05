@@ -1,0 +1,5 @@
+# macOS overrides.
+
+# Native titlebar, so the window stays draggable, with tabs in the titlebar.
+window-decoration = true
+macos-titlebar-style = tabs

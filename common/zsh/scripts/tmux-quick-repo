@@ -5,7 +5,13 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find $QUICK_TMUX_REPOS -mindepth 1 -maxdepth 1 -type d | fzf)
+  # Every repo lives at $QUICK_TMUX_REPOS/<owner>/<repo>, so pick among the
+  # second-level directories, displayed as owner/repo rather than full paths.
+  # `cd` + relative find keeps this portable: BSD find has no -printf.
+  selected=$(cd "$QUICK_TMUX_REPOS" && find . -mindepth 2 -maxdepth 2 -type d | sed 's|^\./||' | sort | fzf)
+  if [[ -n $selected ]]; then
+    selected="$QUICK_TMUX_REPOS/$selected"
+  fi
 fi
 
 # If selected directory is empty, exit the script

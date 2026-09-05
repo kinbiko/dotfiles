@@ -1,2 +1,7 @@
 gh pr checks --watch
-say "Continuous integration jobs complete."
+# Desktop notification on Linux, spoken notification on macOS.
+if command -v notify-send >/dev/null 2>&1; then
+  notify-send "CI complete" "Continuous integration jobs complete."
+elif command -v say >/dev/null 2>&1; then
+  say "Continuous integration jobs complete."
+fi

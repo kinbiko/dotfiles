@@ -1,0 +1,12 @@
+# vim: set ft=sh:
+# Open yazi, and cd to whatever directory it exited in.
+#
+# This has to be an autoloaded *function*, not a script in zsh/scripts: a
+# script runs in a subshell, so its `cd` dies with that subshell and the
+# calling shell never moves. (`local` outside a function is an error too.)
+local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+yazi "$@" --cwd-file="$tmp"
+if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+  builtin cd -- "$cwd"
+fi
+rm -f -- "$tmp"

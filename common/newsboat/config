@@ -6,6 +6,16 @@ bind-key k up
 bind-key l open
 bind-key h quit
 
+# open the current article in neovim. pipe-to works in the article (reading)
+# view as well as the list, unlike `open`; nvim reads the piped article text
+# from stdin and reopens the tty for its UI. Trigger with the macro prefix: ,e
+#
+# text-width governs pipe-to/save wrapping: at 0 they wrap at 80 columns, so we
+# set a huge value to effectively disable wrapping (nvim does its own). The
+# article view is unaffected -- it always clamps to the terminal width.
+text-width 100000
+macro e pipe-to "nvim -"
+
 color listnormal        default default
 color listnormal_unread default default
 color listfocus         black blue

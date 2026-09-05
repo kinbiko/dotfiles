@@ -9,10 +9,17 @@ font-size = 11
 background-opacity = 0.98
 window-padding-x = 2
 window-padding-y = 2
-window-decoration = true
-macos-titlebar-style = tabs
 
 scrollback-limit = 10000000
 
 # Middle-click pastes the primary selection, as in alacritty.
 copy-on-select = clipboard
+
+# Don't nag with a "process is still running" confirmation dialog when
+# closing a window/tab -- just close it.
+confirm-close-surface = false
+
+# Platform overlay. ~/.config/os points at linux/ or macos/. The `?` prefix
+# makes the include optional, so a setup without an overlay still starts.
+# Anything the overlay sets overrides the values above.
+config-file = ?~/.config/os/ghostty/config

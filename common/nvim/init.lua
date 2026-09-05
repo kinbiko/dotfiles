@@ -474,6 +474,12 @@ vim.opt.foldlevel = 99 -- open files fully unfolded; without this, everything st
 vim.o.winborder = "rounded" -- global default border for floats; per-plugin opts can still override
 vim.opt.ruler = false -- hide row:col + % in the cmdline area
 
+-- Load project-local .nvim.lua / .nvimrc. Earns its keep in repos holding
+-- several crates with incompatible build settings, where the LSP has to be
+-- told which is which (e.g. a wasm frontend beside a native server). Neovim
+-- asks before sourcing an untrusted file and remembers the answer (:trust).
+vim.opt.exrc = true
+
 -- Reload buffers that changed on disk (e.g. edited outside nvim), and
 -- autosave edits made inside nvim after a debounce -- keeps disk and buffer
 -- in sync for the common case of switching between nvim and an external

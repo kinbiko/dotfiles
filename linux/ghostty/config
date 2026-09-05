@@ -1,0 +1,9 @@
+# Linux (Hyprland) overrides.
+
+# Under Hyprland's tiling the compositor owns the frame, so let it draw.
+window-decoration = false
+
+# Suppress OS notifications entirely. Programs (e.g. Claude Code) emit
+# OSC 9 / OSC 777 desktop-notification sequences that Ghostty otherwise
+# forwards to the notification daemon; this stops all of them.
+desktop-notifications = false
