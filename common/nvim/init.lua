@@ -190,8 +190,52 @@ code_map("m", function()
 end, "Pick make target")
 
 -- Lint
+local golangci_lint_ns = vim.api.nvim_create_namespace("golangcilint")
+local golangci_lint_reqs = {} -- bufnr -> latest request id, so a slow run can't clobber a newer one's diagnostics
+
+-- nvim-lint's own golangcilint runner reports failures only as "exited with
+-- code N" (it never reads the process's stderr), discarding the actual
+-- reason (bad .golangci.yml, a package that fails to load, etc.). Reuse its
+-- cmd/args/parser but run it ourselves so real errors are visible. Exit code
+-- is the reliable signal here: on success golangci-lint can still write
+-- deprecated-linter warnings to stderr, so stderr is only trustworthy as an
+-- error message when the exit code is actually nonzero.
+local function run_golangci_lint()
+	local bufnr = vim.api.nvim_get_current_buf()
+	local linter = require("lint.linters.golangcilint")
+	local cwd = vim.fn.getcwd()
+	local args = vim.tbl_map(function(a)
+		return type(a) == "function" and a() or a
+	end, linter.args or {})
+
+	local reqid = (golangci_lint_reqs[bufnr] or 0) + 1
+	golangci_lint_reqs[bufnr] = reqid
+
+	vim.system(vim.list_extend({ linter.cmd }, args), { text = true, cwd = cwd }, function(obj)
+		vim.schedule(function()
+			if golangci_lint_reqs[bufnr] ~= reqid or not vim.api.nvim_buf_is_valid(bufnr) then
+				return
+			end
+			if obj.code ~= 0 then
+				vim.notify("golangci-lint failed:\n" .. (obj.stderr or ""), vim.log.levels.ERROR)
+				return
+			end
+			local ok, diagnostics = pcall(linter.parser, obj.stdout or "", bufnr, cwd)
+			if ok then
+				vim.diagnostic.set(golangci_lint_ns, bufnr, diagnostics)
+			else
+				vim.notify("golangci-lint output parse failed:\n" .. diagnostics, vim.log.levels.ERROR)
+			end
+		end)
+	end)
+end
+
 code_map("l", function()
-	require("lint").try_lint()
+	if vim.bo.filetype == "go" then
+		run_golangci_lint()
+	else
+		require("lint").try_lint()
+	end
 end, "Re-lint buffer")
 
 -- Test running (Go). Separate <leader>t prefix.
@@ -905,8 +949,10 @@ require("lazy").setup({
 		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			local lint = require("lint")
+			-- Go is linted by run_golangci_lint (defined above, near <leader>cl)
+			-- instead of nvim-lint's own runner, so failures show the real
+			-- stderr message instead of a bare exit code.
 			lint.linters_by_ft = {
-				go = { "golangcilint" },
 				python = { "ruff" },
 				javascript = { "eslint_d" },
 				typescript = { "eslint_d" },
@@ -918,7 +964,11 @@ require("lazy").setup({
 			-- before the reload linger until the next save/InsertLeave.
 			vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave", "FileChangedShellPost" }, {
 				callback = function()
-					lint.try_lint()
+					if vim.bo.filetype == "go" then
+						run_golangci_lint()
+					else
+						lint.try_lint()
+					end
 				end,
 			})
 		end,
