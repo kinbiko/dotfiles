@@ -851,6 +851,13 @@ require("lazy").setup({
 		end,
 	},
 	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		opts = {
+			check_ts = true, -- use treesitter to avoid e.g. pairing quotes inside contractions/lifetimes
+		},
+	},
+	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		dependencies = { "MunifTanjim/nui.nvim" },
