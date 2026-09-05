@@ -36,7 +36,10 @@ end
 -- Navigate
 code_map("d", vim.lsp.buf.definition, "Goto definition")
 vim.keymap.set("n", "<CR>", vim.lsp.buf.definition, { desc = "Goto definition" })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Goto definition" })
 vim.keymap.set("n", "<BS>", "<C-o>", { desc = "Jump back (previous jumplist position)" })
+vim.keymap.set("n", "<Left>", "<C-o>", { desc = "Jump back (previous jumplist position)" })
+vim.keymap.set("n", "<Right>", "<C-i>", { desc = "Jump forward (next jumplist position)" })
 -- The global <CR> above shadows the quickfix/location-list window's built-in
 -- "jump to entry" behavior. Un-map it there so <CR> falls through to the
 -- builtin qf handling instead of firing goto-definition.
