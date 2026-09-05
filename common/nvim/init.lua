@@ -1138,3 +1138,43 @@ require("lazy").setup({
 		},
 	},
 })
+
+-- Quit nvim when the file tree is the only real window left, unless some
+-- buffer still has unsaved changes. This fires on buffer deletes too (e.g.
+-- Snacks.bufdelete), which don't close the window but leave it showing an
+-- empty placeholder buffer instead -- that placeholder shouldn't count as
+-- "real" content keeping nvim open.
+local function is_placeholder_buf(buf)
+	return vim.bo[buf].buftype == "" and vim.api.nvim_buf_get_name(buf) == "" and not vim.bo[buf].modified
+end
+
+-- Deliberately NOT BufEnter: that fires on plain navigation (e.g. entering
+-- the tree from an empty scratch buffer right after startup), which looks
+-- identical to the "everything closed" state and would quit on open.
+vim.api.nvim_create_autocmd({ "BufDelete", "WinClosed" }, {
+	nested = true,
+	callback = function()
+		vim.schedule(function()
+			local has_tree = false
+			for _, win in ipairs(vim.api.nvim_list_wins()) do
+				if vim.api.nvim_win_get_config(win).relative == "" then
+					local buf = vim.api.nvim_win_get_buf(win)
+					if vim.bo[buf].filetype == "neo-tree" then
+						has_tree = true
+					elseif not is_placeholder_buf(buf) then
+						return
+					end
+				end
+			end
+			if not has_tree then
+				return
+			end
+			for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+				if vim.bo[buf].modified then
+					return
+				end
+			end
+			vim.cmd("qa")
+		end)
+	end,
+})
