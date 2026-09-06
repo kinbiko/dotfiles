@@ -1,0 +1,23 @@
+# vim: set ft=sh:
+# find-pr identifies which pull request introduced a given commit.
+# Usage: find-pr <commit-sha> [owner/repo]
+# Repo defaults to the one in the current directory. Multiple results are
+# possible for cherry-picks.
+
+if [[ -z "$1" ]]; then
+	echo "usage: find-pr <commit-sha> [owner/repo]" >&2
+	exit 2
+fi
+
+sha="$1"
+repo="${2:-$(gh repo view --json nameWithOwner -q .nameWithOwner)}" || exit 1
+
+out=$(gh api "repos/$repo/commits/$sha/pulls" \
+	--jq '.[] | "PR #\(.number): \(.title)\n  \(.html_url)"') || exit 1
+
+if [[ -z "$out" ]]; then
+	echo "No PR found for $sha in $repo (may have been pushed directly)."
+	exit 1
+fi
+
+echo "$out"
