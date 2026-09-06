@@ -1,6 +1,6 @@
 # Dotfiles
 
-This repo *is* `~/.config`. One branch, `main`, serves both an Arch Linux
+This repo _is_ `~/.config`. One branch, `main`, serves both an Arch Linux
 (amd64, hyprland) machine and a macOS (Apple silicon) one. Platform
 differences are expressed by where a file lives, not by which branch you are
 on.
@@ -19,7 +19,7 @@ on.
   ...
 ```
 
-A tool goes in `common/` if it *can* run on both systems, even when it is
+A tool goes in `common/` if it _can_ run on both systems, even when it is
 only used on one today. It goes in `linux/` or `macos/` only when it cannot
 exist on the other.
 
@@ -90,8 +90,6 @@ and tmux can follow without bespoke logic on each side.
 ### Arch
 
 - Enable the display manager: `sudo systemctl enable sddm`.
-- The Wayland stack (hyprland, waybar, wox, mako, kanshi, swww) is installed
-  by `linux/setup/install-apps.sh`; AUR packages need `yay` on PATH first.
 
 ### macOS
 

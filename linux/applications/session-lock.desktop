@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Lock Screen
+GenericName=Session
+Comment=Lock the screen
+Exec=sh -c "exec \\$HOME/.config/hypr/lock.sh"
+Icon=system-lock-screen
+Terminal=false
+Categories=System;
+Keywords=lock;screen;session;

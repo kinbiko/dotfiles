@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Log Out
+GenericName=Session
+Comment=End the Hyprland session
+Exec=hyprctl dispatch exit
+Icon=system-log-out
+Terminal=false
+Categories=System;
+Keywords=logout;log out;exit;quit;session;

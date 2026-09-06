@@ -1,0 +1,10 @@
+[Unit]
+Description=Quickshell desktop shell (bar, notifications, OSD, wallpaper)
+Requires=awww.service
+After=awww.service
+
+[Service]
+# Resolved via PATH rather than hardcoded, matching espanso.service.
+ExecStart=/usr/bin/env qs
+Restart=on-failure
+RestartSec=3

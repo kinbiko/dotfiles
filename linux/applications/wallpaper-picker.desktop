@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Change Wallpaper
+GenericName=Wallpaper
+Comment=Open the wallpaper picker
+Exec=qs ipc call wallpaper toggle
+Icon=preferences-desktop-wallpaper
+Terminal=false
+Categories=Settings;
+Keywords=wallpaper;background;theme;
