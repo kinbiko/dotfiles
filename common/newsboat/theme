@@ -17,4 +17,4 @@ highlight article "\\((link|image|video)\\)" color8 default
 highlight article "https?://[^ ]+" color4 default
 highlight article "\[[0-9]+\]" color6 default bold
 
-browser firefox
+browser zen-browser
