@@ -17,6 +17,7 @@ QtObject {
   readonly property color accentGreen: "#9ece6a"
   readonly property color accentOrange: "#ff9e64"
   readonly property color accentRed: "#f7768e"
+  readonly property color accentYellow: "#e0af68"
 
   readonly property color urgencyLow: textMuted
   readonly property color urgencyNormal: accentPrimary

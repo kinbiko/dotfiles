@@ -18,6 +18,10 @@ Scope {
   property int iconSize: 16
   property int pillHeight: 30
 
+  // Tray items whose id or title contains any of these (lowercased) substrings
+  // are hidden - for apps that sit in the tray with nothing useful to offer.
+  property var trayIgnore: ["wox"]
+
   // MPRIS active player
   property var activePlayer: {
     const players = Mpris.players.values;
@@ -563,13 +567,21 @@ Scope {
               onActivate: () => root.run(["ghostty", "-e", "btop"])
             }
 
-            // Disk
-            MetricPill {
-              icon: "󰋊"
-              iconColor: root.theme.accentPrimary
-              label: SystemInfo.diskUsage
-              a11y: "Disk: " + SystemInfo.diskUsage
-              onActivate: () => root.run(["ghostty", "-e", "sh", "-c", "df -h; echo; read -n1 -s -r -p 'Press any key to close…'"])
+            // Disks - one pill per mounted filesystem. External (hot-pluggable)
+            // drives get a distinct icon colour.
+            Repeater {
+              model: SystemInfo.disks
+
+              MetricPill {
+                required property var modelData
+
+                icon: "󰋊"
+                iconColor: modelData.removable ? root.theme.accentYellow : root.theme.accentPrimary
+                label: modelData.usage
+                labelChars: 4
+                a11y: (modelData.removable ? "External disk " : "Disk ") + modelData.mount + ": " + modelData.usage
+                onActivate: () => root.run(["ghostty", "-e", "sh", "-c", "df -h; echo; read -n1 -s -r -p 'Press any key to close…'"])
+              }
             }
 
             // Network throughput (down / up)
@@ -677,8 +689,6 @@ Scope {
                 Text {
                   anchors.verticalCenter: parent.verticalCenter
                   text: SystemInfo.networkInfo
-                  width: root.labelW(10)
-                  elide: Text.ElideRight
                   color: root.theme.textPrimary
                   font.pixelSize: root.fontSize
                   font.family: root.font
@@ -690,12 +700,13 @@ Scope {
                 anchors.fill: parent
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
-                onClicked: root.run(["ghostty", "-e", "nmtui"])
+                onClicked: root.run(["ghostty", "-e", "sh", "-c", "command -v nmtui >/dev/null && exec nmtui || exec iwctl"])
               }
             }
 
-            // Battery
+            // Battery - absent on desktops, where there is no BAT* supply.
             MetricPill {
+              visible: SystemInfo.batteryPresent
               icon: SystemInfo.batteryIcon
               iconColor: sysInfo.batteryColor
               label: SystemInfo.batteryLevel
@@ -729,7 +740,9 @@ Scope {
               spacing: 2
 
               Repeater {
-                model: SystemTray.items
+                model: SystemTray.items.values.filter(item => !root.trayIgnore.some(
+                  ignored => (item.id || "").toLowerCase().includes(ignored)
+                    || (item.title || "").toLowerCase().includes(ignored)))
 
                 MouseArea {
                   id: trayDelegate

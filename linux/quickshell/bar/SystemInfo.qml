@@ -9,11 +9,13 @@ Singleton {
 
   property string cpuUsage: "0%"
   property string memoryUsage: "0%"
-  property string diskUsage: "0%"
+  // Mounted filesystems worth showing, each { mount, usage, removable }.
+  property var disks: []
   property string networkInfo: "Disconnected"
   property string networkType: "disconnected"
   property string netDown: "0 B/s"
   property string netUp: "0 B/s"
+  property bool batteryPresent: false
   property int batteryLevelRaw: 0
   property string batteryLevel: "0%"
   property string batteryIcon: "󰂎"
@@ -83,15 +85,34 @@ Singleton {
     }
   }
 
-  // Disk Usage (root filesystem, % used)
+  // Disk Usage - every mounted block-device filesystem worth surfacing (pseudo
+  // filesystems, boot/ESP partitions and container/snap mounts are dropped).
+  // lsblk's HOTPLUG flag distinguishes external drives from internal ones.
   Process {
     id: diskProc
-    command: ["sh", "-c", "df -P / | awk 'NR==2{print $5}'"]
+    command: ["sh", "-c", "lsblk -Pno MOUNTPOINT,HOTPLUG 2>/dev/null | while IFS= read -r l; do eval \"$l\"; case \"$MOUNTPOINT\" in \"\"|\"[SWAP]\"|/boot*|/efi*|/run/*|/var/lib/docker/*|/snap/*) continue;; esac; p=$(df -P \"$MOUNTPOINT\" 2>/dev/null | awk 'NR==2{print $5}'); [ -n \"$p\" ] || continue; printf '%s\\t%s\\t%s\\n' \"$MOUNTPOINT\" \"$p\" \"$HOTPLUG\"; done"]
     running: true
 
     stdout: StdioCollector {
       onStreamFinished: {
-        root.diskUsage = text.trim() || "0%"
+        const out = []
+        for (const line of text.trim().split("\n")) {
+          if (!line) continue
+          const f = line.split("\t")
+          if (f.length < 3) continue
+          const mount = f[0]
+          out.push({
+            mount: mount,
+            usage: f[1],
+            removable: f[2] === "1",
+          })
+        }
+        // Internal drives first, root ahead of the rest; externals last, so the
+        // pill order stays stable as drives come and go.
+        out.sort((a, b) => (a.removable - b.removable)
+          || ((b.mount === "/") - (a.mount === "/"))
+          || a.mount.localeCompare(b.mount))
+        root.disks = out
       }
     }
   }
@@ -125,10 +146,11 @@ Singleton {
     }
   }
 
-  // Network Info (ethernet takes priority over wifi)
+  // Network Info - resolved from the default route, so it works regardless of
+  // which network stack (iwd, NetworkManager, systemd-networkd) is in use.
   Process {
     id: netProc
-    command: ["sh", "-c", "eth=$(nmcli -t -f type,state dev 2>/dev/null | grep '^ethernet:connected'); if [ -n \"$eth\" ]; then echo 'ethernet:Ethernet'; else wifi=$(nmcli -t -f active,ssid dev wifi 2>/dev/null | grep '^yes' | cut -d: -f2); if [ -n \"$wifi\" ]; then echo \"wifi:$wifi\"; else echo 'disconnected:'; fi; fi"]
+    command: ["sh", "-c", "i=$(ip route show default 2>/dev/null | awk '{print $5; exit}'); if [ -z \"$i\" ]; then echo 'disconnected:'; elif [ ! -e \"/sys/class/net/$i/phy80211\" ] && [ ! -d \"/sys/class/net/$i/wireless\" ]; then echo 'ethernet:Ethernet'; else s=$(iwctl station \"$i\" show 2>/dev/null | sed 's/\\x1b\\[[0-9;]*m//g' | awk -F'Connected network' 'NF>1{print $2}' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'); [ -n \"$s\" ] || s=$(nmcli -t -f active,ssid dev wifi 2>/dev/null | awk -F: '$1==\"yes\"{print $2; exit}'); [ -n \"$s\" ] || s=$(iw dev \"$i\" link 2>/dev/null | awk -F'SSID: ' '/SSID: /{print $2; exit}'); echo \"wifi:${s:-WiFi}\"; fi"]
     running: true
 
     stdout: StdioCollector {
@@ -146,12 +168,17 @@ Singleton {
   // Battery
   Process {
     id: batteryProc
-    command: ["sh", "-c", "printf '%s\\n%s' \"$(cat /sys/class/power_supply/BAT*/capacity 2>/dev/null || echo '99')\" \"$(cat /sys/class/power_supply/BAT*/status 2>/dev/null || echo 'Discharging')\""]
+    command: ["sh", "-c", "b=$(ls -d /sys/class/power_supply/BAT* 2>/dev/null | head -1); if [ -z \"$b\" ]; then echo none; else printf '%s\\n%s' \"$(cat \"$b/capacity\" 2>/dev/null || echo 0)\" \"$(cat \"$b/status\" 2>/dev/null || echo Discharging)\"; fi"]
     running: true
 
     stdout: StdioCollector {
       onStreamFinished: {
         const lines = text.trim().split("\n")
+
+        // Desktops have no BAT* supply at all; the indicator hides itself.
+        root.batteryPresent = lines[0] !== "none"
+        if (!root.batteryPresent) return
+
         const level = parseInt(lines[0]) || 0
         const status = (lines[1] || "Discharging").trim()
 
