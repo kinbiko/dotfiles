@@ -29,15 +29,15 @@
 #
 # Nothing about the hardware layout is hardcoded beyond SHARED_MODEL. The panel
 # is located by EDID rather than by connector, the fallback monitor is whatever
-# else is currently connected, and the restored layout is re-read from
-# hyprland.conf. Replacing either monitor degrades to a clean stand-down instead
-# of leaving workspaces bound to a display that no longer exists.
+# else is currently connected, the monitor layout is re-read from hyprland.conf,
+# and the workspaces are whatever the panel happened to be carrying when we let
+# it go. Replacing either monitor degrades to a clean stand-down instead of
+# leaving workspaces stranded on a display that no longer exists.
 
 set -uo pipefail
 
 # EDID identity of the shared panel, as printed by `ddcutil --brief detect`.
 SHARED_MODEL="ACR:ET322QK C:"
-HYPR_CONF="$HOME/.config/hypr/hyprland.conf"
 POLL_SECONDS=5
 DEAD_READS_TO_CONFIRM=3   # consecutive DDC failures before believing standby
 PROBE_SETTLE_SECONDS=5    # let an input-switch transient pass before probing
@@ -67,9 +67,61 @@ ms=[m['name'] for m in json.load(sys.stdin) if m['name']!='$CONNECTOR' and not m
 print(ms[0] if ms else '')" 2>/dev/null
 }
 
-# Workspace numbers come from the config so this stays in step if they change.
-workspace_ids() {
-  grep -oP '^\s*workspace\s*=\s*\K[0-9]+' "$HYPR_CONF" 2>/dev/null | sort -un
+# What the shared panel is carrying is only knowable at the moment we release
+# it, so snapshot it there and replay it on restore. The active workspace is
+# kept last, so replaying the moves in order leaves it visible on the panel.
+SAVED_WS=()
+
+# Prints the ids of the real (non-special) workspaces currently on $1.
+workspaces_on() {
+  hyprctl -j workspaces 2>/dev/null | python3 -c "import json,sys
+for w in json.load(sys.stdin):
+    if w['monitor'] == '$1' and w['id'] > 0: print(w['id'])" 2>/dev/null
+}
+
+live_workspaces() {
+  hyprctl -j workspaces 2>/dev/null | python3 -c "import json,sys
+for w in json.load(sys.stdin): print(w['id'])" 2>/dev/null
+}
+
+active_workspace_on() {
+  hyprctl -j monitors 2>/dev/null | python3 -c "import json,sys
+print(next((m['activeWorkspace']['id'] for m in json.load(sys.stdin)
+            if m['name'] == '$1'), ''))" 2>/dev/null
+}
+
+snapshot_shared() {
+  local active ws
+  active=$(active_workspace_on "$CONNECTOR")
+  SAVED_WS=()
+  while read -r ws; do
+    [[ -n $ws && $ws != "$active" ]] && SAVED_WS+=("$ws")
+  done < <(workspaces_on "$CONNECTOR")
+  [[ -n $active ]] && SAVED_WS+=("$active")
+}
+
+# Best-effort: a workspace that no longer exists is skipped, and an empty
+# snapshot (we never released the panel) is a no-op.
+restore_shared() {
+  ((${#SAVED_WS[@]})) || return 0
+  local live batch="" ws
+  live=$(live_workspaces)
+  for ws in "${SAVED_WS[@]}"; do
+    grep -qx -- "$ws" <<<"$live" && batch+="dispatch moveworkspacetomonitor $ws $CONNECTOR ; "
+  done
+  [[ -n $batch ]] && hyprctl --batch "${batch%% ; }" >/dev/null
+  SAVED_WS=()
+}
+
+# `hyprctl reload` returns before the output is actually back up, and moving a
+# workspace onto a monitor Hyprland does not yet have is silently dropped.
+wait_for_connector() {
+  local deadline=$(( $(date +%s) + 5 ))
+  while (( $(date +%s) < deadline )); do
+    hyprctl -j monitors 2>/dev/null | grep -q "\"name\": \"$CONNECTOR\"" && return 0
+    sleep 0.2
+  done
+  return 1
 }
 
 ddc_alive() { ddcutil --bus "$BUS" getvcp 10 >/dev/null 2>&1; }
@@ -90,21 +142,23 @@ connector_present() {
 
 disable_output() { hyprctl keyword monitor "$CONNECTOR, disable" >/dev/null; }
 
-# Restoring means re-reading hyprland.conf rather than replaying a copy of the
-# layout kept here, so the monitor mode, position and workspace bindings have
-# exactly one definition. Only idempotent `exec =` lines are re-run.
-apply_docked() { hyprctl reload >/dev/null; }
+# Mode and position are re-read from hyprland.conf rather than replayed from a
+# copy kept here, so they have exactly one definition. Only idempotent `exec =`
+# lines are re-run.
+apply_docked() {
+  hyprctl reload >/dev/null
+  wait_for_connector && restore_shared
+}
 
-# default: is set explicitly on every workspace because `hyprctl keyword
-# workspace` merges into the existing rule rather than replacing it, so a stale
-# default:true would otherwise survive the switch.
+# Disabling an output migrates its workspaces, but Hyprland picks where to; move
+# them explicitly so a third monitor cannot catch them.
 apply_solo() {
-  local target=$1 first=1 batch="keyword monitor $CONNECTOR, disable"
-  for ws in $(workspace_ids); do
-    batch+=" ; keyword workspace $ws, monitor:$target, default:$([[ $first == 1 ]] && echo true || echo false)"
-    first=0
+  local target=$1 batch="" ws
+  snapshot_shared
+  for ws in "${SAVED_WS[@]}"; do
+    batch+="dispatch moveworkspacetomonitor $ws $target ; "
   done
-  hyprctl --batch "$batch" >/dev/null
+  hyprctl --batch "${batch}keyword monitor $CONNECTOR, disable" >/dev/null
 }
 
 # Starve the port and wait to see whether the panel falls asleep. Measured
