@@ -1,11 +1,11 @@
-https://hnrss.org/newest?points=50 en
-https://pluralistic.net/feed/ en
+https://hnrss.org/newest?points=50 en "~Hacker News"
+https://pluralistic.net/feed/ en "~Cory Doctorow: Pluralistic" 
 https://engineering.mercari.com/en/blog/feed.xml en
 https://engineering.mercari.com/blog/feed.xml ja
-https://kinbiko.com/index.xml en
+https://kinbiko.com/index.xml ! en
 http://blog.golang.org/feed.atom en
 https://krebsonsecurity.com/feed/ en
 https://www.schneier.com/feed/atom/ en
 https://www.johndcook.com/blog/feed en
-https://buttondown.com/chadkoh/rss en
-https://bcantrill.dtrace.org/index.xml en
+https://buttondown.com/chadkoh/rss en "~Chad Kohalyk"
+https://bcantrill.dtrace.org/index.xml "~Bryan Cantrill: The Observation Deck" en
