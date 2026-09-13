@@ -80,6 +80,16 @@ code_map("f", function()
 	require("conform").format({ async = true, lsp_format = "fallback" })
 end, "Format", { "n", "x" })
 
+-- Buffer-local: `vim.b.disable_autoformat` is read by conform's format_on_save
+-- hook (see the conform.nvim spec below), so this only affects the current file.
+code_map("F", function()
+	vim.b.disable_autoformat = not vim.b.disable_autoformat
+	vim.notify(
+		("Format on save %s for this buffer"):format(vim.b.disable_autoformat and "OFF" or "ON"),
+		vim.log.levels.INFO
+	)
+end, "Toggle format on save (buffer)")
+
 -- Sends the visual selection to `claude -p` with a user-supplied instruction,
 -- then opens the original and suggested versions as a side-by-side diff in a
 -- new tab -- review-only, nothing is written back to the buffer.
@@ -1018,7 +1028,12 @@ require("lazy").setup({
 				bash = { "shfmt" },
 				terraform = { "terraform_fmt" },
 			},
-			format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
+			format_on_save = function(bufnr)
+				if vim.b[bufnr].disable_autoformat then
+					return
+				end
+				return { timeout_ms = 500, lsp_format = "fallback" }
+			end,
 		},
 	},
 	{
