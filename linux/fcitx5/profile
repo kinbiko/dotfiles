@@ -10,13 +10,13 @@ DefaultIM=mozc
 # Name
 Name=keyboard-us
 # Layout
-Layout=
+# Layout=
 
 [Groups/0/Items/1]
 # Name
 Name=mozc
 # Layout
-Layout=
+# Layout=
 
 [GroupOrder]
 0=Default
