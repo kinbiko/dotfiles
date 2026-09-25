@@ -529,7 +529,10 @@ vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
 			vim.schedule(function()
 				if vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].modified then
 					vim.api.nvim_buf_call(buf, function()
+						-- formatting on an unattended write moves the cursor under you
+						vim.b[buf].autosave_in_progress = true
 						vim.cmd("silent! write")
+						vim.b[buf].autosave_in_progress = nil
 					end)
 				end
 			end)
@@ -1029,7 +1032,7 @@ require("lazy").setup({
 				terraform = { "terraform_fmt" },
 			},
 			format_on_save = function(bufnr)
-				if vim.b[bufnr].disable_autoformat then
+				if vim.b[bufnr].disable_autoformat or vim.b[bufnr].autosave_in_progress then
 					return
 				end
 				return { timeout_ms = 500, lsp_format = "fallback" }
@@ -1174,7 +1177,18 @@ end
 -- identical to the "everything closed" state and would quit on open.
 vim.api.nvim_create_autocmd({ "BufDelete", "WinClosed" }, {
 	nested = true,
-	callback = function()
+	callback = function(args)
+		-- Transient floating windows (snacks notifications, LSP hovers) come and
+		-- go on their own; their closure says nothing about whether the user
+		-- still has files open, so it must not trigger the quit check.
+		if args.event == "WinClosed" then
+			local win = tonumber(args.match)
+			if win and vim.api.nvim_win_is_valid(win) and vim.api.nvim_win_get_config(win).relative ~= "" then
+				return
+			end
+		elseif vim.bo[args.buf].buftype ~= "" then
+			return
+		end
 		vim.schedule(function()
 			local has_tree = false
 			for _, win in ipairs(vim.api.nvim_list_wins()) do
