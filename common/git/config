@@ -60,3 +60,9 @@
 # above if it is included after them.
 [include]
   path = ~/.local.gitconfig
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
