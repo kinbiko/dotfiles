@@ -5,10 +5,16 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  # Every repo lives at $QUICK_TMUX_REPOS/<owner>/<repo>, so pick among the
-  # second-level directories, displayed as owner/repo rather than full paths.
-  # `cd` + relative find keeps this portable: BSD find has no -printf.
-  selected=$(cd "$QUICK_TMUX_REPOS" && find . -mindepth 2 -maxdepth 2 -type d | sed 's|^\./||' | sort | fzf)
+  if [[ ! -d $QUICK_TMUX_REPOS ]]; then
+    echo "QUICK_TMUX_REPOS is not a directory: '$QUICK_TMUX_REPOS'" >&2
+    read -r _
+    exit 1
+  fi
+  # Every repo lives at $QUICK_TMUX_REPOS/<org>/<repo>, so pick among the
+  # second-level directories, displayed as org/repo rather than full paths.
+  # `cd` plus a relative find keeps this portable: BSD find has no -printf.
+  selected=$(cd "$QUICK_TMUX_REPOS" &&
+    find . -mindepth 2 -maxdepth 2 -type d | sed 's|^\./||' | sort | fzf)
   if [[ -n $selected ]]; then
     selected="$QUICK_TMUX_REPOS/$selected"
   fi
